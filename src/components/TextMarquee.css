@@ -1,0 +1,40 @@
+/* ═══════════════════════════════════════════════
+   TEXT MARQUEE
+   ═══════════════════════════════════════════════ */
+
+.text-marquee {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  position: relative;
+  /* Fade edges for a polished look */
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    black 5%,
+    black 95%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    black 5%,
+    black 95%,
+    transparent 100%
+  );
+}
+
+.text-marquee__track {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-md);
+  will-change: transform;
+}
+
+/* Individual marquee items inherit the parent font style */
+.text-marquee__item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-md);
+  flex-shrink: 0;
+}

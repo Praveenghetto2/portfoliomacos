@@ -1,0 +1,42 @@
+/* ═══════════════════════════════════════════════
+   MAGNETIC BUTTON
+   ═══════════════════════════════════════════════ */
+
+.magnetic-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-color-hover);
+  background: transparent;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: border-color 0.4s var(--ease-out-expo),
+              color 0.4s var(--ease-out-expo),
+              background-color 0.4s var(--ease-out-expo),
+              box-shadow 0.4s var(--ease-out-expo);
+  will-change: transform;
+  white-space: nowrap;
+  text-decoration: none;
+  position: relative;
+}
+
+.magnetic-button:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Subtle glow on hover */
+.magnetic-button:hover {
+  box-shadow: 0 4px 20px rgba(45, 43, 255, 0.1);
+}
+
+.magnetic-button:active {
+  transform: scale(0.98);
+}

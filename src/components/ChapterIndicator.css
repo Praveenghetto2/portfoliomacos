@@ -1,0 +1,80 @@
+/* ═══════════════════════════════════════════════
+   CHAPTER INDICATOR
+   ═══════════════════════════════════════════════ */
+
+.chapter-indicator {
+  position: fixed;
+  right: var(--space-md);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0;
+}
+
+/* ── Vertical connecting line ── */
+.chapter-indicator__line {
+  position: absolute;
+  right: 5px; /* Centered on the 10px-wide dot area */
+  top: 5px;
+  bottom: 5px;
+  width: 1px;
+  background: var(--border-color);
+  pointer-events: none;
+}
+
+/* ── Individual chapter item ── */
+.chapter-indicator__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  cursor: pointer;
+  padding: var(--space-xs) 0;
+  position: relative;
+  flex-direction: row-reverse; /* Label on left, dot on right */
+  background: none;
+  border: none;
+  font-family: inherit;
+}
+
+/* ── Dot ── */
+.chapter-indicator__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--text-tertiary);
+  flex-shrink: 0;
+  transition: background-color 0.3s var(--ease-out-expo);
+}
+
+/* Active dot — larger and accent-colored */
+.chapter-indicator__dot--active {
+  background: var(--accent);
+}
+
+/* ── Chapter label ── */
+.chapter-indicator__label {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  white-space: nowrap;
+  pointer-events: none;
+  transform-origin: right center;
+}
+
+/* Active label gets accent color */
+.chapter-indicator__item--active .chapter-indicator__label {
+  color: var(--accent);
+}
+
+/* ── Hidden on mobile ── */
+@media (max-width: 1023px) {
+  .chapter-indicator {
+    display: none;
+  }
+}

@@ -1,0 +1,29 @@
+/* ═══════════════════════════════════════════════
+   APP SHELL
+   ═══════════════════════════════════════════════ */
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+  position: relative;
+}
+
+/* ── Page Transitions ── */
+.page-transition-wrapper {
+  width: 100%;
+  flex: 1;
+}
+
+/* ── Narrow Content Utility ── */
+.narrow-content {
+  max-width: var(--content-width);
+  margin: 0 auto;
+}
+
+/* ── Scroll Indicator Float ── */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
