@@ -1,0 +1,167 @@
+/* ═══════════════════════════════════════════════
+   CONTACT SECTION (CLASSIC EDITORIAL)
+   ═══════════════════════════════════════════════ */
+
+.editorial-contact-wrapper {
+  padding-top: clamp(6rem, 10vw, 12rem);
+  padding-bottom: clamp(2rem, 4vw, 4rem);
+  background: var(--bg-dark); /* Solid, pure dark background */
+  color: var(--text-inverse);
+  position: relative;
+  /* Add a subtle top border to separate from the section above cleanly */
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ═════ SPLIT GRID ═════ */
+.editorial-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr; /* Left side slightly larger for the massive quote */
+  gap: clamp(4rem, 8vw, 8rem);
+  margin-bottom: clamp(6rem, 10vw, 10rem);
+}
+
+/* ═════ LEFT: STATEMENT ═════ */
+.editorial-left {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.editorial-section-label {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.editorial-statement {
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 5vw, 5.5rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
+}
+
+.desktop-only {
+  display: block;
+}
+
+/* ═════ RIGHT: DIRECTORY ═════ */
+.editorial-right {
+  display: flex;
+  flex-direction: column;
+  /* Add a top border to start the directory list cleanly */
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.directory-item {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  align-items: center;
+  padding: 2.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.directory-label {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.directory-link, .directory-text {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  font-weight: 400;
+  color: #FFFFFF;
+  text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: color 0.4s ease;
+  position: relative;
+}
+
+.link-arrow {
+  opacity: 0;
+  transform: translateX(-10px) translateY(10px);
+  transition: opacity 0.4s ease, transform 0.4s var(--ease-out-expo);
+  color: var(--accent-purple);
+}
+
+/* Elegant Hover Interactions */
+.directory-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--accent-purple);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s var(--ease-out-expo);
+}
+
+.directory-link.group:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.directory-link.group:hover .link-arrow {
+  opacity: 1;
+  transform: translateX(0) translateY(0);
+}
+
+/* ═════ COLOPHON (FOOTER) ═════ */
+.editorial-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ═════ RESPONSIVE ═════ */
+@media (max-width: 1024px) {
+  .editorial-grid {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+  
+  .desktop-only {
+    display: none;
+  }
+  
+  .editorial-statement {
+    max-width: 800px;
+  }
+}
+
+@media (max-width: 640px) {
+  .directory-item {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 1.5rem 0;
+  }
+  
+  .link-arrow {
+    opacity: 1;
+    transform: none;
+    color: rgba(255, 255, 255, 0.3);
+  }
+  
+  .editorial-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}

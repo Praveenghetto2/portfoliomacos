@@ -1,0 +1,99 @@
+/* ═══════════════════════════════════════════════
+   PROCESS SECTION (SIMPLE GRID)
+   ═══════════════════════════════════════════════ */
+
+.simple-process-wrapper {
+  padding: clamp(5rem, 8vw, 8rem) 0;
+  background: var(--bg-primary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.simple-header {
+  margin-bottom: clamp(3rem, 5vw, 5rem);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.simple-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--text-primary);
+  margin-top: 0.5rem;
+  max-width: 800px;
+}
+
+/* ═════ SIMPLE GRID ═════ */
+.simple-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+
+.simple-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.simple-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(124, 58, 237, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+}
+
+/* ═════ CARD CONTENT ═════ */
+.card-top {
+  margin-bottom: 3rem;
+}
+
+.card-num {
+  font-family: var(--font-mono);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--accent-purple);
+  background: rgba(124, 58, 237, 0.08);
+  padding: 0.5rem 1rem;
+  border-radius: 100px;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.015em;
+}
+
+.card-desc {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ═════ RESPONSIVE ═════ */
+@media (max-width: 1024px) {
+  .simple-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+  }
+}
+
+@media (max-width: 640px) {
+  .simple-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .simple-header {
+    text-align: left;
+    align-items: flex-start;
+  }
+}

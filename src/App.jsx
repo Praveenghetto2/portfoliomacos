@@ -6,6 +6,7 @@ import Navigation from './components/Navigation';
 import CustomCursor from './components/CustomCursor';
 import Home from './pages/Home';
 import CaseStudy from './pages/CaseStudy';
+import Resume from './pages/Resume';
 import NotFound from './pages/NotFound';
 import './App.css';
 
@@ -23,6 +24,7 @@ function AnimatedRoutes() {
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Home />} />
         <Route path="/case-study/:id" element={<CaseStudy />} />
+        <Route path="/resume" element={<Resume />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </AnimatePresence>

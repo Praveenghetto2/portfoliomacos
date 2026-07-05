@@ -7,6 +7,9 @@ import TextMarquee from '../components/TextMarquee';
 import AnimatedCounter from '../components/AnimatedCounter';
 import SplitReveal from '../components/SplitReveal';
 import MagneticButton from '../components/MagneticButton';
+import ContactSection from '../components/ContactSection';
+import ProcessSection from '../components/ProcessSection';
+import ImpactSection from '../components/ImpactSection';
 import './Home.css';
 
 /* ═══════════════════════════════════════════════
@@ -178,15 +181,6 @@ const Home = () => {
       title: 'Impact Over Aesthetics',
       body: 'Beautiful interfaces are table stakes. I optimize for the metrics that matter — adoption, retention, conversion, and task efficiency. Design should drive the business forward.',
     },
-  ];
-
-  const processSteps = [
-    { num: '01', title: 'Discovery', desc: 'Understanding the problem space through stakeholder interviews and domain immersion.' },
-    { num: '02', title: 'Research', desc: 'User interviews, data analysis, competitive audits, and behavioral insights.' },
-    { num: '03', title: 'Ideation', desc: 'Rapid exploration through sketches, concepts, and collaborative workshops.' },
-    { num: '04', title: 'Architecture', desc: 'Information architecture, user flows, and system-level thinking.' },
-    { num: '05', title: 'Design', desc: 'High-fidelity prototyping, testing, and iterative refinement.' },
-    { num: '06', title: 'Delivery', desc: 'Design systems, developer handoff, and post-launch iteration.' },
   ];
 
   const craftItems = [
@@ -718,30 +712,7 @@ const Home = () => {
       </section>
 
       {/* ═══════ CHAPTER 4 — PROCESS ═══════ */}
-      <section className="ch-process" id="process">
-        <div className="main-content">
-          <motion.div className="process-header"
-            initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-100px' }}
-            variants={fadeUp}
-          >
-            <span className="section-label">PROCESS · METHODOLOGY</span>
-            <h2 className="process-heading">A systematic framework for digital craftsmanship.</h2>
-          </motion.div>
-
-          <div className="process-grid">
-            {processSteps.map((step, i) => (
-              <motion.div key={i} className="process-step"
-                initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-50px' }}
-                variants={fadeUp} custom={i * 0.3}
-              >
-                <span className="process-num">{step.num}</span>
-                <h3 className="process-title">{step.title}</h3>
-                <p className="process-desc">{step.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <ProcessSection />
 
       {/* ═══════ CHAPTER 5 — CRAFT ═══════ */}
       <section className="ch-craft" id="craft">
@@ -770,44 +741,7 @@ const Home = () => {
       </section>
 
       {/* ═══════ CHAPTER 6 — IMPACT ═══════ */}
-      <section className="ch-impact" id="impact">
-        <div className="main-content">
-          <motion.div className="impact-header"
-            initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-100px' }}
-            variants={fadeUp}
-          >
-            <span className="section-label section-label--light">Impact</span>
-            <h2 className="impact-heading">Design that drives business outcomes.</h2>
-          </motion.div>
-
-          <div className="impact-grid">
-            {[
-              { value: '40', suffix: '%', label: 'Reduction in user drop-offs' },
-              { value: '3', suffix: '×', label: 'Faster reporting workflows' },
-              { value: '85', suffix: '%', label: 'System Usability Score' },
-              { value: '25', suffix: '%', label: 'Product adoption lift' },
-              { value: '12', suffix: '%', label: 'Conversion rate improvement' },
-            ].map((m, i) => (
-              <motion.div key={i} className="impact-metric"
-                initial="hidden" whileInView="visible" viewport={{ once: true }}
-                variants={fadeUp} custom={i * 0.15}
-              >
-                <span className="impact-number">
-                  <AnimatedCounter value={m.value} suffix={m.suffix} />
-                </span>
-                <span className="impact-label">{m.label}</span>
-              </motion.div>
-            ))}
-          </div>
-
-          <motion.blockquote className="impact-quote"
-            initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }}
-            variants={fadeUp}
-          >
-            "I don't just design interfaces — I design products, experiences, and measurable business impact."
-          </motion.blockquote>
-        </div>
-      </section>
+      <ImpactSection />
 
       {/* ═══════ CHAPTER 7 — ABOUT ═══════ */}
       <section className="ch-about" id="about">
@@ -895,46 +829,7 @@ const Home = () => {
       </section>
 
       {/* ═══════ CHAPTER 8 — CONTACT ═══════ */}
-      <section className="ch-contact" id="contact">
-        <div className="main-content">
-          <motion.div className="contact-inner"
-            initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-100px' }}
-            variants={staggerContainer}
-          >
-            <motion.span className="section-label section-label--light" variants={fadeUp}>
-              Contact
-            </motion.span>
-            <motion.h2 className="contact-heading" variants={fadeUp}>
-              Let's create something<br />remarkable.
-            </motion.h2>
-            <motion.a href="mailto:praveenpk990057@gmail.com"
-              className="contact-email hover-target" variants={fadeUp}
-            >
-              praveenpk990057@gmail.com
-            </motion.a>
-
-            <motion.div className="contact-links" variants={fadeUp}>
-              <a href="https://linkedin.com/in/praveenkumarpk3/"
-                target="_blank" rel="noopener noreferrer"
-                className="contact-link hover-target"
-              >
-                LinkedIn <ExternalLink size={14} />
-              </a>
-              <a href="tel:+918660313309" className="contact-link hover-target">
-                +91 866 031 3309
-              </a>
-            </motion.div>
-          </motion.div>
-
-          <motion.div className="contact-footer"
-            initial="hidden" whileInView="visible" viewport={{ once: true }}
-            variants={fadeUp}
-          >
-            <span>© 2026 Praveen Kumar</span>
-            <span>Designed with precision.</span>
-          </motion.div>
-        </div>
-      </section>
+      <ContactSection />
 
       {/* Floating vertical chapter side indicator */}
       <ChapterIndicator chapters={CHAPTERS} activeChapter={activeChapter} />

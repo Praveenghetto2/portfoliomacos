@@ -163,6 +163,15 @@ const Navigation = () => {
                 {item.label}
               </a>
             ))}
+            
+            {/* Direct Route Link for Resume */}
+            <Link 
+              to="/resume" 
+              className={`nav-link hover-target ${location.pathname === '/resume' ? 'active' : ''}`}
+              onClick={() => setIsOpen(false)}
+            >
+              Resume
+            </Link>
           </div>
           <a
             href="mailto:praveenpk990057@gmail.com"
@@ -211,6 +220,16 @@ const Navigation = () => {
                   {item.label}
                 </motion.a>
               ))}
+
+              <motion.div variants={linkVariants}>
+                <Link
+                  to="/resume"
+                  className="mobile-nav-link hover-target"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Resume
+                </Link>
+              </motion.div>
             </motion.div>
 
             <motion.div

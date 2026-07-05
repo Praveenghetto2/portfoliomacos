@@ -1,0 +1,261 @@
+/* ═══════════════════════════════════════════════
+   RESUME PAGE (STICKY SPLIT-PANE)
+   ═══════════════════════════════════════════════ */
+
+.resume-split-container {
+  min-height: 100vh;
+  background: var(--bg-dark);
+  color: var(--text-inverse);
+  padding: clamp(6rem, 12vh, 10rem) 0;
+}
+
+/* ═════ SPLIT GRID ═════ */
+.resume-split-grid {
+  display: grid;
+  grid-template-columns: 4fr 6fr; /* Left side 40%, Right side 60% */
+  gap: clamp(4rem, 8vw, 8rem);
+  align-items: start; /* Required for sticky to work properly */
+}
+
+/* ═════ LEFT PANE (STICKY) ═════ */
+.resume-left-pane {
+  position: relative;
+  height: 100%;
+}
+
+.resume-sticky-content {
+  position: sticky;
+  top: clamp(6rem, 12vh, 10rem); /* Distance from top of viewport when sticky */
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.resume-name {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  color: #FFFFFF;
+  line-height: 1.1;
+  margin-bottom: 0.25rem;
+}
+
+.resume-title-role {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 2vw, 2rem);
+  font-style: italic;
+  color: var(--accent-purple);
+  margin-bottom: 1rem;
+}
+
+.resume-summary {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.6);
+  max-width: 90%;
+  margin-bottom: 2rem;
+}
+
+.resume-download-wrapper {
+  margin-top: 1rem;
+}
+
+.download-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+  padding: 1.25rem 2.5rem;
+}
+
+.download-btn:hover {
+  background: #FFFFFF;
+  color: #000000;
+  border-color: #FFFFFF;
+}
+
+/* ═════ RIGHT PANE (CONTENT) ═════ */
+.resume-right-pane {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(4rem, 8vw, 6rem);
+}
+
+.resume-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.resume-section-heading {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 3rem;
+  position: sticky;
+  top: clamp(6rem, 12vh, 10rem); /* Sticks inside the right pane as well */
+  background: var(--bg-dark);
+  padding: 1rem 0;
+  z-index: 10;
+  /* Add a subtle blur mask for when content scrolls under it */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 10px 20px -10px var(--bg-dark);
+}
+
+/* ═════ TIMELINE ITEMS ═════ */
+.resume-item {
+  position: relative;
+  display: flex;
+  gap: 2rem;
+  padding-bottom: 4rem;
+}
+
+.resume-item:last-child {
+  padding-bottom: 0;
+}
+
+/* The vertical timeline line */
+.resume-item::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  bottom: 0;
+  left: 5px; /* Center with marker */
+  width: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  z-index: 0;
+}
+
+.resume-item:last-child::before {
+  display: none;
+}
+
+.resume-timeline-marker {
+  position: relative;
+  min-width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--accent-purple);
+  margin-top: 10px; /* Align with text */
+  z-index: 1;
+  box-shadow: 0 0 0 4px var(--bg-dark); /* Creates space around the dot cutting the line */
+}
+
+.resume-item-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.resume-date {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.resume-role {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 500;
+  color: #FFFFFF;
+  margin-bottom: 0.25rem;
+  line-height: 1.2;
+}
+
+.resume-company {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-style: italic;
+  color: var(--accent-purple);
+  margin-bottom: 1.5rem;
+}
+
+.resume-desc-list {
+  font-family: var(--font-body);
+  font-size: 1.0625rem; /* Slightly larger for readability */
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.6);
+  padding-left: 1.25rem;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.resume-desc-list li {
+  position: relative;
+}
+
+.resume-desc-list li::marker {
+  color: var(--accent-purple);
+}
+
+.resume-desc-list strong {
+  color: #FFFFFF;
+  font-weight: 500;
+}
+
+/* ═════ SKILLS TAGS ═════ */
+.resume-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding-left: 3rem; /* Align with timeline content */
+}
+
+.resume-tag {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  padding: 0.75rem 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 100px;
+  color: rgba(255, 255, 255, 0.7);
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.resume-tag:hover {
+  border-color: var(--accent-purple);
+  color: #FFFFFF;
+}
+
+/* ═════ RESPONSIVE ═════ */
+@media (max-width: 1024px) {
+  .resume-split-grid {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+  
+  .resume-sticky-content {
+    position: relative; /* Disable sticky on tablet/mobile */
+    top: 0;
+    max-width: 800px;
+  }
+  
+  .resume-section-heading {
+    position: relative;
+    top: 0;
+    padding: 0;
+    margin-bottom: 2rem;
+    background: transparent;
+    backdrop-filter: none;
+    box-shadow: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .resume-item {
+    gap: 1.25rem;
+    padding-bottom: 3rem;
+  }
+  
+  .resume-tags {
+    padding-left: 0;
+  }
+}
