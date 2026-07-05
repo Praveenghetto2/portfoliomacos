@@ -45,6 +45,7 @@ function App() {
     });
 
     lenisRef.current = lenis;
+    window.lenis = lenis;
 
     // RAF loop for Lenis + Framer Motion integration
     function raf(time) {
@@ -57,6 +58,7 @@ function App() {
     return () => {
       lenis.destroy();
       lenisRef.current = null;
+      window.lenis = null;
     };
   }, []);
 

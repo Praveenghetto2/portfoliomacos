@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform, useInView, AnimatePresence } from 'framer-motion';
+import { motion, useScroll, useTransform, useInView, AnimatePresence, useMotionValue, useSpring } from 'framer-motion';
 import { ArrowUpRight, ArrowDown, Plus, Minus, ExternalLink } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useRef, useState, useEffect } from 'react';
@@ -30,89 +30,6 @@ const lineReveal = {
   visible: { scaleX: 1, transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] } }
 };
 
-const OS_NODES = [
-  {
-    id: 'research',
-    label: 'Research',
-    x: '15%',
-    y: '15%',
-    metric: '50+ Interviews',
-    desc: 'Qualitative user insights mapped directly to feature backlogs.',
-    details: ['User Interviews', 'Competitive Audits', 'Stakeholder Mapping', 'Domain Immersion']
-  },
-  {
-    id: 'insights',
-    label: 'User Insights',
-    x: '45%',
-    y: '12%',
-    metric: '-40% Friction',
-    desc: 'Identifying drop-off points & behavioral friction on dense dashboards.',
-    details: ['Drop-off Audit', 'Behavioral Mapping', 'UX Audit Insights', 'Accessibility Checks']
-  },
-  {
-    id: 'strategy',
-    label: 'Product Strategy',
-    x: '25%',
-    y: '45%',
-    metric: 'ROI Aligned',
-    desc: 'Aligning visual architecture with SaaS adoption goals.',
-    details: ['North Star Metrics', 'Feature Scoping', 'Adoption Strategy', 'Funnels Mapping']
-  },
-  {
-    id: 'flows',
-    label: 'UX Flows',
-    x: '55%',
-    y: '38%',
-    metric: '3x Efficiency',
-    desc: 'Progressive disclosure systems that prevent cognitive overload.',
-    details: ['Task Flows', 'Collapsible Sidebars', 'Logical Paths', 'User Journeys']
-  },
-  {
-    id: 'systems',
-    label: 'Design Systems',
-    x: '38%',
-    y: '75%',
-    metric: '25% Dev Speed',
-    desc: 'Tokens, variants, and documentation engineered for scale.',
-    details: ['Figma Libraries', 'Modular Tokens', 'Component Playbook', 'Handoff Guidelines']
-  },
-  {
-    id: 'prototyping',
-    label: 'Prototyping',
-    x: '75%',
-    y: '55%',
-    metric: 'Zero-Guess Handoff',
-    desc: 'High-fidelity motion studies validating transitions before development.',
-    details: ['Interactive Mockups', 'Micro-interactions', 'After Effects Motion', 'Lottie Assets']
-  },
-  {
-    id: 'analytics',
-    label: 'Analytics',
-    x: '62%',
-    y: '82%',
-    metric: 'Funnel Tracking',
-    desc: 'Post-launch product analytics monitoring real-world interactions.',
-    details: ['Mixpanel Funnels', 'Heatmaps Analysis', 'Conversion Audits', 'A/B Testing']
-  },
-  {
-    id: 'metrics',
-    label: 'Business Metrics',
-    x: '88%',
-    y: '78%',
-    metric: '85% SUS Score',
-    desc: 'Measuring UX excellence against quantitative enterprise metrics.',
-    details: ['Task Success Rate', 'SUS Score Audits', 'NPS Calibration', 'Retention Impact']
-  },
-  {
-    id: 'growth',
-    label: 'User Growth',
-    x: '85%',
-    y: '25%',
-    metric: '+25% Adoption',
-    desc: 'Continuous feedback loops converting user satisfaction into growth.',
-    details: ['Conversion Uplifts', 'Growth Multipliers', 'Friction-Free Loops', 'Product Led Growth']
-  }
-];
 
 const CHAPTERS = [
   { id: 'hero', label: '01 Intro' },
@@ -132,15 +49,38 @@ const Home = () => {
   const [activeExp, setActiveExp] = useState(0);
   const [activeChapter, setActiveChapter] = useState('hero');
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [hoveredNode, setHoveredNode] = useState(null);
 
-  /* Mouse move tracking for interactive hero orb */
-  const handleMouseMove = (e) => {
+  /* Mouse Parallax Values */
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  const springConfig = { stiffness: 80, damping: 25, mass: 0.1 };
+  const smoothX = useSpring(mouseX, springConfig);
+  const smoothY = useSpring(mouseY, springConfig);
+
+  const bgParallaxX = useTransform(smoothX, [-0.5, 0.5], [-12, 12]);
+  const bgParallaxY = useTransform(smoothY, [-0.5, 0.5], [-8, 8]);
+
+  const cardParallaxX = useTransform(smoothX, [-0.5, 0.5], [-24, 24]);
+  const cardParallaxY = useTransform(smoothY, [-0.5, 0.5], [-16, 16]);
+
+  const textParallaxX = useTransform(smoothX, [-0.5, 0.5], [-8, 8]);
+  const textParallaxY = useTransform(smoothY, [-0.5, 0.5], [-6, 6]);
+
+  const handleMouseMoveParallax = (e) => {
     if (!heroRef.current) return;
     const rect = heroRef.current.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    setMousePos({ x, y });
+    
+    // Gradient Orb tracking
+    const ox = e.clientX - rect.left;
+    const oy = e.clientY - rect.top;
+    setMousePos({ x: ox, y: oy });
+
+    // Parallax tracking
+    const px = (e.clientX - rect.left) / rect.width - 0.5;
+    const py = (e.clientY - rect.top) / rect.height - 0.5;
+    mouseX.set(px);
+    mouseY.set(py);
   };
 
   /* Active chapter scroll observer */
@@ -178,22 +118,48 @@ const Home = () => {
   const projects = [
     {
       id: 'revlitix-saas',
+      num: '01',
       title: 'Revlitix SaaS Platform',
       category: 'AI Product Design · UX Strategy · Design Systems',
-      image: '/assets/revlitix_hero_main.jpg',
-      desc: 'Reimagined the enterprise analytics experience with AI-powered dashboards and a modular design system.',
-      metric: '25%',
-      metricLabel: 'Adoption Lift',
+      desc: 'An AI-powered analytics platform helping enterprise teams discover actionable insights, automate complex data operations, and make faster business decisions.',
+      metrics: [
+        { value: '25', prefix: '+', suffix: '%', label: 'Product Adoption' },
+        { value: '40', prefix: '+', suffix: '%', label: 'Workflow Efficiency' },
+        { value: '30', prefix: '-', suffix: '%', label: 'Time to Insight' }
+      ],
+      visuals: {
+        desktop: '/assets/revlitix_hero_main.jpg',
+        tablet: '/assets/revlitix_process_1783016419496.jpg',
+        mobile: '/assets/revlitix_outcomes_1783016439002.jpg'
+      },
+      outcomes: [
+        'Reduced cognitive load through intelligent defaults and clean information hierarchy.',
+        'Accelerated decision cycles by surfacing key alerts and automated anomaly detection.',
+        'Scaled design-to-development velocity with a robust, accessible component library.'
+      ]
     },
     {
       id: 'sonic',
-      title: 'Revlitix Enterprise Website',
-      category: 'Web Design · Conversion Optimization · Webflow',
-      image: '/assets/revlitix_outcomes_1783016439002.jpg',
-      desc: 'Transformed the marketing site with visual storytelling and conversion-optimized user journeys.',
-      metric: '12%',
-      metricLabel: 'Conversion Lift',
-    },
+      num: '02',
+      title: 'Revlitix Sonic AI',
+      category: 'AI Interface · UX Strategy · Design Systems',
+      desc: 'An AI-powered natural language database query assistant built for marketing, sales, and product teams to extract automated visual business insights in real time.',
+      metrics: [
+        { value: '60', prefix: '+', suffix: '%', label: 'Faster Insights Discovery' },
+        { value: '40', prefix: '-', suffix: '%', label: 'Data Support Tickets' },
+        { value: '85', prefix: '+', suffix: '%', label: 'System Usability (SUS)' }
+      ],
+      visuals: {
+        desktop: '/assets/revlitix_website_product_images/6896089a9b458a0e5d353212_Frame 1321315474.png',
+        tablet: '/assets/revlitix_website_product_images/6896135103e8ca6406b070d3_Frame 1321315475.png',
+        mobile: '/assets/revlitix_website_product_images/68961de44ae404323fc2a4bf_SZj7gmTHfxZ.png'
+      },
+      outcomes: [
+        'Designed a conversational query assistant reducing complex database querying times by 80%.',
+        'Created clear progressive disclosure systems displaying generated SQL details to build trust.',
+        'Built a cohesive, accessible visual token architecture supporting unified dark/light themes.'
+      ]
+    }
   ];
 
   const principles = [
@@ -268,13 +234,6 @@ const Home = () => {
     },
   ];
 
-  const currentHUD = OS_NODES.find(n => n.id === hoveredNode) || {
-    label: 'Design System OS',
-    metric: 'System Status: Active',
-    desc: 'Hover any node in the interactive grid to simulate data flow & view product impact metrics.',
-    details: ['Research Insights', 'Strategic Execution', 'Pixel Craftsmanship', 'Business Impact']
-  };
-
   /* ═══════════════════════════════════════════════════════
      RENDER
      ═══════════════════════════════════════════════════════ */
@@ -284,8 +243,11 @@ const Home = () => {
       {/* ═══════ CHAPTER 1 — INTRODUCTION (PRODUCT OS HERO) ═══════ */}
       <motion.section className="ch-hero" id="hero" ref={heroRef}
         style={{ opacity: heroOpacity, scale: heroScale }}
-        onMouseMove={handleMouseMove}
+        onMouseMove={handleMouseMoveParallax}
       >
+        {/* Ambient Light Sweep Overlay */}
+        <div className="hero-light-sweep" />
+
         {/* Mouse-following gradient orb */}
         <motion.div
           className="hero-orb"
@@ -297,134 +259,285 @@ const Home = () => {
         />
 
         <div className="ch-hero-inner main-content">
-          <div className="hero-dashboard">
+          {/* Invisible interactive hotspot for pre-rendered video CTA */}
+          <a href="#work" className="hero-video-cta-hotspot hover-target" aria-label="Explore my work" />
+
+          {/* Left Column: Editorial Typography (40% width) */}
+          <motion.div className="hero-content-col"
+            style={{ x: textParallaxX, y: textParallaxY }}
+          >
+            <span className="hero-tagline">PRODUCT DESIGNER · STRATEGIST</span>
             
-            {/* Sidebar Control Desk (Left Pane) */}
-            <div className="dashboard-pane dashboard-pane--sidebar">
-              <div className="pane-section pane-section--statement">
-                <span className="section-label">Product Design OS v1.0</span>
-                <SplitReveal
-                  text="Designing products where user needs, business goals, and technology meet."
-                  tag="h1"
-                  className="hero-editorial-title"
-                  delay={0.1}
+            <h1 className="hero-headline-title">
+              I design logic. <br />
+              <span className="italic-highlight">Crafting clarity.</span>
+            </h1>
+
+            <p className="hero-headline-desc">
+              I partner with SaaS, Fintech & AI teams to translate complex workflows into high-impact digital products. Blending engineering detail with visual craftsmanship.
+            </p>
+
+            <div className="hero-headline-action">
+              <a href="#work" className="explore-work-cta hover-target">
+                <span className="cta-circle">
+                  <ArrowUpRight size={20} />
+                </span>
+                <span className="cta-text">
+                  Explore my work
+                  <svg className="brush-underline-svg" viewBox="0 0 120 12" preserveAspectRatio="none">
+                    <path d="M 2,8 Q 50,2 118,6 T 115,10" fill="none" stroke="currentColor" strokeWidth="2.5" />
+                  </svg>
+                </span>
+              </a>
+            </div>
+          </motion.div>
+
+          {/* Right Column: Immersive Process Visual (60% width) */}
+          <div className="hero-visual-col">
+            <div className="hero-visual-canvas">
+              {/* Background 3D Workspace Scene Layer (Parallax: 2-4px) */}
+              <motion.div className="hero-visual-bg-layer"
+                style={{ x: bgParallaxX, y: bgParallaxY }}
+              >
+                <video 
+                  src="/assets/Workspace_animation_with_text_ov…_202607032016.mp4" 
+                  autoPlay 
+                  loop 
+                  muted 
+                  playsInline 
+                  className="hero-visual-video"
                 />
-                <p className="hero-editorial-sub">
-                  I shape complex B2B SaaS, Fintech, and AI platform interfaces into high-adoption systems that solve business problems and deliver measurable user growth.
-                </p>
-                <div className="hero-editorial-ctas">
-                  <MagneticButton href="#work" className="btn btn-hero-primary hover-target">Selected Work</MagneticButton>
-                  <MagneticButton href="mailto:praveenpk990057@gmail.com" className="btn btn-hero-outline hover-target">Get in Touch</MagneticButton>
+                {/* Legibility contrast overlay for text backdrop */}
+                <div className="hero-video-gradient-overlay" />
+              </motion.div>
+
+              {/* Interactive Process Overlay Layer (Parallax: 8-12px) */}
+              <motion.div className="hero-visual-interactive-layer"
+                style={{ x: cardParallaxX, y: cardParallaxY }}
+              >
+                {/* Dynamic Connecting Winding Path SVG */}
+                <svg className="process-glowing-svg" viewBox="0 0 1000 680" preserveAspectRatio="none">
+                  <path 
+                    id="process-pulse-path"
+                    d="M 435,98 C 550,110 680,105 680,115 C 680,115 745,200 745,272 C 745,340 715,400 715,418 C 715,418 630,550 500,430 C 370,310 270,340 270,377 C 270,410 400,490 435,98" 
+                    fill="none" 
+                    stroke="rgba(124, 58, 237, 0.12)" 
+                    strokeWidth="3" 
+                    strokeDasharray="6 8"
+                  />
+                  
+                  {/* Active Purple Pulse traveling along the path */}
+                  <path 
+                    d="M 435,98 C 550,110 680,105 680,115 C 680,115 745,200 745,272 C 745,340 715,400 715,418 C 715,418 630,550 500,430 C 370,310 270,340 270,377 C 270,410 400,490 435,98" 
+                    fill="none" 
+                    stroke="var(--accent-purple)" 
+                    strokeWidth="3.5" 
+                    strokeLinecap="round"
+                    className="process-pulse-line"
+                  />
+                </svg>
+
+                {/* 5 Floating Glass Cards */}
+                {/* Research */}
+                <motion.div 
+                  className="glass-process-card card-research hover-target"
+                  style={{ top: '14.5%', left: '43.5%' }}
+                  animate={{ y: [-4, 4, -4] }}
+                  transition={{ duration: 4.8, repeat: Infinity, ease: 'easeInOut' }}
+                  whileHover={{ rotateX: 12, rotateY: -12, scale: 1.03 }}
+                >
+                  <div className="glass-card-tag">01</div>
+                  <div className="glass-card-body">
+                    <h4>RESEARCH</h4>
+                    <p>Understand people, markets & problems.</p>
+                  </div>
+                  {/* Mini chart visual overlay */}
+                  <div className="glass-card-mini-graph">
+                    <svg viewBox="0 0 100 30" className="mini-chart-svg">
+                      <path d="M 0,25 Q 25,5 50,18 T 100,5" fill="none" stroke="var(--accent-purple)" strokeWidth="2" />
+                      <circle cx="100" cy="5" r="3" fill="var(--accent-purple)" />
+                    </svg>
+                  </div>
+                </motion.div>
+
+                {/* Strategy */}
+                <motion.div 
+                  className="glass-process-card card-strategy hover-target"
+                  style={{ top: '17%', left: '68%' }}
+                  animate={{ y: [4, -4, 4] }}
+                  transition={{ duration: 5.2, repeat: Infinity, ease: 'easeInOut', delay: 0.3 }}
+                  whileHover={{ rotateX: 12, rotateY: -12, scale: 1.03 }}
+                >
+                  <div className="glass-card-tag">02</div>
+                  <div className="glass-card-body">
+                    <h4>STRATEGY</h4>
+                    <p>Align user needs with business goals.</p>
+                  </div>
+                  <div className="glass-card-circles">
+                    <div className="circle-venn cv-1" />
+                    <div className="circle-venn cv-2" />
+                  </div>
+                </motion.div>
+
+                {/* Design */}
+                <motion.div 
+                  className="glass-process-card card-design hover-target"
+                  style={{ top: '40%', left: '74.5%' }}
+                  animate={{ y: [-3, 3, -3] }}
+                  transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 0.6 }}
+                  whileHover={{ rotateX: 12, rotateY: -12, scale: 1.03 }}
+                >
+                  <div className="glass-card-tag">03</div>
+                  <div className="glass-card-body">
+                    <h4>DESIGN</h4>
+                    <p>Create intuitive experiences.</p>
+                  </div>
+                  <div className="glass-card-wireframe">
+                    <div className="wf-bar wfb-1" />
+                    <div className="wf-bar wfb-2" />
+                    <div className="wf-bar wfb-3" />
+                  </div>
+                </motion.div>
+
+                {/* Validate */}
+                <motion.div 
+                  className="glass-process-card card-validate hover-target"
+                  style={{ top: '61.5%', left: '71.5%' }}
+                  animate={{ y: [3, -3, 3] }}
+                  transition={{ duration: 5.0, repeat: Infinity, ease: 'easeInOut', delay: 0.9 }}
+                  whileHover={{ rotateX: 12, rotateY: -12, scale: 1.03 }}
+                >
+                  <div className="glass-card-tag">04</div>
+                  <div className="glass-card-body">
+                    <h4>VALIDATE</h4>
+                    <p>Test. Iterate. Improve.</p>
+                  </div>
+                  <div className="glass-card-bar-graph">
+                    <span className="bg-bar bgb-1" />
+                    <span className="bg-bar bgb-2" />
+                    <span className="bg-bar bgb-3" />
+                    <span className="bg-bar bgb-4" />
+                  </div>
+                </motion.div>
+
+                {/* Impact */}
+                <motion.div 
+                  className="glass-process-card card-impact hover-target"
+                  style={{ top: '55.5%', left: '27%' }}
+                  animate={{ y: [-5, 5, -5] }}
+                  transition={{ duration: 4.9, repeat: Infinity, ease: 'easeInOut', delay: 0.2 }}
+                  whileHover={{ rotateX: 12, rotateY: -12, scale: 1.03 }}
+                >
+                  <div className="glass-card-tag">05</div>
+                  <div className="glass-card-body">
+                    <h4>IMPACT</h4>
+                    <p>Drive measurable business outcomes.</p>
+                  </div>
+                  <span className="glass-card-metric">+25%</span>
+                </motion.div>
+
+                {/* Micro-Animation: Coffee Cup Steam (Coordinates x: 93%, y: 70%) */}
+                <div className="cup-steam-container" style={{ top: '70%', left: '93%' }}>
+                  <svg viewBox="0 0 40 80" className="steam-svg">
+                    <path d="M 10,70 Q 5,50 15,30 T 10,10" className="steam-line sl-1" />
+                    <path d="M 20,70 Q 25,50 15,30 T 20,10" className="steam-line sl-2" />
+                    <path d="M 30,70 Q 25,55 35,35 T 30,15" className="steam-line sl-3" />
+                  </svg>
                 </div>
-              </div>
-              
-              {/* Dynamic HUD Control Console Panel */}
-              <div className="pane-section pane-section--hud">
-                <div className="os-hud-header">
-                  <span className="os-hud-title">{currentHUD.label}</span>
-                  <span className="os-hud-metric">{currentHUD.metric}</span>
+
+                {/* Micro-Animation: Pulsing Tablet HUD (Coordinates x: 50%, y: 72%) */}
+                <div className="tablet-hud-dot" style={{ top: '72%', left: '50%' }}>
+                  <span className="hud-dot" />
+                  <span className="hud-pulse" />
                 </div>
-                <p className="os-hud-desc">{currentHUD.desc}</p>
-                <div className="os-hud-tags">
-                  {currentHUD.details.map((item, idx) => (
-                    <span key={idx} className="os-hud-tag">{item}</span>
-                  ))}
-                </div>
-              </div>
+              </motion.div>
             </div>
-
-            {/* Interactive OS Grid Canvas (Right Pane) */}
-            <div className="dashboard-pane dashboard-pane--canvas">
-              {/* Corner Sci-Fi HUD Decors */}
-              <div className="os-corner-tick os-tick-tl" />
-              <div className="os-corner-tick os-tick-tr" />
-              <div className="os-corner-tick os-tick-bl" />
-              <div className="os-corner-tick os-tick-br" />
-              
-              {/* Floating Premium Impact Cards */}
-              <motion.div 
-                className="os-floating-card hover-target"
-                style={{ top: '8%', left: '8%' }}
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-              >
-                <span className="floating-card-val">+25%</span>
-                <span className="floating-card-lbl">Product Adoption</span>
-              </motion.div>
-
-              <motion.div 
-                className="os-floating-card hover-target"
-                style={{ bottom: '10%', right: '8%' }}
-                animate={{ y: [0, 10, 0] }}
-                transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
-              >
-                <span className="floating-card-val">+50%</span>
-                <span className="floating-card-lbl">Launch Velocity</span>
-              </motion.div>
-
-              <motion.div 
-                className="os-floating-card hover-target"
-                style={{ top: '65%', left: '5%' }}
-                animate={{ y: [0, -8, 0] }}
-                transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-              >
-                <span className="floating-card-val">+25%</span>
-                <span className="floating-card-lbl">Handoff Efficiency</span>
-              </motion.div>
-
-              {/* Connections SVG lines */}
-              <svg className="os-connections-svg">
-                <defs>
-                  <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-                    <feGaussianBlur stdDeviation="3" result="blur" />
-                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                  </filter>
-                </defs>
-                
-                <line x1="15%" y1="15%" x2="45%" y2="12%" className="os-svg-line" />
-                <line x1="45%" y1="12%" x2="25%" y2="45%" className="os-svg-line" />
-                <line x1="25%" y1="45%" x2="55%" y2="38%" className="os-svg-line" />
-                <line x1="25%" y1="45%" x2="38%" y2="75%" className="os-svg-line" />
-                <line x1="55%" y1="38%" x2="75%" y2="55%" className="os-svg-line" />
-                <line x1="38%" y1="75%" x2="75%" y2="55%" className="os-svg-line" />
-                <line x1="75%" y1="55%" x2="62%" y2="82%" className="os-svg-line" />
-                <line x1="62%" y1="82%" x2="88%" y2="78%" className="os-svg-line" />
-                <line x1="88%" y1="78%" x2="85%" y2="25%" className="os-svg-line" />
-                <line x1="85%" y1="25%" x2="45%" y2="12%" className="os-svg-line" />
-              </svg>
-
-              {/* Connected Nodes */}
-              {OS_NODES.map((node) => {
-                const isHovered = hoveredNode === node.id;
-                return (
-                  <button
-                    key={node.id}
-                    className={`os-node-btn hover-target ${isHovered ? 'os-node-btn--hovered' : ''}`}
-                    style={{ left: node.x, top: node.y }}
-                    onMouseEnter={() => setHoveredNode(node.id)}
-                    onMouseLeave={() => setHoveredNode(null)}
-                    aria-label={`Inspect ${node.label} node`}
-                  >
-                    <span className="os-node-dot" />
-                    <span className="os-node-pulse" />
-                    <span className="os-node-label">{node.label}</span>
-                  </button>
-                );
-              })}
-            </div>
-
           </div>
         </div>
-
-        {/* Scroll invitation cue */}
-        <motion.div className="hero-scroll-cue"
-          initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-          transition={{ delay: 2, duration: 0.5 }}
-        >
-          <span>Explore Platform</span>
-          <div className="scroll-line" />
-        </motion.div>
       </motion.section>
+
+      {/* ═══════ STANDALONE IMPACT SUMMARY ═══════ */}
+      <section className="hero-impact-summary-section">
+        <div className="main-content">
+          <div className="impact-bar-header">
+            <span className="impact-bar-label">✦ IMPACT I'VE CREATED</span>
+            <h2 className="impact-section-title">Driving measurable growth through design.</h2>
+          </div>
+          
+          <div className="impact-bar-content">
+            <div className="impact-bar-metrics-grid">
+              {/* Card 1 */}
+              <div className="impact-metric-card hover-target">
+                <div className="metric-card-header">
+                  <span className="metric-card-arrow">↗</span>
+                </div>
+                <span className="metric-val-wrap">
+                  <AnimatedCounter value="25" prefix="+" suffix="%" />
+                </span>
+                <span className="metric-lbl-primary">Product Adoption</span>
+                <span className="metric-lbl-sub">AI-powered analytics dashboards</span>
+                {/* Micro sparkline visual */}
+                <div className="metric-sparkline">
+                  <svg viewBox="0 0 100 24" className="sparkline-svg">
+                    <path d="M 0,20 Q 20,18 40,8 T 80,12 T 100,2" fill="none" stroke="var(--accent-purple)" strokeWidth="1.5" />
+                  </svg>
+                </div>
+              </div>
+
+              {/* Card 2 */}
+              <div className="impact-metric-card hover-target">
+                <div className="metric-card-header">
+                  <span className="metric-card-arrow">↗</span>
+                </div>
+                <span className="metric-val-wrap">
+                  <AnimatedCounter value="50" prefix="+" suffix="%" />
+                </span>
+                <span className="metric-lbl-primary">Campaign Speed</span>
+                <span className="metric-lbl-sub">Through scalable product design systems</span>
+                <div className="metric-sparkline">
+                  <svg viewBox="0 0 100 24" className="sparkline-svg">
+                    <path d="M 0,22 Q 25,5 50,15 T 100,4" fill="none" stroke="var(--accent-purple)" strokeWidth="1.5" />
+                  </svg>
+                </div>
+              </div>
+
+              {/* Card 3 */}
+              <div className="impact-metric-card hover-target">
+                <div className="metric-card-header">
+                  <span className="metric-card-arrow">↘</span>
+                </div>
+                <span className="metric-val-wrap">
+                  <AnimatedCounter value="25" prefix="-" suffix="%" />
+                </span>
+                <span className="metric-lbl-primary">Handoff Friction</span>
+                <span className="metric-lbl-sub">With component token architectures</span>
+                <div className="metric-sparkline">
+                  <svg viewBox="0 0 100 24" className="sparkline-svg">
+                    <path d="M 0,2 Q 30,5 60,18 T 100,22" fill="none" stroke="var(--accent-warm)" strokeWidth="1.5" />
+                  </svg>
+                </div>
+              </div>
+
+              {/* Card 4 */}
+              <div className="impact-metric-card hover-target">
+                <div className="metric-card-header">
+                  <span className="metric-card-arrow">✦</span>
+                </div>
+                <span className="metric-val-wrap">
+                  <AnimatedCounter value="3" suffix="+" />
+                </span>
+                <span className="metric-lbl-primary">Years Building</span>
+                <span className="metric-lbl-sub">SaaS, Fintech & Growth products</span>
+                <div className="metric-sparkline">
+                  <svg viewBox="0 0 100 24" className="sparkline-svg">
+                    <path d="M 0,15 Q 20,15 40,12 T 80,4 T 100,2" fill="none" stroke="var(--accent-purple)" strokeWidth="1.5" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* ═══════ SKILLS MARQUEE ═══════ */}
       <section className="marquee-section">
@@ -483,8 +596,11 @@ const Home = () => {
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-100px' }}
             variants={fadeUp}
           >
-            <span className="section-label">Selected Work</span>
-            <h2 className="work-heading">Projects I'm proud of.</h2>
+            <span className="section-label">SELECTED WORK •</span>
+            <h2 className="work-heading">Designing products that create measurable business impact.</h2>
+            <p className="work-header-sub">
+              A curated collection of SaaS, Fintech, and AI products where research, strategy, systems thinking, and execution combined to drive meaningful outcomes.
+            </p>
           </motion.div>
         </div>
 
@@ -492,38 +608,109 @@ const Home = () => {
           {projects.map((project, i) => (
             <motion.div
               key={project.id}
-              className="work-card hover-target"
-              initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-50px' }}
-              variants={fadeUp} custom={i * 0.5}
+              className="work-showcase-panel hover-target"
+              initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-100px' }}
+              variants={fadeUp} custom={i * 0.3}
               onClick={() => navigate(`/case-study/${project.id}`)}
             >
-              <div className="work-card-image-wrap">
-                <motion.img
-                  src={project.image}
-                  alt={project.title}
-                  className="work-card-image"
-                  whileHover={{ scale: 1.03 }}
-                  transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                />
-                <div className="work-card-metric">
-                  <span className="metric-value">{project.metric}</span>
-                  <span className="metric-label">{project.metricLabel}</span>
+              {/* Storytelling Background Diagrams */}
+              <div className="panel-bg-diagrams">
+                <svg width="100%" height="100%" className="bg-diagram-svg">
+                  <defs>
+                    <pattern id={`grid-${project.id}`} width="40" height="40" patternUnits="userSpaceOnUse">
+                      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(124, 58, 237, 0.012)" strokeWidth="1" />
+                    </pattern>
+                  </defs>
+                  <rect width="100%" height="100%" fill={`url(#grid-${project.id})`} />
+                  
+                  {/* Concentric workflow arcs */}
+                  <circle cx="85%" cy="50%" r="200" fill="none" stroke="rgba(124, 58, 237, 0.02)" strokeWidth="1" strokeDasharray="4 6" />
+                  <circle cx="85%" cy="50%" r="120" fill="none" stroke="rgba(124, 58, 237, 0.015)" strokeWidth="1" />
+                  
+                  {/* Process/journey line node map */}
+                  <path d="M 120,60 Q 220,100 170,200 T 380,280" fill="none" stroke="rgba(124, 58, 237, 0.015)" strokeWidth="1.5" strokeDasharray="3 3" />
+                  <circle cx="120" cy="60" r="3" fill="rgba(124, 58, 237, 0.15)" />
+                  <circle cx="170" cy="200" r="3" fill="rgba(124, 58, 237, 0.15)" />
+                  <circle cx="380" cy="280" r="4" fill="rgba(124, 58, 237, 0.25)" />
+                </svg>
+
+                {/* Floating Handwritten Style Notes */}
+                <div className="handwritten-note note-1">
+                  <span>✦ User Journey Audit</span>
+                </div>
+                <div className="handwritten-note note-2">
+                  <span>✦ Component Library Architecture</span>
                 </div>
               </div>
-              <div className="work-card-info main-content">
-                <div className="work-card-meta">
-                  <span className="work-card-num">0{i + 1}</span>
-                  <div className="work-card-tags">
+
+              {/* Story/Outcomes Info (Left Column) */}
+              <div className="panel-info">
+                <div className="panel-meta">
+                  <span className="panel-number">{project.num}</span>
+                  <div className="panel-tags">
                     {project.category.split(' · ').map((tag, j) => (
-                      <span key={j} className="work-tag">{tag}</span>
+                      <span key={j} className="panel-tag">{tag}</span>
                     ))}
                   </div>
                 </div>
-                <h3 className="work-card-title">
-                  {project.title}
-                  <ArrowUpRight size={28} className="work-card-arrow" />
-                </h3>
-                <p className="work-card-desc">{project.desc}</p>
+
+                <h3 className="panel-title">{project.title}</h3>
+                <p className="panel-desc">{project.desc}</p>
+
+                {/* Oversized Impact Metrics */}
+                <div className="panel-metrics">
+                  {project.metrics.map((m, idx) => (
+                    <div key={idx} className="panel-metric-item">
+                      <div className="panel-metric-value">
+                        <AnimatedCounter 
+                          value={m.value} 
+                          prefix={m.prefix} 
+                          suffix={m.suffix} 
+                          className="metric-counter"
+                        />
+                      </div>
+                      <span className="panel-metric-label">{m.label}</span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Strategic Outcomes List */}
+                <div className="panel-outcomes">
+                  <span className="outcomes-header">✦ STRATEGIC OUTCOMES</span>
+                  <ul className="outcomes-list">
+                    {project.outcomes.map((o, idx) => (
+                      <li key={idx} className="outcome-item">{o}</li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Case Study Entry Button Link */}
+                <div className="panel-action">
+                  <span className="view-case-study-link">
+                    View Full Case Study <span className="arrow">→</span>
+                  </span>
+                </div>
+              </div>
+
+              {/* Immersive 3D Device Showcase Mockups (Right Column) */}
+              <div className="panel-showcase">
+                <div className="mockup-frame mockup-desktop">
+                  <div className="browser-header">
+                    <span className="dot dot-red" />
+                    <span className="dot dot-yellow" />
+                    <span className="dot dot-green" />
+                  </div>
+                  <img src={project.visuals.desktop} alt={`${project.title} Desktop`} />
+                </div>
+
+                <div className="mockup-frame mockup-tablet">
+                  <img src={project.visuals.tablet} alt={`${project.title} Tablet`} />
+                </div>
+
+                <div className="mockup-frame mockup-mobile">
+                  <div className="mobile-speaker" />
+                  <img src={project.visuals.mobile} alt={`${project.title} Mobile`} />
+                </div>
               </div>
             </motion.div>
           ))}
@@ -537,8 +724,8 @@ const Home = () => {
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-100px' }}
             variants={fadeUp}
           >
-            <span className="section-label">Process</span>
-            <h2 className="process-heading">How I work.</h2>
+            <span className="section-label">PROCESS · METHODOLOGY</span>
+            <h2 className="process-heading">A systematic framework for digital craftsmanship.</h2>
           </motion.div>
 
           <div className="process-grid">

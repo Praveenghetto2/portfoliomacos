@@ -191,51 +191,92 @@ const caseStudies = {
         ],
       },
     ],
-    nextProject: { id: 'sonic', title: 'Revlitix Enterprise Website' },
+    nextProject: { id: 'sonic', title: 'Revlitix Sonic AI' },
   },
   'sonic': {
-    title: 'Revlitix Enterprise Website',
-    subtitle: 'Web Design & Conversion Optimization',
-    category: 'Web Design',
+    title: 'Revlitix Sonic AI',
+    subtitle: 'AI-Powered Analytics & Natural Language Insights',
+    category: 'AI Product Design',
     number: '02',
-    heroImage: '/assets/revlitix_outcomes_1783016439002.jpg',
+    heroImage: '/assets/revlitix_website_product_images/6896089a9b458a0e5d353212_Frame 1321315474.png',
     meta: {
-      role: 'Product Designer',
-      timeline: 'Mar 2023 – Sept 2025',
-      team: 'Design, Marketing, Growth',
-      tools: 'Figma, Webflow, Analytics',
+      role: 'Lead Product Designer',
+      timeline: 'Jan 2024 – June 2024',
+      team: 'Design, Product Engineering, AI Research',
+      tools: 'Figma, React, Tailwind, Python',
     },
     sections: [
       {
         type: 'text',
         label: '01',
-        title: 'The Challenge',
+        title: 'Product Overview & Problem',
         content: [
-          'The existing Revlitix marketing website was failing to convert the high-intent traffic driven by paid campaigns. Despite significant ad spend, the site\'s bounce rate exceeded 65% and the demo-request conversion rate sat at a dismal 2.3%.',
-          'We were tasked with redesigning the entire web presence from scratch — rethinking the information architecture, visual storytelling, and conversion flow to transform the site into a genuine growth engine.',
+          'Revlitix Sonic is an intelligent AI product assistant built to help marketing, sales, and product teams extract business growth insights using natural language. It connects marketing and product analytics databases and translates queries into SQL, tables, and summaries.',
+          'The problem statement: Business teams spent hours writing SQL or waiting for data analysts to build custom dashboards. This delay in getting marketing/sales insights stalled execution, created a high dependency on analytics teams, and cluttered dashboards with redundant queries.',
         ],
       },
       {
-        type: 'quote',
-        text: '"Great marketing sites don\'t just look beautiful — they systematically remove every reason not to convert."',
+        type: 'image',
+        src: '/assets/revlitix_website_product_images/6896089a9b458a0e5d353212_Frame 1321315474.png',
+        alt: 'Sonic AI conversational interface displaying structured query tables',
+        caption: 'The Sonic AI interface: translating natural language queries directly into structured data tables.',
       },
       {
         type: 'text',
         label: '02',
-        title: 'The Approach',
+        title: 'Research & User Insights',
         content: [
-          'We started with a full audit of the existing conversion funnel, mapping every drop-off point from landing page to demo request. The key insight: users needed to see the product in action before they would commit to a demo call.',
-          'We restructured the site around interactive product tours, embedded video walkthroughs, and social proof from recognizable enterprise clients. Every page was designed with a single, clear call-to-action.',
+          'We conducted stakeholder interviews and user surveys to analyze query behavior. The user insights led to three major strategic direction pillars:',
+        ],
+        list: [
+          { bold: 'Speed is Paramount', text: ' — Over 80% of business users expect query answers in less than 30 seconds.' },
+          { bold: 'Repetitive Queries', text: ' — 85% of queries are recurring, suggesting a need for quick-prompt macro buttons.' },
+          { bold: 'Reduction of Delay', text: ' — Teams reported waiting up to 3 days for custom report updates from analysts.' },
         ],
       },
       {
-        type: 'metrics',
+        type: 'image',
+        src: '/assets/revlitix_website_product_images/6896135103e8ca6406b070d3_Frame 1321315475.png',
+        alt: 'Sonic UX query processing flow diagrams',
+        caption: 'The query flow: transforming user text query input into database schemas and clean visualization outputs.',
+      },
+      {
+        type: 'text',
         label: '03',
-        title: 'Outcomes',
+        title: 'Key UI/UX Features',
+        content: [
+          'We built Sonic around progressive disclosure and transparency, centering the interface on usability:',
+        ],
+        list: [
+          { bold: 'Natural Language Input', text: ' — Guiding users with dynamic prompt suggestions as they type.' },
+          { bold: 'Interactive Charts', text: ' — Instantly converting tables into bar, line, and funnel visualizations.' },
+          { bold: 'Query Transparency', text: ' — Sourced citations showing the exact SQL logic behind reports to build user trust.' },
+        ],
+      },
+      {
+        type: 'image',
+        src: '/assets/revlitix_website_product_images/68961de44ae404323fc2a4bf_SZj7gmTHfxZ.png',
+        alt: 'Sonic dashboard interface layouts and dark-theme indicators',
+        caption: 'The visual design system: clean layouts with unified purple accent styling, sleek inputs, and interactive data tables.',
+      },
+      {
+        type: 'metrics',
+        label: '04',
+        title: 'Outcomes & Impact',
         items: [
-          { value: '12', suffix: '%', label: 'Lift in demo-request conversions' },
-          { value: '50', suffix: '%', label: 'Faster campaign launch cycles' },
-          { value: '40', suffix: '%', prefix: '-', label: 'Reduction in bounce rate' },
+          { value: '60', suffix: '%', label: 'Faster time to discover insights' },
+          { value: '40', suffix: '%', prefix: '-', label: 'Reduction in data support tickets' },
+          { value: '85', suffix: '%', label: 'System Usability Scale score (SUS)' },
+          { value: '30', suffix: '%', label: 'Increase in weekly query adoption' },
+        ],
+      },
+      {
+        type: 'text',
+        label: '05',
+        title: 'Strategic Takeaways',
+        content: [
+          'Trust is paramount in AI interfaces. Users need to verify how conclusions are reached; adding collapsible SQL query details and clear source citations completely removed user hesitation.',
+          'Progressive disclosure works. By hiding complex data variables behind interactive filters, we kept the experience simple for casual users while preserving full functionality for data-hungry growth leads.',
         ],
       },
     ],
@@ -369,7 +410,16 @@ const CaseStudy = () => {
 
   /* scroll to top on route change */
   useEffect(() => {
-    window.scrollTo(0, 0);
+    const resetScroll = () => {
+      if (window.lenis) {
+        window.lenis.scrollTo(0, { immediate: true });
+      } else {
+        window.scrollTo(0, 0);
+      }
+    };
+
+    resetScroll();
+    requestAnimationFrame(resetScroll);
   }, [id]);
 
   /* ── Not Found ── */
