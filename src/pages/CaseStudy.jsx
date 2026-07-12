@@ -1,394 +1,484 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { motion, useScroll, useTransform, useInView } from 'framer-motion';
-import { ArrowLeft, ArrowUpRight } from 'lucide-react';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
 import './CaseStudy.css';
-
-/* ═══════════════════════════════════════════════
-   ANIMATION VARIANTS
-   ═══════════════════════════════════════════════ */
-const fadeUp = {
-  hidden: { opacity: 0, y: 60 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
-  },
-};
-
-const staggerContainer = {
-  hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.1 },
-  },
-};
-
-/* ═══════════════════════════════════════════════
-   INLINE SUB-COMPONENTS
-   ═══════════════════════════════════════════════ */
-
-/* SplitReveal — word-by-word reveal animation */
-const SplitReveal = ({ text, tag: Tag = 'h1', className = '', delay = 0 }) => {
-  const words = text.split(' ');
-  return (
-    <Tag className={`cs-split-reveal ${className}`}>
-      {words.map((word, i) => (
-        <span key={i} className="cs-split-word-wrap">
-          <motion.span
-            className="cs-split-word"
-            initial={{ y: '110%', rotate: 3 }}
-            animate={{ y: '0%', rotate: 0 }}
-            transition={{
-              duration: 0.8,
-              delay: delay + i * 0.06,
-              ease: [0.16, 1, 0.3, 1],
-            }}
-          >
-            {word}
-          </motion.span>
-        </span>
-      ))}
-    </Tag>
-  );
-};
-
-/* ParallaxImage — scroll-driven parallax + scale */
-const ParallaxImage = ({ src, alt, speed = 0.15, aspectRatio = '16/9' }) => {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start end', 'end start'],
-  });
-  const y = useTransform(scrollYProgress, [0, 1], [`-${speed * 100}%`, `${speed * 100}%`]);
-
-  return (
-    <div ref={ref} className="cs-parallax-wrap" style={{ aspectRatio }}>
-      <motion.img
-        src={src}
-        alt={alt}
-        className="cs-parallax-img"
-        style={{ y }}
-        loading="lazy"
-      />
-    </div>
-  );
-};
-
-/* AnimatedCounter — number reveal on scroll */
-const AnimatedCounter = ({ value, suffix = '', prefix = '' }) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-50px' });
-
-  return (
-    <motion.span
-      ref={ref}
-      className="cs-counter"
-      initial={{ opacity: 0, y: 30 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-    >
-      {prefix}{value}{suffix}
-    </motion.span>
-  );
-};
 
 /* ═══════════════════════════════════════════════
    CASE STUDY DATA
    ═══════════════════════════════════════════════ */
 const caseStudies = {
   'revlitix-saas': {
-    title: 'Revlitix SaaS Platform',
-    subtitle: 'Enterprise Analytics & AI Dashboards',
-    category: 'Product Design',
+    title: 'Revlitix',
+    subtitle: 'Turning Scattered Revenue Data Into Confident, Real-Time Decisions',
+    category: 'SaaS & B2B Analytics',
     number: '01',
-    heroImage: '/assets/revlitix_hero_main.jpg',
+    heroImage: '/assets/revlitix_hero_v3.jpg',
     meta: {
-      role: 'Lead Product Designer',
-      timeline: 'Mar 2023 – Sept 2025',
-      team: 'Design, Engineering, Data Science',
-      tools: 'Figma, Webflow, After Effects',
+      industry: 'SaaS, Revenue Operations, B2B Analytics',
+      role: 'UI/UX Designer',
+      scope: 'Product Thinking, Data Visualization, Dashboard Design System'
     },
     sections: [
       {
-        type: 'text',
-        label: '01',
-        title: 'The Problem',
+        type: 'hero',
+        src: '/assets/swiss_hero_dashboard.jpg'
+      },
+      {
+        type: 'text-huge',
+        content: 'Turning Scattered Revenue Data Into Confident, Real-Time Decisions'
+      },
+      {
+        type: 'editorial-text',
+        watermark: '01',
+        label: 'Overview',
+        title: 'Revlitix',
         content: [
-          'Revlitix is an enterprise-grade marketing analytics platform that allows clients to connect their sprawling ad networks and generate deep, actionable insights. However, the legacy platform had become a monolithic maze — a sprawling interface that tried to show everything at once.',
-          'The primary issue: overwhelming cognitive load. New users were hit with a wall of data, leading to a 60% drop-off rate during onboarding. Support tickets related to basic navigation accounted for nearly a third of all inbound requests.',
-          'Our mandate was clear: radically simplify the experience for the casual user without stripping away the raw power that our enterprise power users demand.',
+          "Revlitix is a B2B revenue intelligence platform built for growing companies that need one trusted place to understand how their business is really performing.",
+          "The platform brings together funnel tracking, revenue reporting, and AI-assisted analysis so sales, marketing, and growth teams can move from raw numbers to clear action, without stitching together spreadsheets and disconnected tools."
+        ]
+      },
+      {
+        type: 'image-cluster',
+        images: [
+          { src: '/assets/revlitix_hero_main.jpg', alt: 'Platform Overview' },
+          { src: '/assets/revlitix_funnel.jpg', alt: 'Funnel Tracking' },
+          { src: '/assets/revlitix_waterfall_v2.jpg', alt: 'Revenue Reporting' }
         ],
+        caption: 'From raw numbers to clear comparisons.'
       },
       {
-        type: 'image',
-        src: '/assets/revlitix_process_1783016419496.jpg',
-        alt: 'UX Design Process — wireframes, user flows, and iteration',
-        caption: 'Our design process: from research & discovery through wireframing, ideation, and prototyping.',
-      },
-      {
-        type: 'text',
-        label: '02',
-        title: 'Target Users',
-        content: [
-          'We realized early that "the user" was a dangerous oversimplification. Through stakeholder interviews and behavioral analytics, we identified four distinct personas with entirely different mental models:',
-        ],
-        list: [
-          { bold: 'The Data-Driven Marketer (Jessica)', text: ' — Needs instant access to daily KPIs without navigating nested menus.' },
-          { bold: 'The Strategy-Focused CMO (David)', text: ' — Requires high-level trend forecasting and exportable executive summaries.' },
-          { bold: 'The Agency Owner (Sarah)', text: ' — Needs highly customizable, white-labeled reporting across multiple client accounts.' },
-          { bold: 'The Junior Analyst (Alex)', text: ' — Requires guided, error-proof workflows to avoid costly data mistakes.' },
-        ],
-      },
-      {
-        type: 'quote',
-        text: '"The best interfaces don\'t give users less data — they give them better hierarchy."',
-      },
-      {
-        type: 'text',
-        label: '03',
-        title: 'Design Process',
-        content: [
-          'Problem Definition — We started by analyzing 200+ session recordings, identifying that users spent 30% of their time navigating to the correct data filters before they could even begin analysis.',
-          'Ideation — We ran cross-functional brainstorming sessions focused on Progressive Disclosure: the principle of hiding complex controls until they are explicitly invoked by the user.',
-          'Wireframing — Before committing to any visual aesthetic, we built and tested low-fidelity wireframes to rigorously validate our information architecture against all four personas.',
-          'Prototyping & Testing — We created high-fidelity interactive prototypes in Figma and ran unmoderated usability tests with 15 representative power users, leading to three major structural pivots before engineering handoff.',
-        ],
-      },
-      {
-        type: 'image',
-        src: '/assets/revlitix_outcomes_1783016439002.jpg',
-        alt: 'Growth metrics dashboard showing revenue and user retention data',
-        caption: 'The final dashboard design — clean data visualization with progressive disclosure for advanced controls.',
-      },
-      {
-        type: 'text',
-        label: '04',
-        title: 'Competitor Audit',
-        content: [
-          'We conducted a deep-dive UX audit against industry leaders — Datadog, Tableau, and Looker. While each offered immense analytical power, their learning curves were prohibitively steep for teams without a dedicated data analyst.',
-          'Our strategy was to focus on intelligent defaults and smart presets. Instead of forcing users to build reports from scratch, we pre-configured the most common dashboards based on industry benchmarks, giving us a distinct usability advantage right out of the box.',
-        ],
-      },
-      {
-        type: 'metrics',
-        label: '05',
-        title: 'Outcomes',
+        type: 'list-massive',
+        watermark: '02',
+        label: 'Challenges',
+        title: 'Challenges',
+        description: "The existing reporting workflow across teams was slow, fragmented, and hard to trust. I was responsible for designing a unified analytics platform that made complex revenue data easier to understand, easier to compare, and easier to act on. Here are the key problems I needed to solve:",
         items: [
-          { value: '40', suffix: '%', label: 'Reduction in user drop-offs during onboarding' },
-          { value: '3', suffix: '×', label: 'Faster report generation vs. legacy system' },
-          { value: '85', suffix: '%', label: 'System Usability Scale score (up from 62%)' },
-          { value: '25', suffix: '%', label: 'Lift in overall product adoption' },
-        ],
+          { title: "Fragmented data sources", text: "Teams pulled numbers from multiple spreadsheets and tools, leading to inconsistent reporting and duplicated manual work." },
+          { title: "Poor decision visibility", text: "Users couldn't quickly see where deals were slowing down or which channels were actually driving revenue." },
+          { title: "Overwhelming, unstructured dashboards", text: "Metrics were displayed without clear hierarchy, making it hard to know what to look at first." },
+          { title: "Slow interpretation", text: "Even when data was available, users needed extra time and effort to translate numbers into next steps." }
+        ]
       },
       {
-        type: 'text',
-        label: '06',
-        title: 'Lessons Learned',
+        type: 'editorial-text',
+        watermark: '03',
+        label: 'Research',
+        title: 'Research Insights',
         content: [
-          'Data density requires hierarchy. Enterprise users don\'t want less data — they want it better organized. Our biggest win was introducing collapsible sections that remembered user preferences.',
-          'Validate assumptions early. Our initial hypothesis about default graph views was completely wrong. We caught this in the first round of prototype testing, saving an estimated three weeks of engineering time.',
-          'Component scalability is non-negotiable. The table components needed to handle datasets with 10,000+ rows without visual degradation. We built a rigid grid system with virtualized rendering to ensure performance at scale.',
-        ],
+          "I ran discovery sessions with sales, marketing, and RevOps stakeholders to understand exactly which questions they needed answered daily, and how quickly they needed those answers.",
+          "This shaped a core design principle I carried through the project: design around decisions, not just data categories."
+        ]
       },
+      {
+        type: 'editorial-text',
+        watermark: '04',
+        label: 'System',
+        title: 'Design System',
+        content: [
+          "I built a modular dashboard design system that could scale as new reporting modules were added, anchored by a clean typographic scale (Heading 1, Heading 2, Sub-heading, Body), a purple-and-orange color system, and consistent spacing and grid rules to keep dense information legible.",
+          "Every chart, card, and table component was designed to work consistently across reporting modules, so the platform felt like one connected system rather than a patchwork of screens."
+        ]
+      },
+      {
+        type: 'image-cluster',
+        images: [
+          { src: '/assets/revlitix_design_system_v3.jpg', alt: 'Design System' },
+          { src: '/assets/revlitix_wireframe_v3.jpg', alt: 'Wireframe Layouts' },
+          { src: '/assets/revlitix_process_wireframe.jpg', alt: 'Wireframe Details' }
+        ],
+        caption: 'Strict typographic control and data restraint.'
+      },
+      {
+        type: 'editorial-text',
+        watermark: '05',
+        label: 'Features',
+        title: 'Funnel Overview',
+        content: [
+          "See Exactly Where Deals Are Won or Lost.",
+          "I designed a funnel overview that gives users an immediate, visual read on how leads and opportunities move through each stage. Instead of piecing together numbers from separate reports, users can spot drop-off points at a glance and know exactly where to investigate further."
+        ]
+      },
+      {
+        type: 'editorial-text',
+        watermark: '06',
+        label: 'Reports',
+        title: 'Reports, Built for Real Decisions',
+        content: [
+          "From Raw Numbers to Clear Comparisons.",
+          "I designed flexible reporting views that let teams compare performance across channels, campaigns, and time periods side by side. This was critical because users weren't just checking numbers — they needed to understand why something changed and whether it mattered."
+        ]
+      },
+      {
+        type: 'image-panel',
+        src: '/assets/revlitix_waterfall_v3.jpg',
+        alt: 'Waterfall Pipeline UI Mockup',
+        caption: 'Comparison views built for fast decision making.'
+      },
+      {
+        type: 'editorial-text',
+        watermark: '07',
+        label: 'AI',
+        title: 'AI Analyst Dashboard',
+        content: [
+          "Your Data, Interpreted for You.",
+          "I designed the AI Analyst Dashboard to bridge the gap between raw reporting and interpretation. Rather than requiring users to manually parse every chart, this layer surfaces what's changed and what deserves attention, making the platform useful even for less data-savvy stakeholders."
+        ]
+      },
+      {
+        type: 'image-cluster',
+        images: [
+          { src: '/assets/revlitix_process_journey.jpg', alt: 'AI Data Interpretation' },
+          { src: '/assets/revlitix_outcomes_1783016439002.jpg', alt: 'Actionable Insights' },
+          { src: '/assets/revlitix_process_1783016419496.jpg', alt: 'AI Data Model' }
+        ],
+        caption: 'AI Analyst Dashboard: Bridging raw data to action.'
+      },
+      {
+        type: 'editorial-text',
+        watermark: '08',
+        label: 'Clarity',
+        title: 'Designed for Clarity at Scale',
+        content: [
+          "Structure Over Clutter.",
+          "Every screen I designed was built around visual restraint: generous spacing, modular cards, and disciplined use of color, so dense revenue data never felt overwhelming.",
+          "This mattered because trust in an analytics product is shaped as much by how it feels as by how accurate it is."
+        ]
+      },
+      {
+        type: 'editorial-text',
+        watermark: '09',
+        label: 'Outcome',
+        title: 'Impact',
+        content: [
+          "The result was a unified reporting experience I designed to replace fragmented spreadsheets and disconnected dashboards with one connected, decision-ready platform. Key impact areas:",
+          "• Consolidated multi-tool reporting into a single source of truth",
+          "• Reduced cognitive load through funnel-first structure and clear visual hierarchy",
+          "• Made trend and performance analysis accessible to non-technical stakeholders",
+          "• Shortened the path from raw data to confident action via AI-assisted insights"
+        ]
+      },
+      {
+        type: 'editorial-text',
+        watermark: '10',
+        label: 'Retrospective',
+        title: 'What I Learned',
+        content: [
+          "This project sharpened my thinking around designing for ambiguity in dense, data-heavy products.",
+          "The most valuable decisions I made weren't visual — they were about what to prioritize on the first screen, how deep comparison views needed to go, and how to keep a complex domain approachable without flattening it."
+        ]
+      }
     ],
     nextProject: { id: 'sonic', title: 'Revlitix Sonic AI' },
   },
   'sonic': {
-    title: 'Revlitix Sonic AI',
-    subtitle: 'AI-Powered Analytics & Natural Language Insights',
-    category: 'AI Product Design',
+    title: 'Sonic AI',
+    subtitle: 'Talking to your data. Literally.',
+    category: 'AI Interface Design',
     number: '02',
     heroImage: '/assets/revlitix_website_product_images/6896089a9b458a0e5d353212_Frame 1321315474.png',
     meta: {
-      role: 'Lead Product Designer',
-      timeline: 'Jan 2024 – June 2024',
-      team: 'Design, Product Engineering, AI Research',
-      tools: 'Figma, React, Tailwind, Python',
+      industry: 'SaaS, Revenue Operations, B2B Analytics',
+      role: 'UI/UX Designer',
+      scope: 'Product Thinking, Data Visualization, Dashboard Design System'
     },
     sections: [
       {
-        type: 'text',
-        label: '01',
-        title: 'Product Overview & Problem',
+        type: 'hero',
+        src: '/assets/revlitix_website_product_images/6896089a9b458a0e5d353212_Frame 1321315474.png'
+      },
+      {
+        type: 'text-huge',
+        content: 'Turning Conversational AI Into a Trusted GTM Analytics Assistant'
+      },
+      {
+        type: 'editorial-text',
+        watermark: '01',
+        label: 'Overview',
+        title: 'Sonic AI',
         content: [
-          'Revlitix Sonic is an intelligent AI product assistant built to help marketing, sales, and product teams extract business growth insights using natural language. It connects marketing and product analytics databases and translates queries into SQL, tables, and summaries.',
-          'The problem statement: Business teams spent hours writing SQL or waiting for data analysts to build custom dashboards. This delay in getting marketing/sales insights stalled execution, created a high dependency on analytics teams, and cluttered dashboards with redundant queries.',
-        ],
+          "Sonic AI is Revlitix's AI-powered GTM analytics assistant that lets users interact with their revenue data in natural language, instantly generate reports, and receive AI-crafted insights, all within a single interface.",
+          "The design challenge was to make complex GTM analytics feel simple, conversational, and immediately actionable."
+        ]
       },
       {
-        type: 'image',
-        src: '/assets/revlitix_website_product_images/6896089a9b458a0e5d353212_Frame 1321315474.png',
-        alt: 'Sonic AI conversational interface displaying structured query tables',
-        caption: 'The Sonic AI interface: translating natural language queries directly into structured data tables.',
-      },
-      {
-        type: 'text',
-        label: '02',
-        title: 'Research & User Insights',
-        content: [
-          'We conducted stakeholder interviews and user surveys to analyze query behavior. The user insights led to three major strategic direction pillars:',
-        ],
-        list: [
-          { bold: 'Speed is Paramount', text: ' — Over 80% of business users expect query answers in less than 30 seconds.' },
-          { bold: 'Repetitive Queries', text: ' — 85% of queries are recurring, suggesting a need for quick-prompt macro buttons.' },
-          { bold: 'Reduction of Delay', text: ' — Teams reported waiting up to 3 days for custom report updates from analysts.' },
-        ],
-      },
-      {
-        type: 'image',
-        src: '/assets/revlitix_website_product_images/6896135103e8ca6406b070d3_Frame 1321315475.png',
-        alt: 'Sonic UX query processing flow diagrams',
-        caption: 'The query flow: transforming user text query input into database schemas and clean visualization outputs.',
-      },
-      {
-        type: 'text',
-        label: '03',
-        title: 'Key UI/UX Features',
-        content: [
-          'We built Sonic around progressive disclosure and transparency, centering the interface on usability:',
-        ],
-        list: [
-          { bold: 'Natural Language Input', text: ' — Guiding users with dynamic prompt suggestions as they type.' },
-          { bold: 'Interactive Charts', text: ' — Instantly converting tables into bar, line, and funnel visualizations.' },
-          { bold: 'Query Transparency', text: ' — Sourced citations showing the exact SQL logic behind reports to build user trust.' },
-        ],
-      },
-      {
-        type: 'image',
-        src: '/assets/revlitix_website_product_images/68961de44ae404323fc2a4bf_SZj7gmTHfxZ.png',
-        alt: 'Sonic dashboard interface layouts and dark-theme indicators',
-        caption: 'The visual design system: clean layouts with unified purple accent styling, sleek inputs, and interactive data tables.',
-      },
-      {
-        type: 'metrics',
-        label: '04',
-        title: 'Outcomes & Impact',
+        type: 'list-massive',
+        watermark: '02',
+        label: 'Challenges',
+        title: 'Challenges',
+        description: "Traditional dashboards were overwhelming users across sales, marketing, and RevOps teams. I was responsible for designing an intuitive interface that felt like talking to an analyst, while ensuring speed, clarity, and trust. Here are the key problems I needed to solve:",
         items: [
-          { value: '60', suffix: '%', label: 'Faster time to discover insights' },
-          { value: '40', suffix: '%', prefix: '-', label: 'Reduction in data support tickets' },
-          { value: '85', suffix: '%', label: 'System Usability Scale score (SUS)' },
-          { value: '30', suffix: '%', label: 'Increase in weekly query adoption' },
-        ],
+          { title: "Cluttered Data", text: "Data scattered across multiple reports, forcing users to piece together their own picture of performance." },
+          { title: "Steep Learning Curves", text: "Difficult for non-technical GTM teams who weren't comfortable navigating traditional BI tools." },
+          { title: "Slow Insights", text: "Required manual report-building instead of providing quick, on-demand answers." }
+        ]
       },
       {
-        type: 'text',
-        label: '05',
-        title: 'Strategic Takeaways',
+        type: 'editorial-text',
+        watermark: '03',
+        label: 'Research',
+        title: 'Research Insights',
         content: [
-          'Trust is paramount in AI interfaces. Users need to verify how conclusions are reached; adding collapsible SQL query details and clear source citations completely removed user hesitation.',
-          'Progressive disclosure works. By hiding complex data variables behind interactive filters, we kept the experience simple for casual users while preserving full functionality for data-hungry growth leads.',
-        ],
+          "I ran user interviews with RevOps, Sales, and Marketing teams to understand where existing tools were failing them. Consistently, they sent us back the same signals: consistency across dashboards was lacking, narrative-driven insights were more valuable than raw numbers, and most analytics tools still relied on manual report creation and static dashboards.",
+          "Competitive benchmarking confirmed the same gap across the market, reinforcing that a conversational, insight-first approach was the real opportunity."
+        ]
       },
+      {
+        type: 'list-massive',
+        watermark: '04',
+        label: 'Goals',
+        title: 'Design Goals',
+        description: "I anchored the entire product around four goals:",
+        items: [
+          { title: "Conversational UX", text: "Natural language input and output." },
+          { title: "Clarity in Visuals", text: "Clean, minimal charts paired with narrative summaries." },
+          { title: "Smart Consistency", text: "Filters and metrics applied uniformly across all reports." },
+          { title: "Trust and Security", text: "Visual reassurance that data is private and secure." }
+        ]
+      },
+      {
+        type: 'image-cluster',
+        images: [
+          { src: '/assets/revlitix_website_product_images/6896135103e8ca6406b070d3_Frame 1321315475.png', alt: 'Query processing flow' },
+          { src: '/assets/revlitix_website_product_images/689c7481b7d7f7e179fa247e_website12.png', alt: 'Product Website' },
+          { src: '/assets/revlitix_website_product_images/68960bded69109f50c5ac276_outcomesimg.png', alt: 'Outcomes Diagram' }
+        ],
+        caption: 'Translating text into structured schemas instantly.'
+      },
+      {
+        type: 'list-massive',
+        watermark: '05',
+        label: 'Process',
+        title: 'UX Process',
+        description: "I structured my process around three phases:",
+        items: [
+          { title: "Information Architecture", text: "I replaced a 'dashboards-first' navigation with a chat-first workflow, where reports, charts, and insights are stacked conversationally for easy scrolling." },
+          { title: "Wireframes & Prototypes", text: "I explored a chatbot-style interface and a hybrid UI combining pinned reports with quick actions. The final design blended both: conversational flow plus structured insights." },
+          { title: "Design Refinement", text: "I iterated on component behavior and layout until conversational and structured elements worked as one coherent system." }
+        ]
+      },
+      {
+        type: 'editorial-text',
+        watermark: '06',
+        label: 'System',
+        title: 'Design System',
+        content: [
+          "I built a visual system tuned specifically for a conversational analytics product: a dark-mode-first charcoal and vibrant gradient palette, a modern sans-serif typeface with slightly tighter tracking for narrative body text, a grid-based layout with rounded modular cards for insights, and micro-interactions that smoothly animate on card load and style updates when filters change."
+        ]
+      },
+      {
+        type: 'image-cluster',
+        images: [
+          { src: '/assets/revlitix_website_product_images/68961de44ae404323fc2a4bf_SZj7gmTHfxZ.png', alt: 'Sonic dashboard layouts' },
+          { src: '/assets/revlitix_product_images/68959de2d249e7fc38c769dc_mainimg11.png', alt: 'Design Mockup' },
+          { src: '/assets/revlitix_product_images/689c781cfda6c429f035deac_Frame 1321315482.png', alt: 'Component System' }
+        ],
+        caption: 'Clean layouts, sleek inputs.'
+      },
+      {
+        type: 'editorial-text',
+        watermark: '07',
+        label: 'Input',
+        title: 'Conversational Query Input',
+        content: [
+          "Ask a Question, Get an Instant Report.",
+          "I designed the query input with smart autocomplete for metrics, so users can type queries like 'Show me funnel drop-offs by region' and instantly receive a formatted report, no manual dashboard building required."
+        ]
+      },
+      {
+        type: 'editorial-text',
+        watermark: '08',
+        label: 'Reports',
+        title: 'Dynamic Reports and Charts',
+        content: [
+          "Reports That Load in the Conversation, Not a Separate Tab.",
+          "Reports load directly inline within the modular cards, combining chart visualizations, key metrics, and AI-generated summaries in one glance. Cards are stackable and shareable, making it easy to hand off insights across teams."
+        ]
+      },
+      {
+        type: 'editorial-text',
+        watermark: '09',
+        label: 'Narratives',
+        title: 'AI Narrative Insights',
+        content: [
+          "Beside the Charts, Short and Sharp Takeaways.",
+          "Alongside every chart, I designed short narrative takeaways such as 'Funnel drop-off increased by 12% in APAC, suggest shifting budget to EMEA.' This provides an action-oriented explanation, not just numbers to interpret on their own."
+        ]
+      },
+      {
+        type: 'editorial-text',
+        watermark: '10',
+        label: 'Filters',
+        title: 'Global Filter Consistency',
+        content: [
+          "One Filter Update, Every Report Reflects It.",
+          "One filter update (e.g., 'Quarter to Q2') propagates across all reports globally, reducing repetitive filter setup and ensuring accuracy across every view."
+        ]
+      },
+      {
+        type: 'editorial-text',
+        watermark: '11',
+        label: 'Trust',
+        title: 'Data Privacy Cues',
+        content: [
+          "Built for Trust, Not Just for Speed.",
+          "I added a clear 'Secure inside Revlitix' indicator across every interaction, building confidence in handling sensitive GTM data conversationally."
+        ]
+      },
+      {
+        type: 'list-massive',
+        watermark: '12',
+        label: 'Outcome',
+        title: 'Outcome and Impact',
+        description: "The result was a conversational analytics experience that transformed how GTM teams engaged with their data:",
+        items: [
+          { title: "Reduced Complexity", text: "Users get insights in seconds without reading dashboards." },
+          { title: "Improved Adoption", text: "Non-technical GTM team members engage with analytics daily." },
+          { title: "Faster Decision-Making", text: "AI summaries turn raw data into actionable strategy." },
+          { title: "Trust and Security", text: "Users are reassured that sensitive GTM data stays safe." }
+        ]
+      },
+      {
+        type: 'editorial-text',
+        watermark: '13',
+        label: 'Takeaway',
+        title: 'Final Takeaway',
+        content: [
+          "Sonic AI transforms GTM analytics from static dashboards to a conversational experience.",
+          "By combining natural language, dynamic visual reports, and AI-driven narratives, I designed a platform that helps teams move from data overload to insight-driven action, intuitively."
+        ]
+      }
     ],
-    nextProject: { id: 'revlitix-saas', title: 'Revlitix SaaS Platform' },
-  },
+    nextProject: { id: 'revlitix-saas', title: 'Revlitix' },
+  }
 };
 
 /* ═══════════════════════════════════════════════
-   SECTION RENDERERS
+   VERTICAL SECTIONS
    ═══════════════════════════════════════════════ */
 
-const TextSection = ({ section }) => (
-  <motion.section
-    className="cs-text-section"
-    initial="hidden"
-    whileInView="visible"
-    viewport={{ once: true, margin: '-100px' }}
-    variants={staggerContainer}
-  >
-    <div className="cs-text-inner">
-      <motion.span className="section-label" variants={fadeUp}>
-        {section.label}
-      </motion.span>
-      <motion.h2 className="cs-section-heading" variants={fadeUp}>
-        {section.title}
-      </motion.h2>
-      {section.content.map((p, i) => (
-        <motion.p key={i} variants={fadeUp}>
-          {p}
-        </motion.p>
-      ))}
-      {section.list && (
-        <motion.ul className="cs-detail-list" variants={fadeUp}>
-          {section.list.map((item, i) => (
-            <li key={i}>
-              <strong>{item.bold}</strong>{item.text}
-            </li>
-          ))}
-        </motion.ul>
-      )}
+const HeroImage = ({ src }) => (
+  <div className="ug-section ug-hero-image-container">
+    <motion.div 
+      className="ug-floating-mockup"
+      initial={{ y: 80, opacity: 0, rotateX: 15, scale: 0.95 }}
+      animate={{ y: 0, opacity: 1, rotateX: 0, scale: 1 }}
+      transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+    >
+      <div className="ug-mockup-header">
+        <span className="ug-dot red"></span>
+        <span className="ug-dot yellow"></span>
+        <span className="ug-dot green"></span>
+      </div>
+      <div className="ug-mockup-body">
+        <img src={src} alt="Hero Mockup" />
+      </div>
+    </motion.div>
+  </div>
+);
+
+const TextHugeSection = ({ content }) => (
+  <div className="ug-section ug-text-huge">
+    <h2>{content}</h2>
+  </div>
+);
+
+const EditorialTextSection = ({ section }) => (
+  <div className="ug-section editorial-text-section">
+    {section.watermark && <div className="editorial-watermark">{section.watermark}</div>}
+    <div className="editorial-content">
+      <div className="editorial-left">
+        <span className="ug-label">{section.label}</span>
+        <h2>{section.title}</h2>
+      </div>
+      <div className="editorial-right">
+        {section.content && section.content.map((p, i) => (
+          <p key={i} style={{ marginBottom: i < section.content.length - 1 ? '1.5rem' : '0' }}>{p}</p>
+        ))}
+        {!section.content && section.text1 && <p>{section.text1}</p>}
+        {!section.content && section.text2 && <p className="indent">{section.text2}</p>}
+      </div>
     </div>
-  </motion.section>
+  </div>
+);
+
+const ImageClusterSection = ({ section }) => (
+  <div className="ug-section image-cluster-section">
+    <div className="image-cluster-grid">
+      {section.images.map((img, i) => (
+        <div key={i} className={`cluster-img-wrap cluster-img-${i + 1}`}>
+          <img src={img.src} alt={img.alt} />
+        </div>
+      ))}
+    </div>
+    {section.caption && <span className="ug-caption">{section.caption}</span>}
+  </div>
+);
+
+const QuoteSection = ({ text }) => (
+  <div className="ug-section ug-quote">
+    <blockquote>{text}</blockquote>
+  </div>
+);
+
+const ImageFullbleedSection = ({ section }) => (
+  <div className="ug-section ug-image-fullbleed">
+    <img src={section.src} alt={section.alt} />
+    {section.caption && <span className="ug-caption">{section.caption}</span>}
+  </div>
 );
 
 const ImageSection = ({ section }) => (
-  <motion.section
-    className="cs-image-section"
-    initial="hidden"
-    whileInView="visible"
-    viewport={{ once: true, margin: '-100px' }}
-    variants={fadeUp}
-  >
-    <div className="cs-image-fullbleed">
-      <ParallaxImage src={section.src} alt={section.alt} speed={0.1} aspectRatio="16/9" />
+  <div className="ug-section ug-image-standard">
+    <div className="ug-image-inner">
+      <img src={section.src} alt={section.alt} />
+      {section.caption && <span className="ug-caption">{section.caption}</span>}
     </div>
-    {section.caption && (
-      <motion.p className="cs-image-caption main-content" variants={fadeUp}>
-        {section.caption}
-      </motion.p>
-    )}
-  </motion.section>
+  </div>
 );
 
-const QuoteSection = ({ section }) => (
-  <motion.section
-    className="cs-quote-section"
-    initial="hidden"
-    whileInView="visible"
-    viewport={{ once: true, margin: '-100px' }}
-    variants={fadeUp}
-  >
-    <div className="cs-quote-inner">
-      <div className="cs-quote-accent-line" />
-      <blockquote className="cs-pullquote">{section.text}</blockquote>
+const ListMassiveSection = ({ section }) => (
+  <div className="ug-section ug-list-massive">
+    {section.watermark && <div className="editorial-watermark">{section.watermark}</div>}
+    <div className="ug-list-header">
+      <span className="ug-label">{section.label}</span>
+      <h2>{section.title}</h2>
     </div>
-  </motion.section>
+    <div className="ug-list">
+      {section.items.map((item, i) => (
+        <div key={i} className="ug-list-item">
+          <h3>{item.title}</h3>
+          <p>{item.text}</p>
+        </div>
+      ))}
+    </div>
+  </div>
 );
 
 const MetricsSection = ({ section }) => (
-  <motion.section
-    className="cs-metrics-section"
-    initial="hidden"
-    whileInView="visible"
-    viewport={{ once: true, margin: '-100px' }}
-    variants={staggerContainer}
-  >
-    <div className="cs-metrics-inner">
-      <motion.span className="section-label cs-metrics-label" variants={fadeUp}>
-        {section.label}
-      </motion.span>
-      <motion.h2 className="cs-metrics-heading" variants={fadeUp}>
-        {section.title}
-      </motion.h2>
-      <div className="cs-metrics-grid">
-        {section.items.map((item, i) => (
-          <motion.div
-            key={i}
-            className="cs-metric-card"
-            variants={fadeUp}
-            custom={i}
-          >
-            <AnimatedCounter
-              value={item.value}
-              suffix={item.suffix || ''}
-              prefix={item.prefix || ''}
-            />
-            <span className="cs-metric-label">{item.label}</span>
-          </motion.div>
-        ))}
-      </div>
+  <div className="ug-section ug-metrics">
+    <div className="ug-metrics-header">
+      <span className="ug-label">{section.label}</span>
+      <h2>{section.title}</h2>
     </div>
-  </motion.section>
+    <div className="ug-metrics-grid">
+      {section.items.map((item, i) => (
+        <div key={i} className="ug-metric">
+          <span className="ug-metric-value">{item.prefix}{item.value}{item.suffix}</span>
+          <span className="ug-metric-label">{item.label}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+);
+
+const NextProjectSection = ({ project, navigate }) => (
+  <div className="ug-section ug-next" onClick={() => navigate(`/case-study/${project.id}`)}>
+    <div className="ug-next-content hover-target">
+      <span className="ug-label">Next Project</span>
+      <h2>{project.title} <ArrowRight size={40} /></h2>
+    </div>
+  </div>
 );
 
 /* ═══════════════════════════════════════════════
@@ -398,177 +488,84 @@ const CaseStudy = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const study = caseStudies[id];
-  const heroRef = useRef(null);
 
-  /* scroll-driven hero parallax */
-  const { scrollYProgress } = useScroll({
-    target: heroRef,
-    offset: ['start start', 'end start'],
-  });
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
-  const heroScale = useTransform(scrollYProgress, [0, 0.8], [1, 0.97]);
-
-  /* scroll to top on route change */
   useEffect(() => {
-    const resetScroll = () => {
-      if (window.lenis) {
-        window.lenis.scrollTo(0, { immediate: true });
-      } else {
-        window.scrollTo(0, 0);
-      }
-    };
-
-    resetScroll();
-    requestAnimationFrame(resetScroll);
+    if (window.lenis) {
+      window.lenis.scrollTo(0, { immediate: true });
+    } else {
+      window.scrollTo(0, 0);
+    }
   }, [id]);
 
-  /* ── Not Found ── */
   if (!study) {
     return (
-      <div className="cs-not-found main-content">
+      <div className="ug-not-found">
         <h2>Case Study Not Found</h2>
-        <p>The project you're looking for doesn't exist.</p>
-        <button onClick={() => navigate('/')} className="btn btn-outline">
-          Return Home
-        </button>
+        <Link to="/" className="btn btn-outline">Return Home</Link>
       </div>
     );
   }
 
-  /* meta labels for display */
-  const metaLabels = {
-    role: 'Role',
-    timeline: 'Timeline',
-    team: 'Team',
-    tools: 'Tools',
-  };
-
   return (
-    <article className="cs-page">
-      {/* ── HERO ── */}
-      <motion.section ref={heroRef} className="cs-hero" style={{ opacity: heroOpacity }}>
-        <motion.div className="cs-hero-content" style={{ scale: heroScale }}>
-          {/* Back button */}
-          <motion.div
-            className="cs-hero-topbar main-content"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <Link to="/#work" className="cs-back hover-target">
-              <ArrowLeft size={16} />
-              <span>All Projects</span>
-            </Link>
-          </motion.div>
+    <div className="ug-page">
+      
+      {/* Top Navigation Bar */}
+      <div className="ug-nav">
+        <Link to="/#work" className="ug-back hover-target">
+          <ArrowLeft size={16} /> Back to Projects
+        </Link>
+      </div>
 
-          {/* Project identity */}
-          <div className="cs-hero-body main-content">
-            <motion.div
-              className="cs-hero-meta-top"
-              initial="hidden"
-              animate="visible"
-              variants={staggerContainer}
-            >
-              <motion.span className="cs-project-number" variants={fadeUp}>
-                {study.number}
-              </motion.span>
-              <motion.span className="cs-project-category section-label" variants={fadeUp}>
-                {study.category}
-              </motion.span>
-            </motion.div>
+      {/* Top Header Section */}
+      <header className="ug-hero-header">
+        <div className="ug-hero-header-inner">
+          <span className="ug-project-category">{study.number} &mdash; {study.category}</span>
+          <h1 className="ug-project-title">{study.title}</h1>
+          <p className="ug-project-subtitle">{study.subtitle}</p>
 
-            <SplitReveal
-              text={study.title}
-              tag="h1"
-              className="cs-hero-title"
-              delay={0.2}
-            />
-
-            <motion.p
-              className="cs-hero-subtitle"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
-            >
-              {study.subtitle}
-            </motion.p>
-
-            {/* Meta grid */}
-            <motion.div
-              className="cs-meta-grid"
-              initial="hidden"
-              animate="visible"
-              variants={{
-                hidden: {},
-                visible: { transition: { staggerChildren: 0.08, delayChildren: 0.6 } },
-              }}
-            >
-              {Object.entries(study.meta).map(([key, value]) => (
-                <motion.div key={key} className="cs-meta-item" variants={fadeUp}>
-                  <span className="cs-meta-key">{metaLabels[key] || key}</span>
-                  <span className="cs-meta-value">{value}</span>
-                </motion.div>
-              ))}
-            </motion.div>
+          <div className="ug-meta-grid">
+            {Object.entries(study.meta).map(([key, value]) => (
+              <div key={key} className="ug-meta-item">
+                <strong>{key}</strong>
+                <span>{value}</span>
+              </div>
+            ))}
           </div>
+        </div>
+      </header>
 
-          {/* Hero image — full-bleed */}
-          <motion.div
-            className="cs-hero-image-wrap"
-            initial={{ opacity: 0, y: 80, scale: 0.96 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 1, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <ParallaxImage
-              src={study.heroImage}
-              alt={study.title}
-              speed={0.08}
-              aspectRatio="16/9"
-            />
-          </motion.div>
-        </motion.div>
-      </motion.section>
-
-      {/* ── CONTENT SECTIONS ── */}
-      <div className="cs-body">
+      {/* Centered Scrolling Content */}
+      <main className="ug-content">
         {study.sections.map((section, index) => {
           switch (section.type) {
-            case 'text':
-              return <TextSection key={index} section={section} />;
-            case 'image':
-              return <ImageSection key={index} section={section} />;
+            case 'hero':
+              return <HeroImage key={index} src={section.src} />;
+            case 'text-huge':
+              return <TextHugeSection key={index} content={section.content} />;
+            case 'editorial-text':
+              return <EditorialTextSection key={index} section={section} />;
+            case 'image-cluster':
+              return <ImageClusterSection key={index} section={section} />;
+            case 'text-split':
+              return <EditorialTextSection key={index} section={section} />;
             case 'quote':
-              return <QuoteSection key={index} section={section} />;
+              return <QuoteSection key={index} text={section.text} />;
+            case 'image-fullbleed':
+              return <ImageFullbleedSection key={index} section={section} />;
+            case 'image-panel':
+              return <ImageSection key={index} section={section} />;
+            case 'list-massive':
+              return <ListMassiveSection key={index} section={section} />;
             case 'metrics':
               return <MetricsSection key={index} section={section} />;
             default:
               return null;
           }
         })}
-      </div>
 
-      {/* ── NEXT PROJECT TEASER ── */}
-      {study.nextProject && (
-        <motion.section
-          className="cs-next"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
-          variants={fadeUp}
-          onClick={() => navigate(`/case-study/${study.nextProject.id}`)}
-        >
-          <div className="cs-next-inner main-content">
-            <span className="section-label">Next Project</span>
-            <h2 className="cs-next-title hover-target">
-              <span className="cs-next-title-text">{study.nextProject.title}</span>
-              <span className="cs-next-arrow-wrap">
-                <ArrowUpRight size={40} className="cs-next-arrow" />
-              </span>
-            </h2>
-          </div>
-        </motion.section>
-      )}
-    </article>
+        {study.nextProject && <NextProjectSection project={study.nextProject} navigate={navigate} />}
+      </main>
+    </div>
   );
 };
 

@@ -15,8 +15,8 @@
 }
 
 .section-label--bento {
-  color: var(--accent-purple);
-  background: rgba(124, 58, 237, 0.15);
+  color: var(--accent);
+  background: rgba(124, 58, 237, 0.15); /* Apple Blue background */
   border-color: rgba(124, 58, 237, 0.2);
 }
 
@@ -76,7 +76,7 @@
   font-family: var(--font-serif);
   font-size: 5rem;
   line-height: 1;
-  color: var(--accent-purple);
+  color: var(--accent);
   opacity: 0.5;
   margin-bottom: -1rem;
 }
@@ -116,7 +116,7 @@
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle at center, rgba(124, 58, 237, 0.1) 0%, transparent 50%);
+  background: radial-gradient(circle at center, rgba(124, 58, 237, 0.15) 0%, transparent 50%); /* Apple Blue glow */
   opacity: 0;
   transition: opacity 0.5s ease;
   pointer-events: none;

@@ -46,8 +46,8 @@
 
 .simple-card:hover {
   transform: translateY(-5px);
-  border-color: rgba(124, 58, 237, 0.3);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  border-color: rgba(124, 58, 237, 0.3); /* Apple Blue hover */
+  box-shadow: var(--shadow-lg); /* Use massive diffused shadow */
 }
 
 /* ═════ CARD CONTENT ═════ */
@@ -59,8 +59,8 @@
   font-family: var(--font-mono);
   font-size: 1.125rem;
   font-weight: 600;
-  color: var(--accent-purple);
-  background: rgba(124, 58, 237, 0.08);
+  color: var(--accent);
+  background: rgba(124, 58, 237, 0.08); /* Apple blue background */
   padding: 0.5rem 1rem;
   border-radius: 100px;
 }

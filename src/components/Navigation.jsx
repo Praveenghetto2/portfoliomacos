@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import './Navigation.css';
 
 const NAV_ITEMS = [
-  { label: 'Work', section: 'work' },
   { label: 'Process', section: 'process' },
   { label: 'About', section: 'about' },
   { label: 'Contact', section: 'contact' },
@@ -151,18 +150,41 @@ const Navigation = () => {
         {/* Desktop Navigation */}
         <nav className="desktop-nav">
           <div className="nav-links">
-            {NAV_ITEMS.map((item) => (
-              <a
-                key={item.section}
-                href={`/#${item.section}`}
-                className={`nav-link hover-target ${
-                  isHomepage && activeSection === item.section ? 'active' : ''
-                }`}
-                onClick={(e) => handleNavClick(e, item.section)}
-              >
-                {item.label}
-              </a>
-            ))}
+            {NAV_ITEMS.map((item) => {
+              // Hide About and Contact on non-homepage routes
+              if (!isHomepage && (item.section === 'about' || item.section === 'contact')) {
+                return null;
+              }
+              return (
+                <a
+                  key={item.section}
+                  href={`/#${item.section}`}
+                  className={`nav-link hover-target ${
+                    isHomepage && activeSection === item.section ? 'active' : ''
+                  }`}
+                  onClick={(e) => handleNavClick(e, item.section)}
+                >
+                  {item.label}
+                </a>
+              );
+            })}
+
+
+            <Link 
+              to="/work" 
+              className={`nav-link hover-target ${location.pathname === '/work' ? 'active' : ''}`}
+              onClick={() => setIsOpen(false)}
+            >
+              Work
+            </Link>
+
+            <Link 
+              to="/blog" 
+              className={`nav-link hover-target ${location.pathname.startsWith('/blog') ? 'active' : ''}`}
+              onClick={() => setIsOpen(false)}
+            >
+              Blog
+            </Link>
             
             {/* Direct Route Link for Resume */}
             <Link 
@@ -209,17 +231,43 @@ const Navigation = () => {
               animate="visible"
               exit="exit"
             >
-              {NAV_ITEMS.map((item) => (
-                <motion.a
-                  key={item.section}
-                  href={`/#${item.section}`}
+              {NAV_ITEMS.map((item) => {
+                if (!isHomepage && (item.section === 'about' || item.section === 'contact')) {
+                  return null;
+                }
+                return (
+                  <motion.a
+                    key={item.section}
+                    href={`/#${item.section}`}
+                    className="mobile-nav-link hover-target"
+                    variants={linkVariants}
+                    onClick={(e) => handleNavClick(e, item.section)}
+                  >
+                    {item.label}
+                  </motion.a>
+                );
+              })}
+
+
+              <motion.div variants={linkVariants}>
+                <Link
+                  to="/work"
                   className="mobile-nav-link hover-target"
-                  variants={linkVariants}
-                  onClick={(e) => handleNavClick(e, item.section)}
+                  onClick={() => setIsOpen(false)}
                 >
-                  {item.label}
-                </motion.a>
-              ))}
+                  Work
+                </Link>
+              </motion.div>
+
+              <motion.div variants={linkVariants}>
+                <Link
+                  to="/blog"
+                  className="mobile-nav-link hover-target"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Blog
+                </Link>
+              </motion.div>
 
               <motion.div variants={linkVariants}>
                 <Link
