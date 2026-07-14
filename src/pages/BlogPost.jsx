@@ -54,14 +54,9 @@ const BlogPost = () => {
   if (!post) return null;
 
   return (
-    <div className="ug-page" style={{ paddingTop: '80px', minHeight: '100vh', backgroundColor: '#F4F3F0' }}>
+    <div className="ug-page">
       
-      {/* Top Navigation Bar */}
-      <div className="ug-nav">
-        <Link to="/blog" className="ug-back hover-target">
-          <ArrowLeft size={16} /> Back to Insights
-        </Link>
-      </div>
+
 
       <main className="main-content" style={{ padding: '4rem 2rem 8rem 2rem', maxWidth: '800px', margin: '0 auto' }}>
         
@@ -70,17 +65,17 @@ const BlogPost = () => {
         >
           {/* SEO Semantic Header */}
           <header style={{ marginBottom: '4rem' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem', fontSize: '0.85rem', color: '#666', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+            <div className="text-label" style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
               <span>{post.category}</span>
               <span>•</span>
               <time dateTime={new Date(post.date).toISOString()}>{post.date}</time>
               <span>•</span>
               <span>{post.readTime}</span>
             </div>
-            <h1 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.1, color: '#111', marginBottom: '1.5rem' }}>
+            <h1 className="text-h1" style={{ marginBottom: '1.5rem' }}>
               {post.title}
             </h1>
-            <p style={{ fontSize: '1.35rem', color: '#555', lineHeight: 1.5 }}>
+            <p className="text-body-large">
               {post.excerpt}
             </p>
           </header>

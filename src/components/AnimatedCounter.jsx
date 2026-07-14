@@ -76,7 +76,6 @@ function AnimatedCounter({
       style={{
         fontFamily: 'var(--font-mono)',
         fontVariantNumeric: 'tabular-nums',
-        willChange: 'contents',
       }}
     >
       {prefix}

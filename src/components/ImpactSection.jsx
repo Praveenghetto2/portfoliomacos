@@ -36,7 +36,7 @@ export default function ImpactSection() {
           
           {/* Quote Anchor Card (Spans 2x2) */}
           <motion.div 
-            className="bento-card bento-quote-card"
+            className="bento-impact-card bento-quote-card"
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-50px' }}
             variants={fadeUp} custom={0}
           >
@@ -57,7 +57,7 @@ export default function ImpactSection() {
           {metrics.map((m, i) => (
             <motion.div 
               key={i} 
-              className={`bento-card bento-metric-card metric-${i + 1}`}
+              className={`bento-impact-card bento-metric-card metric-${i + 1}`}
               initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-50px' }}
               variants={fadeUp} custom={i + 1}
             >

@@ -31,10 +31,10 @@ export default function Resume() {
             initial="hidden" animate="visible" variants={staggerContainer}
           >
             <div className="resume-sticky-content">
-              <motion.h1 className="resume-name" variants={fadeUp}>
+              <motion.h1 className="text-h1 resume-name" variants={fadeUp}>
                 Praveen Kumar
               </motion.h1>
-              <motion.h2 className="resume-title-role" variants={fadeUp}>
+              <motion.h2 className="text-body-large resume-title-role" variants={fadeUp}>
                 UI/UX Designer
               </motion.h2>
               
@@ -62,7 +62,7 @@ export default function Resume() {
               initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-50px' }}
               variants={staggerContainer}
             >
-              <motion.h3 className="resume-section-heading" variants={fadeUp}>Experience</motion.h3>
+              <motion.h3 className="text-h2 resume-section-heading" variants={fadeUp}>Experience</motion.h3>
               
               <motion.div className="resume-item" variants={fadeUp}>
                 <div className="resume-timeline-marker"></div>
@@ -71,8 +71,12 @@ export default function Resume() {
                   <h4 className="resume-role">UI/UX Designer</h4>
                   <div className="resume-company">Candescent</div>
                   <ul className="resume-desc-list">
-                    <li>Leading 0-to-1 product design initiatives for next-generation digital experiences, focusing on scalable architecture and seamless user journeys.</li>
-                    <li>Collaborating directly with engineering and product leadership to define product vision and execution strategies.</li>
+                    <li><strong>Move Money Team:</strong> Designed comprehensive payment experiences for retail and business banking customers.</li>
+                    <li><strong>Unified Payments:</strong> Consolidated ACH, Wire, and Instant Payments into a single, streamlined contact-centric flow.</li>
+                    <li><strong>End-to-End UX/UI:</strong> Owned the design of Single/Multi-Send, Bill Pay, and ACH File Uploads, delivering over 600+ screens.</li>
+                    <li><strong>Workflow Optimization:</strong> Radically simplified complex bulk payment and transaction management user flows.</li>
+                    <li><strong>Cross-Functional Leadership:</strong> Partnered with PMs, Engineering, and Compliance to ship scalable, user-centered financial products.</li>
+                    <li><strong>Design Systems:</strong> Scaled an MUI-based design system, accelerating design-to-dev handoff and ensuring cross-product consistency.</li>
                   </ul>
                 </div>
               </motion.div>
@@ -126,7 +130,7 @@ export default function Resume() {
               initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-50px' }}
               variants={staggerContainer}
             >
-              <motion.h3 className="resume-section-heading" variants={fadeUp}>Education</motion.h3>
+              <motion.h3 className="text-h2 resume-section-heading" variants={fadeUp}>Education</motion.h3>
               
               <motion.div className="resume-item" variants={fadeUp}>
                 <div className="resume-timeline-marker"></div>
@@ -144,7 +148,7 @@ export default function Resume() {
               initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-50px' }}
               variants={staggerContainer}
             >
-              <motion.h3 className="resume-section-heading" variants={fadeUp}>Tools & Technologies</motion.h3>
+              <motion.h3 className="text-h2 resume-section-heading" variants={fadeUp}>Tools & Technologies</motion.h3>
               
               <motion.div className="resume-tags" variants={fadeUp}>
                 <span className="resume-tag">Figma</span>

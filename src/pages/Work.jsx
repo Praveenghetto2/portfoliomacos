@@ -64,12 +64,7 @@ const Work = () => {
 
   return (
     <div className="work-archive-page">
-      {/* Top Navigation Bar */}
-      <div className="ug-nav">
-        <Link to="/" className="ug-back hover-target">
-          <ArrowLeft size={16} /> Back to Home
-        </Link>
-      </div>
+
 
       <section className="ch-work-archive">
         <div className="main-content">
@@ -78,7 +73,7 @@ const Work = () => {
             variants={fadeUp}
           >
             <span className="section-label">WORK ARCHIVE •</span>
-            <h2 className="archive-heading">Systematic digital solutions.</h2>
+            <h1 className="text-h1 archive-heading">Systematic digital solutions.</h1>
             <p className="archive-header-sub">
               A detailed exploration of AI analytics interfaces and growth optimization frameworks built to achieve measurable business outcomes.
             </p>
@@ -101,7 +96,7 @@ const Work = () => {
                       <span className="bento-num">{project.num}</span>
                       <span className="bento-cat">{project.category}</span>
                     </div>
-                    <h3 className="bento-title">{project.title}</h3>
+                    <h3 className="text-h2 bento-title">{project.title}</h3>
                     <p className="bento-desc">{project.desc}</p>
                     <div className="bento-action-arrow">
                       <span>View Case Study</span>
@@ -131,7 +126,7 @@ const Work = () => {
 
                   {/* Module 3: Strategic Outcomes */}
                   <div className="bento-module module-outcomes">
-                    <h4 className="bento-module-title">Strategic Outcomes</h4>
+                    <h4 className="text-h3 bento-module-title">Strategic Outcomes</h4>
                     <ul className="bento-outcomes-list">
                       {project.outcomes.map((o, idx) => (
                         <li key={idx} className="bento-outcome-item">{o}</li>
@@ -141,7 +136,7 @@ const Work = () => {
 
                   {/* Module 4: Metrics Dashboard */}
                   <div className="bento-module module-metrics">
-                    <h4 className="bento-module-title">Measurable Impact</h4>
+                    <h4 className="text-h3 bento-module-title">Measurable Impact</h4>
                     <div className="bento-metrics-grid">
                       {project.metrics.map((m, idx) => (
                         <div key={idx} className="bento-metric-card">

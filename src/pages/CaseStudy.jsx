@@ -379,7 +379,7 @@ const HeroImage = ({ src }) => (
 
 const TextHugeSection = ({ content }) => (
   <div className="ug-section ug-text-huge">
-    <h2>{content}</h2>
+    <h2 className="text-h2">{content}</h2>
   </div>
 );
 
@@ -389,7 +389,7 @@ const EditorialTextSection = ({ section }) => (
     <div className="editorial-content">
       <div className="editorial-left">
         <span className="ug-label">{section.label}</span>
-        <h2>{section.title}</h2>
+        <h2 className="text-h2">{section.title}</h2>
       </div>
       <div className="editorial-right">
         {section.content && section.content.map((p, i) => (
@@ -442,7 +442,7 @@ const ListMassiveSection = ({ section }) => (
     {section.watermark && <div className="editorial-watermark">{section.watermark}</div>}
     <div className="ug-list-header">
       <span className="ug-label">{section.label}</span>
-      <h2>{section.title}</h2>
+      <h2 className="text-h2">{section.title}</h2>
     </div>
     <div className="ug-list">
       {section.items.map((item, i) => (
@@ -459,7 +459,7 @@ const MetricsSection = ({ section }) => (
   <div className="ug-section ug-metrics">
     <div className="ug-metrics-header">
       <span className="ug-label">{section.label}</span>
-      <h2>{section.title}</h2>
+      <h2 className="text-h2">{section.title}</h2>
     </div>
     <div className="ug-metrics-grid">
       {section.items.map((item, i) => (
@@ -476,7 +476,7 @@ const NextProjectSection = ({ project, navigate }) => (
   <div className="ug-section ug-next" onClick={() => navigate(`/case-study/${project.id}`)}>
     <div className="ug-next-content hover-target">
       <span className="ug-label">Next Project</span>
-      <h2>{project.title} <ArrowRight size={40} /></h2>
+      <h2 className="text-h2">{project.title} <ArrowRight size={40} /></h2>
     </div>
   </div>
 );
@@ -500,7 +500,7 @@ const CaseStudy = () => {
   if (!study) {
     return (
       <div className="ug-not-found">
-        <h2>Case Study Not Found</h2>
+        <h2 className="text-h2">Case Study Not Found</h2>
         <Link to="/" className="btn btn-outline">Return Home</Link>
       </div>
     );
@@ -509,18 +509,13 @@ const CaseStudy = () => {
   return (
     <div className="ug-page">
       
-      {/* Top Navigation Bar */}
-      <div className="ug-nav">
-        <Link to="/#work" className="ug-back hover-target">
-          <ArrowLeft size={16} /> Back to Projects
-        </Link>
-      </div>
+
 
       {/* Top Header Section */}
       <header className="ug-hero-header">
         <div className="ug-hero-header-inner">
           <span className="ug-project-category">{study.number} &mdash; {study.category}</span>
-          <h1 className="ug-project-title">{study.title}</h1>
+          <h1 className="text-h1">{study.title}</h1>
           <p className="ug-project-subtitle">{study.subtitle}</p>
 
           <div className="ug-meta-grid">

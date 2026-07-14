@@ -45,7 +45,7 @@
 }
 
 /* ═════ BASE BENTO CARD ═════ */
-.bento-card {
+.bento-impact-card {
   position: relative;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -56,7 +56,7 @@
   z-index: 1;
 }
 
-.bento-card:hover {
+.bento-impact-card:hover {
   transform: translateY(-5px);
   border-color: rgba(255, 255, 255, 0.2);
 }

@@ -10,6 +10,7 @@ import MagneticButton from '../components/MagneticButton';
 import ContactSection from '../components/ContactSection';
 import ProcessSection from '../components/ProcessSection';
 import ImpactSection from '../components/ImpactSection';
+import FigmaHero from '../components/FigmaHero';
 import './Home.css';
 
 /* ═══════════════════════════════════════════════
@@ -238,64 +239,9 @@ const Home = () => {
     <main>
 
       {/* ═══════ CHAPTER 1 — HERO ═══════ */}
-      <section className="hero-split" id="hero" ref={heroRef} onMouseMove={handleMouseMoveParallax}>
-        
-        {/* Main Content */}
-        <div className="hero-split-inner main-content">
-          
-          {/* Left: Typography (30%) */}
-          <motion.div className="hero-typography-split"
-            style={{ y: heroTextY }}
-            initial="hidden" animate="visible"
-            variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.18, delayChildren: 0.2 } } }}
-          >
-            <motion.h1 className="hero-headline"
-              variants={{ hidden: { opacity: 0, y: 40, filter: 'blur(10px)' }, visible: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] } } }}
-            >
-              <span className="headline-row">Designing</span>
-              <span className="headline-row headline-accent">clarity.</span>
-            </motion.h1>
-
-            <motion.p className="hero-body"
-              variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 1, ease: [0.16, 1, 0.3, 1] } } }}
-            >
-              I'm a Product Designer turning complex problems into simple experiences.
-            </motion.p>
-
-            <motion.div className="hero-actions"
-              variants={{ hidden: { opacity: 0, y: 15 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } } }}
-            >
-              <Link to="/work" className="hero-btn-primary hover-target">
-                <span>View My Work</span>
-                <span className="btn-arrow">→</span>
-              </Link>
-            </motion.div>
-          </motion.div>
-          
-          {/* Right: Illustration (70%) */}
-          <motion.div className="hero-illustration-wrapper-split"
-            style={{ y: heroImageY }}
-            initial={{ opacity: 0, x: 40, scale: 0.98 }}
-            animate={{ opacity: 1, x: 0, scale: 1 }}
-            transition={{ duration: 1.2, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          >
-            {/* Floating Animation Wrapper */}
-            <motion.div
-              animate={{ y: [-15, 15, -15] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-              style={{ width: '100%', display: 'flex', justifyContent: 'center' }}
-            >
-              <motion.img 
-                src="/assets/design_island_annotated.jpg" 
-                alt="Design Island Annotated"
-                className="hero-landscape-img"
-                style={{ x: cardParallaxX, y: cardParallaxY }}
-              />
-            </motion.div>
-          </motion.div>
-        </div>
-
-      </section>
+      <div id="hero" ref={heroRef}>
+        <FigmaHero />
+      </div>
 
       {/* ═══════ STANDALONE IMPACT SUMMARY ═══════ */}
       <section className="hero-impact-summary-section">
@@ -438,7 +384,7 @@ const Home = () => {
             variants={fadeUp}
           >
             <span className="section-label">SELECTED WORK •</span>
-            <h2 className="work-heading">Designing products that create measurable business impact.</h2>
+            <h2 className="text-h2 work-heading">Designing products that create measurable business impact.</h2>
             <p className="work-header-sub">
               A curated collection of SaaS, Fintech, and AI products where research, strategy, systems thinking, and execution combined to drive meaningful outcomes.
             </p>

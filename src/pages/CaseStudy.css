@@ -11,36 +11,7 @@
   overflow-x: hidden;
 }
 
-/* Top Navigation */
-.ug-nav {
-  position: fixed;
-  top: 1.5rem;
-  left: 2rem;
-  z-index: 100;
-  background: rgba(244, 243, 240, 0.85);
-  backdrop-filter: blur(10px);
-  padding: 0.5rem 1rem;
-  border-radius: 50px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-  border: 1px solid rgba(0,0,0,0.05);
-}
 
-.ug-back {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  text-decoration: none;
-  color: #1A1A1A;
-  transition: opacity 0.3s ease;
-}
-
-.ug-back:hover {
-  opacity: 0.6;
-}
 
 /* ── TOP HERO HEADER ── */
 .ug-hero-header {

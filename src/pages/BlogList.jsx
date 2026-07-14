@@ -20,14 +20,9 @@ const BlogList = () => {
   });
 
   return (
-    <div className="ug-page" style={{ paddingTop: '80px', minHeight: '100vh', backgroundColor: '#F4F3F0' }}>
+    <div className="ug-page">
       
-      {/* Top Navigation Bar */}
-      <div className="ug-nav">
-        <Link to="/" className="ug-back hover-target">
-          <ArrowLeft size={16} /> Back to Home
-        </Link>
-      </div>
+
 
       <main className="main-content" style={{ padding: '6rem 2rem' }}>
         
@@ -39,50 +34,59 @@ const BlogList = () => {
             Insights & Writing
           </motion.span>
           <motion.h1 
-            style={{ fontSize: 'clamp(3rem, 6vw, 4.5rem)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.1, marginTop: '1rem', color: '#111' }}
+            className="text-h1"
+            style={{ marginTop: '1rem' }}
             initial="hidden" animate="visible" variants={fadeUp} custom={1}
           >
             Thoughts on product, systems, and the future of SaaS.
           </motion.h1>
         </header>
 
-        <div className="blog-list-grid" style={{ display: 'grid', gap: '4rem', maxWidth: '900px' }}>
-          {blogData.map((post, i) => (
-            <motion.article 
-              key={post.id}
-              initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-50px' }}
-              variants={fadeUp} custom={i * 0.2}
-            >
-              <Link to={`/blog/${post.slug}`} className="blog-card hover-target">
-                
-                {/* Image Column */}
-                {post.coverImage && (
-                  <div className="blog-card-image-wrap">
-                    <img src={post.coverImage} alt={post.title} className="blog-card-img" />
-                  </div>
-                )}
+        <div className="bento-blog-grid">
+          {blogData.map((post, i) => {
+            const isFeatured = i === 0;
 
-                {/* Text Column */}
-                <div style={{ flex: '1' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem', fontSize: '0.85rem', color: '#666', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                    <span>{post.category}</span>
-                    <span>•</span>
-                    <span>{post.date}</span>
-                  </div>
-                  <h2 style={{ fontSize: 'clamp(2rem, 3.5vw, 2.5rem)', fontWeight: 600, letterSpacing: '-0.01em', marginBottom: '1rem', lineHeight: 1.2 }}>
-                    {post.title}
-                  </h2>
-                  <p style={{ fontSize: '1.15rem', color: '#555', lineHeight: 1.6, marginBottom: '2rem', maxWidth: '800px' }}>
-                    {post.excerpt}
-                  </p>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: 500, fontSize: '1rem' }}>
-                    Read Article <ArrowRight size={16} className="blog-card-arrow" />
-                  </div>
-                </div>
+            return (
+              <motion.article 
+                key={post.id}
+                className={`bento-card ${isFeatured ? 'bento-featured' : 'bento-standard'}`}
+                initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-50px' }}
+                variants={fadeUp} custom={i * 0.15}
+              >
+                <Link to={`/blog/${post.slug}`} className="bento-link hover-target">
+                  
+                  {/* Image Area */}
+                  {post.coverImage && (
+                    <div className="bento-image-wrapper">
+                      <img src={post.coverImage} alt={post.title} className="bento-img" />
+                    </div>
+                  )}
 
-              </Link>
-            </motion.article>
-          ))}
+                  {/* Text Content */}
+                  <div className="bento-content">
+                    <div className="bento-meta">
+                      <span className="bento-category">{post.category}</span>
+                      <span className="bento-dot">•</span>
+                      <span>{post.date}</span>
+                    </div>
+                    
+                    <h2 className="bento-title">
+                      {post.title}
+                    </h2>
+                    
+                    <p className="bento-excerpt">
+                      {post.excerpt}
+                    </p>
+                    
+                    <div className="bento-action">
+                      Read Article <ArrowRight size={16} className="bento-arrow" />
+                    </div>
+                  </div>
+
+                </Link>
+              </motion.article>
+            );
+          })}
         </div>
 
       </main>

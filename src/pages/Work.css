@@ -11,29 +11,6 @@
   overflow: hidden;
 }
 
-.ug-nav {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 var(--container-padding);
-  margin-bottom: var(--space-md);
-}
-
-.ug-back {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-decoration: none;
-  color: var(--text-secondary);
-  transition: color 0.3s ease;
-}
-
-.ug-back:hover {
-  color: var(--accent-purple);
-}
-
 .ch-work-archive {
   padding-bottom: var(--space-3xl);
 }
