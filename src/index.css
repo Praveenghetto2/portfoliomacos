@@ -1,309 +1,123 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Caveat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-apple-bg: #FFFFFF;
+  --color-apple-card: #FFFFFF;
+  --color-apple-text: #0D0D16;
+  --color-apple-subtext: #6B7280;
+  --color-apple-border: rgba(13, 13, 22, 0.08);
+  --color-brand-purple: #6C3DFF;
+  --color-brand-purple-light: #A58CFF;
+  --color-brand-blue: #3B82F6;
+  --color-brand-dark: #0D0D16;
+  
+  --font-display: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  
+  --shadow-apple-sm: 0 2px 8px rgba(13, 13, 22, 0.04);
+  --shadow-apple-md: 0 12px 48px rgba(13, 13, 22, 0.06);
+  --shadow-apple-glass: 0 30px 60px rgba(13, 13, 22, 0.08), inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+  
+  --background-image-electric-purple: linear-gradient(135deg, #6C3DFF 0%, #A58CFF 100%);
+}
 
 /* ═══════════════════════════════════════════════
-   DESIGN TOKENS
+   DESIGN TOKENS & UTILITIES
    ═══════════════════════════════════════════════ */
 :root {
-  /* Apple Color Palette */
   --bg-primary: #FFFFFF;
-  --bg-secondary: #F5F5F7; /* Apple's signature cool gray */
-  --bg-dark: #000000;
-  --bg-muted: #E5E5EA;
-  --text-primary: #1D1D1F; /* Stark contrast off-black */
-  --text-secondary: #86868B;
-  --text-tertiary: #A1A1A6;
-  --text-inverse: #FFFFFF;
-  --border-color: rgba(0, 0, 0, 0.08);
-  --border-color-hover: rgba(0, 0, 0, 0.16);
-  --accent: #7C3AED; /* Reverted to custom purple */
-  --accent-purple: #7C3AED;
-  --accent-hover: #5B21B6;
-  --accent-warm: #FF6B35; /* Kept for sparklines if needed, but suppressed globally */
-  --accent-blue: #3B82F6; /* Used for metric cards */
+  --bg-secondary: #F8F9FA;
+  --bg-dark: #0D0D16;
+  --text-primary: #0D0D16;
+  --text-secondary: #6B7280;
+  --text-tertiary: #9CA3AF;
+  --accent: #6C3DFF;
+  --accent-purple: #6C3DFF;
+  --accent-purple-light: #A58CFF;
+  --accent-blue: #3B82F6;
+  --border-color: rgba(13, 13, 22, 0.08);
+  --border-color-hover: rgba(13, 13, 22, 0.16);
 
-  /* Typography */
-  --font-display: 'Syne', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-serif: 'Playfair Display', Georgia, serif;
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-display: 'Plus Jakarta Sans', sans-serif;
+  --font-body: 'Inter', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
-  /* Spacing (Increased for more breathing room) */
-  --space-xs: clamp(0.75rem, 1.2vw, 1rem);
-  --space-sm: clamp(1.25rem, 2.5vw, 1.5rem);
-  --space-md: clamp(2rem, 4vw, 2.5rem);
-  --space-lg: clamp(3rem, 6vw, 4.5rem);
-  --space-xl: clamp(5rem, 8vw, 9rem);
-  --space-2xl: clamp(8rem, 12vw, 14rem);
-  --space-3xl: clamp(10rem, 15vw, 18rem);
-
-  /* Border Radii (The Apple Squircle) */
   --radius-sm: 8px;
   --radius-md: 16px;
   --radius-lg: 24px;
   --radius-xl: 32px;
   --radius-full: 9999px;
-
-  /* Layout */
-  --max-width: 1440px;
-  --content-width: 720px;
-  --container-padding: clamp(1.5rem, 5vw, 5rem);
-
-  /* Shadows (Massive, diffused soft blurs) */
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
-  --shadow-md: 0 12px 48px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 24px 80px rgba(0, 0, 0, 0.08);
-
-  /* Easing */
+  
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-out-circ: cubic-bezier(0, 0.55, 0.45, 1);
-}
-
-/* ═══════════════════════════════════════════════
-   RESET & BASE
-   ═══════════════════════════════════════════════ */
-*, *::before, *::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  font-size: 16px;
-  scroll-behavior: auto; /* Lenis handles smooth scroll */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
   font-family: var(--font-body);
   color: var(--text-primary);
   background-color: var(--bg-primary);
-  line-height: 1.6;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
-::selection {
-  background: var(--accent);
-  color: white;
+/* Premium White & Silver Grid Background */
+.bg-grid-pattern {
+  background-size: 60px 60px;
+  background-image: 
+    linear-gradient(to right, rgba(13, 13, 22, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(13, 13, 22, 0.02) 1px, transparent 1px);
 }
 
-img {
-  max-width: 100%;
-  display: block;
+.bg-dot-pattern {
+  background-size: 24px 24px;
+  background-image: radial-gradient(rgba(13, 13, 22, 0.04) 1px, transparent 1px);
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-button {
-  font-family: inherit;
-  cursor: pointer;
-  border: none;
-  background: none;
-}
-
-/* ═══════════════════════════════════════════════
-   TYPOGRAPHY
-   ═══════════════════════════════════════════════ */
+/* Typography styles */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
-  font-weight: 700;
-  letter-spacing: -0.04em; /* Tighter letter spacing like Apple */
-  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: -0.03em;
 }
 
-p {
-  line-height: 1.7;
+/* Glow Elements */
+.glow-purple {
+  filter: blur(120px);
+  background: radial-gradient(circle, rgba(108, 61, 255, 0.15) 0%, transparent 70%);
 }
 
-/* ═══════════════════════════════════════════════
-   LAYOUT UTILITIES
-   ═══════════════════════════════════════════════ */
-.main-content {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 var(--container-padding);
+.glow-blue {
+  filter: blur(100px);
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
 }
 
-/* ═══════════════════════════════════════════════
-   BUTTONS
-   ═══════════════════════════════════════════════ */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-family: var(--font-body);
-  font-size: 0.8125rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  padding: 0.875rem 1.75rem;
-  border-radius: var(--radius-full);
-  transition: all 0.3s var(--ease-out-expo);
-  white-space: nowrap;
-}
-
-.btn-primary {
-  background: var(--text-primary);
-  color: var(--text-inverse);
-}
-
-.btn-primary:hover {
-  background: var(--accent);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(45, 43, 255, 0.25);
-}
-
-.btn-outline {
-  border: 1px solid var(--border-color-hover);
-  color: var(--text-primary);
-  background: transparent;
-}
-
-.btn-outline:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-  transform: translateY(-2px);
-}
-
-.btn-ghost {
-  color: var(--text-secondary);
-  padding: 0.5rem 0;
-  text-transform: none;
-  letter-spacing: 0;
-  font-size: 0.875rem;
-}
-
-.btn-ghost:hover {
-  color: var(--accent);
-}
-
-/* ═══════════════════════════════════════════════
-   SECTION UTILITIES
-   ═══════════════════════════════════════════════ */
-.section-label {
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  font-weight: 600;
-  letter-spacing: 0.2em; /* Wider spacing for labels */
-  text-transform: uppercase;
-  color: var(--text-secondary); /* Apple prefers subtle grays for labels, not accent colors */
-  display: block;
-  margin-bottom: var(--space-sm);
-}
-
-.chapter-number {
-  font-family: var(--font-mono);
-  font-size: clamp(5rem, 10vw, 10rem);
-  font-weight: 700;
-  color: transparent;
-  -webkit-text-stroke: 1px var(--border-color-hover);
-  line-height: 1;
-  user-select: none;
-}
-
-/* ═══════════════════════════════════════════════
-   GLOBAL NAVIGATION (BACK BUTTONS)
-   ═══════════════════════════════════════════════ */
-.ug-nav {
-  position: fixed;
-  top: 6rem;
-  left: 2rem;
-  z-index: 90;
+/* Glassmorphism */
+.glass-panel {
   background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(13, 13, 22, 0.06);
+}
+
+.glass-badge {
+  background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  padding: 0.25rem;
-  border-radius: 100px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
-  border: 1px solid rgba(0,0,0,0.05);
-  transition: box-shadow 0.3s ease, background 0.3s ease;
+  border: 1px solid rgba(13, 13, 22, 0.05);
 }
 
-.ug-nav:hover {
-  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-  background: rgba(255, 255, 255, 0.95);
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
 }
-
-.ug-back {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-family: var(--font-body), sans-serif;
-  font-size: 0.8125rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  text-decoration: none;
-  color: var(--text-primary);
-  padding: 0.5rem 1rem 0.5rem 0.75rem;
-  border-radius: 100px;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+::-webkit-scrollbar-track {
+  background: transparent;
 }
-
-.ug-back svg {
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+::-webkit-scrollbar-thumb {
+  background: rgba(13, 13, 22, 0.1);
+  border-radius: 3px;
 }
-
-.ug-back:hover {
-  background: rgba(0,0,0,0.04);
-}
-
-.ug-back:hover svg {
-  transform: translateX(-4px);
-}
-
-/* ═══════════════════════════════════════════════
-   UNIVERSAL TYPOGRAPHY CLASSES
-   ═══════════════════════════════════════════════ */
-.text-h1 {
-  font-family: var(--font-display);
-  font-size: clamp(3rem, 6vw, 4.5rem);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.1;
-  color: var(--text-primary);
-}
-
-.text-h2 {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.1;
-  color: var(--text-primary);
-}
-
-.text-h3 {
-  font-family: var(--font-display);
-  font-size: clamp(1.5rem, 2.5vw, 2rem);
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  line-height: 1.2;
-  color: var(--text-primary);
-}
-
-.text-body-large {
-  font-family: var(--font-body);
-  font-size: 1.25rem;
-  line-height: 1.6;
-  color: var(--text-secondary);
-}
-
-.text-body {
-  font-family: var(--font-body);
-  font-size: 1.125rem;
-  line-height: 1.6;
-  color: var(--text-secondary);
-}
-
-.text-label {
-  font-family: var(--font-body);
-  font-size: 0.85rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--text-tertiary);
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(108, 61, 255, 0.3);
 }

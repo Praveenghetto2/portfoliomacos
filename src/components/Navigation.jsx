@@ -1,300 +1,133 @@
+import React, { useState, useEffect, useCallback } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
-import { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import './Navigation.css';
+import { Menu, X, Moon } from 'lucide-react';
 
-const NAV_ITEMS = [
-  { label: 'Process', section: 'process' },
+const NAV_LINKS = [
+  { label: 'Universe', section: 'universe' },
+  { label: 'Projects', section: 'projects' },
   { label: 'About', section: 'about' },
+  { label: 'Timeline', section: 'timeline' },
+  { label: 'Lab', section: 'lab' },
   { label: 'Contact', section: 'contact' },
 ];
 
 const Navigation = () => {
-  const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState('');
+  const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
-  const ticking = useRef(false);
-
   const isHomepage = location.pathname === '/';
 
-  // Close mobile menu on route change
   useEffect(() => {
-    setIsOpen(false);
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    setMobileOpen(false);
   }, [location]);
 
-  // Lock body scroll when mobile menu is open
   useEffect(() => {
-    if (isOpen) {
+    if (mobileOpen) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
     }
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [isOpen]);
+    return () => { document.body.style.overflow = ''; };
+  }, [mobileOpen]);
 
-  // Throttled scroll handler for scrolled state + active section tracking
-  const handleScroll = useCallback(() => {
-    if (ticking.current) return;
-    ticking.current = true;
-
-    requestAnimationFrame(() => {
-      const scrollY = window.scrollY;
-
-      // Glassmorphism trigger
-      setScrolled(scrollY > 80);
-
-      // Active section tracking (homepage only)
-      if (isHomepage) {
-        const sections = NAV_ITEMS.map((item) => {
-          const el = document.getElementById(item.section);
-          if (!el) return { id: item.section, top: Infinity, bottom: Infinity };
-          const rect = el.getBoundingClientRect();
-          return {
-            id: item.section,
-            top: rect.top,
-            bottom: rect.bottom,
-          };
-        });
-
-        const offset = window.innerHeight * 0.35;
-        let current = '';
-
-        for (const section of sections) {
-          if (section.top <= offset && section.bottom > 0) {
-            current = section.id;
-          }
-        }
-
-        setActiveSection(current);
-      }
-
-      ticking.current = false;
-    });
-  }, [isHomepage]);
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // initial check
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [handleScroll]);
-
-  // Handle nav link click — smooth scroll on homepage, navigate on other pages
-  const handleNavClick = useCallback(
-    (e, section) => {
-      e.preventDefault();
-
-      if (isHomepage) {
-        const el = document.getElementById(section);
-        if (el) {
-          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      } else {
-        navigate(`/#${section}`);
-      }
-
-      setIsOpen(false);
-    },
-    [isHomepage, navigate]
-  );
-
-  // Overlay animation variants
-  const overlayVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1 },
-    exit: { opacity: 0 },
-  };
-
-  const linkContainerVariants = {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.15,
-      },
-    },
-    exit: {
-      transition: {
-        staggerChildren: 0.05,
-        staggerDirection: -1,
-      },
-    },
-  };
-
-  const linkVariants = {
-    hidden: { opacity: 0, y: 40 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] },
-    },
-    exit: {
-      opacity: 0,
-      y: -20,
-      transition: { duration: 0.3, ease: [0.16, 1, 0.3, 1] },
-    },
-  };
+  const handleNavClick = useCallback((e, section) => {
+    e.preventDefault();
+    if (isHomepage) {
+      const el = document.getElementById(section);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      navigate(`/#${section}`);
+    }
+    setMobileOpen(false);
+  }, [isHomepage, navigate]);
 
   return (
-    <header className={`nav-header ${scrolled ? 'nav-scrolled' : ''}`}>
-      <div className="nav-container">
-        {/* Logo */}
-        <Link to="/" className="nav-logo hover-target">
-          PK<span className="nav-logo-dot">.</span>
-        </Link>
+    <>
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b ${
+          scrolled
+            ? 'bg-white/70 backdrop-blur-xl border-apple-border shadow-apple-sm py-3'
+            : 'bg-transparent border-transparent py-5'
+        }`}
+      >
+        <div className="max-w-[1600px] mx-auto px-6 md:px-12 lg:px-24 flex items-center justify-between">
+          {/* Logo */}
+          <Link to="/" className="text-2xl font-display font-extrabold tracking-tighter text-apple-text hover:text-brand-purple transition-colors">
+            PK<span className="text-brand-purple">.</span>
+          </Link>
 
-        {/* Desktop Navigation */}
-        <nav className="desktop-nav">
-          <div className="nav-links">
-            {NAV_ITEMS.map((item) => {
-              // Hide About and Contact on non-homepage routes
-              if (!isHomepage && (item.section === 'about' || item.section === 'contact')) {
-                return null;
-              }
-              return (
-                <a
-                  key={item.section}
-                  href={`/#${item.section}`}
-                  className={`nav-link hover-target ${
-                    isHomepage && activeSection === item.section ? 'active' : ''
-                  }`}
-                  onClick={(e) => handleNavClick(e, item.section)}
-                >
-                  {item.label}
-                </a>
-              );
-            })}
-
-
-            <Link 
-              to="/work" 
-              className={`nav-link hover-target ${location.pathname === '/work' ? 'active' : ''}`}
-              onClick={() => setIsOpen(false)}
-            >
-              Work
-            </Link>
-
-            <Link 
-              to="/blog" 
-              className={`nav-link hover-target ${location.pathname.startsWith('/blog') ? 'active' : ''}`}
-              onClick={() => setIsOpen(false)}
-            >
-              Blog
-            </Link>
-            
-            {/* Direct Route Link for Resume */}
-            <Link 
-              to="/resume" 
-              className={`nav-link hover-target ${location.pathname === '/resume' ? 'active' : ''}`}
-              onClick={() => setIsOpen(false)}
-            >
-              Resume
-            </Link>
-          </div>
-          <a
-            href="mailto:praveenpk990057@gmail.com"
-            className="nav-cta hover-target"
-          >
-            Let's Talk
-          </a>
-        </nav>
-
-        {/* Mobile Hamburger */}
-        <button
-          className={`mobile-menu-btn hover-target ${isOpen ? 'menu-open' : ''}`}
-          onClick={() => setIsOpen((prev) => !prev)}
-          aria-label={isOpen ? 'Close menu' : 'Open menu'}
-        >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </div>
-
-      {/* Mobile Full-Screen Overlay */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.nav
-            className="mobile-nav-overlay"
-            variants={overlayVariants}
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <motion.div
-              className="mobile-nav-links"
-              variants={linkContainerVariants}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-            >
-              {NAV_ITEMS.map((item) => {
-                if (!isHomepage && (item.section === 'about' || item.section === 'contact')) {
-                  return null;
-                }
-                return (
-                  <motion.a
-                    key={item.section}
-                    href={`/#${item.section}`}
-                    className="mobile-nav-link hover-target"
-                    variants={linkVariants}
-                    onClick={(e) => handleNavClick(e, item.section)}
-                  >
-                    {item.label}
-                  </motion.a>
-                );
-              })}
-
-
-              <motion.div variants={linkVariants}>
-                <Link
-                  to="/work"
-                  className="mobile-nav-link hover-target"
-                  onClick={() => setIsOpen(false)}
-                >
-                  Work
-                </Link>
-              </motion.div>
-
-              <motion.div variants={linkVariants}>
-                <Link
-                  to="/blog"
-                  className="mobile-nav-link hover-target"
-                  onClick={() => setIsOpen(false)}
-                >
-                  Blog
-                </Link>
-              </motion.div>
-
-              <motion.div variants={linkVariants}>
-                <Link
-                  to="/resume"
-                  className="mobile-nav-link hover-target"
-                  onClick={() => setIsOpen(false)}
-                >
-                  Resume
-                </Link>
-              </motion.div>
-            </motion.div>
-
-            <motion.div
-              className="mobile-nav-footer"
-              variants={linkVariants}
-            >
+          {/* Desktop Links */}
+          <nav className="hidden md:flex items-center gap-8">
+            {NAV_LINKS.map((link) => (
               <a
-                href="mailto:praveenpk990057@gmail.com"
-                className="mobile-nav-cta hover-target"
+                key={link.section}
+                href={`#${link.section}`}
+                onClick={(e) => handleNavClick(e, link.section)}
+                className="text-[11px] font-mono font-bold tracking-widest uppercase text-apple-subtext hover:text-brand-purple transition-colors"
               >
-                Let's Talk →
+                {link.label}
               </a>
-            </motion.div>
-          </motion.nav>
+            ))}
+          </nav>
+
+          {/* Right Side */}
+          <div className="flex items-center gap-3">
+            <button className="w-9 h-9 rounded-full border border-apple-border flex items-center justify-center text-apple-subtext hover:text-brand-purple hover:border-brand-purple transition-colors bg-white/50 backdrop-blur-md">
+              <Moon size={14} />
+            </button>
+            <button
+              className="md:hidden w-9 h-9 rounded-full border border-apple-border flex items-center justify-center text-apple-text bg-white/50"
+              onClick={() => setMobileOpen(true)}
+            >
+              <Menu size={14} />
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {/* Mobile Overlay */}
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="fixed inset-0 z-[100] bg-white/95 backdrop-blur-2xl flex flex-col justify-center items-center"
+          >
+            <button
+              className="absolute top-5 right-6 md:right-12 w-10 h-10 rounded-full border border-apple-border flex items-center justify-center text-apple-text"
+              onClick={() => setMobileOpen(false)}
+            >
+              <X size={18} />
+            </button>
+            <nav className="flex flex-col gap-8 text-center">
+              {NAV_LINKS.map((link, i) => (
+                <motion.a
+                  key={link.section}
+                  href={`#${link.section}`}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.08 }}
+                  onClick={(e) => handleNavClick(e, link.section)}
+                  className="text-4xl font-display font-extrabold uppercase text-apple-text hover:text-brand-purple transition-colors"
+                >
+                  {link.label}
+                </motion.a>
+              ))}
+            </nav>
+          </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </>
   );
 };
 

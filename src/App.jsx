@@ -2,6 +2,8 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import { useEffect, useRef } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import Lenis from 'lenis';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Navigation from './components/Navigation';
 import CustomCursor from './components/CustomCursor';
 import Home from './pages/Home';
@@ -12,6 +14,8 @@ import BlogPost from './pages/BlogPost';
 import Resume from './pages/Resume';
 import NotFound from './pages/NotFound';
 import './App.css';
+
+gsap.registerPlugin(ScrollTrigger);
 
 /* ── Animated Routes wrapper ── */
 function AnimatedRoutes() {
@@ -41,7 +45,7 @@ function AnimatedRoutes() {
 function App() {
   const lenisRef = useRef(null);
 
-  // Initialize Lenis smooth scroll
+  // Initialize Lenis smooth scroll + GSAP ScrollTrigger integration
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.2,
@@ -55,13 +59,14 @@ function App() {
     lenisRef.current = lenis;
     window.lenis = lenis;
 
-    // RAF loop for Lenis + Framer Motion integration
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
+    // Connect Lenis scroll to GSAP ScrollTrigger so pinning/scrubbing works
+    lenis.on('scroll', ScrollTrigger.update);
 
-    requestAnimationFrame(raf);
+    gsap.ticker.add((time) => {
+      lenis.raf(time * 1000);
+    });
+
+    gsap.ticker.lagSmoothing(0);
 
     return () => {
       lenis.destroy();
