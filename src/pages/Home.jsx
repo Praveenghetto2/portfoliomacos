@@ -631,6 +631,16 @@ const Home = () => {
             transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
           />
         </motion.div>
+
+        {/* Boot Status Text */}
+        <motion.p 
+          className="text-[11px] font-mono text-white/40 mt-4 tracking-wider"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5 }}
+        >
+          {bootProgress < 30 ? 'Loading kernel...' : bootProgress < 60 ? 'Mounting design system...' : bootProgress < 90 ? 'Preparing workspace...' : 'Welcome, Praveen'}
+        </motion.p>
       </motion.div>
     );
   }
@@ -639,6 +649,14 @@ const Home = () => {
   return (
     <main className="relative w-screen h-screen overflow-hidden select-none">
       
+      {/* Subtle vignette overlay for depth */}
+      <div className="fixed inset-0 pointer-events-none z-[1]" style={{ background: 'radial-gradient(ellipse at center, transparent 60%, rgba(0,0,0,0.15) 100%)' }} />
+
+      
+      {/* Mode Label */}
+      <div className="fixed bottom-[60px] right-6 z-[200] text-[9px] font-mono font-bold text-white/30 uppercase tracking-widest text-center pointer-events-none select-none" style={{ width: '136px' }}>
+        Experience Mode
+      </div>
       {/* FLOATING DESIGN MODE SELECTOR (Bottom Right) — Premium Glass Pill */}
       <div className="fixed bottom-6 right-6 z-[200] flex items-center bg-black/50 backdrop-blur-3xl border border-white/[0.12] p-[3px] rounded-full shadow-[0_10px_40px_rgba(0,0,0,0.3),inset_0_0.5px_0_rgba(255,255,255,0.1)] select-none pointer-events-auto">
         <div className="relative flex items-center">

@@ -83,6 +83,23 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Custom selection color */
+::selection {
+  background: rgba(79, 70, 229, 0.15);
+  color: inherit;
+}
+
+/* Smooth image loading */
+img {
+  transition: opacity 0.3s ease;
+}
+img[loading] {
+  opacity: 0;
+}
+img:not([loading]) {
+  opacity: 1;
+}
+
 /* ═══════════════════════════════════════════════
    macOS 26 WALLPAPER — TAHOE LIGHT IMAGE
    ═══════════════════════════════════════════════ */
@@ -347,7 +364,7 @@ body {
   position: fixed;
   inset: 0;
   z-index: 9999;
-  background: #000000;
+  background: radial-gradient(ellipse at center, #1a1a2e 0%, #0a0a0f 70%, #000000 100%);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -950,6 +967,26 @@ body {
 .animate-border-glow { animation: border-glow 3s ease-in-out infinite; }
 .animate-play-pulse { animation: play-pulse 2s ease-in-out infinite; }
 .animate-slide-up { animation: slide-up 0.4s ease-out both; }
+
+/* ═══════════════════════════════════════════════
+   GLASS CARD UTILITY
+   ═══════════════════════════════════════════════ */
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+}
+
+.glass-card-dark {
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+}
 
 /* ═══════════════════════════════════════════════
    CUSTOM SCROLLBAR — CASE STUDY CONTENT AREA
