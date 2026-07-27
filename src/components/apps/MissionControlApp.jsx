@@ -616,13 +616,13 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
           </div>
         </div>
 
-        {/* Hero Image */}
+        {/* Slide Image 1 */}
         <div 
-          onClick={() => onZoomImage && onZoomImage('/assets/revlitix_saas_hero_ultra.jpg', 'Fig 1.1 — Consolidated Decision-Centric Executive Home')}
+          onClick={() => onZoomImage && onZoomImage('/assets/revlitix_slides/1.png', 'Fig 1.1 — Revlitix Overview & Executive Dashboard')}
           className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white my-6 ring-4 ring-slate-50/50 hover:shadow-2xl transition-all duration-300 cursor-pointer group relative"
         >
           <div className="relative overflow-hidden">
-            <img src="/assets/revlitix_saas_hero_ultra.jpg" alt="Revlitix SaaS Hero View" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
+            <img src="/assets/revlitix_slides/1.png" alt="Revlitix Slide 1" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
             <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-all duration-200 flex items-center justify-center pointer-events-none">
               <span className="opacity-0 group-hover:opacity-100 bg-slate-900/90 text-white font-mono text-[11px] font-bold px-3 py-1.5 rounded-full shadow-lg transition-all duration-200 flex items-center gap-1.5 translate-y-2 group-hover:translate-y-0">
                 <span className="text-[13px]">🔍</span> Click to inspect high-res
@@ -630,7 +630,7 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
             </div>
           </div>
           <div className="p-3.5 bg-slate-50 border-t border-slate-200 text-center font-mono text-[12px] text-slate-600 font-bold flex items-center justify-between">
-            <span>Fig 1.1 — Consolidated Decision-Centric Executive Home</span>
+            <span>Fig 1.1 — Revlitix Overview & Executive Dashboard</span>
             <span className="text-[10px] text-[#4F46E5] font-mono font-bold opacity-80 group-hover:opacity-100">FULLSCREEN ⤢</span>
           </div>
         </div>
@@ -765,13 +765,13 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
           </p>
         </div>
 
-        {/* Problem Image */}
+        {/* Slide Image 2 */}
         <div 
-          onClick={() => onZoomImage && onZoomImage('/assets/revlitix_data_integration_new.jpg', 'Fig 2.1 — Multi-Module Data Integration & Fragmented Visibility Audit')}
+          onClick={() => onZoomImage && onZoomImage('/assets/revlitix_slides/2.png', 'Fig 2.1 — Baseline Friction & Fragmented User Journey')}
           className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white my-6 ring-4 ring-slate-50/50 hover:shadow-2xl transition-all duration-300 cursor-pointer group relative"
         >
           <div className="relative overflow-hidden">
-            <img src="/assets/revlitix_data_integration_new.jpg" alt="Data Integration Map" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
+            <img src="/assets/revlitix_slides/2.png" alt="Revlitix Slide 2" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
             <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-all duration-200 flex items-center justify-center pointer-events-none">
               <span className="opacity-0 group-hover:opacity-100 bg-slate-900/90 text-white font-mono text-[11px] font-bold px-3 py-1.5 rounded-full shadow-lg transition-all duration-200 flex items-center gap-1.5 translate-y-2 group-hover:translate-y-0">
                 <span className="text-[13px]">🔍</span> Click to inspect high-res
@@ -779,7 +779,7 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
             </div>
           </div>
           <div className="p-3.5 bg-slate-50 border-t border-slate-200 text-center font-mono text-[12px] text-slate-600 font-bold flex items-center justify-between">
-            <span>Fig 2.1 — Multi-Module Data Integration & Fragmented Visibility Audit</span>
+            <span>Fig 2.1 — Baseline Friction & Fragmented User Journey</span>
             <span className="text-[10px] text-[#4F46E5] font-mono font-bold opacity-80 group-hover:opacity-100">FULLSCREEN ⤢</span>
           </div>
         </div>
@@ -860,6 +860,25 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
         <div className="p-5 bg-slate-50 border border-slate-200/80 rounded-xl text-slate-700 text-[14.5px]">
           <strong>Explicit Deprioritization Guardrail:</strong> I deliberately did not set a metric for "time spent in product" — the goal was faster answers, not more engagement, and I flagged this in the project brief so the roadmap wouldn't drift toward stickiness metrics that contradicted the actual user need.
         </div>
+
+        {/* Slide Image 3 */}
+        <div 
+          onClick={() => onZoomImage && onZoomImage('/assets/revlitix_slides/3.png', 'Fig 3.1 — Time-to-Insight & Success Metrics Scorecard')}
+          className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white my-6 ring-4 ring-slate-50/50 hover:shadow-2xl transition-all duration-300 cursor-pointer group relative"
+        >
+          <div className="relative overflow-hidden">
+            <img src="/assets/revlitix_slides/3.png" alt="Revlitix Slide 3" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
+            <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-all duration-200 flex items-center justify-center pointer-events-none">
+              <span className="opacity-0 group-hover:opacity-100 bg-slate-900/90 text-white font-mono text-[11px] font-bold px-3 py-1.5 rounded-full shadow-lg transition-all duration-200 flex items-center gap-1.5 translate-y-2 group-hover:translate-y-0">
+                <span className="text-[13px]">🔍</span> Click to inspect high-res
+              </span>
+            </div>
+          </div>
+          <div className="p-3.5 bg-slate-50 border-t border-slate-200 text-center font-mono text-[12px] text-slate-600 font-bold flex items-center justify-between">
+            <span>Fig 3.1 — Time-to-Insight & Success Metrics Scorecard</span>
+            <span className="text-[10px] text-[#4F46E5] font-mono font-bold opacity-80 group-hover:opacity-100">FULLSCREEN ⤢</span>
+          </div>
+        </div>
       </motion.section>
 
       <hr className="border-slate-200/80" />
@@ -898,13 +917,13 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
           </p>
         </div>
 
-        {/* Research Funnel Image */}
+        {/* Slide Image 4 */}
         <div 
-          onClick={() => onZoomImage && onZoomImage('/assets/revlitix_funnel.jpg', 'Fig 4.1 — Quantitative Funnel Audit & Contextual Inquiry Findings')}
+          onClick={() => onZoomImage && onZoomImage('/assets/revlitix_slides/4.png', 'Fig 4.1 — Contextual Inquiry & Funnel Analysis Findings')}
           className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white my-6 ring-4 ring-slate-50/50 hover:shadow-2xl transition-all duration-300 cursor-pointer group relative"
         >
           <div className="relative overflow-hidden">
-            <img src="/assets/revlitix_funnel.jpg" alt="Research Funnel Analysis" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
+            <img src="/assets/revlitix_slides/4.png" alt="Revlitix Slide 4" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
             <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-all duration-200 flex items-center justify-center pointer-events-none">
               <span className="opacity-0 group-hover:opacity-100 bg-slate-900/90 text-white font-mono text-[11px] font-bold px-3 py-1.5 rounded-full shadow-lg transition-all duration-200 flex items-center gap-1.5 translate-y-2 group-hover:translate-y-0">
                 <span className="text-[13px]">🔍</span> Click to inspect high-res
@@ -912,7 +931,7 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
             </div>
           </div>
           <div className="p-3.5 bg-slate-50 border-t border-slate-200 text-center font-mono text-[12px] text-slate-600 font-bold flex items-center justify-between">
-            <span>Fig 4.1 — Quantitative Funnel Audit & Contextual Inquiry Findings</span>
+            <span>Fig 4.1 — Contextual Inquiry & Funnel Analysis Findings</span>
             <span className="text-[10px] text-[#4F46E5] font-mono font-bold opacity-80 group-hover:opacity-100">FULLSCREEN ⤢</span>
           </div>
         </div>
@@ -957,6 +976,25 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
             <p className="text-[14px] text-slate-600 leading-relaxed">
               When shown a raw metric (e.g., "$340K"), participants' first instinct was almost always a follow-up question — "is that good?", "compared to what?" — before trusting it enough to act. Confidence, not just speed, was the actual bottleneck, which is why user confidence became a first-class metric in Section 3.
             </p>
+          </div>
+        </div>
+
+        {/* Slide Image 5 */}
+        <div 
+          onClick={() => onZoomImage && onZoomImage('/assets/revlitix_slides/5.png', 'Fig 5.1 — Core Strategic Insight Principles')}
+          className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white my-6 ring-4 ring-slate-50/50 hover:shadow-2xl transition-all duration-300 cursor-pointer group relative"
+        >
+          <div className="relative overflow-hidden">
+            <img src="/assets/revlitix_slides/5.png" alt="Revlitix Slide 5" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
+            <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-all duration-200 flex items-center justify-center pointer-events-none">
+              <span className="opacity-0 group-hover:opacity-100 bg-slate-900/90 text-white font-mono text-[11px] font-bold px-3 py-1.5 rounded-full shadow-lg transition-all duration-200 flex items-center gap-1.5 translate-y-2 group-hover:translate-y-0">
+                <span className="text-[13px]">🔍</span> Click to inspect high-res
+              </span>
+            </div>
+          </div>
+          <div className="p-3.5 bg-slate-50 border-t border-slate-200 text-center font-mono text-[12px] text-slate-600 font-bold flex items-center justify-between">
+            <span>Fig 5.1 — Core Strategic Insight Principles</span>
+            <span className="text-[10px] text-[#4F46E5] font-mono font-bold opacity-80 group-hover:opacity-100">FULLSCREEN ⤢</span>
           </div>
         </div>
       </motion.section>
@@ -1014,13 +1052,13 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
           <strong>Deprioritized, and Why:</strong> A fully customizable dashboard builder (contradicted the Section 4 finding), and a natural-language query bar (validated as a phase-2 investment once the consolidated view had a baseline to build on).
         </div>
 
-        {/* Prioritization Matrix Image */}
+        {/* Slide Image 6 */}
         <div 
-          onClick={() => onZoomImage && onZoomImage('/assets/revlitix_waterfall_v3.jpg', 'Fig 6.1 — Structured Impact vs. Feasibility Trade-off Matrix')}
+          onClick={() => onZoomImage && onZoomImage('/assets/revlitix_slides/6.png', 'Fig 6.1 — Impact vs. Feasibility Trade-Off Matrix')}
           className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white my-6 ring-4 ring-slate-50/50 hover:shadow-2xl transition-all duration-300 cursor-pointer group relative"
         >
           <div className="relative overflow-hidden">
-            <img src="/assets/revlitix_waterfall_v3.jpg" alt="Impact vs Feasibility Matrix" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
+            <img src="/assets/revlitix_slides/6.png" alt="Revlitix Slide 6" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
             <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-all duration-200 flex items-center justify-center pointer-events-none">
               <span className="opacity-0 group-hover:opacity-100 bg-slate-900/90 text-white font-mono text-[11px] font-bold px-3 py-1.5 rounded-full shadow-lg transition-all duration-200 flex items-center gap-1.5 translate-y-2 group-hover:translate-y-0">
                 <span className="text-[13px]">🔍</span> Click to inspect high-res
@@ -1028,7 +1066,7 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
             </div>
           </div>
           <div className="p-3.5 bg-slate-50 border-t border-slate-200 text-center font-mono text-[12px] text-slate-600 font-bold flex items-center justify-between">
-            <span>Fig 6.1 — Structured Impact vs. Feasibility Trade-off Matrix</span>
+            <span>Fig 6.1 — Impact vs. Feasibility Trade-Off Matrix</span>
             <span className="text-[10px] text-[#4F46E5] font-mono font-bold opacity-80 group-hover:opacity-100">FULLSCREEN ⤢</span>
           </div>
         </div>
@@ -1087,6 +1125,25 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
             </p>
           </div>
         </div>
+
+        {/* Slide Image 7 */}
+        <div 
+          onClick={() => onZoomImage && onZoomImage('/assets/revlitix_slides/7.png', 'Fig 7.1 — Design Review Criteria & System Rules')}
+          className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white my-6 ring-4 ring-slate-50/50 hover:shadow-2xl transition-all duration-300 cursor-pointer group relative"
+        >
+          <div className="relative overflow-hidden">
+            <img src="/assets/revlitix_slides/7.png" alt="Revlitix Slide 7" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
+            <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-all duration-200 flex items-center justify-center pointer-events-none">
+              <span className="opacity-0 group-hover:opacity-100 bg-slate-900/90 text-white font-mono text-[11px] font-bold px-3 py-1.5 rounded-full shadow-lg transition-all duration-200 flex items-center gap-1.5 translate-y-2 group-hover:translate-y-0">
+                <span className="text-[13px]">🔍</span> Click to inspect high-res
+              </span>
+            </div>
+          </div>
+          <div className="p-3.5 bg-slate-50 border-t border-slate-200 text-center font-mono text-[12px] text-slate-600 font-bold flex items-center justify-between">
+            <span>Fig 7.1 — Design Review Criteria & System Rules</span>
+            <span className="text-[10px] text-[#4F46E5] font-mono font-bold opacity-80 group-hover:opacity-100">FULLSCREEN ⤢</span>
+          </div>
+        </div>
       </motion.section>
 
       <hr className="border-slate-200/80" />
@@ -1122,42 +1179,22 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
           </p>
         </div>
 
-        {/* IA & Journey Images */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div 
-            onClick={() => onZoomImage && onZoomImage('/assets/revlitix_journey_map_new.jpg', 'Fig 8.1 — Information Architecture Restructuring & Flow Mapping')}
-            className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white ring-4 ring-slate-50/50 hover:shadow-2xl transition-all duration-300 cursor-pointer group relative"
-          >
-            <div className="relative overflow-hidden">
-              <img src="/assets/revlitix_journey_map_new.jpg" alt="IA Journey Map" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
-              <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-all duration-200 flex items-center justify-center pointer-events-none">
-                <span className="opacity-0 group-hover:opacity-100 bg-slate-900/90 text-white font-mono text-[11px] font-bold px-3 py-1.5 rounded-full shadow-lg transition-all duration-200 flex items-center gap-1.5 translate-y-2 group-hover:translate-y-0">
-                  <span className="text-[13px]">🔍</span> Click to inspect high-res
-                </span>
-              </div>
-            </div>
-            <div className="p-3.5 bg-slate-50 border-t border-slate-200 text-center font-mono text-[11.5px] text-slate-600 font-bold flex items-center justify-between">
-              <span>Fig 8.1 — IA Restructuring Map</span>
-              <span className="text-[10px] text-[#4F46E5] font-mono font-bold opacity-80 group-hover:opacity-100">FULLSCREEN ⤢</span>
+        {/* Slide Image 8 */}
+        <div 
+          onClick={() => onZoomImage && onZoomImage('/assets/revlitix_slides/8.png', 'Fig 8.1 — Information Architecture & Layout Exploration')}
+          className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white my-6 ring-4 ring-slate-50/50 hover:shadow-2xl transition-all duration-300 cursor-pointer group relative"
+        >
+          <div className="relative overflow-hidden">
+            <img src="/assets/revlitix_slides/8.png" alt="Revlitix Slide 8" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
+            <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-all duration-200 flex items-center justify-center pointer-events-none">
+              <span className="opacity-0 group-hover:opacity-100 bg-slate-900/90 text-white font-mono text-[11px] font-bold px-3 py-1.5 rounded-full shadow-lg transition-all duration-200 flex items-center gap-1.5 translate-y-2 group-hover:translate-y-0">
+                <span className="text-[13px]">🔍</span> Click to inspect high-res
+              </span>
             </div>
           </div>
-
-          <div 
-            onClick={() => onZoomImage && onZoomImage('/assets/revlitix_ideation_sketches_new.jpg', 'Fig 8.2 — Divergent Layout Exploration & Sketch Iterations')}
-            className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white ring-4 ring-slate-50/50 hover:shadow-2xl transition-all duration-300 cursor-pointer group relative"
-          >
-            <div className="relative overflow-hidden">
-              <img src="/assets/revlitix_ideation_sketches_new.jpg" alt="Ideation Sketches" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
-              <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-all duration-200 flex items-center justify-center pointer-events-none">
-                <span className="opacity-0 group-hover:opacity-100 bg-slate-900/90 text-white font-mono text-[11px] font-bold px-3 py-1.5 rounded-full shadow-lg transition-all duration-200 flex items-center gap-1.5 translate-y-2 group-hover:translate-y-0">
-                  <span className="text-[13px]">🔍</span> Click to inspect high-res
-                </span>
-              </div>
-            </div>
-            <div className="p-3.5 bg-slate-50 border-t border-slate-200 text-center font-mono text-[11.5px] text-slate-600 font-bold flex items-center justify-between">
-              <span>Fig 8.2 — Layout Exploration Sketches</span>
-              <span className="text-[10px] text-[#4F46E5] font-mono font-bold opacity-80 group-hover:opacity-100">FULLSCREEN ⤢</span>
-            </div>
+          <div className="p-3.5 bg-slate-50 border-t border-slate-200 text-center font-mono text-[12px] text-slate-600 font-bold flex items-center justify-between">
+            <span>Fig 8.1 — Information Architecture & Layout Exploration</span>
+            <span className="text-[10px] text-[#4F46E5] font-mono font-bold opacity-80 group-hover:opacity-100">FULLSCREEN ⤢</span>
           </div>
         </div>
       </motion.section>
@@ -1201,42 +1238,22 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
           </div>
         </div>
 
-        {/* Hi-Fi Design System & Wireframe Images */}
-        <div className="space-y-6">
-          <div 
-            onClick={() => onZoomImage && onZoomImage('/assets/revlitix_wireframe_v3.jpg', 'Fig 9.1 — Decision-Centric Home & Consolidated Answer View Specs')}
-            className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white ring-4 ring-slate-50/50 hover:shadow-2xl transition-all duration-300 cursor-pointer group relative"
-          >
-            <div className="relative overflow-hidden">
-              <img src="/assets/revlitix_wireframe_v3.jpg" alt="Wireframe Specs" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
-              <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-all duration-200 flex items-center justify-center pointer-events-none">
-                <span className="opacity-0 group-hover:opacity-100 bg-slate-900/90 text-white font-mono text-[11px] font-bold px-3 py-1.5 rounded-full shadow-lg transition-all duration-200 flex items-center gap-1.5 translate-y-2 group-hover:translate-y-0">
-                  <span className="text-[13px]">🔍</span> Click to inspect high-res
-                </span>
-              </div>
-            </div>
-            <div className="p-3.5 bg-slate-50 border-t border-slate-200 text-center font-mono text-[12px] text-slate-600 font-bold flex items-center justify-between">
-              <span>Fig 9.1 — Decision-Centric Home & Consolidated Answer View Specs</span>
-              <span className="text-[10px] text-[#4F46E5] font-mono font-bold opacity-80 group-hover:opacity-100">FULLSCREEN ⤢</span>
+        {/* Slide Image 9 */}
+        <div 
+          onClick={() => onZoomImage && onZoomImage('/assets/revlitix_slides/9.png', 'Fig 9.1 — High-Fidelity Decision Home & Consolidated Views')}
+          className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white my-6 ring-4 ring-slate-50/50 hover:shadow-2xl transition-all duration-300 cursor-pointer group relative"
+        >
+          <div className="relative overflow-hidden">
+            <img src="/assets/revlitix_slides/9.png" alt="Revlitix Slide 9" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
+            <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-all duration-200 flex items-center justify-center pointer-events-none">
+              <span className="opacity-0 group-hover:opacity-100 bg-slate-900/90 text-white font-mono text-[11px] font-bold px-3 py-1.5 rounded-full shadow-lg transition-all duration-200 flex items-center gap-1.5 translate-y-2 group-hover:translate-y-0">
+                <span className="text-[13px]">🔍</span> Click to inspect high-res
+              </span>
             </div>
           </div>
-
-          <div 
-            onClick={() => onZoomImage && onZoomImage('/assets/revlitix_design_system_v3.jpg', 'Fig 9.2 — Atomic Design System Component Library')}
-            className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white ring-4 ring-slate-50/50 hover:shadow-2xl transition-all duration-300 cursor-pointer group relative"
-          >
-            <div className="relative overflow-hidden">
-              <img src="/assets/revlitix_design_system_v3.jpg" alt="Design System Components" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
-              <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-all duration-200 flex items-center justify-center pointer-events-none">
-                <span className="opacity-0 group-hover:opacity-100 bg-slate-900/90 text-white font-mono text-[11px] font-bold px-3 py-1.5 rounded-full shadow-lg transition-all duration-200 flex items-center gap-1.5 translate-y-2 group-hover:translate-y-0">
-                  <span className="text-[13px]">🔍</span> Click to inspect high-res
-                </span>
-              </div>
-            </div>
-            <div className="p-3.5 bg-slate-50 border-t border-slate-200 text-center font-mono text-[12px] text-slate-600 font-bold flex items-center justify-between">
-              <span>Fig 9.2 — Atomic Design System Component Library</span>
-              <span className="text-[10px] text-[#4F46E5] font-mono font-bold opacity-80 group-hover:opacity-100">FULLSCREEN ⤢</span>
-            </div>
+          <div className="p-3.5 bg-slate-50 border-t border-slate-200 text-center font-mono text-[12px] text-slate-600 font-bold flex items-center justify-between">
+            <span>Fig 9.1 — High-Fidelity Decision Home & Consolidated Views</span>
+            <span className="text-[10px] text-[#4F46E5] font-mono font-bold opacity-80 group-hover:opacity-100">FULLSCREEN ⤢</span>
           </div>
         </div>
       </motion.section>
@@ -1271,13 +1288,13 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
           </p>
         </div>
 
-        {/* Accessibility Matrix Image */}
+        {/* Slide Image 10 */}
         <div 
-          onClick={() => onZoomImage && onZoomImage('/assets/revlitix_accessibility_new.jpg', 'Fig 10.1 — Edge States, Focus Indicators & WCAG AA Audit Matrix')}
+          onClick={() => onZoomImage && onZoomImage('/assets/revlitix_slides/10.png', 'Fig 10.1 — Micro-Interactions, Edge States & WCAG AA Audit')}
           className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white my-6 ring-4 ring-slate-50/50 hover:shadow-2xl transition-all duration-300 cursor-pointer group relative"
         >
           <div className="relative overflow-hidden">
-            <img src="/assets/revlitix_accessibility_new.jpg" alt="Accessibility Audit Matrix" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
+            <img src="/assets/revlitix_slides/10.png" alt="Revlitix Slide 10" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
             <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-all duration-200 flex items-center justify-center pointer-events-none">
               <span className="opacity-0 group-hover:opacity-100 bg-slate-900/90 text-white font-mono text-[11px] font-bold px-3 py-1.5 rounded-full shadow-lg transition-all duration-200 flex items-center gap-1.5 translate-y-2 group-hover:translate-y-0">
                 <span className="text-[13px]">🔍</span> Click to inspect high-res
@@ -1285,7 +1302,7 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
             </div>
           </div>
           <div className="p-3.5 bg-slate-50 border-t border-slate-200 text-center font-mono text-[12px] text-slate-600 font-bold flex items-center justify-between">
-            <span>Fig 10.1 — Edge States, Focus Indicators & WCAG AA Audit Matrix</span>
+            <span>Fig 10.1 — Micro-Interactions, Edge States & WCAG AA Audit</span>
             <span className="text-[10px] text-[#4F46E5] font-mono font-bold opacity-80 group-hover:opacity-100">FULLSCREEN ⤢</span>
           </div>
         </div>
@@ -1365,6 +1382,25 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
             </table>
           </div>
         </div>
+
+        {/* Slide Image 11 */}
+        <div 
+          onClick={() => onZoomImage && onZoomImage('/assets/revlitix_slides/11.png', 'Fig 11.1 — Usability Pivots & Quantified Business Impact Scorecard')}
+          className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white my-6 ring-4 ring-slate-50/50 hover:shadow-2xl transition-all duration-300 cursor-pointer group relative"
+        >
+          <div className="relative overflow-hidden">
+            <img src="/assets/revlitix_slides/11.png" alt="Revlitix Slide 11" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
+            <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-all duration-200 flex items-center justify-center pointer-events-none">
+              <span className="opacity-0 group-hover:opacity-100 bg-slate-900/90 text-white font-mono text-[11px] font-bold px-3 py-1.5 rounded-full shadow-lg transition-all duration-200 flex items-center gap-1.5 translate-y-2 group-hover:translate-y-0">
+                <span className="text-[13px]">🔍</span> Click to inspect high-res
+              </span>
+            </div>
+          </div>
+          <div className="p-3.5 bg-slate-50 border-t border-slate-200 text-center font-mono text-[12px] text-slate-600 font-bold flex items-center justify-between">
+            <span>Fig 11.1 — Usability Pivots & Quantified Business Impact Scorecard</span>
+            <span className="text-[10px] text-[#4F46E5] font-mono font-bold opacity-80 group-hover:opacity-100">FULLSCREEN ⤢</span>
+          </div>
+        </div>
       </motion.section>
 
       <hr className="border-slate-200/80" />
@@ -1391,6 +1427,25 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
           <div className="bg-gradient-to-r from-indigo-50/80 via-purple-50/40 to-white p-6 rounded-2xl border border-indigo-150 mt-4 text-[15px] leading-relaxed text-indigo-950 font-normal relative overflow-hidden shadow-xs border-l-4 border-l-[#4F46E5]">
             <strong className="text-[11px] font-mono font-extrabold text-[#4F46E5] uppercase tracking-widest block mb-2 leading-none">// THE TAKEAWAY I'D LEAD WITH IN AN INTERVIEW</strong>
             "The biggest lever in this project wasn't a UI pattern — it was killing an in-progress feature (the customizable dashboard builder) because research contradicted the team's working assumption, and having the standing to make that call before more engineering time was spent on it. Every visual and interaction decision that followed was downstream of that harder call, not the other way around."
+          </div>
+        </div>
+
+        {/* Slide Image 12 */}
+        <div 
+          onClick={() => onZoomImage && onZoomImage('/assets/revlitix_slides/12.png', 'Fig 12.1 — Key Retrospective Takeaways & Interview Summary')}
+          className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white my-6 ring-4 ring-slate-50/50 hover:shadow-2xl transition-all duration-300 cursor-pointer group relative"
+        >
+          <div className="relative overflow-hidden">
+            <img src="/assets/revlitix_slides/12.png" alt="Revlitix Slide 12" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
+            <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-all duration-200 flex items-center justify-center pointer-events-none">
+              <span className="opacity-0 group-hover:opacity-100 bg-slate-900/90 text-white font-mono text-[11px] font-bold px-3 py-1.5 rounded-full shadow-lg transition-all duration-200 flex items-center gap-1.5 translate-y-2 group-hover:translate-y-0">
+                <span className="text-[13px]">🔍</span> Click to inspect high-res
+              </span>
+            </div>
+          </div>
+          <div className="p-3.5 bg-slate-50 border-t border-slate-200 text-center font-mono text-[12px] text-slate-600 font-bold flex items-center justify-between">
+            <span>Fig 12.1 — Key Retrospective Takeaways & Interview Summary</span>
+            <span className="text-[10px] text-[#4F46E5] font-mono font-bold opacity-80 group-hover:opacity-100">FULLSCREEN ⤢</span>
           </div>
         </div>
       </motion.section>
