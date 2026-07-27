@@ -29,7 +29,7 @@ export default function ImpactSection() {
           variants={fadeUp}
         >
           <span className="section-label section-label--bento">IMPACT</span>
-          <h2 className="bento-impact-heading">Design that drives business outcomes.</h2>
+          <h2 className="bento-impact-heading">Impact that speaks louder than pixels.</h2>
         </motion.div>
 
         <div className="bento-impact-grid">
@@ -40,13 +40,13 @@ export default function ImpactSection() {
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-50px' }}
             variants={fadeUp} custom={0}
           >
-            <div className="quote-icon">"</div>
+            <div className="quote-icon">↗</div>
             <h3 className="quote-text">
-              I don't just design interfaces — I design products, experiences, and measurable business impact.
+              Enterprise software doesn't have to feel like punishment. Every metric below started with that belief.
             </h3>
             <div className="quote-author">
-              <span className="author-name">Praveen Kumar</span>
-              <span className="author-title">Senior Product Designer</span>
+              <span className="author-name">The results</span>
+              <span className="author-title">across Revlitix & Candescent</span>
             </div>
             
             {/* Subtle background glow */}

@@ -4,25 +4,47 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Moon } from 'lucide-react';
 
 const NAV_LINKS = [
-  { label: 'Universe', section: 'universe' },
-  { label: 'Projects', section: 'projects' },
+  { label: 'Intro', section: 'hero' },
+  { label: 'Philosophy', section: 'philosophy' },
+  { label: 'Work', section: 'work' },
+  { label: 'Impact', section: 'impact' },
   { label: 'About', section: 'about' },
-  { label: 'Timeline', section: 'timeline' },
-  { label: 'Lab', section: 'lab' },
   { label: 'Contact', section: 'contact' },
 ];
 
 const Navigation = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [isOSMode, setIsOSMode] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
   const isHomepage = location.pathname === '/';
 
   useEffect(() => {
+    const checkSize = () => setIsMobile(window.innerWidth < 1024);
+    checkSize();
+    window.addEventListener('resize', checkSize);
+    return () => window.removeEventListener('resize', checkSize);
+  }, []);
+
+  useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const checkOS = () => {
+      setIsOSMode(document.documentElement.classList.contains('is-os-mode'));
+    };
+    checkOS();
+    
+    if (typeof window !== 'undefined' && window.MutationObserver) {
+      const observer = new MutationObserver(checkOS);
+      observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+      return () => observer.disconnect();
+    }
   }, []);
 
   useEffect(() => {
@@ -48,6 +70,8 @@ const Navigation = () => {
     }
     setMobileOpen(false);
   }, [isHomepage, navigate]);
+
+  if (isHomepage && isOSMode && !isMobile) return null;
 
   return (
     <>

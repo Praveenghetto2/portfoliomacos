@@ -84,8 +84,15 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <button className="flex items-center gap-5 bg-white/60 backdrop-blur-md border border-black/5 hover:border-brand-purple/20 pr-8 pl-3 py-3 rounded-full shadow-apple-sm hover:shadow-apple-md transition-all group">
-              <div className="w-11 h-11 rounded-full bg-gradient-to-tr from-[#0D0D16] to-[#251254] flex items-center justify-center text-white shadow-[0_4px_12px_rgba(13,13,22,0.3)] group-hover:scale-105 transition-transform duration-300">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="group-hover:translate-x-0.5 transition-transform">
+              <div className="w-11 h-11 rounded-full bg-gradient-to-tr from-[#0D0D16] to-[#251254] flex items-center justify-center text-white shadow-[0_4px_12px_rgba(13,13,22,0.3)] group-hover:scale-105 transition-transform duration-300 relative overflow-hidden">
+                {/* Glowing Power Core Particles */}
+                <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                  <div className="absolute top-[20%] left-[20%] w-1.5 h-1.5 bg-[#A58CFF] rounded-full blur-[0.5px] animate-[spin_3s_linear_infinite] origin-[18px_18px]"></div>
+                  <div className="absolute top-[70%] left-[70%] w-1 h-1 bg-[#3B82F6] rounded-full blur-[0.5px] animate-[spin_2s_linear_infinite_reverse] origin-[-10px_-10px]"></div>
+                  <div className="absolute top-[30%] left-[60%] w-1 h-1 bg-white rounded-full blur-[0.5px] animate-[spin_4s_linear_infinite] origin-[6px_14px]"></div>
+                </div>
+                
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="group-hover:translate-x-0.5 transition-transform relative z-10">
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </div>

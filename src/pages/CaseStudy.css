@@ -1,22 +1,21 @@
 /* ═══════════════════════════════════════════════
-   THE SWISS EDITORIAL - AESTHETIC CSS
+   CASE STUDY OBSIDIAN DARK AESTHETIC
    ═══════════════════════════════════════════════ */
 
-/* Base Page Setup */
+/* Page Background */
 .ug-page {
-  background-color: #F4F3F0; /* Warm editorial light mode */
-  color: #1A1A1A;
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #080710; /* Elegant Obsidian Black */
+  color: #FFFFFF;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, sans-serif;
   min-height: 100vh;
   overflow-x: hidden;
+  position: relative;
 }
 
-
-
-/* ── TOP HERO HEADER ── */
+/* ── HERO HEADER ── */
 .ug-hero-header {
   padding: 8rem 4vw 4rem 4vw;
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
   text-align: center;
 }
@@ -27,31 +26,20 @@
   align-items: center;
 }
 
-.ug-project-category {
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: #666;
-  margin-bottom: 2rem;
-  display: block;
-}
-
 .ug-project-title {
-  font-size: clamp(3.5rem, 8vw, 7rem); /* Even more massive */
-  line-height: 1;
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  line-height: 1.05;
   letter-spacing: -0.03em;
   font-weight: 800;
-  margin: 0 0 2rem 0;
+  margin: 1.5rem 0 1rem 0;
 }
 
 .ug-project-subtitle {
-  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
-  line-height: 1.4;
-  color: #444;
-  margin-bottom: 4rem;
-  max-width: 900px;
-  font-weight: 500;
+  font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+  line-height: 1.5;
+  color: #8E8E93;
+  margin-bottom: 2rem;
+  font-weight: 400;
 }
 
 .ug-meta-grid {
@@ -59,9 +47,10 @@
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 2rem;
   width: 100%;
-  padding-top: 4rem;
-  border-top: 1px solid rgba(0,0,0,0.1);
+  padding-top: 3rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   text-align: left;
+  margin-top: 2rem;
 }
 
 .ug-meta-item {
@@ -69,404 +58,222 @@
   flex-direction: column;
 }
 
-.ug-meta-item strong {
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: #888;
-  margin-bottom: 0.5rem;
-}
-
-.ug-meta-item span {
-  font-size: 1rem;
-  font-weight: 500;
-  color: #1A1A1A;
-}
-
-/* ── CENTERED SCROLLING CONTENT ── */
+/* ── SCROLLING CONTENT ── */
 .ug-content {
-  padding: 4rem 4vw 8rem 4vw;
-  max-width: 1200px;
+  padding: 2rem 4vw 8rem 4vw;
+  max-width: 1100px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 8rem;
+  gap: 6rem;
+}
+
+.cs-section {
+  position: relative;
   min-width: 0;
 }
 
-/* Common Section Typography */
-.ug-label {
+/* Typography styles */
+.cs-label {
   display: block;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: #888;
-  margin-bottom: 1rem;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.8rem;
 }
 
-.ug-caption {
-  display: block;
-  font-size: 0.75rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: #666;
-  margin-top: 1.5rem;
-  text-align: center;
+.text-h2 {
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  font-weight: 800;
+  color: #FFFFFF;
 }
 
-/* ── Sections ── */
+.text-body {
+  font-size: 1.1rem;
+  line-height: 1.65;
+  color: #8E8E93;
+  font-weight: 400;
+}
 
-/* Editorial Text Section */
+/* ── EDITORIAL TEXT SECTION ── */
 .editorial-text-section {
   position: relative;
-  padding-bottom: 6rem;
-  border-bottom: 1px solid rgba(0,0,0,0.1);
+  padding-bottom: 4rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .editorial-watermark {
   position: absolute;
-  top: -8rem;
+  top: -6rem;
   left: -2rem;
   font-size: 25vw;
   font-weight: 900;
-  color: #E8E7E2; /* Very subtle watermark */
   z-index: 0;
   pointer-events: none;
   line-height: 1;
   letter-spacing: -0.05em;
   user-select: none;
+  font-family: system-ui;
 }
 
 .editorial-content {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: 1fr 1.5fr;
+  grid-template-columns: 1fr 1.4fr;
   gap: 4rem;
 }
 
-.editorial-left h2 {
-  font-size: clamp(2rem, 4vw, 3rem);
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  font-weight: 700;
-}
-
-.editorial-right p {
-  font-size: 1.25rem;
-  line-height: 1.6;
-  font-weight: 400;
-  color: #333;
-}
-
-.editorial-right p.indent {
-  padding-left: 1.5rem;
-  border-left: 2px solid #ddd;
-  color: #555;
-}
-
-/* Image Cluster Section (Bento Box) */
-.image-cluster-section {
-  padding-bottom: 6rem;
-  border-bottom: 1px solid rgba(0,0,0,0.1);
-}
-
-.image-cluster-grid {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 1.5rem;
-  /* Grid rows automatically size to the tallest image, so we stretch items to fill */
-  align-items: stretch;
-}
-
-.cluster-img-wrap {
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  background: #E8E7E2; /* Subtle background for loading */
-}
-
-.cluster-img-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  flex-grow: 1;
-}
-
-/* Example specific cluster spanning */
-.cluster-img-1 {
-  grid-column: span 12; /* Full width for first image */
-}
-.cluster-img-2 {
-  grid-column: span 7; /* Left side */
-}
-.cluster-img-3 {
-  grid-column: span 5; /* Right side */
-}
-
-/* Hero Image Mockup */
-.ug-hero-image-container {
-  width: 100%;
-  perspective: 1500px;
-  margin-bottom: 2rem;
-}
-
-.ug-floating-mockup {
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 40px 80px rgba(0,0,0,0.1), 0 0 0 1px rgba(0,0,0,0.05);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transform-style: preserve-3d;
-}
-
-.ug-mockup-header {
-  height: 40px;
-  background: #f5f5f5;
-  display: flex;
-  align-items: center;
-  padding: 0 16px;
-  gap: 8px;
-  border-bottom: 1px solid rgba(0,0,0,0.05);
-}
-
-.ug-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-}
-.ug-dot.red { background: #ff5f56; }
-.ug-dot.yellow { background: #ffbd2e; }
-.ug-dot.green { background: #27c93f; }
-
-.ug-mockup-body {
-  width: 100%;
-  display: flex;
-}
-.ug-mockup-body img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* Text Huge */
-.ug-text-huge {
-  padding-bottom: 6rem;
-  border-bottom: 1px solid rgba(0,0,0,0.1);
-}
-.ug-text-huge h2 {
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  line-height: 1.1;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  max-width: 90%;
-  color: #1A1A1A;
-}
-
-/* List Massive */
-.ug-list-massive {
+/* ── LIST MASSIVE ── */
+.cs-list-massive {
   position: relative;
   display: grid;
-  grid-template-columns: 1fr 1.5fr;
+  grid-template-columns: 1fr 1.4fr;
   gap: 4rem;
-  padding-bottom: 6rem;
-  border-bottom: 1px solid rgba(0,0,0,0.1);
+  padding-bottom: 4rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-.ug-list-header {
-  position: relative;
-  z-index: 1;
+.cs-list-desc {
+  font-size: 11px;
+  font-family: monospace;
+  color: #8E8E93;
+  line-height: 1.5;
+  margin-top: 1rem;
 }
 
-.ug-list-header h2 {
-  font-size: clamp(2rem, 4vw, 3rem);
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  font-weight: 700;
-}
-
-.ug-list {
-  position: relative;
-  z-index: 1;
+.cs-list {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2.5rem;
+  gap: 2rem;
 }
 
-.ug-list-item h3 {
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
-  font-weight: 600;
+.cs-list-item h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #FFFFFF;
 }
 
-.ug-list-item p {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #444;
+.cs-list-item p {
+  font-size: 11px;
+  line-height: 1.55;
+  color: #8E8E93;
+  margin-top: 0.5rem;
 }
 
-/* Quote */
-.ug-quote {
-  padding-bottom: 6rem;
-  border-bottom: 1px solid rgba(0,0,0,0.1);
-}
-.ug-quote blockquote {
-  font-size: clamp(2rem, 4vw, 3.5rem);
-  line-height: 1.2;
-  font-weight: 500;
-  letter-spacing: -0.02em;
-  margin: 0;
-  padding: 0;
-  color: #1A1A1A;
-}
-
-/* Image Fullbleed */
-.ug-image-fullbleed {
-  width: 100%;
-  padding-bottom: 6rem;
-  border-bottom: 1px solid rgba(0,0,0,0.1);
-}
-.ug-image-fullbleed img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 12px;
-}
-
-/* Image Standard */
-.ug-image-standard {
-  background: #E8E7E2;
+/* ── METRICS SECTION ── */
+.cs-metrics {
+  background-color: rgba(255, 255, 255, 0.01);
+  border-radius: 20px;
   padding: 4rem;
-  border-radius: 16px;
-  padding-bottom: 6rem;
-  border-bottom: 1px solid rgba(0,0,0,0.1);
-}
-.ug-image-standard img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.04);
-}
-
-/* Metrics */
-.ug-metrics {
-  background-color: #1A1A1A;
-  color: #fff;
-  padding: 5rem;
-  border-radius: 16px;
   display: grid;
-  grid-template-columns: 1fr 1.5fr;
+  grid-template-columns: 1fr 1.4fr;
   gap: 4rem;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }
 
-.ug-metrics-header h2 {
-  font-size: clamp(2rem, 4vw, 3rem);
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  font-weight: 700;
-}
-
-.ug-metrics-grid {
+.cs-metrics-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
 }
 
-.ug-metric-value {
+.cs-metric {
+  text-align: center;
+}
+
+.cs-metric-value {
   display: block;
-  font-size: clamp(3rem, 6vw, 5rem);
+  font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 800;
   line-height: 1;
   letter-spacing: -0.02em;
   margin-bottom: 0.5rem;
-  color: #fff;
 }
 
-.ug-metric-label {
-  font-size: 0.75rem;
+.cs-metric-label {
+  font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: #aaa;
+  color: #8E8E93;
 }
 
-/* Next Project */
-.ug-next {
-  margin-top: 2rem;
-  padding: 6rem 4rem;
-  background: #E8E7E2;
+/* ── INTERACTIVE PLAYGROUND ── */
+.cs-interactive-module {
+  background-color: rgba(255, 255, 255, 0.01);
+  border-radius: 24px;
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* ── NEXT PROJECT ── */
+.cs-next {
+  position: relative;
+  padding: 5rem 3rem;
+  border-radius: 20px;
   cursor: pointer;
-  border-radius: 16px;
-  transition: background 0.3s ease, transform 0.3s ease;
+  overflow: hidden;
   text-align: center;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.01);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }
 
-.ug-next:hover {
-  background: #DFDED9;
-  transform: translateY(-5px);
+.cs-next:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.15) !important;
 }
 
-.ug-next-content {
+.cs-next-content {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.ug-next h2 {
-  font-size: clamp(3rem, 5vw, 4rem);
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-top: 1rem;
-  line-height: 1;
-  font-weight: 700;
 }
 
 /* ── RESPONSIVE ── */
 @media (max-width: 1024px) {
   .ug-hero-header {
-    padding: 8rem 2rem 4rem 2rem;
+    padding: 6rem 2rem 3rem 2rem;
   }
-  
-  .editorial-content, .ug-list-massive, .ug-metrics {
+  .editorial-content, .cs-list-massive, .cs-metrics {
     grid-template-columns: 1fr;
     gap: 3rem;
   }
-
+  .cs-metrics-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .cs-list {
+    grid-template-columns: 1fr;
+  }
   .editorial-watermark {
     font-size: 40vw;
     top: -4rem;
-  }
-
-  .cluster-img-1, .cluster-img-2, .cluster-img-3 {
-    grid-column: span 12;
   }
 }
 
 @media (max-width: 600px) {
   .ug-hero-header {
-    padding: 6rem 1.5rem 3rem 1.5rem;
+    padding: 5rem 1.5rem 2rem 1.5rem;
   }
   .ug-content {
-    padding: 2rem 1.5rem;
+    padding: 1.5rem;
     gap: 4rem;
   }
-  .ug-list, .ug-metrics-grid {
-    grid-template-columns: 1fr;
+  .cs-metrics {
+    padding: 2.5rem 1.5rem;
   }
-  .ug-image-standard {
+  .cs-interactive-module {
     padding: 1.5rem;
-  }
-  .ug-metrics {
-    padding: 3rem 1.5rem;
-  }
-  .ug-next {
-    padding: 3rem 1.5rem;
   }
 }

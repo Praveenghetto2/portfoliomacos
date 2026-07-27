@@ -3,7 +3,7 @@ import { motion, useAnimation } from 'framer-motion';
 import { MousePointer2, Type, Square, Layout, Menu, Share2, Play } from 'lucide-react';
 import './FigmaHero.css';
 
-const FigmaHero = () => {
+const FigmaHero = ({ fullScreen = false }) => {
   const canvasControls = useAnimation();
   
   // Research State
@@ -142,8 +142,11 @@ const FigmaHero = () => {
 
 
   return (
-    <section className="figma-hero-container">
-      <div className="figma-window">
+    <section 
+      id="process" 
+      className={`figma-hero-container ${fullScreen ? 'figma-fullscreen-container' : ''}`}
+    >
+      <div className={`figma-window ${fullScreen ? 'figma-fullscreen-window' : ''}`}>
         {/* ─── TOOLBAR ─── */}
         <div className="figma-toolbar">
           <div className="figma-toolbar-left">
@@ -159,7 +162,7 @@ const FigmaHero = () => {
             <Type size={16} className="figma-tool" />
           </div>
           <div className="figma-toolbar-center">
-            <span className="figma-toolbar-title">Praveen Kumar / Global Banking Experience</span>
+            <span className="figma-toolbar-title">praveen.design / Portfolio 2026</span>
           </div>
           <div className="figma-toolbar-right">
             <Share2 size={16} className="figma-tool" />
@@ -174,10 +177,10 @@ const FigmaHero = () => {
           <div className="figma-left-panel">
             <div className="figma-layers-header">Text Layers</div>
             <h1 className="figma-hero-headline">
-              Designing<br/><span>Clarity.</span>
+              Code.<br/><span>Craft.</span>
             </h1>
             <p className="figma-hero-sub">
-              Product Designer crafting fintech, AI, and SaaS experiences that solve complex problems and drive measurable business impact.
+              Product Designer with a developer's brain. I build enterprise systems — fintech, AI, banking — where complexity meets clarity.
             </p>
           </div>
 

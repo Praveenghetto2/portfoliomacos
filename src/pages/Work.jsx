@@ -1,8 +1,52 @@
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate, Link } from 'react-router-dom';
 import AnimatedCounter from '../components/AnimatedCounter';
 import { ArrowLeft, ArrowUpRight } from 'lucide-react';
 import './Work.css';
+
+// 3D Tilt Card Helper Component
+function TiltCard({ children, className, onClick }) {
+  const [rotateX, setRotateX] = useState(0);
+  const [rotateY, setRotateY] = useState(0);
+
+  const handleMouseMove = (e) => {
+    const el = e.currentTarget;
+    const rect = el.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    const xc = rect.width / 2;
+    const yc = rect.height / 2;
+    
+    const rx = -((y - yc) / yc) * 8;
+    const ry = ((x - xc) / xc) * 8;
+    
+    setRotateX(rx);
+    setRotateY(ry);
+  };
+
+  const handleMouseLeave = () => {
+    setRotateX(0);
+    setRotateY(0);
+  };
+
+  return (
+    <div 
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      onClick={onClick}
+      style={{
+        transform: `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`,
+        transition: 'transform 0.15s ease-out',
+        transformStyle: 'preserve-3d'
+      }}
+      className={className}
+    >
+      {children}
+    </div>
+  );
+}
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -63,8 +107,16 @@ const Work = () => {
   ];
 
   return (
-    <div className="work-archive-page">
-
+    <div className="work-archive-page relative">
+      {/* Floating Exit Button */}
+      <div className="fixed top-8 left-8 z-[100] pointer-events-auto">
+        <Link 
+          to="/"
+          className="flex items-center gap-2 px-4 py-2.5 rounded-full bg-white/70 backdrop-blur-xl border border-black/5 text-apple-text text-xs font-mono font-bold uppercase shadow-apple-sm hover:bg-white transition-colors cursor-default"
+        >
+          <ArrowLeft size={12} /> Back to Desktop
+        </Link>
+      </div>
 
       <section className="ch-work-archive">
         <div className="main-content">
@@ -73,9 +125,9 @@ const Work = () => {
             variants={fadeUp}
           >
             <span className="section-label">WORK ARCHIVE •</span>
-            <h1 className="text-h1 archive-heading">Systematic digital solutions.</h1>
+            <h1 className="text-h1 archive-heading">Work</h1>
             <p className="archive-header-sub">
-              A detailed exploration of AI analytics interfaces and growth optimization frameworks built to achieve measurable business outcomes.
+              Projects where I bridged the gap between what users need and what engineering can build.
             </p>
           </motion.div>
 
@@ -91,7 +143,10 @@ const Work = () => {
                 <div className="bento-grid">
                   
                   {/* Module 1: Overview (Spans 2 columns on desktop) */}
-                  <div className="bento-module module-overview hover-target" onClick={() => navigate(`/case-study/${project.id}`)}>
+                  <TiltCard 
+                    className="bento-module module-overview hover-target cursor-pointer" 
+                    onClick={() => navigate(`/case-study/${project.id}`)}
+                  >
                     <div className="module-header-meta">
                       <span className="bento-num">{project.num}</span>
                       <span className="bento-cat">{project.category}</span>
@@ -102,10 +157,13 @@ const Work = () => {
                       <span>View Case Study</span>
                       <ArrowUpRight size={16} />
                     </div>
-                  </div>
+                  </TiltCard>
 
                   {/* Module 2: Visual Showcase (Full height on desktop) */}
-                  <div className="bento-module module-visual hover-target" onClick={() => navigate(`/case-study/${project.id}`)}>
+                  <TiltCard 
+                    className="bento-module module-visual hover-target cursor-pointer" 
+                    onClick={() => navigate(`/case-study/${project.id}`)}
+                  >
                     <div className="bento-visual-collage">
                       {/* Ambient Glow */}
                       <div className="visual-ambient-glow" />
@@ -122,20 +180,20 @@ const Work = () => {
                         <span className="image-caption">[ FIG. 02 / INTERACTION DETAIL ]</span>
                       </div>
                     </div>
-                  </div>
+                  </TiltCard>
 
                   {/* Module 3: Strategic Outcomes */}
-                  <div className="bento-module module-outcomes">
+                  <TiltCard className="bento-module module-outcomes">
                     <h4 className="text-h3 bento-module-title">Strategic Outcomes</h4>
                     <ul className="bento-outcomes-list">
                       {project.outcomes.map((o, idx) => (
                         <li key={idx} className="bento-outcome-item">{o}</li>
                       ))}
                     </ul>
-                  </div>
+                  </TiltCard>
 
                   {/* Module 4: Metrics Dashboard */}
-                  <div className="bento-module module-metrics">
+                  <TiltCard className="bento-module module-metrics">
                     <h4 className="text-h3 bento-module-title">Measurable Impact</h4>
                     <div className="bento-metrics-grid">
                       {project.metrics.map((m, idx) => (
@@ -147,7 +205,7 @@ const Work = () => {
                         </div>
                       ))}
                     </div>
-                  </div>
+                  </TiltCard>
 
                 </div>
               </motion.div>

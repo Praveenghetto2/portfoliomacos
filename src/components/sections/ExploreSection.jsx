@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from 'react';
+import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -89,27 +90,89 @@ const PlanetOrb = ({ index }) => {
   );
 };
 
+import { Link } from 'react-router-dom';
+
 const PlanetCard = ({ num, title, subtitle, index }) => {
+  const cardRef = useRef(null);
+
+  // Map indexes to real case study paths
+  const caseStudyPath = (index === 0 || index === 3) 
+    ? "/case-study/revlitix-saas" 
+    : "/case-study/sonic";
+
+  // Motion values for tracking cursor relative to card center
+  const mouseXVal = useMotionValue(0);
+  const mouseYVal = useMotionValue(0);
+
+  // Smooth springs for card rotation (3D tilt effect)
+  const rotateX = useSpring(useTransform(mouseYVal, [-0.5, 0.5], [10, -10]), { stiffness: 200, damping: 22 });
+  const rotateY = useSpring(useTransform(mouseXVal, [-0.5, 0.5], [-10, 10]), { stiffness: 200, damping: 22 });
+
+  // Floating parallax displacement for the inner planet orb
+  const orbX = useSpring(useTransform(mouseXVal, [-0.5, 0.5], [-15, 15]), { stiffness: 200, damping: 25 });
+  const orbY = useSpring(useTransform(mouseYVal, [-0.5, 0.5], [-15, 15]), { stiffness: 200, damping: 25 });
+
+  const handleMouseMove = (e) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    const localX = e.clientX - rect.left - width / 2;
+    const localY = e.clientY - rect.top - height / 2;
+    mouseXVal.set(localX / width);
+    mouseYVal.set(localY / height);
+  };
+
+  const handleMouseLeave = () => {
+    mouseXVal.set(0);
+    mouseYVal.set(0);
+  };
+
   return (
-    <div className="w-[300px] md:w-[350px] shrink-0 flex flex-col items-center justify-start text-center cursor-pointer group">
-      
-      {/* 3D Planet representation */}
-      <div className="mb-10 group-hover:scale-105 group-hover:-translate-y-2 transition-all duration-500">
-        <PlanetOrb index={index} />
-      </div>
+    <Link to={caseStudyPath} className="block shrink-0 no-underline">
+      <motion.div
+        ref={cardRef}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        style={{
+          rotateX,
+          rotateY,
+          transformStyle: 'preserve-3d',
+          perspective: 1000,
+        }}
+        className="w-[280px] md:w-[330px] flex flex-col items-center justify-start text-center cursor-pointer group p-8 rounded-[32px] border border-apple-border bg-white/40 backdrop-blur-md shadow-apple-sm hover:shadow-apple-md hover:border-brand-purple/20 transition-colors duration-300"
+      >
+        {/* 3D Planet representation with parallax layer displacement */}
+        <motion.div 
+          style={{ 
+            x: orbX, 
+            y: orbY, 
+            transformStyle: 'preserve-3d', 
+            translateZ: 50 
+          }}
+          className="mb-8"
+        >
+          <PlanetOrb index={index} />
+        </motion.div>
 
-      {/* Info elements underneath */}
-      <div className="flex flex-col items-center">
-        <span className="text-[10px] font-mono font-bold text-apple-subtext mb-2 block tracking-widest">{num}</span>
-        <h3 className="text-xl md:text-2xl font-display font-extrabold text-apple-text tracking-tight uppercase mb-1">
-          {title}
-        </h3>
-        <p className="text-[10px] font-mono font-bold text-brand-purple uppercase tracking-widest">
-          {subtitle}
-        </p>
-      </div>
+        {/* Info elements underneath */}
+        <div className="flex flex-col items-center" style={{ transform: 'translateZ(25px)' }}>
+          <span className="text-[10px] font-mono font-bold text-apple-subtext mb-2 block tracking-widest">{num}</span>
+          <h3 className="text-lg md:text-xl font-display font-extrabold text-apple-text tracking-tight uppercase mb-1">
+            {title}
+          </h3>
+          <p className="text-[10px] font-mono font-bold text-brand-purple uppercase tracking-widest">
+            {subtitle}
+          </p>
+          
+          {/* Action indicator */}
+          <span className="text-[9px] font-mono font-bold text-[#3B82F6] uppercase tracking-wider mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            Open Case Study →
+          </span>
+        </div>
 
-    </div>
+      </motion.div>
+    </Link>
   );
 };
 

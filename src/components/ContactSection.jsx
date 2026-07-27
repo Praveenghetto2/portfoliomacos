@@ -31,12 +31,12 @@ export default function ContactSection() {
             variants={staggerContainer}
           >
             <motion.span className="editorial-section-label" variants={fadeUp}>
-              08 — Contact
+              Let's Talk
             </motion.span>
             
             <motion.h2 className="editorial-statement" variants={fadeUp}>
-              Let's build something <br className="desktop-only" />
-              remarkable together.
+              Currently open to <br className="desktop-only" />
+              Senior Product Design roles.
             </motion.h2>
           </motion.div>
 
@@ -94,7 +94,7 @@ export default function ContactSection() {
             © {new Date().getFullYear()} Praveen Kumar
           </div>
           <div className="colophon-right">
-            Designed with precision.
+            Designed & coded by Praveen Kumar.
           </div>
         </motion.div>
 
