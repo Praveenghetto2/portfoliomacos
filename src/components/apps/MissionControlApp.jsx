@@ -618,11 +618,11 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
 
         {/* Slide Image 1 */}
         <div 
-          onClick={() => onZoomImage && onZoomImage('/assets/revlitix_slides/1.png', 'Fig 1.1 — Revlitix Overview & Executive Dashboard')}
+          onClick={() => onZoomImage && onZoomImage('/assets/revlitix_slides/1.jpg', 'Fig 1.1 — Revlitix Overview & Executive Dashboard')}
           className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white my-6 ring-4 ring-slate-50/50 hover:shadow-2xl transition-all duration-300 cursor-pointer group relative"
         >
           <div className="relative overflow-hidden">
-            <img src="/assets/revlitix_slides/1.png" alt="Revlitix Slide 1" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
+            <img src="/assets/revlitix_slides/1.jpg" alt="Revlitix Slide 1" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
             <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-all duration-200 flex items-center justify-center pointer-events-none">
               <span className="opacity-0 group-hover:opacity-100 bg-slate-900/90 text-white font-mono text-[11px] font-bold px-3 py-1.5 rounded-full shadow-lg transition-all duration-200 flex items-center gap-1.5 translate-y-2 group-hover:translate-y-0">
                 <span className="text-[13px]">🔍</span> Click to inspect high-res
@@ -767,11 +767,11 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
 
         {/* Slide Image 2 */}
         <div 
-          onClick={() => onZoomImage && onZoomImage('/assets/revlitix_slides/2.png', 'Fig 2.1 — Baseline Friction & Fragmented User Journey')}
+          onClick={() => onZoomImage && onZoomImage('/assets/revlitix_slides/2.jpg', 'Fig 2.1 — Baseline Friction & Fragmented User Journey')}
           className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white my-6 ring-4 ring-slate-50/50 hover:shadow-2xl transition-all duration-300 cursor-pointer group relative"
         >
           <div className="relative overflow-hidden">
-            <img src="/assets/revlitix_slides/2.png" alt="Revlitix Slide 2" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
+            <img src="/assets/revlitix_slides/2.jpg" alt="Revlitix Slide 2" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
             <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-all duration-200 flex items-center justify-center pointer-events-none">
               <span className="opacity-0 group-hover:opacity-100 bg-slate-900/90 text-white font-mono text-[11px] font-bold px-3 py-1.5 rounded-full shadow-lg transition-all duration-200 flex items-center gap-1.5 translate-y-2 group-hover:translate-y-0">
                 <span className="text-[13px]">🔍</span> Click to inspect high-res
@@ -863,11 +863,11 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
 
         {/* Slide Image 3 */}
         <div 
-          onClick={() => onZoomImage && onZoomImage('/assets/revlitix_slides/3.png', 'Fig 3.1 — Time-to-Insight & Success Metrics Scorecard')}
+          onClick={() => onZoomImage && onZoomImage('/assets/revlitix_slides/3.jpg', 'Fig 3.1 — Time-to-Insight & Success Metrics Scorecard')}
           className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white my-6 ring-4 ring-slate-50/50 hover:shadow-2xl transition-all duration-300 cursor-pointer group relative"
         >
           <div className="relative overflow-hidden">
-            <img src="/assets/revlitix_slides/3.png" alt="Revlitix Slide 3" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
+            <img src="/assets/revlitix_slides/3.jpg" alt="Revlitix Slide 3" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
             <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-all duration-200 flex items-center justify-center pointer-events-none">
               <span className="opacity-0 group-hover:opacity-100 bg-slate-900/90 text-white font-mono text-[11px] font-bold px-3 py-1.5 rounded-full shadow-lg transition-all duration-200 flex items-center gap-1.5 translate-y-2 group-hover:translate-y-0">
                 <span className="text-[13px]">🔍</span> Click to inspect high-res
@@ -919,11 +919,11 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
 
         {/* Slide Image 4 */}
         <div 
-          onClick={() => onZoomImage && onZoomImage('/assets/revlitix_slides/4.png', 'Fig 4.1 — Contextual Inquiry & Funnel Analysis Findings')}
+          onClick={() => onZoomImage && onZoomImage('/assets/revlitix_slides/4.jpg', 'Fig 4.1 — Contextual Inquiry & Funnel Analysis Findings')}
           className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white my-6 ring-4 ring-slate-50/50 hover:shadow-2xl transition-all duration-300 cursor-pointer group relative"
         >
           <div className="relative overflow-hidden">
-            <img src="/assets/revlitix_slides/4.png" alt="Revlitix Slide 4" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
+            <img src="/assets/revlitix_slides/4.jpg" alt="Revlitix Slide 4" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
             <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-all duration-200 flex items-center justify-center pointer-events-none">
               <span className="opacity-0 group-hover:opacity-100 bg-slate-900/90 text-white font-mono text-[11px] font-bold px-3 py-1.5 rounded-full shadow-lg transition-all duration-200 flex items-center gap-1.5 translate-y-2 group-hover:translate-y-0">
                 <span className="text-[13px]">🔍</span> Click to inspect high-res
@@ -981,11 +981,11 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
 
         {/* Slide Image 5 */}
         <div 
-          onClick={() => onZoomImage && onZoomImage('/assets/revlitix_slides/5.png', 'Fig 5.1 — Core Strategic Insight Principles')}
+          onClick={() => onZoomImage && onZoomImage('/assets/revlitix_slides/5.jpg', 'Fig 5.1 — Core Strategic Insight Principles')}
           className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white my-6 ring-4 ring-slate-50/50 hover:shadow-2xl transition-all duration-300 cursor-pointer group relative"
         >
           <div className="relative overflow-hidden">
-            <img src="/assets/revlitix_slides/5.png" alt="Revlitix Slide 5" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
+            <img src="/assets/revlitix_slides/5.jpg" alt="Revlitix Slide 5" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
             <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-all duration-200 flex items-center justify-center pointer-events-none">
               <span className="opacity-0 group-hover:opacity-100 bg-slate-900/90 text-white font-mono text-[11px] font-bold px-3 py-1.5 rounded-full shadow-lg transition-all duration-200 flex items-center gap-1.5 translate-y-2 group-hover:translate-y-0">
                 <span className="text-[13px]">🔍</span> Click to inspect high-res
@@ -1054,11 +1054,11 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
 
         {/* Slide Image 6 */}
         <div 
-          onClick={() => onZoomImage && onZoomImage('/assets/revlitix_slides/6.png', 'Fig 6.1 — Impact vs. Feasibility Trade-Off Matrix')}
+          onClick={() => onZoomImage && onZoomImage('/assets/revlitix_slides/6.jpg', 'Fig 6.1 — Impact vs. Feasibility Trade-Off Matrix')}
           className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white my-6 ring-4 ring-slate-50/50 hover:shadow-2xl transition-all duration-300 cursor-pointer group relative"
         >
           <div className="relative overflow-hidden">
-            <img src="/assets/revlitix_slides/6.png" alt="Revlitix Slide 6" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
+            <img src="/assets/revlitix_slides/6.jpg" alt="Revlitix Slide 6" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
             <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-all duration-200 flex items-center justify-center pointer-events-none">
               <span className="opacity-0 group-hover:opacity-100 bg-slate-900/90 text-white font-mono text-[11px] font-bold px-3 py-1.5 rounded-full shadow-lg transition-all duration-200 flex items-center gap-1.5 translate-y-2 group-hover:translate-y-0">
                 <span className="text-[13px]">🔍</span> Click to inspect high-res
@@ -1128,11 +1128,11 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
 
         {/* Slide Image 7 */}
         <div 
-          onClick={() => onZoomImage && onZoomImage('/assets/revlitix_slides/7.png', 'Fig 7.1 — Design Review Criteria & System Rules')}
+          onClick={() => onZoomImage && onZoomImage('/assets/revlitix_slides/7.jpg', 'Fig 7.1 — Design Review Criteria & System Rules')}
           className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white my-6 ring-4 ring-slate-50/50 hover:shadow-2xl transition-all duration-300 cursor-pointer group relative"
         >
           <div className="relative overflow-hidden">
-            <img src="/assets/revlitix_slides/7.png" alt="Revlitix Slide 7" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
+            <img src="/assets/revlitix_slides/7.jpg" alt="Revlitix Slide 7" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
             <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-all duration-200 flex items-center justify-center pointer-events-none">
               <span className="opacity-0 group-hover:opacity-100 bg-slate-900/90 text-white font-mono text-[11px] font-bold px-3 py-1.5 rounded-full shadow-lg transition-all duration-200 flex items-center gap-1.5 translate-y-2 group-hover:translate-y-0">
                 <span className="text-[13px]">🔍</span> Click to inspect high-res
@@ -1181,11 +1181,11 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
 
         {/* Slide Image 8 */}
         <div 
-          onClick={() => onZoomImage && onZoomImage('/assets/revlitix_slides/8.png', 'Fig 8.1 — Information Architecture & Layout Exploration')}
+          onClick={() => onZoomImage && onZoomImage('/assets/revlitix_slides/8.jpg', 'Fig 8.1 — Information Architecture & Layout Exploration')}
           className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white my-6 ring-4 ring-slate-50/50 hover:shadow-2xl transition-all duration-300 cursor-pointer group relative"
         >
           <div className="relative overflow-hidden">
-            <img src="/assets/revlitix_slides/8.png" alt="Revlitix Slide 8" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
+            <img src="/assets/revlitix_slides/8.jpg" alt="Revlitix Slide 8" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
             <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-all duration-200 flex items-center justify-center pointer-events-none">
               <span className="opacity-0 group-hover:opacity-100 bg-slate-900/90 text-white font-mono text-[11px] font-bold px-3 py-1.5 rounded-full shadow-lg transition-all duration-200 flex items-center gap-1.5 translate-y-2 group-hover:translate-y-0">
                 <span className="text-[13px]">🔍</span> Click to inspect high-res
@@ -1240,11 +1240,11 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
 
         {/* Slide Image 9 */}
         <div 
-          onClick={() => onZoomImage && onZoomImage('/assets/revlitix_slides/9.png', 'Fig 9.1 — High-Fidelity Decision Home & Consolidated Views')}
+          onClick={() => onZoomImage && onZoomImage('/assets/revlitix_slides/9.jpg', 'Fig 9.1 — High-Fidelity Decision Home & Consolidated Views')}
           className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white my-6 ring-4 ring-slate-50/50 hover:shadow-2xl transition-all duration-300 cursor-pointer group relative"
         >
           <div className="relative overflow-hidden">
-            <img src="/assets/revlitix_slides/9.png" alt="Revlitix Slide 9" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
+            <img src="/assets/revlitix_slides/9.jpg" alt="Revlitix Slide 9" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
             <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-all duration-200 flex items-center justify-center pointer-events-none">
               <span className="opacity-0 group-hover:opacity-100 bg-slate-900/90 text-white font-mono text-[11px] font-bold px-3 py-1.5 rounded-full shadow-lg transition-all duration-200 flex items-center gap-1.5 translate-y-2 group-hover:translate-y-0">
                 <span className="text-[13px]">🔍</span> Click to inspect high-res
@@ -1290,11 +1290,11 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
 
         {/* Slide Image 10 */}
         <div 
-          onClick={() => onZoomImage && onZoomImage('/assets/revlitix_slides/10.png', 'Fig 10.1 — Micro-Interactions, Edge States & WCAG AA Audit')}
+          onClick={() => onZoomImage && onZoomImage('/assets/revlitix_slides/10.jpg', 'Fig 10.1 — Micro-Interactions, Edge States & WCAG AA Audit')}
           className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white my-6 ring-4 ring-slate-50/50 hover:shadow-2xl transition-all duration-300 cursor-pointer group relative"
         >
           <div className="relative overflow-hidden">
-            <img src="/assets/revlitix_slides/10.png" alt="Revlitix Slide 10" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
+            <img src="/assets/revlitix_slides/10.jpg" alt="Revlitix Slide 10" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
             <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-all duration-200 flex items-center justify-center pointer-events-none">
               <span className="opacity-0 group-hover:opacity-100 bg-slate-900/90 text-white font-mono text-[11px] font-bold px-3 py-1.5 rounded-full shadow-lg transition-all duration-200 flex items-center gap-1.5 translate-y-2 group-hover:translate-y-0">
                 <span className="text-[13px]">🔍</span> Click to inspect high-res
@@ -1385,11 +1385,11 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
 
         {/* Slide Image 11 */}
         <div 
-          onClick={() => onZoomImage && onZoomImage('/assets/revlitix_slides/11.png', 'Fig 11.1 — Usability Pivots & Quantified Business Impact Scorecard')}
+          onClick={() => onZoomImage && onZoomImage('/assets/revlitix_slides/11.jpg', 'Fig 11.1 — Usability Pivots & Quantified Business Impact Scorecard')}
           className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white my-6 ring-4 ring-slate-50/50 hover:shadow-2xl transition-all duration-300 cursor-pointer group relative"
         >
           <div className="relative overflow-hidden">
-            <img src="/assets/revlitix_slides/11.png" alt="Revlitix Slide 11" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
+            <img src="/assets/revlitix_slides/11.jpg" alt="Revlitix Slide 11" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
             <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-all duration-200 flex items-center justify-center pointer-events-none">
               <span className="opacity-0 group-hover:opacity-100 bg-slate-900/90 text-white font-mono text-[11px] font-bold px-3 py-1.5 rounded-full shadow-lg transition-all duration-200 flex items-center gap-1.5 translate-y-2 group-hover:translate-y-0">
                 <span className="text-[13px]">🔍</span> Click to inspect high-res
@@ -1432,11 +1432,11 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
 
         {/* Slide Image 12 */}
         <div 
-          onClick={() => onZoomImage && onZoomImage('/assets/revlitix_slides/12.png', 'Fig 12.1 — Key Retrospective Takeaways & Interview Summary')}
+          onClick={() => onZoomImage && onZoomImage('/assets/revlitix_slides/12.jpg', 'Fig 12.1 — Key Retrospective Takeaways & Interview Summary')}
           className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white my-6 ring-4 ring-slate-50/50 hover:shadow-2xl transition-all duration-300 cursor-pointer group relative"
         >
           <div className="relative overflow-hidden">
-            <img src="/assets/revlitix_slides/12.png" alt="Revlitix Slide 12" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
+            <img src="/assets/revlitix_slides/12.jpg" alt="Revlitix Slide 12" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
             <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-all duration-200 flex items-center justify-center pointer-events-none">
               <span className="opacity-0 group-hover:opacity-100 bg-slate-900/90 text-white font-mono text-[11px] font-bold px-3 py-1.5 rounded-full shadow-lg transition-all duration-200 flex items-center gap-1.5 translate-y-2 group-hover:translate-y-0">
                 <span className="text-[13px]">🔍</span> Click to inspect high-res
@@ -1540,35 +1540,35 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
     <div className="h-full bg-[#F8FAFC] text-[#0F172A] select-text flex flex-col relative text-[16px] leading-[1.8] overflow-hidden" style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "SF Pro", "Helvetica Neue", Helvetica, Arial, sans-serif' }}>
       
       {/* APPLE/STRIPE STYLE STICKY TOP COMMAND BAR */}
-      <header className="h-16 px-8 bg-white border-b border-slate-200/80 flex items-center justify-between z-50 flex-shrink-0 shadow-xs">
-        <div className="flex items-center gap-4">
+      <header className="h-16 px-4 sm:px-8 bg-white/80 backdrop-blur-xl border-b border-slate-200/80 flex items-center justify-between z-50 flex-shrink-0 shadow-xs">
+        <div className="flex items-center gap-3 sm:gap-4">
           <button
             onClick={() => {
               if (onClose) onClose();
             }}
-            className="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 hover:bg-slate-200 text-[13px] font-mono font-bold text-slate-800 hover:text-slate-900 transition-all cursor-default"
+            className="flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full bg-slate-100 hover:bg-slate-200 text-[12.5px] font-mono font-bold text-slate-800 hover:text-slate-900 transition-all cursor-pointer border border-slate-200/60"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>Overview</span>
           </button>
 
-          <div className="h-5 w-px bg-slate-200" />
+          <div className="h-5 w-px bg-slate-200 hidden sm:block" />
 
           {/* Project Switcher Pills */}
-          <div className="flex items-center gap-1.5 bg-slate-100 p-1.5 rounded-full border border-slate-200/60">
+          <div className="flex items-center gap-1 bg-slate-100/90 p-1 rounded-full border border-slate-200/60">
             {MISSIONS.map(m => (
               <button
                 key={m.id}
                 onClick={() => {
                   setActiveMission(m.id);
-                  setActiveSection('sec-hero');
+                  setActiveSection('sec-overview');
                   if (scrollContainerRef.current) {
                     scrollContainerRef.current.scrollTop = 0;
                   }
                 }}
-                className={`px-4 py-1.5 rounded-full text-[13px] font-mono font-bold transition-all cursor-default ${
+                className={`px-3 py-1 sm:px-4 sm:py-1.5 rounded-full text-[12px] sm:text-[13px] font-mono font-bold transition-all cursor-pointer ${
                   activeMission === m.id
-                    ? 'bg-white text-slate-900 shadow-sm font-extrabold'
+                    ? 'bg-white text-slate-950 shadow-sm font-extrabold border border-slate-200/40'
                     : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
@@ -1578,12 +1578,19 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
           </div>
         </div>
 
-        {/* Dynamic header breadcrumb */}
-        <div className="hidden md:flex items-center gap-2">
-          <span className="text-[12px] font-mono font-bold text-slate-400">viewing //</span>
-          <span className="text-[12px] font-mono font-extrabold text-[#4F46E5] uppercase tracking-wider">
-            {NAV_CHIPS.find(n => n.id === activeSection)?.label.split(' / ')[1] || 'Hero'}
-          </span>
+        {/* Dynamic Header Controls & Breadcrumb */}
+        <div className="hidden lg:flex items-center gap-3">
+          <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200/60 text-[11.5px] font-mono font-bold text-slate-600">
+            <span className="w-2 h-2 rounded-full bg-[#4F46E5] animate-pulse" />
+            <span>{NAV_CHIPS.find(n => n.id === activeSection)?.label || '01 / Overview'}</span>
+          </div>
+
+          <button
+            onClick={() => handleCopyToken('Revlitix Case Study — Praveen Kumar')}
+            className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-50 hover:bg-indigo-100 text-[#4F46E5] border border-indigo-200/60 text-[11.5px] font-mono font-bold transition-all cursor-pointer"
+          >
+            <span>{copiedToken ? '✓ Copied!' : '🔗 Share'}</span>
+          </button>
         </div>
       </header>
       {/* TOP READING PROGRESS INDICATOR BAR */}
@@ -1599,30 +1606,36 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
         
         {/* LEFT SIDEBAR: STICKY TABLE OF CONTENTS */}
         <aside className="hidden lg:flex w-72 border-r border-slate-200/80 bg-white flex-col h-full flex-shrink-0">
-          <div className="p-4 border-b border-slate-100 bg-slate-50/50">
+          <div className="p-4 border-b border-slate-100 bg-slate-50/50 flex items-center justify-between">
             <span className="text-[11px] font-mono font-extrabold uppercase tracking-wider text-slate-500">Case Study Index</span>
+            <span className="text-[10px] font-mono text-slate-400 font-bold">12 SECTIONS</span>
           </div>
-          <div className="flex-1 overflow-y-auto p-3 space-y-1" style={{ scrollbarWidth: 'thin' }}>
+          <div className="flex-1 overflow-y-auto p-3 space-y-1.5" style={{ scrollbarWidth: 'thin' }}>
             {NAV_CHIPS.map((chip) => {
               const isActive = activeSection === chip.id;
               return (
                 <button
                   key={chip.id}
                   onClick={() => scrollToSection(chip.id)}
-                  className={`w-full text-left p-2.5 rounded-xl transition-all flex items-center gap-3 cursor-default border ${
+                  className={`w-full text-left p-2.5 rounded-xl transition-all duration-200 flex items-center justify-between cursor-pointer border ${
                     isActive
-                      ? 'bg-[#EEF2FF] border-[#4F46E5]/30 shadow-xs'
-                      : 'bg-white border-transparent hover:bg-slate-50'
+                      ? 'bg-[#EEF2FF] border-[#4F46E5]/40 shadow-xs text-[#4F46E5]'
+                      : 'bg-white border-transparent hover:bg-slate-50 text-slate-600'
                   }`}
                 >
-                  <span className={`text-[10px] font-mono font-bold w-5 h-5 rounded-md flex items-center justify-center flex-shrink-0 ${
-                    isActive ? 'bg-[#4F46E5] text-white' : 'bg-slate-100 text-slate-400'
-                  }`}>
-                    {chip.label.split(' / ')[0]}
-                  </span>
-                  <span className={`text-[12.5px] font-semibold truncate ${isActive ? 'text-[#4F46E5]' : 'text-slate-600'}`}>
-                    {chip.label.split(' / ')[1]}
-                  </span>
+                  <div className="flex items-center gap-2.5 truncate">
+                    <span className={`text-[10px] font-mono font-extrabold w-5 h-5 rounded-md flex items-center justify-center flex-shrink-0 transition-colors ${
+                      isActive ? 'bg-[#4F46E5] text-white' : 'bg-slate-100 text-slate-400'
+                    }`}>
+                      {chip.label.split(' / ')[0]}
+                    </span>
+                    <span className={`text-[12.5px] font-bold truncate ${isActive ? 'text-[#4F46E5]' : 'text-slate-700'}`}>
+                      {chip.label.split(' / ')[1]}
+                    </span>
+                  </div>
+                  {isActive && (
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#4F46E5] shadow-[0_0_6px_rgba(79,70,229,0.8)] flex-shrink-0" />
+                  )}
                 </button>
               );
             })}
