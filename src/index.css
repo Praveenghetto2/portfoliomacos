@@ -902,6 +902,131 @@ body {
   border-radius: 4px;
 }
 
+/* ═══════════════════════════════════════════════
+   MICRO-ANIMATION KEYFRAMES — UI/UX OVERHAUL
+   ═══════════════════════════════════════════════ */
+
+/* Gentle bobbing for floating insight cards */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+/* Pulsing border glow for featured takeaway cards */
+@keyframes border-glow {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(79, 70, 229, 0.15), 0 0 24px rgba(79, 70, 229, 0.05);
+    border-color: rgba(79, 70, 229, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 16px rgba(79, 70, 229, 0.25), 0 0 40px rgba(79, 70, 229, 0.1);
+    border-color: rgba(79, 70, 229, 0.5);
+  }
+}
+
+/* Shimmer sweep for image card captions on hover */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Play button ring pulse for idle video player */
+@keyframes play-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
+  50% { box-shadow: 0 0 0 12px rgba(255, 255, 255, 0); }
+}
+
+/* Slide-up entrance for floating elements */
+@keyframes slide-up {
+  0% { opacity: 0; transform: translateY(16px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Utility classes for animations */
+.animate-float { animation: float 3s ease-in-out infinite; }
+.animate-float-delay-1 { animation: float 3s ease-in-out 0.5s infinite; }
+.animate-float-delay-2 { animation: float 3s ease-in-out 1s infinite; }
+.animate-float-delay-3 { animation: float 3s ease-in-out 1.5s infinite; }
+.animate-border-glow { animation: border-glow 3s ease-in-out infinite; }
+.animate-play-pulse { animation: play-pulse 2s ease-in-out infinite; }
+.animate-slide-up { animation: slide-up 0.4s ease-out both; }
+
+/* ═══════════════════════════════════════════════
+   CUSTOM SCROLLBAR — CASE STUDY CONTENT AREA
+   ═══════════════════════════════════════════════ */
+
+.case-study-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+.case-study-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.case-study-scroll::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.12);
+  border-radius: 999px;
+}
+.case-study-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.22);
+}
+
+/* ═══════════════════════════════════════════════
+   SECTION DIVIDER — BRANDED CHAPTER SEPARATOR
+   ═══════════════════════════════════════════════ */
+
+.section-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+}
+.section-divider::before,
+.section-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(79, 70, 229, 0.15), transparent);
+}
+.section-divider .divider-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4F46E5, #7C3AED);
+  flex-shrink: 0;
+  opacity: 0.5;
+}
+
+/* ═══════════════════════════════════════════════
+   IMAGE CARD HOVER — PREMIUM LIFT + GLOW
+   ═══════════════════════════════════════════════ */
+
+.image-card-hover {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.image-card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(79, 70, 229, 0.12),
+              0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* Caption shimmer effect on hover */
+.image-card-hover:hover .caption-shimmer {
+  background: linear-gradient(90deg, #f8fafc 0%, #eef2ff 25%, #f8fafc 50%, #eef2ff 75%, #f8fafc 100%);
+  background-size: 200% 100%;
+  animation: shimmer 2s linear infinite;
+}
+
+/* ═══════════════════════════════════════════════
+   ENHANCED FOCUS-VISIBLE STATES
+   ═══════════════════════════════════════════════ */
+
+.case-study-scroll *:focus-visible {
+  outline: 2px solid #4F46E5;
+  outline-offset: 3px;
+  border-radius: 8px;
+  transition: outline-offset 0.15s ease;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;

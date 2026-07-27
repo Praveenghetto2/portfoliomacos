@@ -498,7 +498,7 @@ const CaseStudyVideoPlayer = ({ videoUrl, poster }) => {
   };
 
   return (
-    <div className="relative w-full h-[420px] bg-slate-950 flex items-center justify-center overflow-hidden">
+    <div className="relative w-full aspect-video bg-slate-950 flex items-center justify-center overflow-hidden">
       <video
         ref={videoRef}
         src={videoUrl}
@@ -515,9 +515,9 @@ const CaseStudyVideoPlayer = ({ videoUrl, poster }) => {
       {!isPlaying && (
         <button
           onClick={handlePlayClick}
-          className="absolute inset-0 w-full h-full flex items-center justify-center bg-black/40 hover:bg-black/50 transition-colors group border-none outline-none z-30 cursor-pointer"
+          className="absolute inset-0 w-full h-full flex items-center justify-center bg-gradient-radial from-black/50 via-black/30 to-transparent hover:from-black/60 hover:via-black/40 transition-all duration-300 group border-none outline-none z-30 cursor-pointer"
         >
-          <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center shadow-2xl transform transition-transform group-hover:scale-110 duration-200">
+          <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center shadow-2xl transform transition-transform group-hover:scale-110 duration-200 animate-play-pulse">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="#0F172A" className="ml-1">
               <polygon points="5 3 19 12 5 21 5 3" />
             </svg>
@@ -619,7 +619,7 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
         {/* Slide Image 1 */}
         <div 
           onClick={() => onZoomImage && onZoomImage('/assets/revlitix_slides/1.jpg', 'Fig 1.1 — Revlitix Overview & Executive Dashboard')}
-          className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white my-6 ring-4 ring-slate-50/50 hover:shadow-2xl transition-all duration-300 cursor-pointer group relative"
+          className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white my-6 ring-4 ring-slate-50/50 image-card-hover cursor-pointer group relative"
         >
           <div className="relative overflow-hidden">
             <img src="/assets/revlitix_slides/1.jpg" alt="Revlitix Slide 1" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
@@ -629,14 +629,14 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
               </span>
             </div>
           </div>
-          <div className="p-3.5 bg-slate-50 border-t border-slate-200 text-center font-mono text-[12px] text-slate-600 font-bold flex items-center justify-between">
+          <div className="p-3.5 bg-slate-50 border-t border-slate-200 text-center font-mono text-[12px] text-slate-600 font-bold flex items-center justify-between caption-shimmer transition-all duration-300">
             <span>Fig 1.1 — Revlitix Overview & Executive Dashboard</span>
             <span className="text-[10px] text-[#4F46E5] font-mono font-bold opacity-80 group-hover:opacity-100">FULLSCREEN ⤢</span>
           </div>
         </div>
       </motion.section>
 
-      <hr className="border-slate-200/80" />
+      <div className="section-divider my-4"><span className="divider-dot" /></div>
 
       {/* SECTION 02: THE PROBLEM */}
       <motion.section 
@@ -658,7 +658,7 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
 
         {/* Customer Quotes Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          <div className="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-xs relative overflow-hidden flex flex-col justify-between">
+          <div className="p-5 rounded-2xl bg-white/90 backdrop-blur-sm border border-slate-200/80 shadow-xs relative overflow-hidden flex flex-col justify-between hover:-translate-y-1 hover:shadow-md transition-all duration-300">
             <span className="text-[48px] text-rose-300/40 absolute top-2 right-3 select-none leading-none">“</span>
             <p className="text-[14px] italic text-slate-800 relative z-10 leading-relaxed">
               "Our tech stack felt like a maze with no exit. Visibility was a myth."
@@ -672,7 +672,7 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
             </div>
           </div>
 
-          <div className="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-xs relative overflow-hidden flex flex-col justify-between">
+          <div className="p-5 rounded-2xl bg-white/90 backdrop-blur-sm border border-slate-200/80 shadow-xs relative overflow-hidden flex flex-col justify-between hover:-translate-y-1 hover:shadow-md transition-all duration-300">
             <span className="text-[48px] text-rose-300/40 absolute top-2 right-3 select-none leading-none">“</span>
             <p className="text-[14px] italic text-slate-800 relative z-10 leading-relaxed">
               "I ask for an analysis, and it comes to me two weeks later in four different Excel sheets. I just ignore it."
@@ -686,7 +686,7 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
             </div>
           </div>
 
-          <div className="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-xs relative overflow-hidden flex flex-col justify-between">
+          <div className="p-5 rounded-2xl bg-white/90 backdrop-blur-sm border border-slate-200/80 shadow-xs relative overflow-hidden flex flex-col justify-between hover:-translate-y-1 hover:shadow-md transition-all duration-300">
             <span className="text-[48px] text-rose-300/40 absolute top-2 right-3 select-none leading-none">“</span>
             <p className="text-[14px] italic text-slate-800 relative z-10 leading-relaxed">
               "We spend at least 10–15 hours a week just firefighting."
@@ -768,7 +768,7 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
         {/* Slide Image 2 */}
         <div 
           onClick={() => onZoomImage && onZoomImage('/assets/revlitix_slides/2.jpg', 'Fig 2.1 — Baseline Friction & Fragmented User Journey')}
-          className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white my-6 ring-4 ring-slate-50/50 hover:shadow-2xl transition-all duration-300 cursor-pointer group relative"
+          className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white my-6 ring-4 ring-slate-50/50 image-card-hover cursor-pointer group relative"
         >
           <div className="relative overflow-hidden">
             <img src="/assets/revlitix_slides/2.jpg" alt="Revlitix Slide 2" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
@@ -778,14 +778,14 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
               </span>
             </div>
           </div>
-          <div className="p-3.5 bg-slate-50 border-t border-slate-200 text-center font-mono text-[12px] text-slate-600 font-bold flex items-center justify-between">
+          <div className="p-3.5 bg-slate-50 border-t border-slate-200 text-center font-mono text-[12px] text-slate-600 font-bold flex items-center justify-between caption-shimmer transition-all duration-300">
             <span>Fig 2.1 — Baseline Friction & Fragmented User Journey</span>
             <span className="text-[10px] text-[#4F46E5] font-mono font-bold opacity-80 group-hover:opacity-100">FULLSCREEN ⤢</span>
           </div>
         </div>
       </motion.section>
 
-      <hr className="border-slate-200/80" />
+      <div className="section-divider my-4"><span className="divider-dot" /></div>
 
       {/* SECTION 03: SUCCESS METRICS */}
       <motion.section 
@@ -864,7 +864,7 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
         {/* Slide Image 3 */}
         <div 
           onClick={() => onZoomImage && onZoomImage('/assets/revlitix_slides/3.jpg', 'Fig 3.1 — Time-to-Insight & Success Metrics Scorecard')}
-          className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white my-6 ring-4 ring-slate-50/50 hover:shadow-2xl transition-all duration-300 cursor-pointer group relative"
+          className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white my-6 ring-4 ring-slate-50/50 image-card-hover cursor-pointer group relative"
         >
           <div className="relative overflow-hidden">
             <img src="/assets/revlitix_slides/3.jpg" alt="Revlitix Slide 3" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
@@ -874,14 +874,14 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
               </span>
             </div>
           </div>
-          <div className="p-3.5 bg-slate-50 border-t border-slate-200 text-center font-mono text-[12px] text-slate-600 font-bold flex items-center justify-between">
+          <div className="p-3.5 bg-slate-50 border-t border-slate-200 text-center font-mono text-[12px] text-slate-600 font-bold flex items-center justify-between caption-shimmer transition-all duration-300">
             <span>Fig 3.1 — Time-to-Insight & Success Metrics Scorecard</span>
             <span className="text-[10px] text-[#4F46E5] font-mono font-bold opacity-80 group-hover:opacity-100">FULLSCREEN ⤢</span>
           </div>
         </div>
       </motion.section>
 
-      <hr className="border-slate-200/80" />
+      <div className="section-divider my-4"><span className="divider-dot" /></div>
 
       {/* SECTION 04: RESEARCH */}
       <motion.section 
@@ -920,7 +920,7 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
         {/* Slide Image 4 */}
         <div 
           onClick={() => onZoomImage && onZoomImage('/assets/revlitix_slides/4.jpg', 'Fig 4.1 — Contextual Inquiry & Funnel Analysis Findings')}
-          className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white my-6 ring-4 ring-slate-50/50 hover:shadow-2xl transition-all duration-300 cursor-pointer group relative"
+          className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white my-6 ring-4 ring-slate-50/50 image-card-hover cursor-pointer group relative"
         >
           <div className="relative overflow-hidden">
             <img src="/assets/revlitix_slides/4.jpg" alt="Revlitix Slide 4" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
@@ -930,14 +930,14 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
               </span>
             </div>
           </div>
-          <div className="p-3.5 bg-slate-50 border-t border-slate-200 text-center font-mono text-[12px] text-slate-600 font-bold flex items-center justify-between">
+          <div className="p-3.5 bg-slate-50 border-t border-slate-200 text-center font-mono text-[12px] text-slate-600 font-bold flex items-center justify-between caption-shimmer transition-all duration-300">
             <span>Fig 4.1 — Contextual Inquiry & Funnel Analysis Findings</span>
             <span className="text-[10px] text-[#4F46E5] font-mono font-bold opacity-80 group-hover:opacity-100">FULLSCREEN ⤢</span>
           </div>
         </div>
       </motion.section>
 
-      <hr className="border-slate-200/80" />
+      <div className="section-divider my-4"><span className="divider-dot" /></div>
 
       {/* SECTION 05: INSIGHTS */}
       <motion.section 
@@ -982,7 +982,7 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
         {/* Slide Image 5 */}
         <div 
           onClick={() => onZoomImage && onZoomImage('/assets/revlitix_slides/5.jpg', 'Fig 5.1 — Core Strategic Insight Principles')}
-          className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white my-6 ring-4 ring-slate-50/50 hover:shadow-2xl transition-all duration-300 cursor-pointer group relative"
+          className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white my-6 ring-4 ring-slate-50/50 image-card-hover cursor-pointer group relative"
         >
           <div className="relative overflow-hidden">
             <img src="/assets/revlitix_slides/5.jpg" alt="Revlitix Slide 5" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
@@ -992,14 +992,14 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
               </span>
             </div>
           </div>
-          <div className="p-3.5 bg-slate-50 border-t border-slate-200 text-center font-mono text-[12px] text-slate-600 font-bold flex items-center justify-between">
+          <div className="p-3.5 bg-slate-50 border-t border-slate-200 text-center font-mono text-[12px] text-slate-600 font-bold flex items-center justify-between caption-shimmer transition-all duration-300">
             <span>Fig 5.1 — Core Strategic Insight Principles</span>
             <span className="text-[10px] text-[#4F46E5] font-mono font-bold opacity-80 group-hover:opacity-100">FULLSCREEN ⤢</span>
           </div>
         </div>
       </motion.section>
 
-      <hr className="border-slate-200/80" />
+      <div className="section-divider my-4"><span className="divider-dot" /></div>
 
       {/* SECTION 06: PRIORITIZATION */}
       <motion.section 
@@ -1055,7 +1055,7 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
         {/* Slide Image 6 */}
         <div 
           onClick={() => onZoomImage && onZoomImage('/assets/revlitix_slides/6.jpg', 'Fig 6.1 — Impact vs. Feasibility Trade-Off Matrix')}
-          className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white my-6 ring-4 ring-slate-50/50 hover:shadow-2xl transition-all duration-300 cursor-pointer group relative"
+          className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white my-6 ring-4 ring-slate-50/50 image-card-hover cursor-pointer group relative"
         >
           <div className="relative overflow-hidden">
             <img src="/assets/revlitix_slides/6.jpg" alt="Revlitix Slide 6" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
@@ -1065,14 +1065,14 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
               </span>
             </div>
           </div>
-          <div className="p-3.5 bg-slate-50 border-t border-slate-200 text-center font-mono text-[12px] text-slate-600 font-bold flex items-center justify-between">
+          <div className="p-3.5 bg-slate-50 border-t border-slate-200 text-center font-mono text-[12px] text-slate-600 font-bold flex items-center justify-between caption-shimmer transition-all duration-300">
             <span>Fig 6.1 — Impact vs. Feasibility Trade-Off Matrix</span>
             <span className="text-[10px] text-[#4F46E5] font-mono font-bold opacity-80 group-hover:opacity-100">FULLSCREEN ⤢</span>
           </div>
         </div>
       </motion.section>
 
-      <hr className="border-slate-200/80" />
+      <div className="section-divider my-4"><span className="divider-dot" /></div>
 
       {/* SECTION 07: DESIGN PRINCIPLES */}
       <motion.section 
@@ -1129,7 +1129,7 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
         {/* Slide Image 7 */}
         <div 
           onClick={() => onZoomImage && onZoomImage('/assets/revlitix_slides/7.jpg', 'Fig 7.1 — Design Review Criteria & System Rules')}
-          className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white my-6 ring-4 ring-slate-50/50 hover:shadow-2xl transition-all duration-300 cursor-pointer group relative"
+          className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white my-6 ring-4 ring-slate-50/50 image-card-hover cursor-pointer group relative"
         >
           <div className="relative overflow-hidden">
             <img src="/assets/revlitix_slides/7.jpg" alt="Revlitix Slide 7" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
@@ -1139,14 +1139,14 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
               </span>
             </div>
           </div>
-          <div className="p-3.5 bg-slate-50 border-t border-slate-200 text-center font-mono text-[12px] text-slate-600 font-bold flex items-center justify-between">
+          <div className="p-3.5 bg-slate-50 border-t border-slate-200 text-center font-mono text-[12px] text-slate-600 font-bold flex items-center justify-between caption-shimmer transition-all duration-300">
             <span>Fig 7.1 — Design Review Criteria & System Rules</span>
             <span className="text-[10px] text-[#4F46E5] font-mono font-bold opacity-80 group-hover:opacity-100">FULLSCREEN ⤢</span>
           </div>
         </div>
       </motion.section>
 
-      <hr className="border-slate-200/80" />
+      <div className="section-divider my-4"><span className="divider-dot" /></div>
 
       {/* SECTION 08: FLATTENED FLOW & IA */}
       <motion.section 
@@ -1182,7 +1182,7 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
         {/* Slide Image 8 */}
         <div 
           onClick={() => onZoomImage && onZoomImage('/assets/revlitix_slides/8.jpg', 'Fig 8.1 — Information Architecture & Layout Exploration')}
-          className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white my-6 ring-4 ring-slate-50/50 hover:shadow-2xl transition-all duration-300 cursor-pointer group relative"
+          className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white my-6 ring-4 ring-slate-50/50 image-card-hover cursor-pointer group relative"
         >
           <div className="relative overflow-hidden">
             <img src="/assets/revlitix_slides/8.jpg" alt="Revlitix Slide 8" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
@@ -1192,14 +1192,14 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
               </span>
             </div>
           </div>
-          <div className="p-3.5 bg-slate-50 border-t border-slate-200 text-center font-mono text-[12px] text-slate-600 font-bold flex items-center justify-between">
+          <div className="p-3.5 bg-slate-50 border-t border-slate-200 text-center font-mono text-[12px] text-slate-600 font-bold flex items-center justify-between caption-shimmer transition-all duration-300">
             <span>Fig 8.1 — Information Architecture & Layout Exploration</span>
             <span className="text-[10px] text-[#4F46E5] font-mono font-bold opacity-80 group-hover:opacity-100">FULLSCREEN ⤢</span>
           </div>
         </div>
       </motion.section>
 
-      <hr className="border-slate-200/80" />
+      <div className="section-divider my-4"><span className="divider-dot" /></div>
 
       {/* SECTION 09: HIGH-FIDELITY DESIGN */}
       <motion.section 
@@ -1241,7 +1241,7 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
         {/* Slide Image 9 */}
         <div 
           onClick={() => onZoomImage && onZoomImage('/assets/revlitix_slides/9.jpg', 'Fig 9.1 — High-Fidelity Decision Home & Consolidated Views')}
-          className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white my-6 ring-4 ring-slate-50/50 hover:shadow-2xl transition-all duration-300 cursor-pointer group relative"
+          className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white my-6 ring-4 ring-slate-50/50 image-card-hover cursor-pointer group relative"
         >
           <div className="relative overflow-hidden">
             <img src="/assets/revlitix_slides/9.jpg" alt="Revlitix Slide 9" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
@@ -1251,14 +1251,14 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
               </span>
             </div>
           </div>
-          <div className="p-3.5 bg-slate-50 border-t border-slate-200 text-center font-mono text-[12px] text-slate-600 font-bold flex items-center justify-between">
+          <div className="p-3.5 bg-slate-50 border-t border-slate-200 text-center font-mono text-[12px] text-slate-600 font-bold flex items-center justify-between caption-shimmer transition-all duration-300">
             <span>Fig 9.1 — High-Fidelity Decision Home & Consolidated Views</span>
             <span className="text-[10px] text-[#4F46E5] font-mono font-bold opacity-80 group-hover:opacity-100">FULLSCREEN ⤢</span>
           </div>
         </div>
       </motion.section>
 
-      <hr className="border-slate-200/80" />
+      <div className="section-divider my-4"><span className="divider-dot" /></div>
 
       {/* SECTION 10: POLISH & ACCESSIBILITY */}
       <motion.section 
@@ -1291,7 +1291,7 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
         {/* Slide Image 10 */}
         <div 
           onClick={() => onZoomImage && onZoomImage('/assets/revlitix_slides/10.jpg', 'Fig 10.1 — Micro-Interactions, Edge States & WCAG AA Audit')}
-          className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white my-6 ring-4 ring-slate-50/50 hover:shadow-2xl transition-all duration-300 cursor-pointer group relative"
+          className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white my-6 ring-4 ring-slate-50/50 image-card-hover cursor-pointer group relative"
         >
           <div className="relative overflow-hidden">
             <img src="/assets/revlitix_slides/10.jpg" alt="Revlitix Slide 10" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
@@ -1301,14 +1301,14 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
               </span>
             </div>
           </div>
-          <div className="p-3.5 bg-slate-50 border-t border-slate-200 text-center font-mono text-[12px] text-slate-600 font-bold flex items-center justify-between">
+          <div className="p-3.5 bg-slate-50 border-t border-slate-200 text-center font-mono text-[12px] text-slate-600 font-bold flex items-center justify-between caption-shimmer transition-all duration-300">
             <span>Fig 10.1 — Micro-Interactions, Edge States & WCAG AA Audit</span>
             <span className="text-[10px] text-[#4F46E5] font-mono font-bold opacity-80 group-hover:opacity-100">FULLSCREEN ⤢</span>
           </div>
         </div>
       </motion.section>
 
-      <hr className="border-slate-200/80" />
+      <div className="section-divider my-4"><span className="divider-dot" /></div>
 
       {/* SECTION 11: ITERATION & BUSINESS IMPACT */}
       <motion.section 
@@ -1355,27 +1355,27 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
               <tbody className="divide-y divide-slate-100">
                 <tr>
                   <td className="py-3.5 px-5 font-bold text-slate-900">Time to insight</td>
-                  <td className="py-3.5 px-5 font-bold text-emerald-600 bg-emerald-50/20 font-mono">Cut from 5–6 clicks to 2 steps</td>
+                  <td className="py-3.5 px-5 font-extrabold text-emerald-600 bg-emerald-50/30 font-mono">Cut from 5–6 clicks to 2 steps</td>
                   <td className="py-3.5 px-5 text-slate-700">Consolidation solved the core navigation/cognitive-load problem</td>
                 </tr>
                 <tr>
                   <td className="py-3.5 px-5 font-bold text-slate-900">AI feature engagement</td>
-                  <td className="py-3.5 px-5 font-bold text-emerald-600 bg-emerald-50/20 font-mono">Rose from &lt;5% to 15–18%</td>
+                  <td className="py-3.5 px-5 font-extrabold text-emerald-600 bg-emerald-50/30 font-mono">Rose from &lt;5% to 15–18%</td>
                   <td className="py-3.5 px-5 text-slate-700">Positional change converted into real behavior change</td>
                 </tr>
                 <tr>
                   <td className="py-3.5 px-5 font-bold text-slate-900">Navigation support tickets</td>
-                  <td className="py-3.5 px-5 font-bold text-emerald-600 bg-emerald-50/20 font-mono">Reduced by ~25%</td>
+                  <td className="py-3.5 px-5 font-extrabold text-emerald-600 bg-emerald-50/30 font-mono">Reduced by ~25%</td>
                   <td className="py-3.5 px-5 text-slate-700">Flattened IA reduced confusion rather than displacing it</td>
                 </tr>
                 <tr>
                   <td className="py-3.5 px-5 font-bold text-slate-900">Post-task user confidence</td>
-                  <td className="py-3.5 px-5 font-bold text-emerald-600 bg-emerald-50/20 font-mono">Improved from 2.8 to 3.9 / 5</td>
+                  <td className="py-3.5 px-5 font-extrabold text-emerald-600 bg-emerald-50/30 font-mono">Improved from 2.8 to 3.9 / 5</td>
                   <td className="py-3.5 px-5 text-slate-700">Contextual framing solved a trust problem, not just a speed problem</td>
                 </tr>
                 <tr>
                   <td className="py-3.5 px-5 font-bold text-slate-900">Reusable component coverage</td>
-                  <td className="py-3.5 px-5 font-bold text-emerald-600 bg-emerald-50/20 font-mono">~75–80% coverage</td>
+                  <td className="py-3.5 px-5 font-extrabold text-emerald-600 bg-emerald-50/30 font-mono">~75–80% coverage</td>
                   <td className="py-3.5 px-5 text-slate-700">The design system investment pays down cost on future modules</td>
                 </tr>
               </tbody>
@@ -1386,7 +1386,7 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
         {/* Slide Image 11 */}
         <div 
           onClick={() => onZoomImage && onZoomImage('/assets/revlitix_slides/11.jpg', 'Fig 11.1 — Usability Pivots & Quantified Business Impact Scorecard')}
-          className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white my-6 ring-4 ring-slate-50/50 hover:shadow-2xl transition-all duration-300 cursor-pointer group relative"
+          className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white my-6 ring-4 ring-slate-50/50 image-card-hover cursor-pointer group relative"
         >
           <div className="relative overflow-hidden">
             <img src="/assets/revlitix_slides/11.jpg" alt="Revlitix Slide 11" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
@@ -1396,14 +1396,14 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
               </span>
             </div>
           </div>
-          <div className="p-3.5 bg-slate-50 border-t border-slate-200 text-center font-mono text-[12px] text-slate-600 font-bold flex items-center justify-between">
+          <div className="p-3.5 bg-slate-50 border-t border-slate-200 text-center font-mono text-[12px] text-slate-600 font-bold flex items-center justify-between caption-shimmer transition-all duration-300">
             <span>Fig 11.1 — Usability Pivots & Quantified Business Impact Scorecard</span>
             <span className="text-[10px] text-[#4F46E5] font-mono font-bold opacity-80 group-hover:opacity-100">FULLSCREEN ⤢</span>
           </div>
         </div>
       </motion.section>
 
-      <hr className="border-slate-200/80" />
+      <div className="section-divider my-4"><span className="divider-dot" /></div>
 
       {/* SECTION 12: RETROSPECTIVE & TAKEAWAY */}
       <motion.section 
@@ -1424,7 +1424,7 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
             Two things, with the benefit of hindsight. First, I'd run the keyboard-navigation and screen-reader validation earlier in the process — it was treated as a late-stage check rather than a constraint on the initial design, and we got lucky the final layout held up rather than designing for it from the start. Second, I'd bring the two enterprise accounts into research earlier, before the IA flattening was already in build — their pushback was resolved well, but it could have been designed around from day one rather than negotiated after the fact.
           </p>
 
-          <div className="bg-gradient-to-r from-indigo-50/80 via-purple-50/40 to-white p-6 rounded-2xl border border-indigo-150 mt-4 text-[15px] leading-relaxed text-indigo-950 font-normal relative overflow-hidden shadow-xs border-l-4 border-l-[#4F46E5]">
+          <div className="bg-gradient-to-r from-indigo-50/80 via-purple-50/40 to-white p-6 sm:p-8 rounded-2xl border border-indigo-200 mt-4 text-[15px] sm:text-[16px] leading-relaxed text-indigo-950 font-normal relative overflow-hidden shadow-sm border-l-4 border-l-[#4F46E5] animate-border-glow">
             <strong className="text-[11px] font-mono font-extrabold text-[#4F46E5] uppercase tracking-widest block mb-2 leading-none">// THE TAKEAWAY I'D LEAD WITH IN AN INTERVIEW</strong>
             "The biggest lever in this project wasn't a UI pattern — it was killing an in-progress feature (the customizable dashboard builder) because research contradicted the team's working assumption, and having the standing to make that call before more engineering time was spent on it. Every visual and interaction decision that followed was downstream of that harder call, not the other way around."
           </div>
@@ -1433,7 +1433,7 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
         {/* Slide Image 12 */}
         <div 
           onClick={() => onZoomImage && onZoomImage('/assets/revlitix_slides/12.jpg', 'Fig 12.1 — Key Retrospective Takeaways & Interview Summary')}
-          className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white my-6 ring-4 ring-slate-50/50 hover:shadow-2xl transition-all duration-300 cursor-pointer group relative"
+          className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white my-6 ring-4 ring-slate-50/50 image-card-hover cursor-pointer group relative"
         >
           <div className="relative overflow-hidden">
             <img src="/assets/revlitix_slides/12.jpg" alt="Revlitix Slide 12" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
@@ -1443,7 +1443,7 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
               </span>
             </div>
           </div>
-          <div className="p-3.5 bg-slate-50 border-t border-slate-200 text-center font-mono text-[12px] text-slate-600 font-bold flex items-center justify-between">
+          <div className="p-3.5 bg-slate-50 border-t border-slate-200 text-center font-mono text-[12px] text-slate-600 font-bold flex items-center justify-between caption-shimmer transition-all duration-300">
             <span>Fig 12.1 — Key Retrospective Takeaways & Interview Summary</span>
             <span className="text-[10px] text-[#4F46E5] font-mono font-bold opacity-80 group-hover:opacity-100">FULLSCREEN ⤢</span>
           </div>
@@ -1634,7 +1634,9 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
                     </span>
                   </div>
                   {isActive && (
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#4F46E5] shadow-[0_0_6px_rgba(79,70,229,0.8)] flex-shrink-0" />
+                    <div className="flex items-center gap-1.5 flex-shrink-0">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#4F46E5] shadow-[0_0_6px_rgba(79,70,229,0.8)]" />
+                    </div>
                   )}
                 </button>
               );
@@ -1644,7 +1646,7 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
 
         {/* MAIN SCROLLABLE CONTAINER */}
         <main 
-          className="flex-1 h-full overflow-y-auto p-4 sm:p-8 lg:p-12 space-y-16 bg-[#F8FAFC] scroll-smooth" 
+          className="flex-1 h-full overflow-y-auto p-4 sm:p-8 lg:p-12 space-y-16 bg-[#F8FAFC] scroll-smooth case-study-scroll" 
           ref={scrollContainerRef}
           style={{ scrollbarWidth: 'thin' }}
         >
@@ -1659,7 +1661,7 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-10 relative overflow-hidden group"
+              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-10 relative overflow-hidden group hover:shadow-lg transition-all duration-300"
             >
               <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-5">
                 <span className="text-[13px] font-mono font-extrabold tracking-widest uppercase px-4 py-1.5 rounded-full bg-[#EEF2FF] text-[#4F46E5]">
@@ -1700,7 +1702,7 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.2 + i * 0.1 }}
-                    className="absolute hidden sm:block p-4 rounded-2xl border border-white/40 shadow-2xl backdrop-blur-xl bg-white/75 pointer-events-none select-none max-w-[240px] z-20"
+                    className="absolute hidden lg:block p-4 rounded-2xl border border-white/40 shadow-2xl backdrop-blur-xl bg-white/75 pointer-events-none select-none max-w-[240px] z-20 animate-float"
                     style={{
                       top: i === 0 ? '12%' : i === 1 ? '16%' : 'auto',
                       bottom: i === 2 ? '12%' : i === 3 ? '16%' : 'auto',
@@ -1732,7 +1734,7 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-8"
+              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-8 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
             >
               <h2 className="text-[14px] font-mono font-extrabold uppercase tracking-[0.15em] text-[#4F46E5] flex items-center gap-3">
                 <span className="w-8 h-[2px] bg-current opacity-30 block rounded-full"></span>02 / Executive Summary
@@ -1781,7 +1783,7 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6"
+              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
             >
               <h2 className="text-[14px] font-mono font-extrabold uppercase tracking-[0.15em] text-[#4F46E5] flex items-center gap-3">
                 <span className="w-8 h-[2px] bg-current opacity-30 block rounded-full"></span>03 / Company Context & Role
@@ -1880,7 +1882,7 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6"
+              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
             >
               <h2 className="text-[14px] font-mono font-extrabold uppercase tracking-[0.15em] text-[#4F46E5] flex items-center gap-3">
                 <span className="w-8 h-[2px] bg-current opacity-30 block rounded-full"></span>05 / Core Success Metrics (North Star)
@@ -1911,7 +1913,7 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6"
+              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
             >
               <h2 className="text-[14px] font-mono font-extrabold uppercase tracking-[0.15em] text-[#4F46E5] flex items-center gap-3">
                 <span className="w-8 h-[2px] bg-current opacity-30 block rounded-full"></span>06 / Research Wall & Qualitative Insights
@@ -1987,7 +1989,7 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6"
+              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
             >
               <h2 className="text-[14px] font-mono font-extrabold uppercase tracking-[0.15em] text-[#4F46E5] flex items-center gap-3">
                 <span className="w-8 h-[2px] bg-current opacity-30 block rounded-full"></span>07 / Strategic UX Reframes
@@ -2025,7 +2027,7 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6"
+              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
             >
               <h2 className="text-[14px] font-mono font-extrabold uppercase tracking-[0.15em] text-[#4F46E5] flex items-center gap-3">
                 <span className="w-8 h-[2px] bg-current opacity-30 block rounded-full"></span>08 / How Might We (HMW) Questions
@@ -2065,7 +2067,7 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6"
+              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
             >
               <h2 className="text-[14px] font-mono font-extrabold uppercase tracking-[0.15em] text-[#4F46E5] flex items-center gap-3">
                 <span className="w-8 h-[2px] bg-current opacity-30 block rounded-full"></span>09 / System Design Principles
@@ -2106,7 +2108,7 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6"
+              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
             >
               <h2 className="text-[14px] font-mono font-extrabold uppercase tracking-[0.15em] text-[#4F46E5] flex items-center gap-3">
                 <span className="w-8 h-[2px] bg-current opacity-30 block rounded-full"></span>10 / Ideation & Sketches
@@ -2160,7 +2162,7 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6"
+              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
             >
               <h2 className="text-[14px] font-mono font-extrabold uppercase tracking-[0.15em] text-[#4F46E5] flex items-center gap-3">
                 <span className="w-8 h-[2px] bg-current opacity-30 block rounded-full"></span>11 / Information Architecture Map
@@ -2195,7 +2197,7 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6"
+              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
             >
               <h2 className="text-[14px] font-mono font-extrabold uppercase tracking-[0.15em] text-[#4F46E5] flex items-center gap-3">
                 <span className="w-8 h-[2px] bg-current opacity-30 block rounded-full"></span>12 / User Routing & Entry Points
@@ -2235,7 +2237,7 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6"
+              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
             >
               <h2 className="text-[14px] font-mono font-extrabold uppercase tracking-[0.15em] text-[#4F46E5] flex items-center gap-3">
                 <span className="w-8 h-[2px] bg-current opacity-30 block rounded-full"></span>13 / Wireframe Iterations & Specs
@@ -2264,7 +2266,7 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6"
+              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
             >
               <h2 className="text-[14px] font-mono font-extrabold uppercase tracking-[0.15em] text-[#4F46E5] flex items-center gap-3">
                 <span className="w-8 h-[2px] bg-current opacity-30 block rounded-full"></span>14 / High-Fidelity Specifications
@@ -2296,7 +2298,7 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6"
+              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
             >
               <h2 className="text-[14px] font-mono font-extrabold uppercase tracking-[0.15em] text-[#4F46E5] flex items-center gap-3">
                 <span className="w-8 h-[2px] bg-current opacity-30 block rounded-full"></span>15 / Micro-Interactions & Hover States
@@ -2328,7 +2330,7 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6"
+              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
             >
               <h2 className="text-[14px] font-mono font-extrabold uppercase tracking-[0.15em] text-[#4F46E5] flex items-center gap-3">
                 <span className="w-8 h-[2px] bg-current opacity-30 block rounded-full"></span>16 / Design Tokens Studio
@@ -2380,7 +2382,7 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6"
+              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
             >
               <h2 className="text-[14px] font-mono font-extrabold uppercase tracking-[0.15em] text-[#4F46E5] flex items-center gap-3">
                 <span className="w-8 h-[2px] bg-current opacity-30 block rounded-full"></span>17 / Defensive UI Edge Cases
@@ -2417,7 +2419,7 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6"
+              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
             >
               <h2 className="text-[14px] font-mono font-extrabold uppercase tracking-[0.15em] text-[#4F46E5] flex items-center gap-3">
                 <span className="w-8 h-[2px] bg-current opacity-30 block rounded-full"></span>18 / Accessibility Audit (WCAG 2.1)
@@ -2458,7 +2460,7 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6"
+              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
             >
               <h2 className="text-[14px] font-mono font-extrabold uppercase tracking-[0.15em] text-[#4F46E5] flex items-center gap-3">
                 <span className="w-8 h-[2px] bg-current opacity-30 block rounded-full"></span>19 / Cross-functional Timeline
@@ -2482,7 +2484,7 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6"
+              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
             >
               <h2 className="text-[14px] font-mono font-extrabold uppercase tracking-[0.15em] text-[#4F46E5] flex items-center gap-3">
                 <span className="w-8 h-[2px] bg-current opacity-30 block rounded-full"></span>20 / Developer Handoff QA Specs
@@ -2533,7 +2535,7 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6"
+              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
             >
               <h2 className="text-[14px] font-mono font-extrabold uppercase tracking-[0.15em] text-[#4F46E5] flex items-center gap-3">
                 <span className="w-8 h-[2px] bg-current opacity-30 block rounded-full"></span>22 / Retrospective & Lessons Learned
@@ -2557,7 +2559,7 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6"
+              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
             >
               <h2 className="text-[22px] font-display font-black tracking-tight text-slate-900 flex items-center gap-3">
                 <span className="w-8 h-[3px] bg-current opacity-30 block rounded-full"></span>SECTION 24: FINAL VISUAL SHOWCASE GALLERY
@@ -2565,8 +2567,19 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
               {(selectedProject.mockups || []).length > 0 && (
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {(selectedProject.mockups || []).map((imgSrc, idx) => (
-                    <div key={idx} className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-white hover:shadow-md transition-all">
-                      <img src={imgSrc} alt={`UI Screenshot ${idx + 1}`} className="w-full h-[260px] object-cover object-top" />
+                    <div 
+                      key={idx} 
+                      onClick={() => setZoomImage({ src: imgSrc, caption: `${selectedProject.title} — UI Screenshot ${idx + 1}` })}
+                      className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-white image-card-hover cursor-pointer group relative"
+                    >
+                      <div className="relative overflow-hidden">
+                        <img src={imgSrc} alt={`UI Screenshot ${idx + 1}`} className="w-full h-[260px] object-cover object-top group-hover:scale-[1.02] transition-transform duration-300" />
+                        <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-all duration-200 flex items-center justify-center pointer-events-none">
+                          <span className="opacity-0 group-hover:opacity-100 bg-slate-900/90 text-white font-mono text-[11px] font-bold px-3 py-1.5 rounded-full shadow-lg transition-all duration-200 flex items-center gap-1.5 translate-y-2 group-hover:translate-y-0">
+                            <span className="text-[13px]">🔍</span> Inspect
+                          </span>
+                        </div>
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -2580,21 +2593,40 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
       </div>
 
       {/* FLOATING STEP & SLIDE NAVIGATION BAR */}
-      <div className="fixed bottom-6 right-8 z-[100] hidden sm:flex items-center gap-2 bg-slate-900/90 text-white backdrop-blur-xl border border-white/15 px-4 py-2.5 rounded-full shadow-2xl">
+      <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[100] hidden sm:flex items-center gap-3 bg-slate-900/95 text-white backdrop-blur-xl border border-white/15 px-5 py-3 rounded-2xl shadow-2xl animate-slide-up">
         <button
           onClick={() => {
             const idx = NAV_CHIPS.findIndex(c => c.id === activeSection);
             if (idx > 0) scrollToSection(NAV_CHIPS[idx - 1].id);
           }}
           disabled={NAV_CHIPS.findIndex(c => c.id === activeSection) === 0}
-          className="px-2.5 py-1 rounded-full text-[12px] font-mono font-bold bg-white/10 hover:bg-white/20 disabled:opacity-30 disabled:pointer-events-none transition-all cursor-pointer"
+          className="px-3 py-1.5 rounded-xl text-[12px] font-mono font-bold bg-white/10 hover:bg-white/20 disabled:opacity-30 disabled:pointer-events-none transition-all cursor-pointer flex items-center gap-1.5"
         >
-          ← Prev
+          <span className="text-[10px] opacity-60">←</span> Prev
         </button>
         
-        <span className="text-[12px] font-mono font-extrabold text-indigo-300 px-2">
-          Slide {NAV_CHIPS.findIndex(c => c.id === activeSection) + 1} of {NAV_CHIPS.length}
-        </span>
+        {/* Progress Dots */}
+        <div className="flex items-center gap-1.5 px-2">
+          {NAV_CHIPS.map((chip, i) => {
+            const currentIdx = NAV_CHIPS.findIndex(c => c.id === activeSection);
+            const isActive = i === currentIdx;
+            const isPast = i < currentIdx;
+            return (
+              <button
+                key={chip.id}
+                onClick={() => scrollToSection(chip.id)}
+                className={`rounded-full transition-all duration-300 cursor-pointer ${
+                  isActive 
+                    ? 'w-6 h-2 bg-indigo-400 shadow-[0_0_8px_rgba(129,140,248,0.6)]' 
+                    : isPast 
+                      ? 'w-2 h-2 bg-white/40 hover:bg-white/60' 
+                      : 'w-2 h-2 bg-white/15 hover:bg-white/30'
+                }`}
+                title={chip.label}
+              />
+            );
+          })}
+        </div>
 
         <button
           onClick={() => {
@@ -2602,9 +2634,9 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
             if (idx < NAV_CHIPS.length - 1) scrollToSection(NAV_CHIPS[idx + 1].id);
           }}
           disabled={NAV_CHIPS.findIndex(c => c.id === activeSection) === NAV_CHIPS.length - 1}
-          className="px-2.5 py-1 rounded-full text-[12px] font-mono font-bold bg-white/10 hover:bg-white/20 disabled:opacity-30 disabled:pointer-events-none transition-all cursor-pointer"
+          className="px-3 py-1.5 rounded-xl text-[12px] font-mono font-bold bg-white/10 hover:bg-white/20 disabled:opacity-30 disabled:pointer-events-none transition-all cursor-pointer flex items-center gap-1.5"
         >
-          Next →
+          Next <span className="text-[10px] opacity-60">→</span>
         </button>
       </div>
 
@@ -2629,6 +2661,12 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
               >
                 ×
               </button>
+
+              {/* Keyboard hint */}
+              <div className="absolute top-4 left-4 z-50 flex items-center gap-2">
+                <span className="px-2 py-0.5 rounded bg-white/10 text-white/60 font-mono text-[10px] font-bold border border-white/10">ESC</span>
+                <span className="text-white/40 font-mono text-[10px]">to close</span>
+              </div>
 
               <div className="w-full overflow-auto max-h-[80vh] flex items-center justify-center p-2">
                 <img 
