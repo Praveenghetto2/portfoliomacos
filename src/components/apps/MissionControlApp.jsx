@@ -1783,7 +1783,7 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
               className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-8 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
             >
               <h2 className="text-[14px] font-mono font-extrabold uppercase tracking-[0.15em] text-[#4F46E5] flex items-center gap-3">
-                <span className="w-8 h-[2px] bg-current opacity-30 block rounded-full"></span>02 / Executive Summary
+                <span className="w-6 h-6 rounded-lg text-[10px] flex items-center justify-center font-bold text-white flex-shrink-0" style={{ background: `linear-gradient(135deg, ${selectedProject.accentColor || '#4F46E5'}, #7C3AED)` }}>02</span> / Executive Summary
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
                 <div className="space-y-4">
@@ -1829,10 +1829,10 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
+              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 border-t-[3px]" style={{ borderTopColor: selectedProject.accentColor || '#4F46E5' }}
             >
               <h2 className="text-[14px] font-mono font-extrabold uppercase tracking-[0.15em] text-[#4F46E5] flex items-center gap-3">
-                <span className="w-8 h-[2px] bg-current opacity-30 block rounded-full"></span>03 / Company Context & Role
+                <span className="w-6 h-6 rounded-lg text-[10px] flex items-center justify-center font-bold text-white flex-shrink-0" style={{ background: `linear-gradient(135deg, ${selectedProject.accentColor || '#4F46E5'}, #7C3AED)` }}>03</span> / Company Context & Role
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-4">
@@ -1888,7 +1888,7 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
               className="bg-white border border-rose-200 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6"
             >
               <h2 className="text-[14px] font-mono font-extrabold uppercase tracking-[0.15em] text-rose-500 flex items-center gap-3">
-                <span className="w-8 h-[2px] bg-current opacity-30 block rounded-full"></span>04 / The Challenge & Core Friction
+                <span className="w-6 h-6 rounded-lg text-[10px] flex items-center justify-center font-bold text-white flex-shrink-0" style={{ background: `linear-gradient(135deg, ${selectedProject.accentColor || '#4F46E5'}, #7C3AED)` }}>04</span> / The Challenge & Core Friction
               </h2>
               <p className="text-[16px] text-slate-700 font-body">
                 Enterprise users faced systemic, compounding friction point-breakdowns. Legacy reporting tools prioritized data extraction over decision velocity, introducing catastrophic drop-off risks.
@@ -1928,14 +1928,14 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
+              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 border-t-[3px]" style={{ borderTopColor: selectedProject.accentColor || '#4F46E5' }}
             >
               <h2 className="text-[14px] font-mono font-extrabold uppercase tracking-[0.15em] text-[#4F46E5] flex items-center gap-3">
-                <span className="w-8 h-[2px] bg-current opacity-30 block rounded-full"></span>05 / Core Success Metrics (North Star)
+                <span className="w-6 h-6 rounded-lg text-[10px] flex items-center justify-center font-bold text-white flex-shrink-0" style={{ background: `linear-gradient(135deg, ${selectedProject.accentColor || '#4F46E5'}, #7C3AED)` }}>05</span> / Core Success Metrics (North Star)
               </h2>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 {(selectedProject.heroMetrics || []).map((met, i) => (
-                  <div key={i} className="p-6 bg-slate-50/80 rounded-2xl border border-slate-200/60 backdrop-blur-sm shadow-xs relative overflow-hidden">
+                  <div key={i} className="p-6 bg-slate-50/80 rounded-2xl border border-slate-200/60 backdrop-blur-sm shadow-xs relative overflow-hidden border-l-3 border-l-amber-400 hover:shadow-md transition-all duration-200">
                     <div className="w-8 h-8 rounded-full bg-[#EEF2FF] text-[#4F46E5] flex items-center justify-center font-mono text-[12px] font-bold mb-3">{i+1}</div>
                     <span className="text-[36px] font-display font-black tracking-tighter bg-clip-text text-transparent bg-gradient-to-br from-[#4F46E5] to-[#7C3AED] block leading-none">{met.val}</span>
                     <span className="text-[12px] font-mono font-bold text-slate-800 uppercase tracking-wider block mt-2">{met.lbl}</span>
@@ -1959,10 +1959,10 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
+              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 border-t-[3px]" style={{ borderTopColor: selectedProject.accentColor || '#4F46E5' }}
             >
               <h2 className="text-[14px] font-mono font-extrabold uppercase tracking-[0.15em] text-[#4F46E5] flex items-center gap-3">
-                <span className="w-8 h-[2px] bg-current opacity-30 block rounded-full"></span>06 / Research Wall & Qualitative Insights
+                <span className="w-6 h-6 rounded-lg text-[10px] flex items-center justify-center font-bold text-white flex-shrink-0" style={{ background: `linear-gradient(135deg, ${selectedProject.accentColor || '#4F46E5'}, #7C3AED)` }}>06</span> / Research Wall & Qualitative Insights
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-4">
@@ -2035,10 +2035,10 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
+              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 border-t-[3px]" style={{ borderTopColor: selectedProject.accentColor || '#4F46E5' }}
             >
               <h2 className="text-[14px] font-mono font-extrabold uppercase tracking-[0.15em] text-[#4F46E5] flex items-center gap-3">
-                <span className="w-8 h-[2px] bg-current opacity-30 block rounded-full"></span>07 / Strategic UX Reframes
+                <span className="w-6 h-6 rounded-lg text-[10px] flex items-center justify-center font-bold text-white flex-shrink-0" style={{ background: `linear-gradient(135deg, ${selectedProject.accentColor || '#4F46E5'}, #7C3AED)` }}>07</span> / Strategic UX Reframes
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {(selectedProject.fourReframes || []).map((ref, i) => (
@@ -2073,10 +2073,10 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
+              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 border-t-[3px]" style={{ borderTopColor: selectedProject.accentColor || '#4F46E5' }}
             >
               <h2 className="text-[14px] font-mono font-extrabold uppercase tracking-[0.15em] text-[#4F46E5] flex items-center gap-3">
-                <span className="w-8 h-[2px] bg-current opacity-30 block rounded-full"></span>08 / How Might We (HMW) Questions
+                <span className="w-6 h-6 rounded-lg text-[10px] flex items-center justify-center font-bold text-white flex-shrink-0" style={{ background: `linear-gradient(135deg, ${selectedProject.accentColor || '#4F46E5'}, #7C3AED)` }}>08</span> / How Might We (HMW) Questions
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {(selectedProject.top4HMWExpanded || []).map((top, i) => (
@@ -2113,14 +2113,14 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
+              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 border-t-[3px]" style={{ borderTopColor: selectedProject.accentColor || '#4F46E5' }}
             >
               <h2 className="text-[14px] font-mono font-extrabold uppercase tracking-[0.15em] text-[#4F46E5] flex items-center gap-3">
-                <span className="w-8 h-[2px] bg-current opacity-30 block rounded-full"></span>09 / System Design Principles
+                <span className="w-6 h-6 rounded-lg text-[10px] flex items-center justify-center font-bold text-white flex-shrink-0" style={{ background: `linear-gradient(135deg, ${selectedProject.accentColor || '#4F46E5'}, #7C3AED)` }}>09</span> / System Design Principles
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {(selectedProject.sixPrinciples || []).map((rule, i) => (
-                  <div key={i} className="p-5 bg-slate-50/50 border border-slate-100 rounded-2xl flex flex-col justify-between">
+                  <div key={i} className="p-5 bg-slate-50/50 border border-slate-100 rounded-2xl flex flex-col justify-between hover:shadow-md hover:-translate-y-0.5 hover:border-slate-200 transition-all duration-200">
                     <div>
                       <span className="text-[13px] font-mono font-extrabold text-[#4F46E5] block">0{rule.num || i+1}</span>
                       <strong className="text-[15px] font-display text-slate-900 block mt-2">{rule.title}</strong>
@@ -2129,7 +2129,7 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
                   </div>
                 ))}
                 {(selectedProject.designPrinciples || []).map((rule, i) => (
-                  <div key={i} className="p-5 bg-slate-50/50 border border-slate-100 rounded-2xl flex flex-col justify-between">
+                  <div key={i} className="p-5 bg-slate-50/50 border border-slate-100 rounded-2xl flex flex-col justify-between hover:shadow-md hover:-translate-y-0.5 hover:border-slate-200 transition-all duration-200">
                     <div>
                       <span className="text-[13px] font-mono font-extrabold text-[#4F46E5] block">0{i+1}</span>
                       <strong className="text-[15px] font-display text-slate-900 block mt-2">{rule.title}</strong>
@@ -2154,10 +2154,10 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
+              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 border-t-[3px]" style={{ borderTopColor: selectedProject.accentColor || '#4F46E5' }}
             >
               <h2 className="text-[14px] font-mono font-extrabold uppercase tracking-[0.15em] text-[#4F46E5] flex items-center gap-3">
-                <span className="w-8 h-[2px] bg-current opacity-30 block rounded-full"></span>10 / Ideation & Sketches
+                <span className="w-6 h-6 rounded-lg text-[10px] flex items-center justify-center font-bold text-white flex-shrink-0" style={{ background: `linear-gradient(135deg, ${selectedProject.accentColor || '#4F46E5'}, #7C3AED)` }}>10</span> / Ideation & Sketches
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-4">
@@ -2208,17 +2208,17 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
+              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 border-t-[3px]" style={{ borderTopColor: selectedProject.accentColor || '#4F46E5' }}
             >
               <h2 className="text-[14px] font-mono font-extrabold uppercase tracking-[0.15em] text-[#4F46E5] flex items-center gap-3">
-                <span className="w-8 h-[2px] bg-current opacity-30 block rounded-full"></span>11 / Information Architecture Map
+                <span className="w-6 h-6 rounded-lg text-[10px] flex items-center justify-center font-bold text-white flex-shrink-0" style={{ background: `linear-gradient(135deg, ${selectedProject.accentColor || '#4F46E5'}, #7C3AED)` }}>11</span> / Information Architecture Map
               </h2>
               <p className="text-[16px] text-slate-700 font-body">
                 Structured a low-friction hierarchical pathing model to streamline decision access across data boundaries.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {(selectedProject.infoArchitecture || []).map((node, i) => (
-                  <div key={i} className="p-5 bg-slate-50 rounded-2xl border border-slate-200/60 flex items-start gap-4">
+                  <div key={i} className="p-5 bg-slate-50 rounded-2xl border border-slate-200/60 flex items-start gap-4 hover:shadow-md hover:border-[#4F46E5]/30 transition-all duration-200">
                     <span className="w-6 h-6 rounded-md bg-[#EEF2FF] text-[#4F46E5] flex items-center justify-center font-mono text-[12px] font-bold">{i+1}</span>
                     <div>
                       <strong className="text-[14px] text-slate-900 block">{node.node}</strong>
@@ -2243,10 +2243,10 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
+              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 border-t-[3px]" style={{ borderTopColor: selectedProject.accentColor || '#4F46E5' }}
             >
               <h2 className="text-[14px] font-mono font-extrabold uppercase tracking-[0.15em] text-[#4F46E5] flex items-center gap-3">
-                <span className="w-8 h-[2px] bg-current opacity-30 block rounded-full"></span>12 / User Routing & Entry Points
+                <span className="w-6 h-6 rounded-lg text-[10px] flex items-center justify-center font-bold text-white flex-shrink-0" style={{ background: `linear-gradient(135deg, ${selectedProject.accentColor || '#4F46E5'}, #7C3AED)` }}>12</span> / User Routing & Entry Points
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-4">
@@ -2283,10 +2283,10 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
+              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 border-t-[3px]" style={{ borderTopColor: selectedProject.accentColor || '#4F46E5' }}
             >
               <h2 className="text-[14px] font-mono font-extrabold uppercase tracking-[0.15em] text-[#4F46E5] flex items-center gap-3">
-                <span className="w-8 h-[2px] bg-current opacity-30 block rounded-full"></span>13 / Wireframe Iterations & Specs
+                <span className="w-6 h-6 rounded-lg text-[10px] flex items-center justify-center font-bold text-white flex-shrink-0" style={{ background: `linear-gradient(135deg, ${selectedProject.accentColor || '#4F46E5'}, #7C3AED)` }}>13</span> / Wireframe Iterations & Specs
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {(selectedProject.wireframeSpecs || []).map((spec, i) => (
@@ -2312,10 +2312,10 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
+              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 border-t-[3px]" style={{ borderTopColor: selectedProject.accentColor || '#4F46E5' }}
             >
               <h2 className="text-[14px] font-mono font-extrabold uppercase tracking-[0.15em] text-[#4F46E5] flex items-center gap-3">
-                <span className="w-8 h-[2px] bg-current opacity-30 block rounded-full"></span>14 / High-Fidelity Specifications
+                <span className="w-6 h-6 rounded-lg text-[10px] flex items-center justify-center font-bold text-white flex-shrink-0" style={{ background: `linear-gradient(135deg, ${selectedProject.accentColor || '#4F46E5'}, #7C3AED)` }}>14</span> / High-Fidelity Specifications
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-4">
@@ -2344,10 +2344,10 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
+              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 border-t-[3px]" style={{ borderTopColor: selectedProject.accentColor || '#4F46E5' }}
             >
               <h2 className="text-[14px] font-mono font-extrabold uppercase tracking-[0.15em] text-[#4F46E5] flex items-center gap-3">
-                <span className="w-8 h-[2px] bg-current opacity-30 block rounded-full"></span>15 / Micro-Interactions & Hover States
+                <span className="w-6 h-6 rounded-lg text-[10px] flex items-center justify-center font-bold text-white flex-shrink-0" style={{ background: `linear-gradient(135deg, ${selectedProject.accentColor || '#4F46E5'}, #7C3AED)` }}>15</span> / Micro-Interactions & Hover States
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-4">
@@ -2376,10 +2376,10 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
+              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 border-t-[3px]" style={{ borderTopColor: selectedProject.accentColor || '#4F46E5' }}
             >
               <h2 className="text-[14px] font-mono font-extrabold uppercase tracking-[0.15em] text-[#4F46E5] flex items-center gap-3">
-                <span className="w-8 h-[2px] bg-current opacity-30 block rounded-full"></span>16 / Design Tokens Studio
+                <span className="w-6 h-6 rounded-lg text-[10px] flex items-center justify-center font-bold text-white flex-shrink-0" style={{ background: `linear-gradient(135deg, ${selectedProject.accentColor || '#4F46E5'}, #7C3AED)` }}>16</span> / Design Tokens Studio
               </h2>
               <p className="text-[16px] text-slate-700 font-body">
                 Structured unified typography scales, categorical colors, and spacing constants into exportable JSON tokens for cross-functional developer handoff.
@@ -2428,14 +2428,14 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
+              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 border-t-[3px]" style={{ borderTopColor: selectedProject.accentColor || '#4F46E5' }}
             >
               <h2 className="text-[14px] font-mono font-extrabold uppercase tracking-[0.15em] text-[#4F46E5] flex items-center gap-3">
-                <span className="w-8 h-[2px] bg-current opacity-30 block rounded-full"></span>17 / Defensive UI Edge Cases
+                <span className="w-6 h-6 rounded-lg text-[10px] flex items-center justify-center font-bold text-white flex-shrink-0" style={{ background: `linear-gradient(135deg, ${selectedProject.accentColor || '#4F46E5'}, #7C3AED)` }}>17</span> / Defensive UI Edge Cases
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {(selectedProject.edgeCases || []).map((ec, i) => (
-                  <div key={i} className="p-6 bg-slate-50/80 rounded-2xl border border-slate-200/60 backdrop-blur-sm shadow-xs relative overflow-hidden">
+                  <div key={i} className="p-6 bg-slate-50/80 rounded-2xl border border-slate-200/60 backdrop-blur-sm shadow-xs relative overflow-hidden border-l-3 border-l-amber-400 hover:shadow-md transition-all duration-200">
                     <strong className="text-[15px] font-display text-slate-900 block">{ec.scenario || ec.title}</strong>
                     <p className="text-[13px] text-slate-600 mt-2 leading-relaxed">{ec.solution || ec.desc}</p>
                   </div>
@@ -2465,15 +2465,15 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
+              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 border-t-[3px]" style={{ borderTopColor: selectedProject.accentColor || '#4F46E5' }}
             >
               <h2 className="text-[14px] font-mono font-extrabold uppercase tracking-[0.15em] text-[#4F46E5] flex items-center gap-3">
-                <span className="w-8 h-[2px] bg-current opacity-30 block rounded-full"></span>18 / Accessibility Audit (WCAG 2.1)
+                <span className="w-6 h-6 rounded-lg text-[10px] flex items-center justify-center font-bold text-white flex-shrink-0" style={{ background: `linear-gradient(135deg, ${selectedProject.accentColor || '#4F46E5'}, #7C3AED)` }}>18</span> / Accessibility Audit (WCAG 2.1)
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {(selectedProject.a11yChecklist || []).map((ac, i) => (
                   <div key={i} className="p-4 bg-emerald-50/20 border border-emerald-100 rounded-2xl flex items-start gap-3">
-                    <span className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0 text-[10px] font-bold">✓</span>
+                    <span className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0 text-[10px] font-bold shadow-[0_0_6px_rgba(16,185,129,0.3)]">✓</span>
                     <div>
                       <strong className="text-[13px] text-slate-900 block">{ac.criteria}</strong>
                       <span className="text-[12px] text-emerald-800/80 block mt-0.5">{ac.result}</span>
@@ -2482,7 +2482,7 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
                 ))}
                 {(selectedProject.accessibilityAudit || []).map((ac, i) => (
                   <div key={i} className="p-4 bg-emerald-50/20 border border-emerald-100 rounded-2xl flex items-start gap-3">
-                    <span className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0 text-[10px] font-bold">✓</span>
+                    <span className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0 text-[10px] font-bold shadow-[0_0_6px_rgba(16,185,129,0.3)]">✓</span>
                     <div>
                       <strong className="text-[13px] text-slate-900 block">{ac.criteria}</strong>
                       <span className="text-[12px] text-emerald-800/80 block mt-0.5">{ac.result}</span>
@@ -2506,10 +2506,10 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
+              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 border-t-[3px]" style={{ borderTopColor: selectedProject.accentColor || '#4F46E5' }}
             >
               <h2 className="text-[14px] font-mono font-extrabold uppercase tracking-[0.15em] text-[#4F46E5] flex items-center gap-3">
-                <span className="w-8 h-[2px] bg-current opacity-30 block rounded-full"></span>19 / Cross-functional Timeline
+                <span className="w-6 h-6 rounded-lg text-[10px] flex items-center justify-center font-bold text-white flex-shrink-0" style={{ background: `linear-gradient(135deg, ${selectedProject.accentColor || '#4F46E5'}, #7C3AED)` }}>19</span> / Cross-functional Timeline
               </h2>
               <p className="text-[16px] text-slate-700 font-body">
                 Coordinated iterative wireframing loops, engineering validation spikes, and QA reviews across structural milestones.
@@ -2530,10 +2530,10 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
+              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 border-t-[3px]" style={{ borderTopColor: selectedProject.accentColor || '#4F46E5' }}
             >
               <h2 className="text-[14px] font-mono font-extrabold uppercase tracking-[0.15em] text-[#4F46E5] flex items-center gap-3">
-                <span className="w-8 h-[2px] bg-current opacity-30 block rounded-full"></span>20 / Developer Handoff QA Specs
+                <span className="w-6 h-6 rounded-lg text-[10px] flex items-center justify-center font-bold text-white flex-shrink-0" style={{ background: `linear-gradient(135deg, ${selectedProject.accentColor || '#4F46E5'}, #7C3AED)` }}>20</span> / Developer Handoff QA Specs
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-4">
@@ -2557,7 +2557,7 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
               className="bg-emerald-50/80 border border-emerald-200 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6"
             >
               <h2 className="text-[14px] font-mono font-extrabold uppercase tracking-[0.15em] text-emerald-600 flex items-center gap-3">
-                <span className="w-8 h-[2px] bg-current opacity-30 block rounded-full"></span>21 / Quantified Business Impact
+                <span className="w-6 h-6 rounded-lg text-[10px] flex items-center justify-center font-bold text-white flex-shrink-0" style={{ background: `linear-gradient(135deg, ${selectedProject.accentColor || '#4F46E5'}, #7C3AED)` }}>21</span> / Quantified Business Impact
               </h2>
               <p className="text-[16px] text-emerald-950 font-body">
                 Strategic design iteration yielded measurable, significant improvements in product performance and user engagement.
@@ -2566,7 +2566,7 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
                 {(selectedProject.businessImpact || []).map((o, i) => (
                   <div key={i} className="p-6 bg-white/95 rounded-2xl border border-emerald-100 shadow-sm flex flex-col justify-between">
                     <div>
-                      <span className="text-[36px] font-display font-black tracking-tighter text-emerald-600 block leading-none">{o.val}</span>
+                      <span className="text-[40px] font-display font-black tracking-tighter block leading-none bg-clip-text text-transparent bg-gradient-to-br from-emerald-500 to-emerald-700" style={{ WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>{o.val}</span>
                       <span className="text-[12px] font-mono font-bold text-slate-800 uppercase tracking-wider block mt-2">{o.lbl}</span>
                     </div>
                     <p className="text-[12px] text-slate-500 mt-2 leading-relaxed">{o.desc}</p>
@@ -2581,10 +2581,10 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
+              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 border-t-[3px]" style={{ borderTopColor: selectedProject.accentColor || '#4F46E5' }}
             >
               <h2 className="text-[14px] font-mono font-extrabold uppercase tracking-[0.15em] text-[#4F46E5] flex items-center gap-3">
-                <span className="w-8 h-[2px] bg-current opacity-30 block rounded-full"></span>22 / Retrospective & Lessons Learned
+                <span className="w-6 h-6 rounded-lg text-[10px] flex items-center justify-center font-bold text-white flex-shrink-0" style={{ background: `linear-gradient(135deg, ${selectedProject.accentColor || '#4F46E5'}, #7C3AED)` }}>22</span> / Retrospective & Lessons Learned
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {(selectedProject.lessonsLearned || []).map((l, i) => (
@@ -2605,7 +2605,7 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
+              className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-6 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 border-t-[3px]" style={{ borderTopColor: selectedProject.accentColor || '#4F46E5' }}
             >
               <h2 className="text-[22px] font-display font-black tracking-tight text-slate-900 flex items-center gap-3">
                 <span className="w-8 h-[3px] bg-current opacity-30 block rounded-full"></span>SECTION 24: FINAL VISUAL SHOWCASE GALLERY
