@@ -583,27 +583,32 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
             Launched in 2022, the product grew to 12–15 customers in three years, including Azuga, Vanco, and Aware, targeting mid-sized to large businesses with $10M+ in annual recurring revenue. The user base spans marketing directors, RevOps leads, and sales leaders — a range from highly technical to entirely non-technical, which became one of the central design constraints for everything that follows.
           </p>
 
-          <div className="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-xs space-y-3">
-            <h3 className="text-[13px] font-mono font-bold text-[#4F46E5] uppercase tracking-wider">My Role</h3>
+          <div className="bg-gradient-to-br from-white to-indigo-50/30 p-6 rounded-2xl border border-slate-200/80 shadow-sm space-y-3 border-l-4 border-l-[#4F46E5]">
+            <div className="flex items-center gap-2.5">
+              <span className="w-7 h-7 rounded-lg bg-[#4F46E5]/10 text-[#4F46E5] flex items-center justify-center text-[13px]">👤</span>
+              <h3 className="text-[13px] font-mono font-bold text-[#4F46E5] uppercase tracking-wider">My Role</h3>
+            </div>
             <p className="text-[15px] text-slate-700">
               Senior/lead product designer, owning the end-to-end experience for the core reporting and insights surface — research, information architecture, interaction design, prototyping, usability testing, and the supporting design system — working directly with one PM and a three-person engineering pod.
             </p>
           </div>
 
-          <div className="bg-slate-900 text-white p-6 sm:p-8 rounded-2xl shadow-xl space-y-4">
-            <h3 className="text-[13px] font-mono font-bold text-indigo-300 uppercase tracking-widest">Business Goals Set at Kickoff</h3>
+          <div className="bg-gradient-to-br from-slate-900 via-slate-900 to-indigo-950 text-white p-6 sm:p-8 rounded-2xl shadow-2xl space-y-5 relative overflow-hidden">
+            {/* Subtle gradient orb */}
+            <div className="absolute -top-20 -right-20 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
+            <h3 className="text-[13px] font-mono font-bold text-indigo-300 uppercase tracking-widest relative z-10">Business Goals Set at Kickoff</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
-              <div className="bg-white/10 p-4 rounded-xl border border-white/10 space-y-2">
+              <div className="bg-white/10 p-5 rounded-xl border border-white/10 space-y-2 hover:bg-white/15 transition-colors duration-200">
                 <span className="text-[12px] font-mono text-indigo-400 font-bold block">GOAL 01</span>
                 <strong className="text-[15px] text-white block">Enhance decision-making</strong>
                 <p className="text-[13px] text-slate-300">Real-time, actionable insight instead of stale, manually assembled reports.</p>
               </div>
-              <div className="bg-white/10 p-4 rounded-xl border border-white/10 space-y-2">
+              <div className="bg-white/10 p-5 rounded-xl border border-white/10 space-y-2 hover:bg-white/15 transition-colors duration-200">
                 <span className="text-[12px] font-mono text-indigo-400 font-bold block">GOAL 02</span>
                 <strong className="text-[15px] text-white block">Improve efficiency</strong>
                 <p className="text-[13px] text-slate-300">Automate reporting and forecasting to cut manual work.</p>
               </div>
-              <div className="bg-white/10 p-4 rounded-xl border border-white/10 space-y-2">
+              <div className="bg-white/10 p-5 rounded-xl border border-white/10 space-y-2 hover:bg-white/15 transition-colors duration-200">
                 <span className="text-[12px] font-mono text-indigo-400 font-bold block">GOAL 03</span>
                 <strong className="text-[15px] text-white block">Drive revenue growth</strong>
                 <p className="text-[13px] text-slate-300">Surface revenue leaks and conversion opportunities through AI-driven analysis.</p>
@@ -611,7 +616,7 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
             </div>
           </div>
 
-          <div className="bg-amber-50/80 border border-amber-200/80 p-5 rounded-xl text-amber-950 text-[14.5px]">
+          <div className="bg-gradient-to-r from-amber-50 to-orange-50/50 border border-amber-200 p-5 sm:p-6 rounded-2xl text-amber-950 text-[14.5px] shadow-sm relative overflow-hidden">
             <strong>The Tension Underneath All Three:</strong> How do you make genuinely complex, multi-source data feel simple enough for a non-technical marketing director, without dumbing it down for the RevOps lead who needs the underlying detail? That tension is the design challenge this case study works through.
           </div>
         </div>
@@ -647,10 +652,13 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
       >
-        <span className="text-[11px] font-mono font-extrabold tracking-widest uppercase px-4 py-1.5 rounded-full bg-rose-50 text-rose-600 border border-rose-100/80 shadow-2xs">
-          02 // THE PROBLEM
-        </span>
-        <h2 className="text-[28px] sm:text-[34px] font-bold text-slate-950">Grounded in the People Living with It</h2>
+        <div className="flex items-center gap-2.5">
+          <span className="w-2.5 h-2.5 rounded-full bg-rose-500 shadow-[0_0_8px_rgba(244,63,94,0.4)]" />
+          <span className="text-[11px] font-mono font-extrabold tracking-widest uppercase px-4 py-1.5 rounded-full bg-rose-50 text-rose-600 border border-rose-200/80 shadow-sm">
+            02 // THE PROBLEM
+          </span>
+        </div>
+        <h2 className="text-[30px] sm:text-[38px] font-extrabold tracking-[-0.02em] text-slate-950 leading-[1.15]">Grounded in the People Living with It</h2>
 
         <p className="text-[16px] text-slate-700 leading-[1.75]">
           I started by talking to six sales and marketing leaders across customer accounts, through structured interviews and standing feedback channels. Their language did more to align the team on urgency than any ticket count could:
@@ -716,17 +724,17 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100">
-                <tr>
+                <tr className="hover:bg-rose-50/30 transition-colors duration-150">
                   <td className="py-3.5 px-5 font-bold text-rose-600 bg-rose-50/20">Fragmented visibility across tools</td>
                   <td className="py-3.5 px-5 text-slate-500 font-mono text-[12px]">Arpit R. and others</td>
                   <td className="py-3.5 px-5 text-slate-700">Undermines the core "unify your GTM data" value prop</td>
                 </tr>
-                <tr>
+                <tr className="hover:bg-rose-50/30 transition-colors duration-150">
                   <td className="py-3.5 px-5 font-bold text-rose-600 bg-rose-50/20">Reporting latency</td>
                   <td className="py-3.5 px-5 text-slate-500 font-mono text-[12px]">Jeremy Collins, Kevin Bobowski</td>
                   <td className="py-3.5 px-5 text-slate-700">Insight arrives too late to act on — a CMO ignoring a two-week-old analysis is a churn signal</td>
                 </tr>
-                <tr>
+                <tr className="hover:bg-rose-50/30 transition-colors duration-150">
                   <td className="py-3.5 px-5 font-bold text-rose-600 bg-rose-50/20">No path from data to action</td>
                   <td className="py-3.5 px-5 text-slate-500 font-mono text-[12px]">Joe Glenn, Faton Gjuka</td>
                   <td className="py-3.5 px-5 text-slate-700">Users have the numbers but no way to translate them into next steps</td>
@@ -744,17 +752,17 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
 
           <h3 className="text-[18px] font-bold text-slate-900 pt-2">Quantifying the Baseline Before Proposing Solutions</h3>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/80 space-y-1">
+            <div className="p-5 rounded-xl bg-gradient-to-br from-slate-50 to-rose-50/30 border border-slate-200/80 space-y-1.5 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
               <span className="text-[11px] font-mono text-slate-500 uppercase font-bold block">AI INSIGHTS CTR</span>
               <strong className="text-[22px] font-black text-rose-600 block">&lt; 5%</strong>
               <span className="text-[12px] text-slate-500 block">of weekly active sessions</span>
             </div>
-            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/80 space-y-1">
+            <div className="p-5 rounded-xl bg-gradient-to-br from-slate-50 to-rose-50/30 border border-slate-200/80 space-y-1.5 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
               <span className="text-[11px] font-mono text-slate-500 uppercase font-bold block">CLICKS TO ANSWER</span>
               <strong className="text-[22px] font-black text-rose-600 block">5–6 Clicks</strong>
               <span className="text-[12px] text-slate-500 block">for cross-module answers</span>
             </div>
-            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/80 space-y-1">
+            <div className="p-5 rounded-xl bg-gradient-to-br from-slate-50 to-rose-50/30 border border-slate-200/80 space-y-1.5 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
               <span className="text-[11px] font-mono text-slate-500 uppercase font-bold block">NAVIGATION TICKETS</span>
               <strong className="text-[22px] font-black text-rose-600 block font-mono">Trending Up</strong>
               <span className="text-[12px] text-slate-500 block">over 2 consecutive quarters</span>
@@ -796,22 +804,33 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
       >
-        <span className="text-[11px] font-mono font-extrabold tracking-widest uppercase px-4 py-1.5 rounded-full bg-indigo-50 text-[#4F46E5] border border-indigo-100/80 shadow-2xs">
-          03 // SUCCESS METRICS
-        </span>
-        <h2 className="text-[28px] sm:text-[34px] font-bold text-slate-950">Defining What "Solved" Looks Like</h2>
+        <div className="flex items-center gap-2.5">
+          <span className="w-2.5 h-2.5 rounded-full bg-[#4F46E5] shadow-[0_0_8px_rgba(79,70,229,0.4)]" />
+          <span className="text-[11px] font-mono font-extrabold tracking-widest uppercase px-4 py-1.5 rounded-full bg-indigo-50 text-[#4F46E5] border border-indigo-200/80 shadow-sm">
+            03 // SUCCESS METRICS
+          </span>
+        </div>
+        <h2 className="text-[30px] sm:text-[38px] font-extrabold tracking-[-0.02em] text-slate-950 leading-[1.15]">Defining What "Solved" Looks Like</h2>
 
         <p className="text-[16px] text-slate-700 leading-[1.75]">
           Before sketching a screen, I worked with the PM and data team to define what "solved" would look like — and just as important, what we'd explicitly <em>not</em> optimize for.
         </p>
 
         {/* North Star Card */}
-        <div className="p-6 rounded-2xl bg-gradient-to-br from-indigo-900 to-slate-900 text-white shadow-xl space-y-3">
-          <div className="flex items-center gap-2">
-            <span className="text-[16px]">⭐</span>
+        <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-indigo-950 via-indigo-900 to-slate-900 text-white shadow-2xl space-y-4 relative overflow-hidden">
+          {/* Decorative starfield dots */}
+          <div className="absolute inset-0 pointer-events-none select-none" aria-hidden="true">
+            <div className="absolute w-1 h-1 rounded-full bg-indigo-300/30 top-[15%] left-[10%]" />
+            <div className="absolute w-1.5 h-1.5 rounded-full bg-indigo-300/20 top-[25%] right-[15%]" />
+            <div className="absolute w-1 h-1 rounded-full bg-purple-300/25 bottom-[20%] left-[25%]" />
+            <div className="absolute w-0.5 h-0.5 rounded-full bg-white/30 top-[40%] right-[30%]" />
+            <div className="absolute w-1 h-1 rounded-full bg-indigo-400/20 bottom-[35%] right-[10%]" />
+          </div>
+          <div className="flex items-center gap-2.5 relative z-10">
+            <span className="text-[18px]">⭐</span>
             <strong className="text-[12px] font-mono text-indigo-300 font-bold uppercase tracking-widest">North Star Metric</strong>
           </div>
-          <h3 className="text-[24px] font-bold">Time-to-Insight</h3>
+          <h3 className="text-[28px] sm:text-[32px] font-extrabold tracking-tight relative z-10">Time-to-Insight</h3>
           <p className="text-[14.5px] text-slate-300 leading-relaxed">
             The time from opening the product to reaching a decision-ready answer. Baseline required 5–6 clicks and manual cross-referencing; the target was a single consolidated view reachable in 2 steps.
           </p>
@@ -857,7 +876,7 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
           </div>
         </div>
 
-        <div className="p-5 bg-slate-50 border border-slate-200/80 rounded-xl text-slate-700 text-[14.5px]">
+        <div className="p-5 bg-gradient-to-r from-slate-50 to-slate-100/50 border border-slate-200 rounded-xl text-slate-700 text-[14.5px] shadow-xs">
           <strong>Explicit Deprioritization Guardrail:</strong> I deliberately did not set a metric for "time spent in product" — the goal was faster answers, not more engagement, and I flagged this in the project brief so the roadmap wouldn't drift toward stickiness metrics that contradicted the actual user need.
         </div>
 
@@ -892,10 +911,13 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
       >
-        <span className="text-[11px] font-mono font-extrabold tracking-widest uppercase px-4 py-1.5 rounded-full bg-cyan-50 text-cyan-700 border border-cyan-100/80 shadow-2xs">
-          04 // RESEARCH
-        </span>
-        <h2 className="text-[28px] sm:text-[34px] font-bold text-slate-950">Contextual Inquiry & Root-Cause Audits</h2>
+        <div className="flex items-center gap-2.5">
+          <span className="w-2.5 h-2.5 rounded-full bg-cyan-500 shadow-[0_0_8px_rgba(6,182,212,0.4)]" />
+          <span className="text-[11px] font-mono font-extrabold tracking-widest uppercase px-4 py-1.5 rounded-full bg-cyan-50 text-cyan-700 border border-cyan-200/80 shadow-sm">
+            04 // RESEARCH
+          </span>
+        </div>
+        <h2 className="text-[30px] sm:text-[38px] font-extrabold tracking-[-0.02em] text-slate-950 leading-[1.15]">Contextual Inquiry & Root-Cause Audits</h2>
 
         <div className="space-y-4 text-slate-700">
           <p>
@@ -907,7 +929,7 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
             <p className="text-[15px] text-slate-800 leading-relaxed">
               Our working hypothesis at kickoff was that users wanted <em>more</em> customization — the ability to build their own dashboards. Contextual inquiry disproved this: most participants, when given the option, avoided dashboard customization because configuring a dashboard was itself a task they didn't have time for. What they wanted was a system that made the right decision-ready view the default, with zero setup.
             </p>
-            <div className="p-4 bg-white rounded-xl border border-indigo-200/60 font-medium text-indigo-900 text-[14px]">
+            <div className="p-4 bg-gradient-to-r from-white to-indigo-50/50 rounded-xl border border-indigo-200 font-medium text-indigo-900 text-[14px] shadow-sm">
               👉 <strong>Key Call:</strong> This reversed an assumption the team had been designing against for two sprints, and I made the call to kill the in-progress "custom dashboard builder" spec rather than ship something research showed people wouldn't use.
             </div>
           </div>
@@ -948,14 +970,17 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
       >
-        <span className="text-[11px] font-mono font-extrabold tracking-widest uppercase px-4 py-1.5 rounded-full bg-violet-50 text-violet-700 border border-violet-100/80 shadow-2xs">
-          05 // INSIGHTS
-        </span>
-        <h2 className="text-[28px] sm:text-[34px] font-bold text-slate-950">Three Strategic Shift Principles</h2>
+        <div className="flex items-center gap-2.5">
+          <span className="w-2.5 h-2.5 rounded-full bg-violet-500 shadow-[0_0_8px_rgba(139,92,246,0.4)]" />
+          <span className="text-[11px] font-mono font-extrabold tracking-widest uppercase px-4 py-1.5 rounded-full bg-violet-50 text-violet-700 border border-violet-200/80 shadow-sm">
+            05 // INSIGHTS
+          </span>
+        </div>
+        <h2 className="text-[30px] sm:text-[38px] font-extrabold tracking-[-0.02em] text-slate-950 leading-[1.15]">Three Strategic Shift Principles</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="p-6 rounded-2xl bg-white border border-slate-200/80 shadow-xs space-y-3">
-            <span className="text-[12px] font-mono text-[#4F46E5] font-bold block">INSIGHT 01</span>
+            <div className="flex items-center gap-2 mb-1"><span className="w-6 h-6 rounded-lg bg-gradient-to-br from-[#4F46E5] to-[#7C3AED] text-white text-[10px] font-mono font-bold flex items-center justify-center flex-shrink-0">01</span><span className="text-[11px] font-mono text-[#4F46E5] font-bold uppercase tracking-wider">Insight</span></div>
             <h3 className="text-[18px] font-bold text-slate-900">Consolidate the workflow; don't decorate the tabs</h3>
             <p className="text-[14px] text-slate-600 leading-relaxed">
               Most research participants described their task not in terms of a module ("I go to Pipeline") but in terms of a question ("I need to know why APAC dipped"). The IA was organized around our internal data model, not around the questions users actually asked. This reframed the problem from "improve four modules" to "design one consolidated answer surface."
@@ -963,7 +988,7 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
           </div>
 
           <div className="p-6 rounded-2xl bg-white border border-slate-200/80 shadow-xs space-y-3">
-            <span className="text-[12px] font-mono text-[#4F46E5] font-bold block">INSIGHT 02</span>
+            <div className="flex items-center gap-2 mb-1"><span className="w-6 h-6 rounded-lg bg-gradient-to-br from-[#4F46E5] to-[#7C3AED] text-white text-[10px] font-mono font-bold flex items-center justify-center flex-shrink-0">02</span><span className="text-[11px] font-mono text-[#4F46E5] font-bold uppercase tracking-wider">Insight</span></div>
             <h3 className="text-[18px] font-bold text-slate-900">AI should function as an analyst, not a filing cabinet</h3>
             <p className="text-[14px] text-slate-600 leading-relaxed">
               Session recordings showed users manually re-deriving conclusions the AI engine had already computed, simply because the AI tab wasn't in their path. The fix wasn't a better AI feature — it was positional: put the existing intelligence where the decision was already being made.
@@ -971,7 +996,7 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
           </div>
 
           <div className="p-6 rounded-2xl bg-white border border-slate-200/80 shadow-xs space-y-3">
-            <span className="text-[12px] font-mono text-[#4F46E5] font-bold block">INSIGHT 03</span>
+            <div className="flex items-center gap-2 mb-1"><span className="w-6 h-6 rounded-lg bg-gradient-to-br from-[#4F46E5] to-[#7C3AED] text-white text-[10px] font-mono font-bold flex items-center justify-center flex-shrink-0">03</span><span className="text-[11px] font-mono text-[#4F46E5] font-bold uppercase tracking-wider">Insight</span></div>
             <h3 className="text-[18px] font-bold text-slate-900">A number without context is not an answer</h3>
             <p className="text-[14px] text-slate-600 leading-relaxed">
               When shown a raw metric (e.g., "$340K"), participants' first instinct was almost always a follow-up question — "is that good?", "compared to what?" — before trusting it enough to act. Confidence, not just speed, was the actual bottleneck, which is why user confidence became a first-class metric in Section 3.
@@ -1010,10 +1035,13 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
       >
-        <span className="text-[11px] font-mono font-extrabold tracking-widest uppercase px-4 py-1.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-100/80 shadow-2xs">
-          06 // PRIORITIZATION
-        </span>
-        <h2 className="text-[28px] sm:text-[34px] font-bold text-slate-950">Impact vs. Feasibility Framework</h2>
+        <div className="flex items-center gap-2.5">
+          <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.4)]" />
+          <span className="text-[11px] font-mono font-extrabold tracking-widest uppercase px-4 py-1.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200/80 shadow-sm">
+            06 // PRIORITIZATION
+          </span>
+        </div>
+        <h2 className="text-[30px] sm:text-[38px] font-extrabold tracking-[-0.02em] text-slate-950 leading-[1.15]">Impact vs. Feasibility Framework</h2>
 
         <p className="text-[16px] text-slate-700 leading-[1.75]">
           From the insights, the team generated a dozen "How Might We" directions. I ran a structured impact-vs-feasibility exercise with engineering leads present, so feasibility scores reflected actual technical cost, not designer guesswork.
@@ -1048,7 +1076,7 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
           </div>
         </div>
 
-        <div className="p-5 bg-slate-100/80 rounded-xl border border-slate-200/80 text-slate-700 text-[14.5px]">
+        <div className="p-5 bg-gradient-to-r from-slate-50 to-slate-100/50 border border-slate-200 rounded-xl text-slate-700 text-[14.5px] shadow-xs">
           <strong>Deprioritized, and Why:</strong> A fully customizable dashboard builder (contradicted the Section 4 finding), and a natural-language query bar (validated as a phase-2 investment once the consolidated view had a baseline to build on).
         </div>
 
@@ -1083,17 +1111,20 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
       >
-        <span className="text-[11px] font-mono font-extrabold tracking-widest uppercase px-4 py-1.5 rounded-full bg-blue-50 text-blue-700 border border-blue-100/80 shadow-2xs">
-          07 // DESIGN PRINCIPLES
-        </span>
-        <h2 className="text-[28px] sm:text-[34px] font-bold text-slate-950">Review Criteria for Design Critiques</h2>
+        <div className="flex items-center gap-2.5">
+          <span className="w-2.5 h-2.5 rounded-full bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.4)]" />
+          <span className="text-[11px] font-mono font-extrabold tracking-widest uppercase px-4 py-1.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200/80 shadow-sm">
+            07 // DESIGN PRINCIPLES
+          </span>
+        </div>
+        <h2 className="text-[30px] sm:text-[38px] font-extrabold tracking-[-0.02em] text-slate-950 leading-[1.15]">Review Criteria for Design Critiques</h2>
 
         <p className="text-[16px] text-slate-700 leading-[1.75]">
           Four principles, socialized with engineering and PM, used as the actual review criteria in design critique:
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div className="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-xs space-y-2">
+          <div className="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-xs space-y-2 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
             <span className="text-[11px] font-mono text-[#4F46E5] font-bold block">PRINCIPLE 01</span>
             <h3 className="text-[17px] font-bold text-slate-900">One view, one answer</h3>
             <p className="text-[14px] text-slate-600 leading-relaxed">
@@ -1101,7 +1132,7 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
             </p>
           </div>
 
-          <div className="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-xs space-y-2">
+          <div className="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-xs space-y-2 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
             <span className="text-[11px] font-mono text-[#4F46E5] font-bold block">PRINCIPLE 02</span>
             <h3 className="text-[17px] font-bold text-slate-900">AI up front, not bolted on</h3>
             <p className="text-[14px] text-slate-600 leading-relaxed">
@@ -1109,7 +1140,7 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
             </p>
           </div>
 
-          <div className="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-xs space-y-2">
+          <div className="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-xs space-y-2 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
             <span className="text-[11px] font-mono text-[#4F46E5] font-bold block">PRINCIPLE 03</span>
             <h3 className="text-[17px] font-bold text-slate-900">Context by default, not on request</h3>
             <p className="text-[14px] text-slate-600 leading-relaxed">
@@ -1117,7 +1148,7 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
             </p>
           </div>
 
-          <div className="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-xs space-y-2">
+          <div className="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-xs space-y-2 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
             <span className="text-[11px] font-mono text-[#4F46E5] font-bold block">PRINCIPLE 04</span>
             <h3 className="text-[17px] font-bold text-slate-900">Reusable over unique</h3>
             <p className="text-[14px] text-slate-600 leading-relaxed">
@@ -1157,17 +1188,20 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
       >
-        <span className="text-[11px] font-mono font-extrabold tracking-widest uppercase px-4 py-1.5 rounded-full bg-slate-100 text-slate-800 border border-slate-200/80 shadow-2xs">
-          08 // FLATTENED FLOW & IA
-        </span>
-        <h2 className="text-[28px] sm:text-[34px] font-bold text-slate-950">From Fragmented IA to a 2-Step Flow</h2>
+        <div className="flex items-center gap-2.5">
+          <span className="w-2.5 h-2.5 rounded-full bg-slate-600 shadow-[0_0_8px_rgba(71,85,105,0.4)]" />
+          <span className="text-[11px] font-mono font-extrabold tracking-widest uppercase px-4 py-1.5 rounded-full bg-slate-100 text-slate-800 border border-slate-300/80 shadow-sm">
+            08 // FLATTENED FLOW & IA
+          </span>
+        </div>
+        <h2 className="text-[30px] sm:text-[38px] font-extrabold tracking-[-0.02em] text-slate-950 leading-[1.15]">From Fragmented IA to a 2-Step Flow</h2>
 
         <div className="space-y-4 text-slate-700">
           <p>
             <strong>Information architecture.</strong> The existing IA had 28 navigation items across 4 levels, largely mirroring backend service boundaries rather than user mental models. Working with engineering on what data could realistically be joined server-side, I restructured this to roughly 15 items across 2 levels, organized around the three question types users actually asked in research (performance, attribution, forecasting) rather than data source.
           </p>
 
-          <div className="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-xs space-y-2">
+          <div className="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-xs space-y-2 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
             <h3 className="text-[16px] font-bold text-slate-900">Divergent Exploration, and Why Most of It Was Rejected</h3>
             <p className="text-[14.5px] text-slate-600 leading-relaxed">
               I sketched over two dozen layout variations for the consolidated view, including several dashboard-customization approaches, before converging on a fixed, opinionated "answer card" layout. Every customizable variant reintroduced the configuration burden Section 4's research had identified as the core complaint. Constraint, in this case, was the feature.
@@ -1210,10 +1244,13 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
       >
-        <span className="text-[11px] font-mono font-extrabold tracking-widest uppercase px-4 py-1.5 rounded-full bg-purple-50 text-purple-700 border border-purple-100/80 shadow-2xs">
-          09 // HIGH-FIDELITY DESIGN
-        </span>
-        <h2 className="text-[28px] sm:text-[34px] font-bold text-slate-950">Core Interface Screens & System Primitives</h2>
+        <div className="flex items-center gap-2.5">
+          <span className="w-2.5 h-2.5 rounded-full bg-purple-500 shadow-[0_0_8px_rgba(168,85,247,0.4)]" />
+          <span className="text-[11px] font-mono font-extrabold tracking-widest uppercase px-4 py-1.5 rounded-full bg-purple-50 text-purple-700 border border-purple-200/80 shadow-sm">
+            09 // HIGH-FIDELITY DESIGN
+          </span>
+        </div>
+        <h2 className="text-[30px] sm:text-[38px] font-extrabold tracking-[-0.02em] text-slate-950 leading-[1.15]">Core Interface Screens & System Primitives</h2>
 
         <div className="space-y-6">
           <div className="p-6 rounded-2xl bg-white border border-slate-200/80 shadow-xs space-y-2">
@@ -1269,10 +1306,13 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
       >
-        <span className="text-[11px] font-mono font-extrabold tracking-widest uppercase px-4 py-1.5 rounded-full bg-teal-50 text-teal-700 border border-teal-100/80 shadow-2xs">
-          10 // POLISH & ACCESSIBILITY
-        </span>
-        <h2 className="text-[28px] sm:text-[34px] font-bold text-slate-950">Edge Cases, Focus States & WCAG Compliance</h2>
+        <div className="flex items-center gap-2.5">
+          <span className="w-2.5 h-2.5 rounded-full bg-teal-500 shadow-[0_0_8px_rgba(20,184,166,0.4)]" />
+          <span className="text-[11px] font-mono font-extrabold tracking-widest uppercase px-4 py-1.5 rounded-full bg-teal-50 text-teal-700 border border-teal-200/80 shadow-sm">
+            10 // POLISH & ACCESSIBILITY
+          </span>
+        </div>
+        <h2 className="text-[30px] sm:text-[38px] font-extrabold tracking-[-0.02em] text-slate-950 leading-[1.15]">Edge Cases, Focus States & WCAG Compliance</h2>
 
         <div className="space-y-4 text-slate-700">
           <p>
@@ -1319,10 +1359,13 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
       >
-        <span className="text-[11px] font-mono font-extrabold tracking-widest uppercase px-4 py-1.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-100/80 shadow-2xs">
-          11 // ITERATION & BUSINESS IMPACT
-        </span>
-        <h2 className="text-[28px] sm:text-[34px] font-bold text-slate-950">Collaboration, Pivots & Proven Results</h2>
+        <div className="flex items-center gap-2.5">
+          <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.4)]" />
+          <span className="text-[11px] font-mono font-extrabold tracking-widest uppercase px-4 py-1.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200/80 shadow-sm">
+            11 // ITERATION & BUSINESS IMPACT
+          </span>
+        </div>
+        <h2 className="text-[30px] sm:text-[38px] font-extrabold tracking-[-0.02em] text-slate-950 leading-[1.15]">Collaboration, Pivots & Proven Results</h2>
 
         <div className="space-y-4 text-slate-700">
           <p>
@@ -1340,7 +1383,7 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
 
         {/* Business Impact Scorecard Table */}
         <div className="bg-white rounded-2xl border border-slate-200/80 overflow-hidden shadow-xs space-y-3">
-          <div className="p-4 bg-emerald-50 border-b border-emerald-100">
+          <div className="p-4 sm:p-5 bg-gradient-to-r from-emerald-50 to-emerald-100/50 border-b border-emerald-200">
             <strong className="text-[12px] font-mono text-emerald-800 uppercase tracking-wider block">Quantified Business Impact Scorecard</strong>
           </div>
           <div className="overflow-x-auto">
@@ -1414,10 +1457,13 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
       >
-        <span className="text-[11px] font-mono font-extrabold tracking-widest uppercase px-4 py-1.5 rounded-full bg-slate-900 text-white shadow-2xs">
-          12 // RETROSPECTIVE
-        </span>
-        <h2 className="text-[28px] sm:text-[34px] font-bold text-slate-950">What I'd Do Differently & Key Takeaway</h2>
+        <div className="flex items-center gap-2.5">
+          <span className="w-2.5 h-2.5 rounded-full bg-white shadow-[0_0_8px_rgba(255,255,255,0.6)]" />
+          <span className="text-[11px] font-mono font-extrabold tracking-widest uppercase px-4 py-1.5 rounded-full bg-slate-900 text-white shadow-sm border border-slate-700">
+            12 // RETROSPECTIVE
+          </span>
+        </div>
+        <h2 className="text-[30px] sm:text-[38px] font-extrabold tracking-[-0.02em] text-slate-950 leading-[1.15]">What I'd Do Differently & Key Takeaway</h2>
 
         <div className="space-y-4 text-slate-700">
           <p>
