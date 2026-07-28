@@ -23,6 +23,7 @@ import JournalApp from '../components/apps/JournalApp';
 import AssetsVaultApp from '../components/apps/AssetsVaultApp';
 import InterestsApp from '../components/apps/InterestsApp';
 import TravelLogApp from '../components/apps/TravelLogApp';
+import { toggleInterstellarMusic, isInterstellarPlaying } from '../utils/sound';
 
 // Scrolling Page Subcomponents
 import ChapterIndicator from '../components/ChapterIndicator';
@@ -1860,8 +1861,8 @@ const Home = () => {
                       </svg>
                     </div>
                     <div className="min-w-0 flex-1">
-                      <h4 className="text-[11px] font-display font-semibold text-[#1C1C1E] leading-tight truncate">Lofi Beats</h4>
-                      <span className="text-[10px] text-[#9CA3AF] font-body block truncate">Chillhop Essentials</span>
+                      <h4 className="text-[11px] font-display font-semibold text-[#1C1C1E] leading-tight truncate">Interstellar Theme</h4>
+                      <span className="text-[10px] text-[#9CA3AF] font-body block truncate">Hans Zimmer · Organ Focus</span>
                     </div>
                   </div>
 
@@ -1881,11 +1882,15 @@ const Home = () => {
                   <svg className="cursor-pointer text-[#6B7280] hover:text-[#8B5CF6] transition-colors" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M19 20L9 12l10-8v16z"/><line x1="5" y1="19" x2="5" y2="5" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
                   </svg>
-                  <div className="w-7 h-7 rounded-full bg-[#8B5CF6] hover:bg-[#7C3AED] shadow-sm flex items-center justify-center cursor-pointer transition-all hover:scale-105">
+                  <button 
+                    onClick={() => toggleInterstellarMusic(80)}
+                    className="w-7 h-7 rounded-full bg-[#8B5CF6] hover:bg-[#7C3AED] shadow-sm flex items-center justify-center cursor-pointer transition-all hover:scale-105 border-none outline-none"
+                    title="Toggle Hans Zimmer Interstellar Organ Theme"
+                  >
                     <svg width="10" height="10" viewBox="0 0 24 24" fill="white" className="ml-0.5">
                       <polygon points="5 3 19 12 5 21 5 3" />
                     </svg>
-                  </div>
+                  </button>
                   <svg className="cursor-pointer text-[#6B7280] hover:text-[#8B5CF6] transition-colors" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M5 4l10 8-10 8V4z"/><line x1="19" y1="5" x2="19" y2="19" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
                   </svg>
