@@ -26,6 +26,8 @@ const MISSIONS = [
     statusColor: '#10B981',
     latency: '34ms',
     accentColor: '#4F46E5',
+    readTime: '8 min read',
+    tagCategory: 'saas',
 
     heroImage: '/assets/revlitix_saas_hero_ultra.jpg',
     mockups: [
@@ -264,6 +266,8 @@ const MISSIONS = [
     statusColor: '#10B981',
     latency: '42ms',
     accentColor: '#10B981',
+    readTime: '6 min read',
+    tagCategory: 'fintech',
 
     heroImage: '/assets/move_money_hero_ultra.jpg',
     mockups: [
@@ -376,6 +380,8 @@ const MISSIONS = [
     statusColor: '#2563EB',
     latency: '85ms',
     accentColor: '#2563EB',
+    readTime: '5 min read',
+    tagCategory: 'ai',
 
     heroImage: '/assets/sonic_ai_hero_ultra.jpg',
     mockups: [
@@ -1503,6 +1509,7 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
 const MissionControlApp = ({ initialMission = null, onClose = null }) => {
   const [activeMission, setActiveMission] = useState(initialMission || null);
   const [activeSection, setActiveSection] = useState('sec-hero');
+  const [categoryFilter, setCategoryFilter] = useState('all');
   const [copiedToken, setCopiedToken] = useState(null);
   const [zoomImage, setZoomImage] = useState(null);
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -1582,90 +1589,231 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
     setTimeout(() => setCopiedToken(null), 2000);
   };
 
-  // Landing page: show all case studies as cards
+  // Filtered missions for landing view
+  const filteredMissions = MISSIONS.filter((m) => {
+    if (categoryFilter === 'all') return true;
+    return m.tagCategory === categoryFilter;
+  });
+
+  // Landing page: show all case studies with category filters and featured lead card
   if (!activeMission) {
     return (
       <div className="h-full bg-[#F5F5F7] text-[#1D1D1F] select-text flex flex-col overflow-y-auto" style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", sans-serif' }}>
-        {/* Header */}
-        <div className="px-6 sm:px-10 lg:px-16 pt-10 pb-6">
+        {/* Header Section */}
+        <div className="px-6 sm:px-10 lg:px-16 pt-10 pb-4">
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}>
-            <p className="text-[12px] font-mono font-bold text-[#86868B] uppercase tracking-[0.15em] mb-2">Portfolio</p>
-            <h1 className="text-[32px] sm:text-[40px] font-bold tracking-tight text-[#1D1D1F] leading-tight">Case Studies</h1>
-            <p className="text-[15px] text-[#86868B] mt-2 max-w-xl leading-relaxed">End-to-end product design work across SaaS, Fintech, and AI — from research to shipped product.</p>
+            <div className="flex items-center justify-between flex-wrap gap-3 mb-2">
+              <span className="text-[11px] font-mono font-extrabold text-[#007AFF] uppercase tracking-[0.18em] bg-[#007AFF]/10 px-3 py-1 rounded-full border border-[#007AFF]/20">
+                PROVEN UX CASE STUDIES
+              </span>
+              <span className="text-[11px] font-mono text-[#86868B]">
+                3 Shipped Systems · 100% Production Apps
+              </span>
+            </div>
+
+            <h1 className="text-[32px] sm:text-[44px] font-bold tracking-tight text-[#1D1D1F] leading-tight">
+              Case Studies
+            </h1>
+            <p className="text-[15px] text-[#86868B] mt-1.5 max-w-2xl leading-relaxed">
+              End-to-end product design work across B2B SaaS, Commercial Banking Fintech, and Conversational AI — grounded in qualitative user research and business impact.
+            </p>
+          </motion.div>
+
+          {/* Category Filter Pills */}
+          <motion.div 
+            initial={{ opacity: 0, y: 12 }} 
+            animate={{ opacity: 1, y: 0 }} 
+            transition={{ duration: 0.4, delay: 0.1 }}
+            className="flex items-center gap-2 mt-6 overflow-x-auto pb-1"
+          >
+            {[
+              { id: 'all', label: 'All Projects', count: 3 },
+              { id: 'saas', label: 'B2B SaaS', count: 1 },
+              { id: 'fintech', label: 'Fintech Payments', count: 1 },
+              { id: 'ai', label: 'AI Conversational UX', count: 1 },
+            ].map((cat) => (
+              <button
+                key={cat.id}
+                onClick={() => setCategoryFilter(cat.id)}
+                className={`px-4 py-2 rounded-full text-[12.5px] font-mono font-bold transition-all cursor-pointer whitespace-nowrap border ${
+                  categoryFilter === cat.id
+                    ? 'bg-[#1D1D1F] text-white border-[#1D1D1F] shadow-sm'
+                    : 'bg-white text-[#6E6E73] hover:text-[#1D1D1F] border-black/[0.06] hover:bg-[#E8E8ED]/60'
+                }`}
+              >
+                {cat.label} <span className="opacity-60 ml-1 text-[11px]">({cat.count})</span>
+              </button>
+            ))}
           </motion.div>
         </div>
 
-        {/* Case Study Cards */}
-        <div className="px-6 sm:px-10 lg:px-16 pb-16 flex-1">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
-            {MISSIONS.map((m, idx) => (
-              <motion.button
-                key={m.id}
-                initial={{ opacity: 0, y: 24 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                whileHover={{ y: -4 }}
+        {/* Case Study Cards Container */}
+        <div className="px-6 sm:px-10 lg:px-16 pb-16 flex-1 space-y-6">
+          {/* Featured Hero Banner for Project #1 (Revlitix SaaS) when 'all' or 'saas' is active */}
+          {(categoryFilter === 'all' || categoryFilter === 'saas') && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.15 }}
+            >
+              <div 
                 onClick={() => {
-                  setActiveMission(m.id);
+                  setActiveMission('revlitix-saas');
                   setActiveSection('sec-hero');
                 }}
-                className="text-left bg-white rounded-2xl border border-black/[0.04] shadow-[0_2px_16px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.1)] transition-all duration-300 overflow-hidden cursor-pointer group outline-none flex flex-col"
+                className="bg-white rounded-3xl border border-black/[0.06] shadow-[0_4px_24px_rgba(0,0,0,0.06)] hover:shadow-[0_12px_40px_rgba(79,70,229,0.18)] transition-all duration-300 overflow-hidden cursor-pointer group flex flex-col lg:flex-row"
               >
-                {/* Hero Image */}
-                <div className="relative w-full aspect-[16/10] overflow-hidden bg-slate-900">
+                {/* Widescreen Image Area */}
+                <div className="relative w-full lg:w-3/5 aspect-[16/10] lg:aspect-auto overflow-hidden bg-slate-950 min-h-[280px]">
                   <img
-                    src={m.heroImage}
-                    alt={m.title}
-                    className="w-full h-full object-cover object-top group-hover:scale-[1.04] transition-transform duration-500 block"
-                    onError={(e) => {
-                      // Fallback if specific heroImage fails
-                      if (m.mockups && m.mockups[0]) {
-                        e.target.src = m.mockups[0];
-                      }
-                    }}
+                    src="/assets/revlitix_saas_hero_ultra.jpg"
+                    alt="Revlitix SaaS"
+                    className="w-full h-full object-cover object-top group-hover:scale-[1.03] transition-transform duration-700 block"
                   />
-                  {/* Subtle Image Gradient Overlay for Badge Contrast */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20 pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 pointer-events-none" />
 
-                  {/* Number Badge */}
-                  <div className="absolute top-3 left-3 w-8 h-8 rounded-xl flex items-center justify-center text-[12px] font-mono font-black text-white shadow-md z-10" style={{ background: m.accentColor }}>
-                    {m.num}
+                  {/* Featured Badge */}
+                  <div className="absolute top-4 left-4 flex items-center gap-2">
+                    <span className="w-8 h-8 rounded-xl bg-[#4F46E5] text-white font-mono font-black text-xs flex items-center justify-center shadow-md">
+                      01
+                    </span>
+                    <span className="px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-[#4F46E5] font-mono text-[11px] font-extrabold uppercase tracking-wider shadow-sm">
+                      ★ FEATURED CASE STUDY
+                    </span>
                   </div>
-                  {/* Status Badge */}
-                  <div className="absolute top-3 right-3 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 z-10 shadow-sm">
-                    <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: m.statusColor }} />
-                    <span className="text-[10px] font-mono font-bold text-white uppercase tracking-wider">{m.status}</span>
+
+                  {/* Status */}
+                  <div className="absolute top-4 right-4 flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20">
+                    <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse" />
+                    <span className="text-[10.5px] font-mono font-bold text-white uppercase">OPERATIONAL · 2022-2025</span>
                   </div>
                 </div>
 
-                {/* Content */}
-                <div className="p-5 flex flex-col flex-1">
-                  <p className="text-[10px] font-mono font-bold uppercase tracking-[0.12em] mb-1.5" style={{ color: m.accentColor }}>{m.category}</p>
-                  <h2 className="text-[18px] font-bold text-[#1D1D1F] tracking-tight leading-snug">{m.title}</h2>
-                  <p className="text-[13px] text-[#86868B] mt-2 leading-relaxed flex-1">{m.desc}</p>
-
-                  {/* Meta */}
-                  <div className="mt-4 pt-3 border-t border-black/[0.04] flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <span className="text-[11px] font-mono text-[#86868B] font-medium">{m.role}</span>
+                {/* Content Side */}
+                <div className="p-6 sm:p-8 lg:w-2/5 flex flex-col justify-between space-y-6">
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between">
+                      <span className="text-[11px] font-mono font-bold text-[#4F46E5] uppercase tracking-widest">
+                        B2B SaaS · Revenue Intelligence
+                      </span>
+                      <span className="text-[11px] font-mono text-[#86868B] bg-[#F5F5F7] px-2.5 py-0.5 rounded-full font-medium">
+                        8 min read
+                      </span>
                     </div>
-                    <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-full bg-[#F5F5F7] text-[#6E6E73]">{m.year}</span>
+
+                    <h2 className="text-2xl sm:text-3xl font-bold text-[#1D1D1F] tracking-tight group-hover:text-[#4F46E5] transition-colors">
+                      REVLITIX
+                    </h2>
+
+                    <p className="text-[14px] text-[#6E6E73] leading-relaxed">
+                      Redesigning an AI-powered Revenue Intelligence platform to unify GTM data from 50+ tools into a single source of truth. Reduced time-to-insight from 5–6 clicks to 2 steps.
+                    </p>
                   </div>
 
-                  {/* Metrics Preview */}
-                  {m.heroMetrics && (
-                    <div className="mt-3 grid grid-cols-2 gap-2">
-                      {m.heroMetrics.slice(0, 2).map((metric, i) => (
-                        <div key={i} className="bg-[#F5F5F7] rounded-xl px-3 py-2">
-                          <span className="text-[16px] font-bold block" style={{ color: m.accentColor }}>{metric.val}</span>
-                          <span className="text-[10px] text-[#86868B] font-medium">{metric.lbl}</span>
-                        </div>
-                      ))}
+                  {/* Metrics Row */}
+                  <div className="grid grid-cols-2 gap-3 pt-2">
+                    <div className="bg-[#F5F5F7] p-3 rounded-2xl border border-black/[0.02]">
+                      <span className="text-xl font-bold text-[#4F46E5] block">2 steps</span>
+                      <span className="text-[11px] text-[#86868B] font-mono">Time to Insight</span>
                     </div>
-                  )}
+                    <div className="bg-[#F5F5F7] p-3 rounded-2xl border border-black/[0.02]">
+                      <span className="text-xl font-bold text-[#10B981] block">15–18%</span>
+                      <span className="text-[11px] text-[#86868B] font-mono">AI Engagement</span>
+                    </div>
+                  </div>
+
+                  {/* Button */}
+                  <div className="pt-2">
+                    <div className="w-full py-3 rounded-xl bg-[#4F46E5] text-white text-xs font-mono font-bold uppercase flex items-center justify-center gap-2 group-hover:bg-indigo-700 transition-colors shadow-sm">
+                      <span>Explore Revlitix Case Study</span>
+                      <span className="text-sm font-normal group-hover:translate-x-1 transition-transform">→</span>
+                    </div>
+                  </div>
                 </div>
-              </motion.button>
-            ))}
+              </div>
+            </motion.div>
+          )}
+
+          {/* Secondary Grid Cards (Move Money & Sonic AI) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {filteredMissions
+              .filter((m) => !(categoryFilter === 'all' && m.id === 'revlitix-saas'))
+              .map((m, idx) => (
+                <motion.button
+                  key={m.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                  whileHover={{ y: -4 }}
+                  onClick={() => {
+                    setActiveMission(m.id);
+                    setActiveSection('sec-hero');
+                  }}
+                  className="text-left bg-white rounded-3xl border border-black/[0.06] shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_36px_rgba(0,0,0,0.12)] transition-all duration-300 overflow-hidden cursor-pointer group outline-none flex flex-col"
+                >
+                  {/* Hero Image Header */}
+                  <div className="relative w-full aspect-[16/10] overflow-hidden bg-slate-900">
+                    <img
+                      src={m.heroImage}
+                      alt={m.title}
+                      className="w-full h-full object-cover object-top group-hover:scale-[1.04] transition-transform duration-500 block"
+                      onError={(e) => {
+                        if (m.mockups && m.mockups[0]) e.target.src = m.mockups[0];
+                      }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20 pointer-events-none" />
+
+                    <div className="absolute top-3 left-3 w-8 h-8 rounded-xl flex items-center justify-center text-[12px] font-mono font-black text-white shadow-md z-10" style={{ background: m.accentColor }}>
+                      {m.num}
+                    </div>
+
+                    <div className="absolute top-3 right-3 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 z-10">
+                      <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: m.statusColor }} />
+                      <span className="text-[10px] font-mono font-bold text-white uppercase tracking-wider">{m.status}</span>
+                    </div>
+                  </div>
+
+                  {/* Body Content */}
+                  <div className="p-6 flex flex-col flex-1 justify-between space-y-4">
+                    <div className="space-y-2">
+                      <div className="flex items-center justify-between">
+                        <span className="text-[10.5px] font-mono font-extrabold uppercase tracking-[0.14em]" style={{ color: m.accentColor }}>
+                          {m.category}
+                        </span>
+                        <span className="text-[10.5px] font-mono text-[#86868B] bg-[#F5F5F7] px-2.5 py-0.5 rounded-full font-medium">
+                          {m.readTime}
+                        </span>
+                      </div>
+
+                      <h3 className="text-xl font-bold text-[#1D1D1F] tracking-tight group-hover:text-[#007AFF] transition-colors">
+                        {m.title}
+                      </h3>
+
+                      <p className="text-[13px] text-[#6E6E73] leading-relaxed">
+                        {m.desc}
+                      </p>
+                    </div>
+
+                    {/* Metrics row */}
+                    {m.heroMetrics && (
+                      <div className="grid grid-cols-2 gap-2.5 pt-2">
+                        {m.heroMetrics.slice(0, 2).map((metric, i) => (
+                          <div key={i} className="bg-[#F5F5F7] p-2.5 rounded-xl border border-black/[0.02]">
+                            <span className="text-[15px] font-bold block" style={{ color: m.accentColor }}>{metric.val}</span>
+                            <span className="text-[10px] text-[#86868B] font-mono truncate block">{metric.lbl}</span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
+                    {/* Bottom CTA */}
+                    <div className="pt-2 flex items-center justify-between text-xs font-mono font-bold text-[#1D1D1F] group-hover:text-[#007AFF] transition-colors">
+                      <span>VIEW CASE STUDY</span>
+                      <span className="text-sm group-hover:translate-x-1 transition-transform">→</span>
+                    </div>
+                  </div>
+                </motion.button>
+              ))}
           </div>
         </div>
       </div>
