@@ -478,17 +478,17 @@ const MISSIONS = [
 
 
 const NAV_CHIPS = [
-  { id: 'sec-overview', label: '01 / Overview' },
+  { id: 'sec-overview', label: '01 / Overview & Summary' },
   { id: 'sec-problem', label: '02 / The Problem' },
   { id: 'sec-metrics', label: '03 / Success Metrics' },
-  { id: 'sec-research', label: '04 / Research' },
-  { id: 'sec-insights', label: '05 / Insights' },
+  { id: 'sec-research', label: '04 / Discovery Research' },
+  { id: 'sec-insights', label: '05 / Research Insights' },
   { id: 'sec-prioritization', label: '06 / Prioritization' },
   { id: 'sec-principles', label: '07 / Design Principles' },
-  { id: 'sec-ia', label: '08 / Flattened Flow & IA' },
+  { id: 'sec-ia', label: '08 / Information Architecture' },
   { id: 'sec-hifi', label: '09 / High-Fidelity Design' },
   { id: 'sec-polish', label: '10 / Polish & Accessibility' },
-  { id: 'sec-impact', label: '11 / Iteration & Impact' },
+  { id: 'sec-impact', label: '11 / Business Impact' },
   { id: 'sec-lessons', label: '12 / Retrospective' }
 ];
 
