@@ -1,5 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { playSystemSound } from '../utils/sound';
+import { 
+  playSystemSound, 
+  startInterstellarMusic, 
+  stopInterstellarMusic, 
+  toggleInterstellarMusic, 
+  isInterstellarPlaying 
+} from '../utils/sound';
 
 /* ── SVG Icon Components ── */
 const AppleLogo = () => (
@@ -64,6 +70,7 @@ const DesktopMenuBar = ({
   
   const [wifiOn, setWifiOn] = useState(true);
   const [bluetoothOn, setBluetoothOn] = useState(true);
+  const [musicPlaying, setMusicPlaying] = useState(isInterstellarPlaying());
 
   const appleDropdownRef = useRef(null);
   const controlCenterRef = useRef(null);
@@ -258,6 +265,22 @@ const DesktopMenuBar = ({
           <BatteryIcon percent={100} />
         </div>
 
+        {/* Interstellar Deep Focus Music Button */}
+        <button
+          onClick={() => {
+            const playing = toggleInterstellarMusic(volume);
+            setMusicPlaying(playing);
+          }}
+          className={`h-5 px-2.5 rounded-full flex items-center gap-1.5 text-[10.5px] font-mono font-bold transition-all cursor-pointer border outline-none ${
+            musicPlaying 
+              ? 'bg-gradient-to-r from-purple-600 to-indigo-600 text-white border-purple-400/40 shadow-sm animate-pulse' 
+              : 'bg-black/5 hover:bg-black/10 text-apple-text/80 border-black/5'
+          }`}
+          title="Hans Zimmer — Interstellar Organ Deep Focus Theme"
+        >
+          <span>{musicPlaying ? '🎵 Interstellar' : '🌌 Focus'}</span>
+        </button>
+
         {/* Search */}
         <span
           className="text-apple-text/70 h-7 w-7 flex items-center justify-center cursor-default hover:bg-black/5 rounded transition-colors duration-100 hidden sm:flex"
@@ -309,6 +332,27 @@ const DesktopMenuBar = ({
               animation: 'fadeIn 0.12s cubic-bezier(0.16, 1, 0.3, 1)',
             }}
           >
+            {/* Now Playing - Interstellar Deep Focus Card */}
+            <div className="bg-gradient-to-r from-purple-950/80 via-indigo-950/80 to-slate-900/80 border border-purple-500/30 rounded-xl p-3 mb-3 flex items-center justify-between shadow-lg">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white text-lg font-bold shadow-md flex-shrink-0">
+                  🚀
+                </div>
+                <div className="flex flex-col min-w-0">
+                  <span className="font-bold text-[12px] text-white truncate">Interstellar Theme</span>
+                  <span className="text-[10px] text-purple-200/80 font-mono truncate">Hans Zimmer · Deep Focus</span>
+                </div>
+              </div>
+              <button
+                onClick={() => {
+                  const playing = toggleInterstellarMusic(volume);
+                  setMusicPlaying(playing);
+                }}
+                className="w-8 h-8 rounded-full bg-white text-slate-950 flex items-center justify-center font-bold text-xs hover:scale-105 transition-transform cursor-pointer shadow-md flex-shrink-0"
+              >
+                {musicPlaying ? '❚❚' : '▶'}
+              </button>
+            </div>
             {/* Top Row: System Status (Toggles Grid) */}
             <div className="grid grid-cols-2 gap-2 mb-3">
               {/* Connection Box */}
