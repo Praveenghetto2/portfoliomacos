@@ -1856,9 +1856,9 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
               <RevlitixCaseStudy selectedProject={selectedProject} handleCopyToken={handleCopyToken} copiedToken={copiedToken} onZoomImage={(src, caption) => setZoomImage({ src, caption })} />
             ) : (
               <>
-                {/* SECTION 1: HERO */}
+                {/* SECTION 1: OVERVIEW */}
             <motion.section 
-              id="sec-hero"
+              id="sec-overview"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -2034,9 +2034,9 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
               )}
             </motion.section>
 
-            {/* SECTION 4: CHALLENGE */}
+            {/* SECTION 2: THE PROBLEM */}
             <motion.section 
-              id="sec-challenge"
+              id="sec-problem"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -2184,9 +2184,9 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
               )}
             </motion.section>
 
-            {/* SECTION 7: REFRAMES */}
+            {/* SECTION 5: RESEARCH INSIGHTS */}
             <motion.section 
-              id="sec-reframes"
+              id="sec-insights"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -2222,9 +2222,9 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
               )}
             </motion.section>
 
-            {/* SECTION 8: HMW */}
+            {/* SECTION 8: PRIORITIZATION */}
             <motion.section 
-              id="sec-hmw"
+              id="sec-prioritization"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -2262,9 +2262,9 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
               )}
             </motion.section>
 
-            {/* SECTION 9: PRINCIPLES */}
+            {/* SECTION 7: DESIGN PRINCIPLES */}
             <motion.section 
-              id="sec-rules"
+              id="sec-principles"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -2577,9 +2577,9 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
               )}
             </motion.section>
 
-            {/* SECTION 17: EDGE CASES */}
+            {/* SECTION 10: POLISH & ACCESSIBILITY */}
             <motion.section 
-              id="sec-edge"
+              id="sec-polish"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
