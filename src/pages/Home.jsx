@@ -513,8 +513,8 @@ const Home = () => {
       heroImage: '/assets/revlitix_website_product_images/6896089a9b458a0e5d353212_Frame 1321315474.png',
       mockups: [
         '/assets/revlitix_website_product_images/6896135103e8ca6406b070d3_Frame 1321315475.png',
-        '/assets/revlitix_product_images/68959de2d249e7fc38c769dc_mainimg11.png',
-        '/assets/revlitix_website_product_images/68960bded69109f50c5ac276_outcomesimg.png'
+        '/assets/revlitix_product_images/68959de2d249e7fc38c769dc_mainimg11.jpg',
+        '/assets/revlitix_website_product_images/68960bded69109f50c5ac276_outcomesimg.jpg'
       ],
       metrics: [
         { value: '60', prefix: '+', suffix: '%', label: 'Faster Insights Discovery' },

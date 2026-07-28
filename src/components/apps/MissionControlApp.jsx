@@ -1945,7 +1945,7 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
               </div>
               {selectedProject.id === 'revlitix-saas' && (
                 <div className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white my-6 ring-4 ring-slate-50/50">
-                  <img src="/assets/revlitix_website_product_images/68960bded69109f50c5ac276_outcomesimg.png" alt="Outcomes & Target Scorecard" className="w-full h-auto max-h-[380px] object-cover object-top" />
+                  <img src="/assets/revlitix_website_product_images/68960bded69109f50c5ac276_outcomesimg.jpg" alt="Outcomes & Target Scorecard" className="w-full h-auto max-h-[380px] object-cover object-top" />
                   <div className="p-3 bg-slate-50 border-t border-slate-200 text-center font-mono text-[12px] text-slate-600 font-bold">
                     <span>Fig 5.1 — North Star Metrics Dashboard Performance</span>
                   </div>

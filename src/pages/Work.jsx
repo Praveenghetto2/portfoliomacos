@@ -96,7 +96,7 @@ const Work = () => {
       visuals: {
         desktop: '/assets/revlitix_website_product_images/6896089a9b458a0e5d353212_Frame 1321315474.png',
         tablet: '/assets/revlitix_website_product_images/6896135103e8ca6406b070d3_Frame 1321315475.png',
-        mobile: '/assets/revlitix_website_product_images/68961de44ae404323fc2a4bf_SZj7gmTHfxZ.png'
+        mobile: '/assets/revlitix_website_product_images/68961de44ae404323fc2a4bf_SZj7gmTHfxZ.jpg'
       },
       outcomes: [
         'Designed a conversational query assistant reducing complex database querying times by 80%.',
