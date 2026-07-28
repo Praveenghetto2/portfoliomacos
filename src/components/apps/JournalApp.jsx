@@ -171,7 +171,7 @@ export default function JournalApp({ selectedNote, onSelectNote }) {
     <div className="flex h-full w-full bg-[#F5F5F7] text-[#1D1D1F] font-body overflow-hidden select-text" style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", sans-serif' }}>
       
       {/* LEFT SIDEBAR: ARTICLE LIST & FILTERS */}
-      <div className="w-full md:w-[380px] lg:w-[420px] border-r border-black/[0.06] bg-white flex flex-col h-full flex-shrink-0">
+      <div className={`flex-col border-r border-black/[0.06] bg-white h-full flex-shrink-0 ${selectedArticle ? 'hidden md:flex w-full md:w-[380px] lg:w-[420px]' : 'flex w-full md:w-[380px] lg:w-[420px]'}`}>
         
         {/* Header & Search */}
         <div className="p-4 border-b border-black/[0.04] bg-white/80 backdrop-blur-xl sticky top-0 z-10 space-y-3">
@@ -285,8 +285,15 @@ export default function JournalApp({ selectedNote, onSelectNote }) {
             className="flex-1 flex flex-col overflow-y-auto"
           >
             {/* Editorial Sticky Header */}
-            <div className="px-6 py-3.5 bg-white/80 backdrop-blur-xl border-b border-black/[0.05] sticky top-0 z-20 flex items-center justify-between">
+            <div className="px-4 sm:px-6 py-3.5 bg-white/80 backdrop-blur-xl border-b border-black/[0.05] sticky top-0 z-20 flex items-center justify-between">
               <div className="flex items-center gap-2">
+                <button
+                  onClick={() => setSelectedArticle(null)}
+                  className="md:hidden flex items-center gap-1 text-[12px] font-mono font-bold text-[#007AFF] bg-[#007AFF]/10 px-2.5 py-1 rounded-full border border-[#007AFF]/20 cursor-pointer"
+                >
+                  <ArrowLeft className="w-3.5 h-3.5" />
+                  <span>Entries</span>
+                </button>
                 <span 
                   className="text-[10.5px] font-mono font-bold uppercase tracking-wider px-3 py-0.5 rounded-full"
                   style={{ color: selectedArticle.color, background: `${selectedArticle.color}15` }}
