@@ -22,7 +22,7 @@ const SKILL_NODES = [
       'Low-to-High Fidelity Prototyping'
     ],
     caseStudyLink: 'mission',
-    caseStudyName: 'Mission Control'
+    caseStudyName: 'Case Studies'
   },
   {
     id: 'ui',

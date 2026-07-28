@@ -5,7 +5,7 @@ import { Search, Command, ArrowRight, Zap, CreditCard, Folder, FileText, Cpu, Co
 const SEARCH_ITEMS = [
   // Apps
   { id: 'identity', title: 'Identity.OS', category: 'Apps', subtitle: 'About Me, Bio, Radar & Philosophy', icon: User, type: 'app' },
-  { id: 'mission', title: 'Mission Control', category: 'Apps', subtitle: 'NASA/Vision Pro Case Studies Workspace', icon: Folder, type: 'app' },
+  { id: 'mission', title: 'Case Studies', category: 'Apps', subtitle: 'Product Design Case Studies Workspace', icon: Folder, type: 'app' },
   { id: 'skills', title: 'Skill Tree', category: 'Apps', subtitle: 'AAA Video Game Skill Node Map', icon: Cpu, type: 'app' },
   { id: 'lab', title: 'Design Lab', category: 'Apps', subtitle: 'Spatial Design & AI Experiments', icon: Compass, type: 'app' },
   { id: 'money', title: 'Money.OS', category: 'Apps', subtitle: 'Fintech Payment Rails Universe', icon: CreditCard, type: 'app' },

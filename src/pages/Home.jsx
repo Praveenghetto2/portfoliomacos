@@ -1245,7 +1245,7 @@ const Home = () => {
               {openApps.mission && (
                 <DesktopWindow
                   id="mission"
-                  title="Mission Control"
+                  title="Case Studies"
                   isOpen={openApps.mission}
                   onClose={() => handleClose('mission')}
                   onMinimize={() => handleClose('mission')}
@@ -1569,8 +1569,8 @@ const Home = () => {
                   <path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 8.07 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2z" />
                 </svg>
               </div>
-              <span className="desktop-icon-label">Mission Control</span>
-              <span className="desktop-icon-sublabel hidden md:block">Case Studies</span>
+              <span className="desktop-icon-label">Case Studies</span>
+              <span className="desktop-icon-sublabel hidden md:block">Overview</span>
             </div>
 
             {/* 03. Skill Tree */}
@@ -1959,7 +1959,7 @@ const Home = () => {
                 {openApps.mission && (
                   <DesktopWindow
                     id="mission"
-                    title="Mission Control — Case Studies Workspace"
+                    title="Case Studies"
                     isOpen={openApps.mission}
                     onClose={() => handleClose('mission')}
                     onMinimize={() => handleClose('mission')}

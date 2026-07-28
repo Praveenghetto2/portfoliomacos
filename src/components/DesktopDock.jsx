@@ -199,7 +199,7 @@ const TrashIcon = () => (
 
 // DOCK APPS MAPPED DIRECTLY TO WORKING SYSTEM APPS
 const DOCK_APPS = [
-  { id: 'mission', label: 'Mission Control', IconComponent: MissionControlIcon },
+  { id: 'mission', label: 'Case Studies', IconComponent: MissionControlIcon },
   { id: 'identity', label: 'Identity & Bio', IconComponent: IdentityIcon },
   { id: 'skills', label: 'Skill Matrix', IconComponent: SkillTreeIcon },
   { id: 'lab', label: 'Design Lab', IconComponent: DesignLabIcon },
