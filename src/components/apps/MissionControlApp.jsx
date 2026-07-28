@@ -265,7 +265,7 @@ const MISSIONS = [
     latency: '42ms',
     accentColor: '#10B981',
 
-    heroImage: '/assets/move_money_dashboard_1784827266925.jpg',
+    heroImage: '/assets/move_money_hero_ultra.jpg',
     mockups: [
       '/assets/move_money_dashboard_1784827266925.jpg',
       '/assets/move_money_design_system_1784827289843.jpg',
@@ -377,7 +377,7 @@ const MISSIONS = [
     latency: '85ms',
     accentColor: '#2563EB',
 
-    heroImage: '/assets/sonic_ai_chat_1784827520021.jpg',
+    heroImage: '/assets/sonic_ai_hero_ultra.jpg',
     mockups: [
       '/assets/sonic_ai_chat_1784827520021.jpg',
       '/assets/sonic_ai_routing_1784827567946.jpg',
@@ -1612,21 +1612,29 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
                 className="text-left bg-white rounded-2xl border border-black/[0.04] shadow-[0_2px_16px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.1)] transition-all duration-300 overflow-hidden cursor-pointer group outline-none flex flex-col"
               >
                 {/* Hero Image */}
-                <div className="relative w-full aspect-[16/10] overflow-hidden bg-[#E8E8ED]">
+                <div className="relative w-full aspect-[16/10] overflow-hidden bg-slate-900">
                   <img
                     src={m.heroImage}
                     alt={m.title}
-                    className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
-                    loading="lazy"
+                    className="w-full h-full object-cover object-top group-hover:scale-[1.04] transition-transform duration-500 block"
+                    onError={(e) => {
+                      // Fallback if specific heroImage fails
+                      if (m.mockups && m.mockups[0]) {
+                        e.target.src = m.mockups[0];
+                      }
+                    }}
                   />
+                  {/* Subtle Image Gradient Overlay for Badge Contrast */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20 pointer-events-none" />
+
                   {/* Number Badge */}
-                  <div className="absolute top-3 left-3 w-8 h-8 rounded-xl flex items-center justify-center text-[12px] font-mono font-black text-white shadow-md" style={{ background: m.accentColor }}>
+                  <div className="absolute top-3 left-3 w-8 h-8 rounded-xl flex items-center justify-center text-[12px] font-mono font-black text-white shadow-md z-10" style={{ background: m.accentColor }}>
                     {m.num}
                   </div>
                   {/* Status Badge */}
-                  <div className="absolute top-3 right-3 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/50 backdrop-blur-md border border-white/10">
+                  <div className="absolute top-3 right-3 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 z-10 shadow-sm">
                     <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: m.statusColor }} />
-                    <span className="text-[10px] font-mono font-bold text-white/90 uppercase">{m.status}</span>
+                    <span className="text-[10px] font-mono font-bold text-white uppercase tracking-wider">{m.status}</span>
                   </div>
                 </div>
 
