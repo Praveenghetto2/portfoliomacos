@@ -1501,13 +1501,13 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
 };
 
 const MissionControlApp = ({ initialMission = null, onClose = null }) => {
-  const [activeMission, setActiveMission] = useState(initialMission || 'revlitix-saas');
+  const [activeMission, setActiveMission] = useState(initialMission || null);
   const [activeSection, setActiveSection] = useState('sec-hero');
   const [copiedToken, setCopiedToken] = useState(null);
   const [zoomImage, setZoomImage] = useState(null);
   const [scrollProgress, setScrollProgress] = useState(0);
 
-  const selectedProject = MISSIONS.find((m) => m.id === activeMission) || MISSIONS[0];
+  const selectedProject = activeMission ? MISSIONS.find((m) => m.id === activeMission) || MISSIONS[0] : null;
   const scrollContainerRef = useRef(null);
 
   // Keyboard shortcut listener (Left / Right arrows for slide navigation, Esc for lightbox)
@@ -1582,6 +1582,88 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
     setTimeout(() => setCopiedToken(null), 2000);
   };
 
+  // Landing page: show all case studies as cards
+  if (!activeMission) {
+    return (
+      <div className="h-full bg-[#F5F5F7] text-[#1D1D1F] select-text flex flex-col overflow-y-auto" style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", sans-serif' }}>
+        {/* Header */}
+        <div className="px-6 sm:px-10 lg:px-16 pt-10 pb-6">
+          <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}>
+            <p className="text-[12px] font-mono font-bold text-[#86868B] uppercase tracking-[0.15em] mb-2">Portfolio</p>
+            <h1 className="text-[32px] sm:text-[40px] font-bold tracking-tight text-[#1D1D1F] leading-tight">Case Studies</h1>
+            <p className="text-[15px] text-[#86868B] mt-2 max-w-xl leading-relaxed">End-to-end product design work across SaaS, Fintech, and AI — from research to shipped product.</p>
+          </motion.div>
+        </div>
+
+        {/* Case Study Cards */}
+        <div className="px-6 sm:px-10 lg:px-16 pb-16 flex-1">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+            {MISSIONS.map((m, idx) => (
+              <motion.button
+                key={m.id}
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                whileHover={{ y: -4 }}
+                onClick={() => {
+                  setActiveMission(m.id);
+                  setActiveSection('sec-hero');
+                }}
+                className="text-left bg-white rounded-2xl border border-black/[0.04] shadow-[0_2px_16px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.1)] transition-all duration-300 overflow-hidden cursor-pointer group outline-none flex flex-col"
+              >
+                {/* Hero Image */}
+                <div className="relative w-full aspect-[16/10] overflow-hidden bg-[#E8E8ED]">
+                  <img
+                    src={m.heroImage}
+                    alt={m.title}
+                    className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  {/* Number Badge */}
+                  <div className="absolute top-3 left-3 w-8 h-8 rounded-xl flex items-center justify-center text-[12px] font-mono font-black text-white shadow-md" style={{ background: m.accentColor }}>
+                    {m.num}
+                  </div>
+                  {/* Status Badge */}
+                  <div className="absolute top-3 right-3 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/50 backdrop-blur-md border border-white/10">
+                    <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: m.statusColor }} />
+                    <span className="text-[10px] font-mono font-bold text-white/90 uppercase">{m.status}</span>
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="p-5 flex flex-col flex-1">
+                  <p className="text-[10px] font-mono font-bold uppercase tracking-[0.12em] mb-1.5" style={{ color: m.accentColor }}>{m.category}</p>
+                  <h2 className="text-[18px] font-bold text-[#1D1D1F] tracking-tight leading-snug">{m.title}</h2>
+                  <p className="text-[13px] text-[#86868B] mt-2 leading-relaxed flex-1">{m.desc}</p>
+
+                  {/* Meta */}
+                  <div className="mt-4 pt-3 border-t border-black/[0.04] flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <span className="text-[11px] font-mono text-[#86868B] font-medium">{m.role}</span>
+                    </div>
+                    <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-full bg-[#F5F5F7] text-[#6E6E73]">{m.year}</span>
+                  </div>
+
+                  {/* Metrics Preview */}
+                  {m.heroMetrics && (
+                    <div className="mt-3 grid grid-cols-2 gap-2">
+                      {m.heroMetrics.slice(0, 2).map((metric, i) => (
+                        <div key={i} className="bg-[#F5F5F7] rounded-xl px-3 py-2">
+                          <span className="text-[16px] font-bold block" style={{ color: m.accentColor }}>{metric.val}</span>
+                          <span className="text-[10px] text-[#86868B] font-medium">{metric.lbl}</span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </motion.button>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="h-full bg-[#F8FAFC] text-[#0F172A] select-text flex flex-col relative text-[16px] leading-[1.8] overflow-hidden" style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "SF Pro", "Helvetica Neue", Helvetica, Arial, sans-serif' }}>
       
@@ -1590,12 +1672,13 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
         <div className="flex items-center gap-3 sm:gap-4">
           <button
             onClick={() => {
-              if (onClose) onClose();
+              setActiveMission(null);
+              setScrollProgress(0);
             }}
             className="flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full bg-slate-100 hover:bg-slate-200 text-[12.5px] font-mono font-bold text-slate-800 hover:text-slate-900 transition-all cursor-pointer border border-slate-200/60"
           >
             <ArrowLeft className="w-4 h-4" />
-            <span>Overview</span>
+            <span>All Studies</span>
           </button>
 
           <div className="h-5 w-px bg-slate-200 hidden sm:block" />
