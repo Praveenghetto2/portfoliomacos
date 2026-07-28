@@ -188,47 +188,47 @@ export default function MoneyOSApp() {
   };
 
   return (
-    <div className="h-full bg-[#F5F5F7] text-[#1D1D1F] select-text overflow-y-auto p-6 md:p-8 space-y-6" style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", sans-serif' }}>
+    <div className="h-full bg-[#F5F5F7] text-[#1D1D1F] select-text overflow-y-auto p-4 sm:p-6 md:p-8 space-y-5 sm:space-y-6" style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", sans-serif' }}>
       
       {/* EXECUTIVE TREASURY HEADER */}
-      <div className="bg-white rounded-3xl p-6 border border-black/[0.05] shadow-[0_4px_24px_rgba(0,0,0,0.03)] flex flex-col lg:flex-row lg:items-center justify-between gap-6">
-        <div className="space-y-1">
+      <div className="bg-white rounded-3xl p-5 sm:p-6 border border-black/[0.05] shadow-[0_4px_24px_rgba(0,0,0,0.03)] flex flex-col lg:flex-row lg:items-center justify-between gap-5 sm:gap-6">
+        <div className="space-y-1 text-left">
           <div className="flex items-center gap-2">
             <span className="w-2.5 h-2.5 rounded-full bg-[#34C759] animate-pulse" />
-            <span className="text-[11px] font-mono font-extrabold text-[#007AFF] uppercase tracking-[0.16em]">
+            <span className="text-[10px] sm:text-[11px] font-mono font-extrabold text-[#007AFF] uppercase tracking-[0.14em]">
               MONEY.OS · COMMERCIAL BANKING TREASURY ENGINE
             </span>
           </div>
 
-          <h1 className="text-[28px] sm:text-[34px] font-bold text-[#1D1D1F] tracking-tight leading-none">
+          <h1 className="text-[24px] sm:text-[34px] font-bold text-[#1D1D1F] tracking-tight leading-none">
             Unified Settlement Engine
           </h1>
-          <p className="text-[13.5px] text-[#86868B]">
+          <p className="text-[12.5px] sm:text-[13.5px] text-[#86868B] leading-normal">
             Orchestrating FedNow, Fedwire/SWIFT, RTP, and ACH payment rails with real-time settlement tracking.
           </p>
         </div>
 
         {/* Live Treasury Balances & Telemetry */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-          <div className="bg-[#F5F5F7] p-3.5 rounded-2xl border border-black/[0.03]">
-            <span className="text-[10px] font-mono font-bold text-[#86868B] uppercase block">Total Daily Volume</span>
-            <span className="text-[16px] font-mono font-extrabold text-[#1D1D1F] block mt-0.5">$5,780,500.00</span>
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 sm:gap-3 w-full lg:w-auto">
+          <div className="bg-[#F5F5F7] p-3 sm:p-3.5 rounded-2xl border border-black/[0.03]">
+            <span className="text-[9.5px] sm:text-[10px] font-mono font-bold text-[#86868B] uppercase block">Total Daily Volume</span>
+            <span className="text-[14px] sm:text-[16px] font-mono font-extrabold text-[#1D1D1F] block mt-0.5">$5,780,500.00</span>
           </div>
 
-          <div className="bg-[#F5F5F7] p-3.5 rounded-2xl border border-black/[0.03]">
-            <span className="text-[10px] font-mono font-bold text-[#86868B] uppercase block">Average Settlement</span>
-            <span className="text-[16px] font-mono font-extrabold text-[#34C759] block mt-0.5">1.8 Seconds</span>
+          <div className="bg-[#F5F5F7] p-3 sm:p-3.5 rounded-2xl border border-black/[0.03]">
+            <span className="text-[9.5px] sm:text-[10px] font-mono font-bold text-[#86868B] uppercase block">Average Settlement</span>
+            <span className="text-[14px] sm:text-[16px] font-mono font-extrabold text-[#34C759] block mt-0.5">1.8 Seconds</span>
           </div>
 
-          <div className="bg-[#F5F5F7] p-3.5 rounded-2xl border border-black/[0.03] col-span-2 sm:col-span-1">
-            <span className="text-[10px] font-mono font-bold text-[#86868B] uppercase block">Uptime Telemetry</span>
-            <span className="text-[16px] font-mono font-extrabold text-[#007AFF] block mt-0.5">99.999% SLA</span>
+          <div className="bg-[#F5F5F7] p-3 sm:p-3.5 rounded-2xl border border-black/[0.03] col-span-2 sm:col-span-1">
+            <span className="text-[9.5px] sm:text-[10px] font-mono font-bold text-[#86868B] uppercase block">Uptime Telemetry</span>
+            <span className="text-[14px] sm:text-[16px] font-mono font-extrabold text-[#007AFF] block mt-0.5">99.999% SLA</span>
           </div>
         </div>
       </div>
 
       {/* VIEW NAVIGATION TABS */}
-      <div className="flex items-center gap-2 overflow-x-auto pb-1">
+      <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
         {[
           { id: 'overview', label: 'Payment Rails Overview', icon: Layers },
           { id: 'simulator', label: 'Live Payment Simulator', icon: Play },
