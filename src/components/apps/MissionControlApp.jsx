@@ -1600,10 +1600,10 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
     return (
       <div className="h-full bg-[#F5F5F7] text-[#1D1D1F] select-text flex flex-col overflow-y-auto" style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", sans-serif' }}>
         {/* Header Section */}
-        <div className="px-6 sm:px-10 lg:px-16 pt-10 pb-4">
-          <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}>
-            <div className="flex items-center justify-between flex-wrap gap-3 mb-2">
-              <span className="text-[11px] font-mono font-extrabold text-[#007AFF] uppercase tracking-[0.18em] bg-[#007AFF]/10 px-3 py-1 rounded-full border border-[#007AFF]/20">
+        <div className="px-6 sm:px-10 lg:px-16 pt-10 pb-4 max-w-7xl w-full text-left">
+          <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }} className="text-left">
+            <div className="flex items-center justify-start flex-wrap gap-3 mb-2">
+              <span className="text-[11px] font-mono font-extrabold text-[#007AFF] uppercase tracking-[0.18em] bg-[#007AFF]/10 px-3.5 py-1 rounded-full border border-[#007AFF]/20">
                 PROVEN UX CASE STUDIES
               </span>
               <span className="text-[11px] font-mono text-[#86868B]">
@@ -1611,10 +1611,10 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
               </span>
             </div>
 
-            <h1 className="text-[32px] sm:text-[44px] font-bold tracking-tight text-[#1D1D1F] leading-tight">
+            <h1 className="text-[32px] sm:text-[44px] font-bold tracking-tight text-[#1D1D1F] leading-tight text-left">
               Case Studies
             </h1>
-            <p className="text-[15px] text-[#86868B] mt-1.5 max-w-2xl leading-relaxed">
+            <p className="text-[15px] text-[#86868B] mt-1.5 max-w-2xl leading-relaxed text-left">
               End-to-end product design work across B2B SaaS, Commercial Banking Fintech, and Conversational AI — grounded in qualitative user research and business impact.
             </p>
           </motion.div>
@@ -1624,7 +1624,7 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
             initial={{ opacity: 0, y: 12 }} 
             animate={{ opacity: 1, y: 0 }} 
             transition={{ duration: 0.4, delay: 0.1 }}
-            className="flex items-center gap-2 mt-6 overflow-x-auto pb-1"
+            className="flex items-center justify-start gap-2 mt-6 overflow-x-auto pb-1"
           >
             {[
               { id: 'all', label: 'All Projects', count: 3 },
