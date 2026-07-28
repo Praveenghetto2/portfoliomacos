@@ -568,7 +568,7 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
             </span>
           </h1>
 
-          <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-indigo-50/70 via-slate-50 to-purple-50/50 border border-slate-200/80 shadow-xs border-l-4 border-l-[#4F46E5]">
+          <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-indigo-50/70 via-slate-50 to-purple-50/50 border border-slate-200/80 shadow-xs border border-black/[0.04] shadow-xs">
             <p className="text-[16px] sm:text-[17.5px] text-slate-800 leading-[1.7] font-normal">
               Revlitix is a go-to-market (GTM) analytics platform that unifies data from over 50 tools in a customer's tech stack — Salesforce, HubSpot, Google Analytics, and others — into real-time insights and automated reporting, so revenue teams can make decisions without manually stitching together spreadsheets.
             </p>
@@ -589,7 +589,7 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
             Launched in 2022, the product grew to 12–15 customers in three years, including Azuga, Vanco, and Aware, targeting mid-sized to large businesses with $10M+ in annual recurring revenue. The user base spans marketing directors, RevOps leads, and sales leaders — a range from highly technical to entirely non-technical, which became one of the central design constraints for everything that follows.
           </p>
 
-          <div className="bg-gradient-to-br from-white to-indigo-50/30 p-6 rounded-2xl border border-slate-200/80 shadow-sm space-y-3 border-l-4 border-l-[#4F46E5]">
+          <div className="bg-gradient-to-br from-white to-indigo-50/30 p-6 rounded-2xl border border-slate-200/80 shadow-sm space-y-3 border border-black/[0.04] shadow-xs">
             <div className="flex items-center gap-2.5">
               <span className="w-7 h-7 rounded-lg bg-[#4F46E5]/10 text-[#4F46E5] flex items-center justify-center text-[13px]">👤</span>
               <h3 className="text-[13px] font-mono font-bold text-[#4F46E5] uppercase tracking-wider">My Role</h3>
@@ -1476,7 +1476,7 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
             Two things, with the benefit of hindsight. First, I'd run the keyboard-navigation and screen-reader validation earlier in the process — it was treated as a late-stage check rather than a constraint on the initial design, and we got lucky the final layout held up rather than designing for it from the start. Second, I'd bring the two enterprise accounts into research earlier, before the IA flattening was already in build — their pushback was resolved well, but it could have been designed around from day one rather than negotiated after the fact.
           </p>
 
-          <div className="bg-gradient-to-r from-indigo-50/80 via-purple-50/40 to-white p-6 sm:p-8 rounded-2xl border border-indigo-200 mt-4 text-[15px] sm:text-[16px] leading-relaxed text-indigo-950 font-normal relative overflow-hidden shadow-sm border-l-4 border-l-[#4F46E5] animate-border-glow">
+          <div className="bg-gradient-to-r from-indigo-50/80 via-purple-50/40 to-white p-6 sm:p-8 rounded-2xl border border-indigo-200 mt-4 text-[15px] sm:text-[16px] leading-relaxed text-indigo-950 font-normal relative overflow-hidden shadow-sm border border-black/[0.04] shadow-xs animate-border-glow">
             <strong className="text-[11px] font-mono font-extrabold text-[#4F46E5] uppercase tracking-widest block mb-2 leading-none">// THE TAKEAWAY I'D LEAD WITH IN AN INTERVIEW</strong>
             "The biggest lever in this project wasn't a UI pattern — it was killing an in-progress feature (the customizable dashboard builder) because research contradicted the team's working assumption, and having the standing to make that call before more engineering time was spent on it. Every visual and interaction decision that followed was downstream of that harder call, not the other way around."
           </div>
