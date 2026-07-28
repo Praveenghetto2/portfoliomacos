@@ -215,7 +215,7 @@ const SkillTreeApp = () => {
           <button
             key={branch}
             onClick={() => setSelectedBranch(branch)}
-            className={`px-3.5 py-1.5 rounded-full text-[10px] font-mono font-bold transition-all duration-200 cursor-default whitespace-nowrap border ${
+            className={`px-3.5 py-1.5 rounded-full text-[10px] font-mono font-bold transition-all duration-200 cursor-pointer whitespace-nowrap border ${
               selectedBranch === branch
                 ? 'bg-white text-[#0A0A0F] border-white/20 shadow-sm'
                 : 'text-[#8E8E93] border-white/[0.06] hover:text-white hover:border-white/[0.12]'
@@ -240,7 +240,7 @@ const SkillTreeApp = () => {
                 onClick={() => setSelectedNode(node)}
                 whileHover={{ y: -2 }}
                 transition={{ duration: 0.2 }}
-                className={`p-4 rounded-2xl border cursor-default flex flex-col justify-between h-[135px] relative overflow-hidden transition-all duration-300 ${
+                className={`p-4 rounded-2xl border cursor-pointer flex flex-col justify-between h-[135px] relative overflow-hidden transition-all duration-300 ${
                   isSelected
                     ? 'bg-white/[0.04] border-white/25 shadow-[0_0_35px_rgba(139,92,246,0.12)]'
                     : 'bg-white/[0.015] border-white/[0.06] hover:border-white/[0.12] hover:bg-white/[0.025]'

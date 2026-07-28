@@ -87,7 +87,7 @@ const AssetsVaultApp = () => {
   };
 
   return (
-    <div className="p-6 md:p-8 space-y-6 select-text font-body text-apple-text overflow-y-auto h-full bg-[#FAF9F6]">
+    <div className="p-6 md:p-8 space-y-6 select-text font-body text-apple-text overflow-y-auto h-full bg-[#F5F5F7]">
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-black/5 pb-5">
         <div>
@@ -119,7 +119,7 @@ const AssetsVaultApp = () => {
               variants={itemVariants}
               whileHover={{ y: -2 }}
               transition={{ duration: 0.2 }}
-              className="p-5 rounded-2xl bg-white border border-black/5 shadow-xs hover:shadow-apple-md hover:border-black/10 transition-all flex flex-col justify-between space-y-4"
+              className="p-5 rounded-2xl bg-white border border-black/[0.04] shadow-[0_2px_12px_rgba(0,0,0,0.04)] hover:shadow-md hover:border-black/[0.08] transition-all flex flex-col justify-between space-y-4"
             >
               <div className="space-y-3">
                 {/* Icon & Badge Header */}
@@ -148,11 +148,6 @@ const AssetsVaultApp = () => {
                       {asset.badgeText}
                     </span>
                   </div>
-
-                  <div className="flex items-center gap-1 text-[11px] font-mono text-emerald-600 font-semibold bg-emerald-50 border border-emerald-200/60 px-2 py-0.5 rounded-full">
-                    <CheckCircle className="w-3.5 h-3.5 text-emerald-500 flex-shrink-0" />
-                    <span>✓ Verified</span>
-                  </div>
                 </div>
 
                 {/* Name & Size */}
@@ -172,13 +167,24 @@ const AssetsVaultApp = () => {
               </div>
 
               {/* Download Button */}
-              <button
-                onClick={() => handleDownload(idx)}
-                className="w-full py-2.5 rounded-xl bg-[#007AFF] hover:bg-blue-700 transition-colors text-white text-xs font-mono font-bold uppercase flex items-center justify-center gap-2 cursor-pointer shadow-xs active:scale-[0.99]"
-              >
-                <Download className="w-3.5 h-3.5" />
-                {isDownloading ? 'Downloading...' : 'Download Asset'}
-              </button>
+              {idx === 0 ? (
+                <a
+                  href="/Praveen_Kumar_Resume.pdf"
+                  download
+                  className="w-full py-2.5 rounded-xl bg-[#007AFF] hover:bg-blue-700 transition-colors text-white text-xs font-mono font-bold uppercase flex items-center justify-center gap-2 cursor-pointer shadow-xs active:scale-[0.99]"
+                >
+                  <Download className="w-3.5 h-3.5" />
+                  Download Asset
+                </a>
+              ) : (
+                <button
+                  onClick={() => handleDownload(idx)}
+                  className="w-full py-2.5 rounded-xl bg-[#007AFF] hover:bg-blue-700 transition-colors text-white text-xs font-mono font-bold uppercase flex items-center justify-center gap-2 cursor-pointer shadow-xs active:scale-[0.99]"
+                >
+                  <Download className="w-3.5 h-3.5" />
+                  {isDownloading ? 'Downloading...' : 'Download Asset'}
+                </button>
+              )}
             </motion.div>
           );
         })}

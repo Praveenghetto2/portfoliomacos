@@ -155,7 +155,7 @@ const MoneyOSApp = () => {
               onClick={() => { setSelectedNode(node); setTxStep(0); setSimComplete(false); }}
               whileHover={{ y: -2 }}
               transition={{ duration: 0.2 }}
-              className={`p-4 rounded-2xl border cursor-default flex flex-col justify-between h-[120px] relative overflow-hidden transition-all duration-300 ${
+              className={`p-4 rounded-2xl border cursor-pointer flex flex-col justify-between h-[120px] relative overflow-hidden transition-all duration-300 ${
                 isSelected
                   ? 'bg-white/[0.04] border-white/25 shadow-[0_0_30px_rgba(52,199,89,0.12)]'
                   : 'bg-white/[0.015] border-white/[0.06] hover:border-white/[0.12] hover:bg-white/[0.025]'
@@ -269,7 +269,7 @@ const MoneyOSApp = () => {
           <button
             onClick={handleSimulate}
             disabled={isSimulating}
-            className="w-full py-2.5 rounded-xl text-[10px] font-mono font-bold uppercase tracking-wider text-white shadow-lg transition-all duration-200 cursor-default hover:scale-[1.02] disabled:opacity-50"
+            className="w-full py-2.5 rounded-xl text-[10px] font-mono font-bold uppercase tracking-wider text-white shadow-lg transition-all duration-200 cursor-pointer hover:scale-[1.02] disabled:opacity-50"
             style={{ background: `linear-gradient(135deg, ${selectedNode.accentColor}, #1C1C1E)` }}
           >
             {isSimulating ? 'Routing Payment Packets...' : `Run ${selectedNode.title} Routing Test`}

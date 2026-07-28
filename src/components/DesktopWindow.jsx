@@ -19,7 +19,25 @@ const DesktopWindow = ({
   const [isMaximized, setIsMaximized] = useState(defaultMaximized);
   const [showContent, setShowContent] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [dragConstraints, setDragConstraints] = useState({ top: 0, left: 0, right: 500, bottom: 400 });
   const windowRef = useRef(null);
+
+  // Sync drag constraints on window resize
+  useEffect(() => {
+    const updateConstraints = () => {
+      if (typeof window !== 'undefined') {
+        setDragConstraints({
+          top: 0,
+          left: 0,
+          right: window.innerWidth - 400,
+          bottom: window.innerHeight - 300,
+        });
+      }
+    };
+    updateConstraints();
+    window.addEventListener('resize', updateConstraints);
+    return () => window.removeEventListener('resize', updateConstraints);
+  }, []);
 
   // Sync maximized state on open if defaultMaximized is requested
   useEffect(() => {
@@ -80,9 +98,10 @@ const DesktopWindow = ({
       ref={windowRef}
       drag={!isMaximized && !isMobile}
       dragControls={dragControls}
+      dragConstraints={dragConstraints}
       dragListener={false}
       dragMomentum={false}
-      dragElastic={0}
+      dragElastic={0.1}
       initial={isMobile
         ? { opacity: 0, y: "100%", scale: 1, filter: 'blur(4px)' }
         : (isMaximized 

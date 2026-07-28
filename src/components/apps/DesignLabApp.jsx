@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Sparkles, Layers, Zap, Palette, Sliders, Box, Cpu } from 'lucide-react';
+import { Sparkles, Layers, Zap, Palette, Sliders, Box, Cpu, FlaskConical } from 'lucide-react';
 
 const EXPERIMENTS = [
   {
@@ -69,23 +69,23 @@ const getStatusBadge = (status) => {
   switch (status) {
     case 'Active':
       return {
-        bg: 'bg-emerald-50 text-emerald-700 border-emerald-200/80',
-        dot: 'bg-emerald-500'
+        bg: 'bg-[#34C759]/10 text-[#248A3D]',
+        dot: 'bg-[#34C759]'
       };
     case 'Research':
       return {
-        bg: 'bg-amber-50 text-amber-700 border-amber-200/80',
-        dot: 'bg-amber-500'
+        bg: 'bg-[#FF9500]/10 text-[#B26800]',
+        dot: 'bg-[#FF9500]'
       };
     case 'Shipped':
       return {
-        bg: 'bg-blue-50 text-blue-700 border-blue-200/80',
-        dot: 'bg-blue-500'
+        bg: 'bg-[#007AFF]/10 text-[#0056B3]',
+        dot: 'bg-[#007AFF]'
       };
     default:
       return {
-        bg: 'bg-slate-50 text-slate-700 border-slate-200/80',
-        dot: 'bg-slate-500'
+        bg: 'bg-[#8E8E93]/10 text-[#8E8E93]',
+        dot: 'bg-[#8E8E93]'
       };
   }
 };
@@ -111,16 +111,18 @@ const cardVariants = {
 
 const DesignLabApp = () => {
   return (
-    <div className="p-6 sm:p-8 space-y-6 select-text font-body text-slate-800 overflow-y-auto h-full bg-[#FAF9F6]">
+    <div className="p-6 sm:p-8 space-y-6 select-text font-body text-[#1D1D1F] overflow-y-auto h-full bg-[#F5F5F7]">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200/60 pb-5">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-black/[0.04] pb-5">
         <div className="flex items-center gap-3">
-          <span className="text-3xl" role="img" aria-label="beaker">🧪</span>
+          <div className="flex items-center justify-center w-10 h-10 rounded-full bg-[#007AFF] text-white shadow-sm">
+            <FlaskConical className="w-5 h-5" />
+          </div>
           <div>
-            <h1 className="text-2xl font-display font-bold text-slate-900 tracking-tight flex items-center gap-2">
+            <h1 className="text-2xl font-display font-bold text-[#1D1D1F] tracking-tight flex items-center gap-2">
               Design Lab
             </h1>
-            <p className="text-xs text-slate-500 font-mono">6 experiments in progress</p>
+            <p className="text-xs text-[#86868B] font-mono">6 experiments in progress</p>
           </div>
         </div>
 
@@ -146,8 +148,7 @@ const DesignLabApp = () => {
               key={exp.id}
               variants={cardVariants}
               whileHover={{ y: -2 }}
-              style={{ borderLeftColor: exp.accentColor }}
-              className="p-5 rounded-2xl bg-white border border-slate-200/60 border-l-4 shadow-xs hover:shadow-md hover:border-slate-300/80 transition-all duration-200 flex flex-col justify-between gap-4 cursor-pointer group"
+              className="p-5 rounded-2xl bg-white border border-black/[0.04] shadow-[0_2px_12px_rgba(0,0,0,0.04)] hover:shadow-md hover:border-black/[0.08] transition-all duration-200 flex flex-col justify-between gap-4 cursor-pointer group"
             >
               <div className="space-y-3">
                 {/* Category & Icon header */}
@@ -186,7 +187,7 @@ const DesignLabApp = () => {
                     </span>
                   ))}
                 </div>
-                <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-mono font-medium border shrink-0 ${statusBadge.bg}`}>
+                <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-mono font-medium shrink-0 ${statusBadge.bg}`}>
                   <span className={`w-1.5 h-1.5 rounded-full ${statusBadge.dot}`} />
                   {exp.status}
                 </span>

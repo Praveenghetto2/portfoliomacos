@@ -110,9 +110,10 @@ const TravelLogApp = () => {
   const [selectedDest, setSelectedDest] = useState(DESTINATIONS[0]);
 
   return (
-    <div className="h-full bg-[#FAF9F6] p-6 sm:p-8 overflow-y-auto select-text font-body text-slate-800 space-y-6">
-      {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200/80 pb-5">
+    <div className="relative h-full bg-[#F5F5F7] select-text font-body text-slate-800 overflow-hidden flex flex-col">
+      <div className="flex-1 overflow-y-auto p-6 sm:p-8 space-y-6 pb-40">
+        {/* Header */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200/80 pb-5">
         <div>
           <div className="flex items-center gap-2 mb-1">
             <span className="text-2xl leading-none">🌐</span>
@@ -126,7 +127,7 @@ const TravelLogApp = () => {
         </div>
 
         <div className="flex items-center gap-2.5 bg-white border border-slate-200/60 shadow-xs px-3.5 py-1.5 rounded-full">
-          <span className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse" />
+          <span className="w-2 h-2 rounded-full bg-[#007AFF] animate-pulse" />
           <span className="text-xs font-mono font-bold text-slate-600">
             6 DESTINATIONS LOGGED
           </span>
@@ -148,8 +149,8 @@ const TravelLogApp = () => {
               variants={cardVariants}
               whileHover={{ y: -2 }}
               onClick={() => setSelectedDest(dest)}
-              className={`relative bg-white border rounded-2xl shadow-xs p-5 overflow-hidden flex flex-col justify-between cursor-pointer transition-all duration-300 hover:shadow-apple-md ${
-                isSelected ? 'border-cyan-500/60 ring-2 ring-cyan-500/10' : 'border-slate-200/60 hover:border-slate-300'
+              className={`relative bg-white border rounded-2xl p-5 overflow-hidden flex flex-col justify-between cursor-pointer transition-all duration-300 hover:shadow-md hover:border-black/[0.08] ${
+                isSelected ? 'ring-2 ring-[#007AFF] shadow-[0_2px_12px_rgba(0,0,0,0.04)] border-transparent' : 'border-black/[0.04] shadow-[0_2px_12px_rgba(0,0,0,0.04)]'
               }`}
             >
               {/* Subtle Gradient Top-Border Strip */}
@@ -179,7 +180,7 @@ const TravelLogApp = () => {
                         🏠 HOME BASE
                       </span>
                     )}
-                    <span className="rounded-full bg-cyan-50 text-cyan-700 font-mono text-[10px] px-2 py-0.5">
+                    <span className="rounded-full bg-[#007AFF]/10 text-[#007AFF] font-mono text-[10px] px-2 py-0.5">
                       {dest.year}
                     </span>
                   </div>
@@ -194,7 +195,7 @@ const TravelLogApp = () => {
               {/* Footer Meta */}
               <div className="pt-4 mt-3 border-t border-slate-100 flex items-center justify-between text-xs font-mono text-slate-400">
                 <div className="flex items-center gap-1">
-                  <MapPin className="w-3.5 h-3.5 text-cyan-600" />
+                  <MapPin className="w-3.5 h-3.5 text-[#007AFF]" />
                   <span className="text-[11px] text-slate-500">{dest.category}</span>
                 </div>
                 <span className="text-[10px] text-slate-400">{dest.coordinates}</span>
@@ -204,58 +205,62 @@ const TravelLogApp = () => {
         })}
       </motion.div>
 
+      </div>
+
       {/* Selected Destination Detail Drawer */}
-      <AnimatePresence mode="wait">
-        {selectedDest && (
-          <motion.div
-            key={selectedDest.id}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.25 }}
-            className="bg-white border border-slate-200/70 rounded-2xl p-5 shadow-xs relative overflow-hidden"
-          >
-            <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${selectedDest.accentGradient}`} />
-            
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-3">
-              <div className="flex items-center gap-2.5">
-                <div className="w-9 h-9 rounded-xl bg-slate-100 border border-slate-200/60 flex items-center justify-center text-xl">
-                  {selectedDest.flag}
-                </div>
-                <div>
-                  <div className="flex items-center gap-2">
-                    <h4 className="font-display font-bold text-slate-900 text-sm">
-                      {selectedDest.city}, {selectedDest.country}
-                    </h4>
-                    {selectedDest.isHomeBase && (
-                      <span className="text-[9px] font-mono font-bold bg-purple-50 text-purple-600 px-2 py-0.5 rounded-full border border-purple-200">
-                        Primary HQ
-                      </span>
-                    )}
+      <div className="absolute bottom-6 left-6 right-6 sm:bottom-8 sm:left-8 sm:right-8 z-10 pointer-events-none">
+        <AnimatePresence mode="wait">
+          {selectedDest && (
+            <motion.div
+              key={selectedDest.id}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 10 }}
+              transition={{ duration: 0.25 }}
+              className="bg-white border border-black/[0.04] rounded-2xl p-5 shadow-[0_8px_30px_rgba(0,0,0,0.12)] relative overflow-hidden pointer-events-auto"
+            >
+              <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${selectedDest.accentGradient}`} />
+              
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-3">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-9 h-9 rounded-xl bg-slate-100 border border-slate-200/60 flex items-center justify-center text-xl">
+                    {selectedDest.flag}
                   </div>
-                  <p className="text-[11px] font-mono text-slate-400">
-                    Logged Timeline: {selectedDest.year} · Coordinates: {selectedDest.coordinates}
-                  </p>
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <h4 className="font-display font-bold text-slate-900 text-sm">
+                        {selectedDest.city}, {selectedDest.country}
+                      </h4>
+                      {selectedDest.isHomeBase && (
+                        <span className="text-[9px] font-mono font-bold bg-purple-50 text-purple-600 px-2 py-0.5 rounded-full border border-purple-200">
+                          Primary HQ
+                        </span>
+                      )}
+                    </div>
+                    <p className="text-[11px] font-mono text-slate-400">
+                      Logged Timeline: {selectedDest.year} · Coordinates: {selectedDest.coordinates}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-1.5 text-xs font-mono text-[#007AFF] bg-[#007AFF]/10 px-3 py-1.5 rounded-full border border-[#007AFF]/20 w-fit">
+                  <Compass className="w-3.5 h-3.5 text-[#007AFF]" />
+                  <span>Selected Destination</span>
                 </div>
               </div>
 
-              <div className="flex items-center gap-1.5 text-xs font-mono text-cyan-700 bg-cyan-50 px-3 py-1.5 rounded-full border border-cyan-200/50 w-fit">
-                <Compass className="w-3.5 h-3.5 text-cyan-600" />
-                <span>Selected Destination</span>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-2 border-t border-slate-100">
+                {selectedDest.highlights.map((item, idx) => (
+                  <div key={idx} className="flex items-center gap-2 text-xs text-slate-600 bg-slate-50 border border-slate-200/50 px-3 py-2 rounded-xl">
+                    <CheckCircle className="w-3.5 h-3.5 text-[#007AFF] flex-shrink-0" />
+                    <span className="font-medium text-[12px]">{item}</span>
+                  </div>
+                ))}
               </div>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-2 border-t border-slate-100">
-              {selectedDest.highlights.map((item, idx) => (
-                <div key={idx} className="flex items-center gap-2 text-xs text-slate-600 bg-slate-50 border border-slate-200/50 px-3 py-2 rounded-xl">
-                  <CheckCircle className="w-3.5 h-3.5 text-cyan-600 flex-shrink-0" />
-                  <span className="font-medium text-[12px]">{item}</span>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
     </div>
   );
 };
