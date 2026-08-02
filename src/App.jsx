@@ -7,13 +7,15 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Navigation from './components/Navigation';
 import CustomCursor from './components/CustomCursor';
 import Home from './pages/Home';
-import CaseStudy from './pages/CaseStudy';
-import Work from './pages/Work';
-import BlogList from './pages/BlogList';
-import BlogPost from './pages/BlogPost';
-import Resume from './pages/Resume';
-import NotFound from './pages/NotFound';
 import './App.css';
+
+// Lazy-load secondary routes for initial bundle performance
+const CaseStudy = React.lazy(() => import('./pages/CaseStudy'));
+const Work = React.lazy(() => import('./pages/Work'));
+const BlogList = React.lazy(() => import('./pages/BlogList'));
+const BlogPost = React.lazy(() => import('./pages/BlogPost'));
+const Resume = React.lazy(() => import('./pages/Resume'));
+const NotFound = React.lazy(() => import('./pages/NotFound'));
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -103,17 +105,23 @@ function AnimatedRoutes() {
   }, [location.pathname]);
 
   return (
-    <AnimatePresence mode="wait">
-      <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<Home />} />
-        <Route path="/work" element={<Work />} />
-        <Route path="/blog" element={<BlogList />} />
-        <Route path="/blog/:slug" element={<BlogPost />} />
-        <Route path="/case-study/:id" element={<CaseStudy />} />
-        <Route path="/resume" element={<Resume />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </AnimatePresence>
+    <React.Suspense fallback={
+      <div className="min-h-screen w-full flex items-center justify-center bg-[#FAFAF8]">
+        <div className="w-8 h-8 rounded-full border-2 border-indigo-600 border-t-transparent animate-spin" />
+      </div>
+    }>
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<Home />} />
+          <Route path="/work" element={<Work />} />
+          <Route path="/blog" element={<BlogList />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
+          <Route path="/case-study/:id" element={<CaseStudy />} />
+          <Route path="/resume" element={<Resume />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </AnimatePresence>
+    </React.Suspense>
   );
 }
 

@@ -13,16 +13,17 @@ import { BehanceIcon, FigmaIcon, TerminalIcon, NotesIcon, LikesIcon, SkillsIcon 
 import CommandPalette from '../components/designos/CommandPalette';
 import LivingPortal from '../components/designos/LivingPortal';
 
-// DesignOS 11 System Apps
-import IdentityApp from '../components/apps/IdentityApp';
-import MissionControlApp from '../components/apps/MissionControlApp';
-import SkillTreeApp from '../components/apps/SkillTreeApp';
-import DesignLabApp from '../components/apps/DesignLabApp';
-import MoneyOSApp from '../components/apps/MoneyOSApp';
-import JournalApp from '../components/apps/JournalApp';
-import AssetsVaultApp from '../components/apps/AssetsVaultApp';
-import InterestsApp from '../components/apps/InterestsApp';
-import TravelLogApp from '../components/apps/TravelLogApp';
+// DesignOS 11 System Apps (Lazy loaded for optimal initial bundle performance)
+import CaseStudyVideoPlayer from '../components/CaseStudyVideoPlayer';
+const IdentityApp = React.lazy(() => import('../components/apps/IdentityApp'));
+const MissionControlApp = React.lazy(() => import('../components/apps/MissionControlApp'));
+const SkillTreeApp = React.lazy(() => import('../components/apps/SkillTreeApp'));
+const DesignLabApp = React.lazy(() => import('../components/apps/DesignLabApp'));
+const MoneyOSApp = React.lazy(() => import('../components/apps/MoneyOSApp'));
+const JournalApp = React.lazy(() => import('../components/apps/JournalApp'));
+const AssetsVaultApp = React.lazy(() => import('../components/apps/AssetsVaultApp'));
+const InterestsApp = React.lazy(() => import('../components/apps/InterestsApp'));
+const TravelLogApp = React.lazy(() => import('../components/apps/TravelLogApp'));
 import { toggleInterstellarMusic, isInterstellarPlaying } from '../utils/sound';
 
 // Scrolling Page Subcomponents
@@ -34,7 +35,6 @@ import SplitReveal from '../components/SplitReveal';
 import MagneticButton from '../components/MagneticButton';
 import TextMarquee from '../components/TextMarquee';
 import ProcessSection from '../components/ProcessSection';
-import CaseStudy from './CaseStudy';
 import './Home.css';
 import { playSystemSound } from '../utils/sound';
 
@@ -225,7 +225,7 @@ const Home = () => {
   const [newCommentText, setNewCommentText] = useState('');
   const [selectedPaymentType, setSelectedPaymentType] = useState('ach');
   const [paymentFlowStep, setPaymentFlowStep] = useState(0);
-    const [activeWallpaper, setActiveWallpaper] = useState('/assets/macos_26_wallpaper.jpg');
+    const [activeWallpaper, setActiveWallpaper] = useState('/assets/custom_zen_wallpaper.jpg');
   const [volume, setVolume] = useState(80);
   const [brightness, setBrightness] = useState(100);
 
@@ -389,6 +389,18 @@ const Home = () => {
     };
   }, [currentMode]);
 
+  // Sync active case study reading state for Navigation visibility
+  useEffect(() => {
+    if (activeFigmaProject) {
+      document.documentElement.classList.add('is-reading-case-study');
+    } else {
+      document.documentElement.classList.remove('is-reading-case-study');
+    }
+    return () => {
+      document.documentElement.classList.remove('is-reading-case-study');
+    };
+  }, [activeFigmaProject]);
+
   // Check mobile screen size
   useEffect(() => {
     const handleResize = () => {
@@ -437,6 +449,9 @@ const Home = () => {
 
   const handleAppClick = (appId) => {
     playSystemSound('click', volume);
+    if (appId === 'mission') {
+      setActiveFigmaProject(null);
+    }
     // Trigger icon launch bounce animation
     setLaunchingApp(appId);
     setTimeout(() => setLaunchingApp(null), 550);
@@ -485,11 +500,21 @@ const Home = () => {
       ],
       process: 'I ran discovery sessions with sales, marketing, and RevOps stakeholders to understand exactly which questions they needed answered daily, and how quickly they needed those answers. This shaped a core design principle I carried through the project: design around decisions, not just data categories. I built a modular dashboard design system that could scale as new reporting modules were added, anchored by a clean typographic scale, a blue-and-orange color system, and consistent spacing to keep dense information legible.',
       retrospective: 'This project sharpened my thinking around designing for ambiguity in dense, data-heavy products. The breakthrough came when I stopped treating design as a Figma exercise and started working directly inside the React codebase. By co-owning the Tailwind tokens and components with the engineering team, we shipped the interface in half the estimated time. The most valuable decisions I made weren\'t visual; they were architectural — establishing a shared component language that developers actually wanted to use.',
-      heroImage: '/assets/revlitix_hero_v3.jpg',
+      heroImage: '/assets/revlitix_listing_thumbnail.jpg',
       mockups: [
-        '/assets/revlitix_funnel.jpg',
-        '/assets/revlitix_design_system_v3.jpg',
-        '/assets/revlitix_waterfall_v3.jpg'
+        '/assets/revlitix_listing_thumbnail.jpg',
+        '/assets/revlitix_slides/1.jpg',
+        '/assets/revlitix_slides/2.jpg',
+        '/assets/revlitix_slides/3.jpg',
+        '/assets/revlitix_slides/4.jpg',
+        '/assets/revlitix_slides/5.jpg',
+        '/assets/revlitix_slides/6.jpg',
+        '/assets/revlitix_slides/7.jpg',
+        '/assets/revlitix_slides/8.jpg',
+        '/assets/revlitix_slides/9.jpg',
+        '/assets/revlitix_slides/10.jpg',
+        '/assets/revlitix_slides/11.jpg',
+        '/assets/revlitix_slides/12.jpg'
       ],
       metrics: [
         { value: '25', prefix: '+', suffix: '%', label: 'Product Adoption' },
@@ -511,11 +536,21 @@ const Home = () => {
       ],
       process: 'I focused on designing conversational micro-interactions: quick prompt suggestions, auto-complete input blocks, real-time typing indicators, and immediate feedback loop cards that visually showed the database search query. I built a dynamic chart rendering widget that automatically picked the best visual representation (bar chart, line graph, metric card) depending on the returned query data shape.',
       retrospective: 'Designing conversational AI is less about making the bot sound human and more about building user confidence. Visualizing the query parser logic in the UI demystified the AI\'s calculations and immediately built user trust. Bridging design specifications with the engineers early in the process was key to achieving this speed.',
-      heroImage: '/assets/revlitix_website_product_images/6896089a9b458a0e5d353212_Frame 1321315474.png',
+      heroImage: '/assets/sonic_listing_thumbnail.jpg',
       mockups: [
-        '/assets/revlitix_website_product_images/6896135103e8ca6406b070d3_Frame 1321315475.png',
-        '/assets/revlitix_product_images/68959de2d249e7fc38c769dc_mainimg11.jpg',
-        '/assets/revlitix_website_product_images/68960bded69109f50c5ac276_outcomesimg.jpg'
+        '/assets/sonic_listing_thumbnail.jpg',
+        '/assets/sonic_slides/1.jpg',
+        '/assets/sonic_slides/2.jpg',
+        '/assets/sonic_slides/3.jpg',
+        '/assets/sonic_slides/4.jpg',
+        '/assets/sonic_slides/5.jpg',
+        '/assets/sonic_slides/6.jpg',
+        '/assets/sonic_slides/7.jpg',
+        '/assets/sonic_slides/8.jpg',
+        '/assets/sonic_slides/9.jpg',
+        '/assets/sonic_slides/10.jpg',
+        '/assets/sonic_slides/11.jpg',
+        '/assets/sonic_slides/12.jpg'
       ],
       metrics: [
         { value: '60', prefix: '+', suffix: '%', label: 'Faster Insights Discovery' },
@@ -679,9 +714,9 @@ const Home = () => {
           </button>
           <button 
             onClick={() => setCurrentMode('figma')}
-            className="relative z-10 px-3.5 py-2 rounded-full text-[10px] font-mono font-bold uppercase transition-colors tracking-wider flex items-center gap-1.5 cursor-default text-white/90"
+            className="relative z-10 px-3.5 py-2 rounded-full text-[10px] font-mono font-normal uppercase transition-colors tracking-wider flex items-center gap-1.5 cursor-default text-white/90"
           >
-            ✦ Figma
+            ✦ Studio
           </button>
         </div>
       </div>
@@ -1207,22 +1242,26 @@ const Home = () => {
 
               {/* video_revlitix */}
               <div className="flex flex-col items-center cursor-pointer" onClick={() => handleAppClick('video_revlitix')}>
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-b from-[#EF4444] to-[#B91C1C] border border-white/10 shadow-md flex items-center justify-center active:scale-95 transition-all">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <polygon points="23 7 16 12 23 17 23 7" fill="white" />
-                    <rect x="1" y="5" width="15" height="14" rx="2" ry="2" fill="rgba(255,255,255,0.2)" />
-                  </svg>
+                <div className="w-14 h-14 rounded-2xl overflow-hidden relative border border-white/10 shadow-md flex items-center justify-center active:scale-95 transition-all">
+                  <img src="/assets/revlitix_video_thumbnail.jpg" alt="Revlitix Demo" className="w-full h-full object-cover" />
+                  <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="white" stroke="white" strokeWidth="2">
+                      <polygon points="5 3 19 12 5 21 5 3" />
+                    </svg>
+                  </div>
                 </div>
                 <span className="text-[11px] font-semibold text-white/90 mt-1.5 text-center leading-tight">Revlitix Demo</span>
               </div>
 
               {/* video_sonic */}
               <div className="flex flex-col items-center cursor-pointer" onClick={() => handleAppClick('video_sonic')}>
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-b from-[#3B82F6] to-[#1D4ED8] border border-white/10 shadow-md flex items-center justify-center active:scale-95 transition-all">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <polygon points="23 7 16 12 23 17 23 7" fill="white" />
-                    <rect x="1" y="5" width="15" height="14" rx="2" ry="2" fill="rgba(255,255,255,0.2)" />
-                  </svg>
+                <div className="w-14 h-14 rounded-2xl overflow-hidden relative border border-white/10 shadow-md flex items-center justify-center active:scale-95 transition-all">
+                  <img src="/assets/sonic_listing_thumbnail.jpg" alt="Sonic AI Demo" className="w-full h-full object-cover" />
+                  <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="white" stroke="white" strokeWidth="2">
+                      <polygon points="5 3 19 12 5 21 5 3" />
+                    </svg>
+                  </div>
                 </div>
                 <span className="text-[11px] font-semibold text-white/90 mt-1.5 text-center leading-tight">Sonic AI Demo</span>
               </div>
@@ -1372,7 +1411,7 @@ const Home = () => {
                   onFocus={handleFocus}
                 >
                   <div className="relative w-full h-[440px] bg-black overflow-hidden inset-0">
-                    <CaseStudyVideoPlayer videoUrl="/assets/Revlitix.mp4" poster="/assets/revlitix_saas_hero_ultra.jpg" />
+                    <CaseStudyVideoPlayer videoUrl="/assets/Revlitix.mp4" poster="/assets/revlitix_video_thumbnail.jpg" />
                   </div>
                 </DesktopWindow>
               )}
@@ -1507,29 +1546,31 @@ const Home = () => {
             ))}
           </div>
 
-          {/* 2. Top menu system bar */}
-          <DesktopMenuBar 
-            onModeToggle={setCurrentMode} 
-            onRestart={() => {
-              setOpenApps({ 
-                identity: false, mission: false, skills: false, lab: false, 
-                money: false, journal: false, vault: false, interests: false, 
-                travel: false, safari: false,
-                notes: false, figma: false, likes: false, movies: false,
-                video_revlitix: false, video_sonic: false
-              });
-              setSelectedBehanceProject(null);
-            }} 
-            onSearch={() => setCommandPaletteOpen(true)}
-            onLaunchApp={handleAppClick}
-            activeWallpaper={activeWallpaper}
-            onChangeWallpaper={setActiveWallpaper}
-            volume={volume}
-            onChangeVolume={setVolume}
-            brightness={brightness}
-            onChangeBrightness={setBrightness}
-            currentLayout={currentMode}
-          />
+          {/* 2. Top menu system bar — ONLY shown in OS Desktop Mode */}
+          {currentMode === 'os' && (
+            <DesktopMenuBar 
+              onModeToggle={setCurrentMode} 
+              onRestart={() => {
+                setOpenApps({ 
+                  identity: false, mission: false, skills: false, lab: false, 
+                  money: false, journal: false, vault: false, interests: false, 
+                  travel: false, safari: false,
+                  notes: false, figma: false, likes: false, movies: false,
+                  video_revlitix: false, video_sonic: false
+                });
+                setSelectedBehanceProject(null);
+              }} 
+              onSearch={() => setCommandPaletteOpen(true)}
+              onLaunchApp={handleAppClick}
+              activeWallpaper={activeWallpaper}
+              onChangeWallpaper={setActiveWallpaper}
+              volume={volume}
+              onChangeVolume={setVolume}
+              brightness={brightness}
+              onChangeBrightness={setBrightness}
+              currentLayout={currentMode}
+            />
+          )}
 
           {/* 3. Global Spotlight Command Palette (⌘ + K) */}
           <CommandPalette 
@@ -1551,10 +1592,10 @@ const Home = () => {
                 className="absolute top-12 right-6 grid grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-3 z-10 select-none w-[220px] lg:w-[340px]"
               >
             
-            {/* 01. Identity.OS */}
+            {/* 01. Identity.OS (Simple Apple Style) */}
             <div className={`desktop-icon ${launchingApp === 'identity' ? 'is-launching' : ''}`} onClick={() => handleAppClick('identity')}>
-              <div className="desktop-icon-img bg-gradient-to-b from-[#8E2DE2] to-[#4A00E0] border border-white/20 shadow-lg">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+              <div className="desktop-icon-img bg-gradient-to-br from-[#3B82F6] to-[#007AFF]">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
                   <circle cx="12" cy="7" r="4" />
                 </svg>
@@ -1563,143 +1604,151 @@ const Home = () => {
               <span className="desktop-icon-sublabel hidden md:block">About Me</span>
             </div>
 
-            {/* 02. Mission Control */}
+            {/* 02. Mission Control (Simple Apple Style) */}
             <div className={`desktop-icon ${launchingApp === 'mission' ? 'is-launching' : ''}`} onClick={() => handleAppClick('mission')}>
-              <div className="desktop-icon-img bg-gradient-to-b from-[#007AFF] to-[#0047FF] border border-white/20 shadow-lg">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 8.07 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2z" />
+              <div className="desktop-icon-img bg-gradient-to-br from-[#818CF8] to-[#5856D6]">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="8" />
+                  <circle cx="12" cy="12" r="3" />
+                  <line x1="12" y1="2" x2="12" y2="4" />
+                  <line x1="12" y1="20" x2="12" y2="22" />
+                  <line x1="2" y1="12" x2="4" y2="12" />
+                  <line x1="20" y1="12" x2="22" y2="12" />
                 </svg>
               </div>
               <span className="desktop-icon-label">Case Studies</span>
               <span className="desktop-icon-sublabel hidden md:block">Overview</span>
             </div>
 
-            {/* 03. Skill Tree */}
+            {/* 03. Skill Tree (Simple Apple Style) */}
             <div className={`desktop-icon ${launchingApp === 'skills' ? 'is-launching' : ''}`} onClick={() => handleAppClick('skills')}>
-              <div className="desktop-icon-img bg-gradient-to-b from-[#1E1E24] to-[#0F0F12] border border-white/20 shadow-lg">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+              <div className="desktop-icon-img bg-gradient-to-br from-[#C084FC] to-[#AF52DE]">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="4" y="4" width="6" height="6" rx="1.5" />
+                  <rect x="14" y="4" width="6" height="6" rx="1.5" />
+                  <rect x="9" y="14" width="6" height="6" rx="1.5" />
+                  <path d="M7 10v2a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-2" />
+                  <line x1="12" y1="13" x2="12" y2="14" />
                 </svg>
               </div>
               <span className="desktop-icon-label">Skill Tree</span>
-              <span className="desktop-icon-sublabel hidden md:block">Skills & Expertise</span>
+              <span className="desktop-icon-sublabel hidden md:block">Expertise</span>
             </div>
 
-            {/* 04. Design Lab */}
+            {/* 04. Design Lab (Simple Apple Style) */}
             <div className={`desktop-icon ${launchingApp === 'lab' ? 'is-launching' : ''}`} onClick={() => handleAppClick('lab')}>
-              <div className="desktop-icon-img bg-gradient-to-b from-[#34C759] to-[#28A745] border border-white/20 shadow-lg">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M10 2v7.31L4.75 18.2A2 2 0 0 0 6.46 21h11.08a2 2 0 0 0 1.71-2.8L14 9.31V2" />
+              <div className="desktop-icon-img bg-gradient-to-br from-[#4ADE80] to-[#34C759]">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M10 2v7.5L4.5 18a2 2 0 0 0 1.7 3h11.6a2 2 0 0 0 1.7-3L14 9.5V2" />
                   <line x1="8.5" y1="2" x2="15.5" y2="2" />
+                  <line x1="7" y1="14.5" x2="17" y2="14.5" strokeDasharray="2 2" opacity="0.8" />
                 </svg>
               </div>
               <span className="desktop-icon-label">Design Lab</span>
               <span className="desktop-icon-sublabel hidden md:block">Experiments</span>
             </div>
 
-            {/* 05. Money.OS */}
+            {/* 05. Money.OS (Simple Apple Style) */}
             <div className={`desktop-icon ${launchingApp === 'money' ? 'is-launching' : ''}`} onClick={() => handleAppClick('money')}>
-              <div className="desktop-icon-img bg-gradient-to-b from-[#FF9F0A] to-[#FF6B00] border border-white/20 shadow-lg">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                  <circle cx="18" cy="5" r="3" />
-                  <circle cx="6" cy="12" r="3" />
-                  <circle cx="18" cy="19" r="3" />
-                  <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
-                  <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
+              <div className="desktop-icon-img bg-gradient-to-br from-[#FBBF24] to-[#FF9F0A]">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="2" y="5" width="20" height="14" rx="3" />
+                  <line x1="2" y1="10" x2="22" y2="10" />
+                  <line x1="6" y1="15" x2="10" y2="15" opacity="0.8" />
                 </svg>
               </div>
               <span className="desktop-icon-label">Money.OS</span>
-              <span className="desktop-icon-sublabel hidden md:block">Fintech Universe</span>
+              <span className="desktop-icon-sublabel hidden md:block">Fintech</span>
             </div>
 
-            {/* 06. Journal */}
+            {/* 06. Journal (Simple Apple Style) */}
             <div className={`desktop-icon ${launchingApp === 'journal' ? 'is-launching' : ''}`} onClick={() => handleAppClick('journal')}>
-              <div className="desktop-icon-img bg-gradient-to-b from-[#F5F5F7] to-[#E5E5EA] border border-black/10 shadow-lg">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8E2DE2" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+              <div className="desktop-icon-img bg-gradient-to-br from-[#FFE047] to-[#FFD60A]">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1C1C1E" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
                   <polyline points="14 2 14 8 20 8" />
-                  <line x1="16" y1="13" x2="8" y2="13" />
-                  <line x1="16" y1="17" x2="8" y2="17" />
+                  <line x1="16" y1="13" x2="8" y2="13" opacity="0.7" />
+                  <line x1="16" y1="17" x2="8" y2="17" opacity="0.7" />
                 </svg>
               </div>
               <span className="desktop-icon-label">Journal</span>
-              <span className="desktop-icon-sublabel hidden md:block">Notes & Thoughts</span>
+              <span className="desktop-icon-sublabel hidden md:block">Notes</span>
             </div>
 
-            {/* 07. Assets Vault */}
+            {/* 07. Assets Vault (Simple Apple Style) */}
             <div className={`desktop-icon ${launchingApp === 'vault' ? 'is-launching' : ''}`} onClick={() => handleAppClick('vault')}>
-              <div className="desktop-icon-img bg-gradient-to-b from-[#00C6FF] to-[#0072FF] border border-white/20 shadow-lg">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
-                  <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
-                  <line x1="12" y1="22.08" x2="12" y2="12" />
+              <div className="desktop-icon-img bg-gradient-to-br from-[#38BDF8] to-[#64D2FF]">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
+                  <circle cx="12" cy="13" r="2" fill="white" />
                 </svg>
               </div>
               <span className="desktop-icon-label">Assets Vault</span>
               <span className="desktop-icon-sublabel hidden md:block">Resources</span>
             </div>
 
-            {/* 08. Interests */}
+            {/* 08. Interests (Simple Apple Style) */}
             <div className={`desktop-icon ${launchingApp === 'interests' ? 'is-launching' : ''}`} onClick={() => handleAppClick('interests')}>
-              <div className="desktop-icon-img bg-gradient-to-b from-[#FF2A54] to-[#FF0036] border border-white/20 shadow-lg">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="white" stroke="white" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+              <div className="desktop-icon-img bg-gradient-to-br from-[#F472B6] to-[#FF2D55]">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
                 </svg>
               </div>
               <span className="desktop-icon-label">Interests</span>
-              <span className="desktop-icon-sublabel hidden md:block">Personal Side</span>
+              <span className="desktop-icon-sublabel hidden md:block">Moodboards</span>
             </div>
 
-            {/* 09. Travel Log */}
+            {/* 09. Travel Log (Simple Apple Style) */}
             <div className={`desktop-icon ${launchingApp === 'travel' ? 'is-launching' : ''}`} onClick={() => handleAppClick('travel')}>
-              <div className="desktop-icon-img bg-gradient-to-b from-[#A8C0FF] to-[#3F2B96] border border-white/20 shadow-lg">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+              <div className="desktop-icon-img bg-gradient-to-br from-[#2DD4BF] to-[#30B0C7]">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                   <circle cx="12" cy="12" r="10" />
-                  <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                  <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" fill="white" opacity="0.3" />
+                  <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
                 </svg>
               </div>
               <span className="desktop-icon-label">Travel Log</span>
               <span className="desktop-icon-sublabel hidden md:block">Adventures</span>
             </div>
 
-            
-
-            
-
-            {/* 10. Settings */}
+            {/* 10. Settings (Simple Apple Style) */}
             <div className="desktop-icon" onClick={() => {}}>
-              <div className="desktop-icon-img bg-gradient-to-b from-[#F5F5F7] to-[#D1D1D6] border border-white/50 shadow-lg">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1D1D1F" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                  <rect x="2" y="7" width="20" height="10" rx="5" fill="#34C759" stroke="none" />
-                  <circle cx="17" cy="12" r="3.5" fill="white" stroke="none" />
+              <div className="desktop-icon-img bg-gradient-to-br from-[#9CA3AF] to-[#6B7280]">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="3" />
+                  <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
                 </svg>
               </div>
               <span className="desktop-icon-label">Settings</span>
               <span className="desktop-icon-sublabel hidden md:block">Preferences</span>
             </div>
 
-            {/* 11. Revlitix Demo */}
+            {/* 11. Revlitix Demo (Simple Apple Style) */}
             <div className={`desktop-icon ${launchingApp === 'video_revlitix' ? 'is-launching' : ''}`} onClick={() => handleAppClick('video_revlitix')}>
-              <div className="desktop-icon-img bg-gradient-to-b from-[#EF4444] to-[#B91C1C] border border-white/20 shadow-lg flex items-center justify-center">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <polygon points="23 7 16 12 23 17 23 7" fill="white" />
-                  <rect x="1" y="5" width="15" height="14" rx="2" ry="2" fill="rgba(255,255,255,0.2)" />
-                </svg>
+              <div className="desktop-icon-img overflow-hidden relative border border-white/10 shadow-md">
+                <img src="/assets/revlitix_video_thumbnail.jpg" alt="Revlitix Demo" className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-black/25 flex items-center justify-center">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="white" stroke="white" strokeWidth="1.5">
+                    <polygon points="5 3 19 12 5 21 5 3" />
+                  </svg>
+                </div>
               </div>
               <span className="desktop-icon-label">Revlitix Demo</span>
-              <span className="desktop-icon-sublabel hidden md:block">MP4 Video</span>
+              <span className="desktop-icon-sublabel hidden md:block">Video</span>
             </div>
 
-            {/* 12. Sonic AI Demo */}
+            {/* 12. Sonic AI Demo (Simple Apple Style) */}
             <div className={`desktop-icon ${launchingApp === 'video_sonic' ? 'is-launching' : ''}`} onClick={() => handleAppClick('video_sonic')}>
-              <div className="desktop-icon-img bg-gradient-to-b from-[#3B82F6] to-[#1D4ED8] border border-white/20 shadow-lg flex items-center justify-center">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <polygon points="23 7 16 12 23 17 23 7" fill="white" />
-                  <rect x="1" y="5" width="15" height="14" rx="2" ry="2" fill="rgba(255,255,255,0.2)" />
-                </svg>
+              <div className="desktop-icon-img overflow-hidden relative border border-white/10 shadow-md">
+                <img src="/assets/sonic_listing_thumbnail.jpg" alt="Sonic AI Demo" className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-black/25 flex items-center justify-center">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="white" stroke="white" strokeWidth="1.5">
+                    <polygon points="5 3 19 12 5 21 5 3" />
+                  </svg>
+                </div>
               </div>
               <span className="desktop-icon-label">Sonic AI Demo</span>
-              <span className="desktop-icon-sublabel hidden md:block">MP4 Video</span>
+              <span className="desktop-icon-sublabel hidden md:block">Video</span>
             </div>
           </motion.div>
         )}
@@ -2783,9 +2832,10 @@ const Home = () => {
                     defaultPosition={{ x: 160, y: 120 }}
                     width="720px"
                     height="440px"
+                    defaultMaximized={true}
                   >
                     <div className="absolute inset-0 bg-black flex items-center justify-center select-none overflow-hidden">
-                      <video src="/assets/Revlitix.mp4" controls autoPlay className="w-full h-full object-contain outline-none" />
+                      <video src="/assets/Revlitix.mp4" poster="/assets/revlitix_video_thumbnail.jpg" controls autoPlay className="w-full h-full object-contain outline-none" />
                     </div>
                   </DesktopWindow>
                 )}

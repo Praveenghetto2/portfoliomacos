@@ -8,44 +8,45 @@ import {
 } from '../utils/sound';
 
 /* ── SVG Icon Components ── */
+/* ── Ultra-High-Fidelity macOS SVG Icon Components ── */
 const AppleLogo = () => (
-  <svg width="14" height="17" viewBox="0 0 14 17" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-    <path d="M13.0729 5.87494C12.9479 5.96244 11.2604 6.92494 11.2604 8.99994C11.2604 11.3874 13.3854 12.2624 13.4479 12.2812C13.4354 12.3437 13.1104 13.4437 12.3229 14.5687C11.6229 15.5562 10.8854 16.5437 9.78537 16.5437C8.68537 16.5437 8.39787 15.9062 7.12287 15.9062C5.88537 15.9062 5.44787 16.5624 4.44787 16.5624C3.44787 16.5624 2.73537 15.6374 1.92287 14.5124C0.972874 13.1749 0.197874 11.1124 0.172874 9.13744C0.160374 8.09994 0.372874 7.07494 0.860374 6.19994C1.54787 4.97494 2.83537 4.14994 4.24787 4.12494C5.36037 4.09994 6.34787 4.81244 7.04787 4.81244C7.72287 4.81244 8.92287 3.94994 10.2604 4.09994C10.8229 4.12494 12.3229 4.32494 13.0729 5.87494ZM9.47287 2.71244C10.0104 2.07494 10.3854 1.19994 10.3854 0.324939C10.3854 0.212439 10.3729 0.0999389 10.3479 0.0124389C9.48537 0.0499389 8.44787 0.599939 7.82287 1.31244C7.33537 1.86244 6.87287 2.73744 6.87287 3.62494C6.87287 3.74994 6.89787 3.87494 6.91037 3.91244C6.97287 3.92494 7.07287 3.94994 7.17287 3.94994C7.94787 3.94994 8.91037 3.42494 9.47287 2.71244Z"/>
+  <svg width="15" height="18" viewBox="0 0 170 170" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.34.13-9.14-1.9-14.4-6.1-3.63-3.05-7.6-7.85-11.9-14.4-7.41-11.37-13.1-23.77-17.06-37.2-3.96-13.43-5.94-25.96-5.94-37.58 0-14.65 3.57-26.69 10.7-36.12 7.14-9.43 16.19-14.28 27.16-14.55 4.88 0 10.15 1.25 15.82 3.75 5.66 2.5 9.7 3.75 12.1 3.75 2.12 0 6.23-1.31 12.33-3.93 6.1-2.62 11.47-3.81 16.1-3.57 11.83.63 21.36 4.7 28.58 12.22-10.42 6.3-15.52 14.88-15.3 25.75.22 8.65 3.53 15.85 9.94 21.6 6.4 5.75 14.07 8.95 23 9.6-2.5 7.41-5.83 14.82-10.01 22.23zm-27.11-105.5c0 6.64-2.45 13.06-7.36 19.26-4.91 6.2-10.74 9.79-17.5 10.78-.11-.87-.17-1.74-.17-2.62 0-6.64 2.56-13.2 7.69-19.68 5.13-6.48 11.02-10.1 17.68-10.86.11.98.17 1.8.17 2.45z"/>
   </svg>
 );
 
 const WifiIcon = () => (
-  <svg width="16" height="12" viewBox="0 0 16 12" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M1 4C3.05 1.95 5.4 1 8 1s4.95.95 7 3" opacity="0.5"/>
-    <path d="M3 6.5C4.4 5.1 6.1 4.3 8 4.3s3.6.8 5 2.2" opacity="0.7"/>
-    <path d="M5.2 9C6 8.2 6.9 7.7 8 7.7s2 .5 2.8 1.3"/>
-    <circle cx="8" cy="11" r="1" fill="currentColor" stroke="none"/>
+  <svg width="17" height="13" viewBox="0 0 18 14" fill="none">
+    <path d="M1.5 4.2C5.5 1.1 12.5 1.1 16.5 4.2" stroke="#34C759" strokeWidth="1.8" strokeLinecap="round" />
+    <path d="M4 6.8C6.6 4.6 11.4 4.6 14 6.8" stroke="#34C759" strokeWidth="1.8" strokeLinecap="round" opacity="0.85" />
+    <path d="M6.5 9.4C7.9 8.2 10.1 8.2 11.5 9.4" stroke="#34C759" strokeWidth="1.8" strokeLinecap="round" />
+    <circle cx="9" cy="12" r="1.2" fill="#34C759" />
   </svg>
 );
 
 const BluetoothIcon = () => (
-  <svg width="10" height="14" viewBox="0 0 10 14" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M1 4l8 3.5-4 3V0l4 3.5L1 10"/>
+  <svg width="12" height="15" viewBox="0 0 12 16" fill="none">
+    <path d="M2 4.5L10 9L6 13V1L10 5L2 9.5" stroke="#007AFF" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
   </svg>
 );
 
 const BatteryIcon = ({ percent = 100 }) => {
   const fillWidth = Math.max(0, Math.min(100, percent));
   return (
-    <svg width="25" height="11" viewBox="0 0 25 11" fill="none">
-      <rect x="0.5" y="0.5" width="20" height="10" rx="2.5" stroke="currentColor" strokeWidth="1" opacity="0.6"/>
-      <rect x="21" y="3" width="2.5" height="5" rx="1" fill="currentColor" opacity="0.4"/>
-      <rect x="2" y="2" width={fillWidth * 0.17} height="7" rx="1.5" fill={percent > 20 ? 'currentColor' : '#FF3B30'} opacity="0.9"/>
+    <svg width="26" height="12" viewBox="0 0 26 12" fill="none">
+      <rect x="0.8" y="0.8" width="21" height="10.4" rx="3" stroke="currentColor" strokeWidth="1.2" opacity="0.6"/>
+      <rect x="22.5" y="3.5" width="2" height="5" rx="1" fill="currentColor" opacity="0.5"/>
+      <rect x="2.5" y="2.5" width={fillWidth * 0.176} height="7" rx="2" fill={percent > 20 ? '#34C759' : '#FF3B30'} opacity="0.95"/>
     </svg>
   );
 };
 
 const ControlCenterIcon = () => (
-  <svg width="14" height="12" viewBox="0 0 14 12" fill="currentColor" opacity="0.9">
-    <rect x="0" y="0" width="6" height="5" rx="1.5"/>
-    <rect x="8" y="0" width="6" height="5" rx="1.5"/>
-    <rect x="0" y="7" width="6" height="5" rx="1.5"/>
-    <rect x="8" y="7" width="6" height="5" rx="1.5"/>
+  <svg width="15" height="13" viewBox="0 0 16 14" fill="none">
+    <rect x="0.5" y="0.5" width="6.5" height="5.5" rx="2" fill="#007AFF" opacity="0.9"/>
+    <rect x="9" y="0.5" width="6.5" height="5.5" rx="2" fill="#34C759" opacity="0.9"/>
+    <rect x="0.5" y="8" width="6.5" height="5.5" rx="2" fill="#FF9F0A" opacity="0.9"/>
+    <rect x="9" y="8" width="6.5" height="5.5" rx="2" fill="#AF52DE" opacity="0.9"/>
   </svg>
 );
 
@@ -54,7 +55,7 @@ const DesktopMenuBar = ({
   onRestart, 
   onSearch, 
   onLaunchApp,
-  activeWallpaper = '/assets/macos_26_wallpaper.jpg',
+  activeWallpaper = '/assets/custom_zen_wallpaper.jpg',
   onChangeWallpaper,
   volume = 80,
   onChangeVolume,
@@ -184,7 +185,7 @@ const DesktopMenuBar = ({
               className="w-full text-left px-3 py-1.5 rounded-md hover:bg-[#0A84FF] hover:text-white transition-colors duration-100 cursor-default bg-transparent border-none text-white/90 text-[13px]"
               style={{ fontFamily: 'inherit' }}
             >
-              Switch to {currentLayout === 'os' ? 'Figma' : 'Desktop'} Mode
+              Switch to {currentLayout === 'os' ? 'Studio' : 'Desktop'} Mode
             </button>
 
             {/* Reboot */}
@@ -407,7 +408,7 @@ const DesktopMenuBar = ({
                   </div>
                   <div className="flex flex-col">
                     <span className="font-semibold text-[11px] leading-tight">Workspace</span>
-                    <span className="text-[9px] text-white/50 leading-none">{currentLayout === 'os' ? 'Desktop' : 'Figma'}</span>
+                    <span className="text-[9px] text-white/50 leading-none">{currentLayout === 'os' ? 'Desktop' : 'Studio'}</span>
                   </div>
                 </div>
                 <span className="text-[9px] text-white/40 leading-none mt-4 font-mono uppercase">Toggle Layout</span>
@@ -460,10 +461,10 @@ const DesktopMenuBar = ({
               <span className="text-[10px] font-semibold text-white/40 block mb-2">DESKTOP WALLPAPER</span>
               <div className="grid grid-cols-4 gap-1.5">
                 {[
+                  { name: 'Zen Oasis', path: '/assets/custom_zen_wallpaper.jpg' },
                   { name: 'Tahoe', path: '/assets/tahoe_light.jpg' },
                   { name: 'Sequoia', path: '/assets/macos_26_wallpaper.jpg' },
-                  { name: 'OS Black', path: '/assets/designos_wallpaper.jpg' },
-                  { name: 'Portal', path: '/portal-bg.jpg' }
+                  { name: 'OS Black', path: '/assets/designos_wallpaper.jpg' }
                 ].map((wp) => (
                   <button
                     key={wp.name}

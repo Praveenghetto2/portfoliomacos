@@ -34,14 +34,17 @@ const Navigation = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const [isReadingCaseStudy, setIsReadingCaseStudy] = useState(false);
+
   useEffect(() => {
-    const checkOS = () => {
+    const checkState = () => {
       setIsOSMode(document.documentElement.classList.contains('is-os-mode'));
+      setIsReadingCaseStudy(document.documentElement.classList.contains('is-reading-case-study'));
     };
-    checkOS();
+    checkState();
     
     if (typeof window !== 'undefined' && window.MutationObserver) {
-      const observer = new MutationObserver(checkOS);
+      const observer = new MutationObserver(checkState);
       observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
       return () => observer.disconnect();
     }
@@ -71,7 +74,7 @@ const Navigation = () => {
     setMobileOpen(false);
   }, [isHomepage, navigate]);
 
-  if (isHomepage && isOSMode && !isMobile) return null;
+  if (isOSMode) return null;
 
   return (
     <>

@@ -133,52 +133,52 @@ const caseStudies = {
     nextProject: { id: 'sonic', title: 'Sonic AI' },
   },
   'sonic': {
-    title: 'Sonic AI',
-    subtitle: 'Interacting with complex databases in plain natural English.',
-    category: 'Conversational UX & AI',
+    title: 'REVLITIX SONIC',
+    subtitle: 'Ask a question. Confirm what it means. Trust the answer.',
+    category: 'AI INTERFACE · CONVERSATIONAL UX · TRUST DESIGN',
     number: '03',
     accentColor: '#007AFF',
     meta: {
-      industry: 'AI Assistant, Database Query UX, Enterprise',
-      role: 'Lead Interaction Designer',
-      scope: 'Natural Language UX, Parser Visualizations'
+      industry: 'B2B SaaS, Conversational AI, Analytics',
+      role: 'Lead Product Designer',
+      scope: 'Conversational UX, Trust Design, Component System'
     },
     sections: [
       {
         type: 'text-huge',
-        content: 'Empowering Non-Technical Teams with Instant SQL Query Generation'
+        content: 'Ask a question. Confirm what it means. Trust the answer.'
       },
       {
         type: 'editorial-text',
         watermark: '01',
         label: 'Overview',
-        title: 'Conversational Analytics',
+        title: 'Executive Summary & Context',
         content: [
-          "Sonic AI is a conversational assistant that translates plain English prompts into real-time database queries, rendering automated visualization charts in milliseconds.",
-          "It eliminates reporting bottlenecks by letting business managers bypass writing complex SQL statements entirely."
+          '"An AI that answers instantly is only useful if the user believes it answered the right question."',
+          "Revlitix unifies GTM data from 50+ tools into one platform. As the dataset and the number of ways to slice it grew, adding more filters and tabs stopped scaling. We designed Sonic around three decisions: a chat-first information architecture, a confirm-before-commit pattern, and global filter consistency."
         ]
       },
       {
         type: 'list-massive',
         watermark: '02',
         label: 'Challenges',
-        title: 'Design Goals',
-        description: "The primary design challenge was building trust around AI interpretations. The interface had to guide users through parser feedback and display query logic clearly:",
+        title: 'Core Friction Points',
+        description: "The filter bar was a bottleneck — and skipping it created a new one. To answer routine questions, users needed schema knowledge and trusted feedback loops:",
         items: [
-          { title: "Query Ambiguity", text: "Users write conversational questions that map to databases in unpredictable, non-standard ways." },
-          { title: "Interpretation Trust", text: "Business users need to know exactly how the AI interpreted their text to trust the resulting charts." },
-          { title: "Layout Adaptability", text: "The assistant must instantly generate the optimal chart format (bar, line, scatter) based on returned data structures." },
-          { title: "Error Recovery", text: "When queries fail, users need actionable guidance to adjust their prompts rather than generic error codes." }
+          { title: "30-Option Dropdowns", text: "Required deep schema knowledge to locate the correct target tables." },
+          { title: "'Apply' Render Delays", text: "High friction and long wait times for rendering every minor filter change." },
+          { title: "Context Reset", text: "Previously set region filters greyed out and lost between screens." },
+          { title: "Trust Deficit in AI", text: "Users typed questions but refused to act on unverified AI answers." }
         ]
       },
       {
         type: 'metrics',
-        label: 'Outcomes',
-        title: 'Performance Growth',
+        label: 'Impact',
+        title: 'Measurable Business Outcomes',
         items: [
-          { prefix: '', value: '60', suffix: '%', label: 'Faster Query Cycles' },
-          { prefix: '-', value: '40', suffix: '%', label: 'Data Team Tickets' },
-          { prefix: '', value: '85', suffix: '%', label: 'SUS Usability Score' }
+          { prefix: '~', value: '2', suffix: '×', label: 'Faster Decision Answers' },
+          { prefix: '', value: '20', suffix: '%', label: 'Weekly AI Engagement' },
+          { prefix: '↓', value: '30', suffix: '%', label: 'Support Tickets Dropped' }
         ]
       }
     ],
@@ -513,14 +513,16 @@ const SonicPlayground = ({ accentColor }) => {
   );
 };
 
+import MissionControlApp from '../components/apps/MissionControlApp';
+
 /* ═══════════════════════════════════════════════
-   MAIN COMPONENT
+   MAIN COMPONENT — Unified Engine across all entry points
    ═══════════════════════════════════════════════ */
 const CaseStudy = ({ activeProjectId = null, onClose = null }) => {
   const { id: routeId } = useParams();
   const navigate = useNavigate();
   
-  const [currentId, setCurrentId] = useState(activeProjectId || routeId || 'move-money');
+  const [currentId, setCurrentId] = useState(activeProjectId || routeId || 'revlitix-saas');
 
   useEffect(() => {
     if (activeProjectId) {
@@ -530,120 +532,12 @@ const CaseStudy = ({ activeProjectId = null, onClose = null }) => {
     }
   }, [activeProjectId, routeId]);
 
-  const study = caseStudies[currentId] || caseStudies['move-money'] || caseStudies['revlitix-saas'];
-
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001
-  });
-
-  useEffect(() => {
-    if (window.lenis) {
-      window.lenis.scrollTo(0, { immediate: true });
-    } else {
-      window.scrollTo(0, 0);
-    }
-  }, [currentId]);
-
-  if (!study) {
-    return (
-      <div className="ug-not-found">
-        <h2 className="text-h2">Case Study Not Found</h2>
-        <button onClick={() => onClose ? onClose() : navigate('/')} className="btn btn-outline">Return Home</button>
-      </div>
-    );
-  }
-
   return (
-    <div className="ug-page relative overflow-hidden bg-[#0D0D12] text-white">
-      {/* Dynamic ambient colored glow orb in background */}
-      <div 
-        className="absolute -top-[200px] left-[15%] w-[800px] h-[800px] rounded-full blur-[160px] opacity-15 pointer-events-none z-0"
-        style={{
-          background: `radial-gradient(circle, ${study.accentColor} 0%, transparent 60%)`
-        }}
+    <div className="w-full min-h-screen bg-slate-950 text-white">
+      <MissionControlApp 
+        initialMission={currentId} 
+        onClose={onClose ? onClose : () => navigate('/')} 
       />
-
-      {/* Scroll Reading Progress Indicator */}
-      <motion.div 
-        className="fixed top-0 left-0 right-0 h-1 origin-left z-[101]"
-        style={{ scaleX, backgroundColor: study.accentColor }}
-      />
-      
-      {/* Top Header Section */}
-      <header className="ug-hero-header relative z-10">
-        <div className="ug-hero-header-inner">
-          <button 
-            onClick={() => {
-              if (onClose) {
-                onClose();
-              } else {
-                navigate('/');
-              }
-            }}
-            className="flex items-center gap-1.5 text-xs font-mono font-bold text-[#86868B] hover:text-white transition-colors cursor-default mb-8 bg-transparent border-none p-0 w-fit"
-          >
-            <ArrowLeft size={12} /> Back to Overview
-          </button>
-
-          <div className="flex items-center gap-2 mb-3">
-            <span className="text-xs font-mono font-bold uppercase tracking-wider" style={{ color: study.accentColor }}>{study.number}</span>
-            <span className="text-[#86868B] text-xs font-mono">/</span>
-            <span className="text-xs font-mono font-bold text-[#86868B] uppercase tracking-wider">{study.category}</span>
-          </div>
-
-          <h1 className="ug-project-title uppercase text-white font-display font-extrabold leading-none tracking-tight">
-            {study.title}
-          </h1>
-          <p className="ug-project-subtitle text-[#86868B] font-body leading-relaxed max-w-3xl mt-4">
-            {study.subtitle}
-          </p>
-
-          <div className="ug-meta-grid border-white/10 mt-8">
-            {Object.entries(study.meta).map(([key, value]) => (
-              <div key={key} className="ug-meta-item">
-                <strong className="text-[10px] text-[#86868B] tracking-wider uppercase">{key}</strong>
-                <span className="text-[13px] text-white font-medium mt-1">{value}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </header>
-
-      {/* Centered Scrolling Content */}
-      <main className="ug-content relative z-10">
-        
-        {/* Render Interactive Playground right after main hero intro */}
-        {currentId === 'move-money' && <MoveMoneyPlayground accentColor={study.accentColor} />}
-        {currentId === 'revlitix-saas' && <RevlitixPlayground accentColor={study.accentColor} />}
-        {currentId === 'sonic' && <SonicPlayground accentColor={study.accentColor} />}
-
-        {study.sections.map((section, index) => {
-          switch (section.type) {
-            case 'text-huge':
-              return <TextHugeSection key={index} content={section.content} />;
-            case 'editorial-text':
-              return <EditorialTextSection key={index} section={section} accentColor={study.accentColor} />;
-            case 'list-massive':
-              return <ListMassiveSection key={index} section={section} accentColor={study.accentColor} />;
-            case 'metrics':
-              return <MetricsSection key={index} section={section} accentColor={study.accentColor} />;
-            default:
-              return null;
-          }
-        })}
-
-        {study.nextProject && (
-          <NextProjectSection 
-            project={study.nextProject} 
-            navigate={navigate} 
-            accentColor={study.accentColor} 
-            onSelectProject={(nextId) => setCurrentId(nextId)}
-          />
-        )}
-      </main>
     </div>
   );
 };

@@ -4,6 +4,7 @@ import {
   ArrowLeft, FileText, CheckCircle2, AlertCircle, Gauge, Lightbulb, 
   HelpCircle, Compass, Layers, Shield, TrendingUp, Award, Box, Monitor, Sparkles
 } from 'lucide-react';
+import CaseStudyVideoPlayer from '../CaseStudyVideoPlayer';
 
 const MISSIONS = [
       {
@@ -29,13 +30,22 @@ const MISSIONS = [
     readTime: '8 min read',
     tagCategory: 'saas',
 
-    heroImage: '/assets/revlitix_saas_hero_ultra.jpg',
+    videoPoster: '/assets/revlitix_video_thumbnail.jpg',
+    heroImage: '/assets/revlitix_listing_thumbnail.jpg',
     mockups: [
-      '/assets/revlitix_data_integration_new.jpg',
-      '/assets/revlitix_funnel.jpg',
-      '/assets/revlitix_design_system_v3.jpg',
-      '/assets/revlitix_waterfall_v3.jpg',
-      '/assets/revlitix_wireframe_v3.jpg'
+      '/assets/revlitix_listing_thumbnail.jpg',
+      '/assets/revlitix_slides/1.jpg',
+      '/assets/revlitix_slides/2.jpg',
+      '/assets/revlitix_slides/3.jpg',
+      '/assets/revlitix_slides/4.jpg',
+      '/assets/revlitix_slides/5.jpg',
+      '/assets/revlitix_slides/6.jpg',
+      '/assets/revlitix_slides/7.jpg',
+      '/assets/revlitix_slides/8.jpg',
+      '/assets/revlitix_slides/9.jpg',
+      '/assets/revlitix_slides/10.jpg',
+      '/assets/revlitix_slides/11.jpg',
+      '/assets/revlitix_slides/12.jpg'
     ],
 
     floatingCards: [
@@ -269,7 +279,7 @@ const MISSIONS = [
     readTime: '6 min read',
     tagCategory: 'fintech',
 
-    heroImage: '/assets/move_money_hero_ultra.jpg',
+    heroImage: '/assets/move_money_dashboard_1784827266925.jpg',
     mockups: [
       '/assets/move_money_dashboard_1784827266925.jpg',
       '/assets/move_money_design_system_1784827289843.jpg',
@@ -364,114 +374,244 @@ const MISSIONS = [
     id: 'sonic',
     videoUrl: '/assets/Sonic.mp4',
     num: '03',
-    title: 'Sonic AI Query Engine',
-    subtitle: 'Conversational Natural Language Analytics Assistant',
-    desc: 'Conversational natural language analytics query assistant for instant SQL database visualizations.',
-    company: 'Sonic Analytics',
-    product: 'AI Conversational Query Engine',
-    category: 'AI Conversational UX',
-    role: 'UI/UX Designer',
-    duration: '6 months (2024)',
-    year: '2024',
-    team: '1 Lead Designer (Me), 1 AI Engineer, 1 Product Manager',
-    platforms: 'Web App, Mobile Chat Interface',
-    responsibilities: 'Conversational UX, Query Inspector UI, Auto-Chart Engine, Usability Validation',
-    status: 'ONLINE',
-    statusColor: '#2563EB',
-    latency: '85ms',
-    accentColor: '#2563EB',
-    readTime: '5 min read',
+    title: 'REVLITIX SONIC',
+    subtitle: 'Ask a question. Confirm what it means. Trust the answer.',
+    desc: 'Designing a conversational AI layer for GTM analytics — built around a chat-first information architecture, a confirm-before-commit query pattern, and filter consistency that carries a user\'s context into every conversation.',
+    company: 'Revlitix',
+    product: 'Conversational AI Layer for GTM Analytics',
+    category: 'AI INTERFACE · CONVERSATIONAL UX · TRUST DESIGN',
+    role: 'Lead Product Designer',
+    duration: '6 months',
+    year: '2024–2025',
+    team: 'PM · 2 ML Engineers · Frontend Lead · Founder',
+    platforms: 'Web application, desktop-first',
+    responsibilities: 'Conversational UX, Trust Design, Information Architecture, Component System, Usability Research',
+    status: 'PRODUCTION',
+    statusColor: '#007AFF',
+    latency: '48ms',
+    accentColor: '#007AFF',
+    readTime: '6 min read',
     tagCategory: 'ai',
 
-    heroImage: '/assets/sonic_ai_hero_ultra.jpg',
+    heroImage: '/assets/sonic_listing_thumbnail.jpg',
     mockups: [
-      '/assets/sonic_ai_chat_1784827520021.jpg',
-      '/assets/sonic_ai_routing_1784827567946.jpg',
-      '/assets/sonic_ai_chat_1784827520021.jpg',
-      '/assets/sonic_ai_routing_1784827567946.jpg'
+      '/assets/sonic_listing_thumbnail.jpg',
+      '/assets/sonic_slides/1.jpg',
+      '/assets/sonic_slides/2.jpg',
+      '/assets/sonic_slides/3.jpg',
+      '/assets/sonic_slides/4.jpg',
+      '/assets/sonic_slides/5.jpg',
+      '/assets/sonic_slides/6.jpg',
+      '/assets/sonic_slides/7.jpg',
+      '/assets/sonic_slides/8.jpg',
+      '/assets/sonic_slides/9.jpg',
+      '/assets/sonic_slides/10.jpg',
+      '/assets/sonic_slides/11.jpg',
+      '/assets/sonic_slides/12.jpg'
     ],
 
     heroMetrics: [
-      { val: '↓60%', lbl: 'Query Discovery Time', detail: 'Instant Natural Language search' },
-      { val: '↓40%', lbl: 'SQL Support Tickets', detail: 'Reduced analyst team workload' },
-      { val: '85%', lbl: 'SUS Usability Score', detail: 'Verified across 12 user trials' },
-      { val: '3→0 days', lbl: 'Wait Time Reduction', detail: 'Immediate self-serve reports' }
+      { val: '~2× faster', lbl: 'Faster Access', detail: 'To a decision-ready answer vs. filter navigation' },
+      { val: 'Under 5% → ~20%', lbl: 'AI Engagement', detail: 'From under 5% to ~20% of weekly sessions' },
+      { val: '↓ ~25–30%', lbl: 'Support Tickets', detail: 'Navigation-related support tickets reduced' },
+      { val: '~2.9 → ~3.8', lbl: 'User Confidence', detail: 'Usability testing rating on 1–5 scale' }
     ],
 
-    execSummary: `Sonic AI is an AI-powered conversational query assistant that translates natural language questions into instant automated database visualizations. Before Sonic, non-technical GTM managers had to wait 3-5 days for data analysts to write SQL queries for routine marketing reports.\n\nMy role was to design a trust-building, highly transparent AI chat interface that didn't just spit out black-box answers, but actually showed its work (the SQL) and allowed users to easily pivot and tweak the generated visualizations.`,
+    execSummary: `Revlitix unifies GTM data from 50+ tools into one platform. As the dataset and the number of ways to slice it grew, adding more filters and tabs stopped scaling — getting a specific answer meant navigating dropdowns, applying filters, and knowing which of roughly 40 metrics to select.\n\nNatural-language input could remove that friction, but early prototypes surfaced a new problem: users didn't trust an AI-generated answer they couldn't verify. A CMO asking "which lead sources are underperforming" needed to know Sonic hadn't silently misread "underperforming" as "declining" instead of "below quota."\n\nWe designed Sonic around three decisions: a chat-first information architecture, a confirm-before-commit pattern, and global filter consistency. Together, these meaningfully cut the number of steps to an answer and drove real adoption of the AI feature.`,
+
+    pullQuote: `"An AI that answers instantly is only useful if the user believes it answered the right question."`,
 
     challenges: [
-      { id: '1', title: 'The Black Box Problem', desc: 'Users inherently distrusted AI-generated numbers without seeing the source.' },
-      { id: '2', title: 'Visualization Chaos', desc: 'LLMs would pick the wrong chart type (e.g. a pie chart for 50 data points).' },
-      { id: '3', title: 'Hallucination Mitigation', desc: 'Needed UI defensive states for when the AI couldn\'t find the data.' }
+      { id: '1', title: 'Schema Knowledge Bottleneck', desc: 'To answer routine questions, users needed schema knowledge — where data lived, which of ~40 metrics applied, which date-range control to use.' },
+      { id: '2', title: 'Hidden Interpretation & Black Boxes', desc: 'Users had no way to tell whether the AI read "last month" as calendar month vs trailing 30 days, creating anxiety.' },
+      { id: '3', title: 'Context Loss Between Screens', desc: 'Early plain chat boxes quietly ignored region filters set two screens earlier, forcing users to constantly restate context.' }
     ],
 
     solutionMetrics: [
-      { label: 'Analyst Workload', old: '40hrs/wk', new: '10hrs/wk', growth: '75% Drop' },
-      { label: 'Report Generation', old: '3 Days', new: '5 Seconds', growth: 'Instant' },
-      { label: 'User Adoption', old: '12 Users', new: '350+ Users', growth: 'Scale' }
+      { label: 'Steps to Decision Answer', old: '4.5 min filter maze', new: '~2× faster', growth: 'Halved steps' },
+      { label: 'AI Weekly Sessions', old: 'Under 5%', new: '~20%', growth: '4× Adoption' },
+      { label: 'Navigation Support Tickets', old: 'High volume', new: '↓ ~25–30%', growth: 'Support drop' },
+      { label: 'User Confidence Score', old: '~2.9 / 5', new: '~3.8 / 5', growth: 'Trust lift' }
     ],
 
     researchMethods: [
-      { method: 'Wizard of Oz Testing', desc: 'Simulated AI chat responses to gauge user expectations.' },
-      { method: 'Heuristic Evaluation', desc: 'Benchmarked ChatGPT and Claude data analysis interfaces.' }
+      { method: 'Contextual Inquiry', desc: 'Structured inquiry across ~8 sessions with existing customers.' },
+      { method: 'Usability Testing', desc: 'Evaluated early chat-only prototype friction & trust boundaries.' },
+      { method: 'Support Ticket Audit', desc: 'Reviewed tickets referencing "wrong" or "unexpected" AI answers.' }
     ],
 
     researchInsights: [
-      { text: 'Transparency is > accuracy. If users can verify the SQL, they trust the AI.', metric: '100% agreement' },
-      { text: 'Users want to instantly pivot from a chat to a permanent dashboard widget.', metric: '75% request rate' }
+      { text: '"I don\'t know if that\'s actually what I asked for." — Users got answers but refused to act on them.', metric: '50% of sessions' },
+      { text: 'Users who filtered the dashboard by region were confused when Sonic answers reset context.', metric: 'Universal pain point' }
     ],
 
     howMightWe: [
-      'How might we expose the AI’s logical steps without overwhelming a non-technical user?',
-      'How might we gracefully handle ambiguous questions like "How did we do last month?"'
+      'How might we let users see and correct the AI\'s interpretation before it runs?',
+      'How might we carry a user\'s existing filter context into the conversation automatically?',
+      'How might we make the conversation itself the primary surface, not a widget on top of the dashboard?'
     ],
 
     designPrinciples: [
-      { title: 'Show Your Work', desc: 'Always provide an expandable "View SQL" toggle.' },
-      { title: 'Interactive Over Static', desc: 'Generated charts must be fully interactive components, not static images.' },
-      { title: 'Graceful Degradation', desc: 'If data is missing, offer partial answers and suggest clarifying prompts.' }
+      { title: '1. Confirm, then commit.', desc: 'No query executes against real data until the user has seen — and can edit — the system\'s plain-language interpretation of it.' },
+      { title: '2. Context travels with the user.', desc: 'Any filter already active elsewhere in the product is visibly present and applied inside the conversation, never silently dropped.' },
+      { title: '3. Chat is the surface, not a feature.', desc: 'The conversation carries the same weight as the dashboard, not a secondary panel bolted onto it.' },
+      { title: '4. Show your filters, not just your answer.', desc: 'Every rendered result displays which filters and date range it actually used, so trust doesn\'t depend on memory.' }
     ],
 
-    ideationNotes: 'Focused heavily on the "Thinking" state of the AI. Decided to build a multi-step loading animation (Parsing Intent -> Generating SQL -> Fetching Data -> Rendering) to build trust while waiting.',
+    ideationNotes: 'The first version had no confirmation step at all — the AI just answered. Testing showed users didn\'t act on answers they weren\'t confident were correct. We explored a confirmation modal, but it broke conversational flow. An inline, editable restatement kept the conversation moving.',
 
     infoArchitecture: [
-      { node: 'Chat Thread', desc: 'Main conversational interface' },
-      { node: 'Data Inspector', desc: 'Slide-out panel for SQL and JSON verification' },
-      { node: 'Widget Library', desc: 'Saved AI-generated charts' }
+      { node: 'Conversational Input', nodeDesc: 'Pill input with persistent filter pill carried from dashboard' },
+      { node: 'Confirmation Step', nodeDesc: 'Inline card with independently editable clauses before execution' },
+      { node: 'Inline Visualization', nodeDesc: 'Expanded viewport chat bubble with interactive tables & charts' }
     ],
 
     wireframeSpecs: [
-      { title: 'Inline Inspector', desc: 'SQL inspector directly in the chat bubble.' },
-      { title: 'Suggestive Prompts', desc: 'Floating action buttons for follow-up questions.' }
+      { title: 'V1 Direct Answer (No Confirmation)', desc: 'AI answered immediately. Testing showed users lacked trust to act.' },
+      { title: 'V2 Modal Popup Confirmation', desc: 'Pop-up window broke flow and added friction users resented.' },
+      { title: 'V3 Inline Editable Restatement', desc: 'Inline card with single "Looks right" action (Approved for 70% reuse).' }
     ],
 
     tokenSystem: [
-      { type: 'Neon Gradients', count: '3', desc: 'Used exclusively for AI "generating" active states.' },
-      { type: 'Data Visualization Palette', count: '12', desc: 'Colorblind-safe categorical color scales for the charts.' },
-      { type: 'Glassmorphism', count: '2', desc: 'Frosted backgrounds for floating data tooltips.' }
+      { type: 'Component Reuse', count: '75%', desc: 'Atomic components (ChatBubble, ConfirmationCard, FilterPill, InlineChart, SuggestionChip)' },
+      { type: 'Keyboard Navigation', count: 'WCAG AA', desc: '100% operable via Tab / Enter / Arrow keys with high contrast focus rings' }
     ],
 
     accessibilityAudit: [
-      { criteria: 'Screen Readers', result: 'Added ARIA live regions for AI typing text.' },
-      { criteria: 'Color Contrast', result: 'Verified all 12 categorical chart colors against WCAG AA.' }
+      { criteria: 'KeyboardOperable', result: '100% operable with Tab/Enter/Arrow keys' },
+      { criteria: 'Focus Indicators', result: 'Visible focus ring meeting WCAG AA contrast' },
+      { criteria: 'Screen Readers', result: 'ARIA live regions for confirmation state changes' }
     ],
 
     crossFunctional: [
-      { team: 'AI Engineering', action: 'Collaborated on the JSON schema the LLM needed to return to render the UI.' },
-      { team: 'Data Science', action: 'Verified the accuracy of the auto-generated chart heuristics.' }
+      { team: 'ML Engineering', action: '4 rounds of copy alignment to ensure plain-language restatements matched underlying query engine execution' },
+      { team: 'Product & Founder', action: 'Pivoted at Month 3 to make filter state persist by default with confirmation safeguard' }
     ],
 
     businessImpact: [
-      { val: '↓60%', lbl: 'Query Time', desc: 'Instant Natural Language' },
-      { val: '↓40%', lbl: 'SQL Tickets', desc: 'Reduced analyst workload' },
-      { val: '85%', lbl: 'SUS Score', desc: 'Usability validation' },
-      { val: '3→0 days', lbl: 'Wait Time', desc: 'Immediate reports' }
+      { val: '~2× faster', lbl: 'Decision-Ready Answers', desc: 'Cut steps roughly in half vs filter maze' },
+      { val: '~20%', lbl: 'Weekly Active Engagement', desc: 'Up from under 5% of sessions' },
+      { val: '↓ ~25–30%', lbl: 'Support Tickets', desc: 'Navigation-related tickets dropped' },
+      { val: '~3.8 / 5', lbl: 'User Confidence', desc: 'Increased from ~2.9 baseline' }
     ],
 
     lessonsLearned: [
-      { num: '01', title: 'Designing for AI is designing for unpredictability.', desc: 'I had to design extreme edge cases for bizarre LLM hallucinations.' },
-      { num: '02', title: 'Latency is a UX opportunity.', desc: 'The 3-second LLM response time was turned into a delightful "showing work" animation.' }
+      { num: '01', title: 'A confirmable interpretation beats a confident-sounding answer.', desc: 'Our first instinct was to make the AI\'s tone reassuring; what actually built trust was letting users see and edit the literal interpretation before anything ran.' },
+      { num: '02', title: 'Implicit context needs an explicit safeguard, not a ban.', desc: 'Carrying filters forward automatically felt risky until it was paired with the confirmation step — the combination, not either alone, is what worked.' },
+      { num: '03', title: 'Chat-first doesn\'t mean text-only.', desc: 'Treating the conversation as the primary surface only worked once results could render inline, at full fidelity, without forcing users out to a separate report view.' }
+    ]
+  },
+  {
+    id: 'ai-banking',
+    num: '04',
+    title: 'AI Banking Assistant',
+    subtitle: 'Intelligent Financial Advisor Powered by Contextual AI for Personalized Banking',
+    desc: 'Designing a trust-first AI banking assistant that delivers personalized financial insights, proactive fraud alerts, and natural language account management.',
+    company: 'NeoBank Digital',
+    product: 'AI-Powered Personal Banking Assistant',
+    category: 'AI × Banking',
+    role: 'Lead Product Designer',
+    duration: '10 months (2024–2025)',
+    year: '2024–2025',
+    team: '1 PM, 1 Lead Designer (Me), 2 ML Engineers, 3 Full-Stack Engineers, 1 Compliance Officer',
+    platforms: 'iOS App, Android App, Responsive Web',
+    responsibilities: 'Conversational UX Strategy, Trust Framework Design, AI Transparency Patterns, Cross-Platform Design System, Usability Testing',
+    status: 'LIVE',
+    statusColor: '#F59E0B',
+    latency: '120ms',
+    accentColor: '#F59E0B',
+    readTime: '7 min read',
+    tagCategory: 'ai-banking',
+
+    heroImage: '/assets/light_bank_dashboard.jpg',
+    mockups: [
+      '/assets/light_bank_dashboard.jpg',
+      '/assets/bank_transfer.jpg',
+      '/assets/light_bank_success.jpg',
+      '/assets/bank_dashboard.jpg'
+    ],
+
+    heroMetrics: [
+      { val: '↑42%', lbl: 'Daily Active Users', detail: 'Engagement spike from AI financial insights' },
+      { val: '↓55%', lbl: 'Fraud Response Time', detail: 'Proactive alerts reduced detection window' },
+      { val: '4.8/5', lbl: 'App Store Rating', detail: 'Highest-rated AI banking feature' },
+      { val: '↓38%', lbl: 'Support Call Volume', detail: 'Self-serve AI resolved common queries' }
+    ],
+
+    execSummary: `NeoBank Digital serves 2.4M retail banking customers across North America. Before this initiative, customers relied on static dashboards and manual searches to understand their financial health, missed critical fraud alerts buried in notification noise, and had to call support for routine account inquiries.\n\nAs Lead Product Designer, I designed an AI-powered banking assistant that uses contextual financial data to deliver proactive insights ("You're spending 23% more on dining this month"), real-time fraud detection with transparent explainability, and natural language account management — all within a trust-first conversational interface.`,
+
+    challenges: [
+      { id: '1', title: 'Trust Deficit with AI in Finance', desc: 'Users were deeply skeptical of AI making financial recommendations — 78% said they wouldn\'t trust automated financial advice.' },
+      { id: '2', title: 'Notification Fatigue', desc: 'Existing alert systems generated 15+ notifications daily, causing users to disable them — including critical fraud alerts.' },
+      { id: '3', title: 'Complex Query Resolution', desc: 'Simple questions like "Can I afford a vacation next month?" required navigating 4 separate screens and manual calculations.' }
+    ],
+
+    solutionMetrics: [
+      { label: 'Financial Insight Delivery', old: 'Static Dashboard', new: 'Proactive AI Alerts', growth: 'Context-aware' },
+      { label: 'Fraud Detection UX', old: '6hr avg response', new: '< 30 seconds', growth: '720x faster' },
+      { label: 'Query Resolution', old: '4 screens', new: '1 conversation', growth: '75% fewer steps' }
+    ],
+
+    researchMethods: [
+      { method: 'Diary Study (4 weeks)', desc: 'Tracked 24 users\' daily banking interactions and pain points.' },
+      { method: 'Competitive Benchmarking', desc: 'Analyzed AI features in 8 leading neobanks and fintech apps.' }
+    ],
+
+    researchInsights: [
+      { text: 'Users want AI to explain WHY, not just WHAT — "Why is this flagged?" was the #1 question.', metric: '91% of participants' },
+      { text: 'Proactive nudges are only trusted when users can see the data source behind them.', metric: '86% preference rate' }
+    ],
+
+    howMightWe: [
+      'How might we make AI financial advice feel trustworthy enough for users to act on it?',
+      'How might we surface critical alerts without contributing to notification fatigue?'
+    ],
+
+    designPrinciples: [
+      { title: 'Transparency First', desc: 'Every AI recommendation must show its reasoning and data sources.' },
+      { title: 'Progressive Trust', desc: 'Start with low-stakes insights before recommending high-impact actions.' },
+      { title: 'Contextual Intelligence', desc: 'Surface information based on user behavior patterns, not just raw data.' }
+    ],
+
+    ideationNotes: 'Explored multiple trust-building patterns: confidence scores, source attribution, and "AI thinking" transparency animations. Settled on a layered disclosure model — summary → reasoning → raw data.',
+
+    infoArchitecture: [
+      { node: 'AI Home Feed', desc: 'Personalized financial insights stream' },
+      { node: 'Fraud Shield', desc: 'Real-time transaction monitoring and alerts' },
+      { node: 'Ask Anything', desc: 'Natural language banking query interface' }
+    ],
+
+    wireframeSpecs: [
+      { title: 'V1 Card-Based Feed', desc: 'Static insight cards without interaction (Rejected: felt like another dashboard).' },
+      { title: 'V2 Conversational + Proactive', desc: 'Hybrid chat + proactive card feed with trust indicators (Approved: balanced engagement + trust).' }
+    ],
+
+    tokenSystem: [
+      { type: 'Trust Indicators', count: '5', desc: 'Visual confidence levels from AI-generated to verified data.' },
+      { type: 'Alert Severity Palette', count: '4', desc: 'Critical/High/Medium/Info gradient for prioritized notifications.' },
+      { type: 'Financial Data Typography', count: '8', desc: 'Tabular lining numerals for account balances and transactions.' }
+    ],
+
+    accessibilityAudit: [
+      { criteria: 'Voice Control', result: 'Full voice navigation support for hands-free banking.' },
+      { criteria: 'Dynamic Type', result: 'All text scales with system accessibility settings on iOS/Android.' }
+    ],
+
+    crossFunctional: [
+      { team: 'ML Engineering', action: 'Co-designed the confidence scoring model and explainability output format.' },
+      { team: 'Compliance & Legal', action: 'Ensured all AI-generated financial advice included required regulatory disclaimers.' }
+    ],
+
+    businessImpact: [
+      { val: '↑42%', lbl: 'DAU Increase', desc: 'Daily active users engaging with AI features' },
+      { val: '↓55%', lbl: 'Fraud Response', desc: 'Average time to user action on fraud alerts' },
+      { val: '4.8★', lbl: 'App Rating', desc: 'Highest-rated feature in App Store reviews' },
+      { val: '↓38%', lbl: 'Support Calls', desc: 'Reduced volume for routine inquiries' }
+    ],
+
+    lessonsLearned: [
+      { num: '01', title: 'Trust is earned in micro-moments, not grand gestures.', desc: 'Small transparency touches (showing data sources) had more impact than elaborate explainability features.' },
+      { num: '02', title: 'AI personality needs guardrails in finance.', desc: 'We tested friendly vs. clinical tones — users wanted warmth for insights but clinical precision for transactions.' }
     ]
   }
 ];
@@ -492,181 +632,98 @@ const NAV_CHIPS = [
   { id: 'sec-lessons', label: '12 / Retrospective' }
 ];
 
-const CaseStudyVideoPlayer = ({ videoUrl, poster }) => {
-  const [isPlaying, setIsPlaying] = React.useState(false);
-  const videoRef = React.useRef(null);
-
-  const handlePlayClick = () => {
-    if (videoRef.current) {
-      videoRef.current.play();
-      setIsPlaying(true);
-    }
-  };
-
-  return (
-    <div className="relative w-full aspect-video bg-slate-950 flex items-center justify-center overflow-hidden">
-      <video
-        ref={videoRef}
-        src={videoUrl}
-        poster={poster}
-        controls={isPlaying}
-        onClick={() => {
-          if (isPlaying && videoRef.current) {
-            videoRef.current.pause();
-            setIsPlaying(false);
-          }
-        }}
-        className="w-full h-full object-cover object-top outline-none"
-      />
-      {!isPlaying && (
-        <button
-          onClick={handlePlayClick}
-          className="absolute inset-0 w-full h-full flex items-center justify-center bg-gradient-radial from-black/50 via-black/30 to-transparent hover:from-black/60 hover:via-black/40 transition-all duration-300 group border-none outline-none z-30 cursor-pointer"
-        >
-          <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center shadow-2xl transform transition-transform group-hover:scale-110 duration-200 animate-play-pulse">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="#0F172A" className="ml-1">
-              <polygon points="5 3 19 12 5 21 5 3" />
-            </svg>
-          </div>
-        </button>
-      )}
-    </div>
-  );
-};
-
 
 const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZoomImage }) => {
   return (
-    <div className="space-y-20 text-slate-800 font-sans text-[15.5px] leading-[1.75]">
+    <div className="space-y-16">
       
-      {/* SECTION 01: OVERVIEW */}
+      {/* SECTION 1: HERO & EXECUTIVE OVERVIEW */}
       <motion.section 
         id="sec-overview" 
-        className="space-y-8 scroll-mt-24 pt-4"
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
+        className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-10 relative overflow-hidden group hover:shadow-lg transition-all duration-300 font-dm"
       >
-        <div className="space-y-6 relative z-10">
-          <div className="flex flex-wrap items-center gap-3">
-            <span className="text-[12px] font-mono font-extrabold tracking-widest uppercase px-3.5 py-1.5 rounded-full bg-[#4F46E5]/10 text-[#4F46E5] border border-[#4F46E5]/20 shadow-2xs">
-              REVLITIX · PRODUCT DESIGN CASE STUDY
-            </span>
-            <span className="text-[12px] font-mono font-semibold text-slate-400">
-              2022–2025 · 12 MIN READ
-            </span>
-          </div>
-
-          <h1 className="text-[34px] sm:text-[46px] lg:text-[54px] font-extrabold tracking-[-0.035em] leading-[1.12] text-slate-950">
-            Consolidating Fragmented Workflows{' '}
-            <span 
-              className="bg-clip-text text-transparent bg-gradient-to-r from-[#4F46E5] via-[#6366F1] to-[#7C3AED] inline-block"
-              style={{ WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}
-            >
-              into One Decision-Centric Experience
-            </span>
-          </h1>
-
-          <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-indigo-50/70 via-slate-50 to-purple-50/50 border border-slate-200/80 shadow-xs border border-black/[0.04] shadow-xs">
-            <p className="text-[16px] sm:text-[17.5px] text-slate-800 leading-[1.7] font-normal">
-              Revlitix is a go-to-market (GTM) analytics platform that unifies data from over 50 tools in a customer's tech stack — Salesforce, HubSpot, Google Analytics, and others — into real-time insights and automated reporting, so revenue teams can make decisions without manually stitching together spreadsheets.
-            </p>
+        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-5">
+          <span className="text-[11px] font-mono font-normal tracking-widest uppercase px-4 py-1.5 rounded-full bg-[#007AFF]/10 text-[#007AFF] border border-[#007AFF]/20">
+            {selectedProject.category}
+          </span>
+          <div className="flex items-center gap-2.5">
+            <span className="w-2.5 h-2.5 rounded-full animate-pulse bg-emerald-500" />
+            <span className="text-[12px] font-mono font-normal text-slate-700">{selectedProject.status} · {selectedProject.latency}</span>
           </div>
         </div>
 
-        {/* Video Player */}
-        <div className="relative rounded-2xl overflow-hidden border border-slate-200 shadow-2xl bg-slate-950 transition-all duration-350 hover:shadow-indigo-500/10">
+        <div className="space-y-4">
+          <h1 className="text-[40px] sm:text-[60px] font-normal tracking-[-0.04em] leading-[1.05] text-slate-950 font-fragment">
+            {selectedProject.title}
+          </h1>
+          <p className="text-[20px] sm:text-[24px] font-normal text-[#007AFF] leading-snug font-fragment">
+            {selectedProject.subtitle}
+          </p>
+          <p className="text-[16px] text-slate-600 leading-relaxed font-normal max-w-4xl font-dm">
+            {selectedProject.desc}
+          </p>
+        </div>
+
+          <div className="p-6 sm:p-7 rounded-2xl bg-gradient-to-r from-indigo-50/80 via-slate-50 to-purple-50/60 border border-slate-200/80 shadow-apple-sm">
+            <p className="text-[16.5px] sm:text-[18px] text-slate-800 leading-[1.7] font-normal">
+              Revlitix is a go-to-market (GTM) analytics platform that unifies data from over 50 tools in a customer's tech stack — Salesforce, HubSpot, Google Analytics, and others — into real-time insights and automated reporting, so revenue teams can make decisions without manually stitching together spreadsheets.
+            </p>
+          </div>
+
+        {/* 4-Column Metadata Grid */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 p-5 rounded-2xl bg-slate-50 border border-slate-200/60 text-[13px] font-dm">
+          <div>
+            <span className="block text-[10px] font-mono uppercase text-slate-400 font-normal">Role</span>
+            <span className="font-normal text-slate-900">{selectedProject.role}</span>
+          </div>
+          <div>
+            <span className="block text-[10px] font-mono uppercase text-slate-400 font-normal">Team</span>
+            <span className="font-normal text-slate-900">{selectedProject.team}</span>
+          </div>
+          <div>
+            <span className="block text-[10px] font-mono uppercase text-slate-400 font-normal">Duration</span>
+            <span className="font-normal text-slate-900">{selectedProject.duration}</span>
+          </div>
+          <div>
+            <span className="block text-[10px] font-mono uppercase text-slate-400 font-normal">Platform</span>
+            <span className="font-normal text-slate-900">{selectedProject.platforms}</span>
+          </div>
+        </div>
+
+        {/* Video Player Container */}
+        <div className="relative rounded-2xl overflow-hidden border border-slate-200/90 shadow-apple-lg bg-slate-950 transition-all duration-350 hover:shadow-indigo-500/10 my-4">
           <CaseStudyVideoPlayer 
             videoUrl="/assets/Revlitix.mp4" 
+            poster="/assets/revlitix_video_thumbnail.jpg"
             title="Revlitix Platform Overview" 
             subtitle="Consolidating 50+ data sources into actionable decision views" 
           />
         </div>
 
-        <div className="space-y-4 text-slate-700 leading-[1.75]">
-          <p>
-            Launched in 2022, the product grew to 12–15 customers in three years, including Azuga, Vanco, and Aware, targeting mid-sized to large businesses with $10M+ in annual recurring revenue. The user base spans marketing directors, RevOps leads, and sales leaders — a range from highly technical to entirely non-technical, which became one of the central design constraints for everything that follows.
-          </p>
 
-          <div className="bg-gradient-to-br from-white to-indigo-50/30 p-6 rounded-2xl border border-slate-200/80 shadow-sm space-y-3 border border-black/[0.04] shadow-xs">
-            <div className="flex items-center gap-2.5">
-              <span className="w-7 h-7 rounded-lg bg-[#4F46E5]/10 text-[#4F46E5] flex items-center justify-center text-[13px]">👤</span>
-              <h3 className="text-[13px] font-mono font-bold text-[#4F46E5] uppercase tracking-wider">My Role</h3>
-            </div>
-            <p className="text-[15px] text-slate-700">
-              Senior/lead product designer, owning the end-to-end experience for the core reporting and insights surface — research, information architecture, interaction design, prototyping, usability testing, and the supporting design system — working directly with one PM and a three-person engineering pod.
-            </p>
-          </div>
-
-          <div className="bg-gradient-to-br from-slate-900 via-slate-900 to-indigo-950 text-white p-6 sm:p-8 rounded-2xl shadow-2xl space-y-5 relative overflow-hidden">
-            {/* Subtle gradient orb */}
-            <div className="absolute -top-20 -right-20 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
-            <h3 className="text-[13px] font-mono font-bold text-indigo-300 uppercase tracking-widest relative z-10">Business Goals Set at Kickoff</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
-              <div className="bg-white/10 p-5 rounded-xl border border-white/10 space-y-2 hover:bg-white/15 transition-colors duration-200">
-                <span className="text-[12px] font-mono text-indigo-400 font-bold block">GOAL 01</span>
-                <strong className="text-[15px] text-white block">Enhance decision-making</strong>
-                <p className="text-[13px] text-slate-300">Real-time, actionable insight instead of stale, manually assembled reports.</p>
-              </div>
-              <div className="bg-white/10 p-5 rounded-xl border border-white/10 space-y-2 hover:bg-white/15 transition-colors duration-200">
-                <span className="text-[12px] font-mono text-indigo-400 font-bold block">GOAL 02</span>
-                <strong className="text-[15px] text-white block">Improve efficiency</strong>
-                <p className="text-[13px] text-slate-300">Automate reporting and forecasting to cut manual work.</p>
-              </div>
-              <div className="bg-white/10 p-5 rounded-xl border border-white/10 space-y-2 hover:bg-white/15 transition-colors duration-200">
-                <span className="text-[12px] font-mono text-indigo-400 font-bold block">GOAL 03</span>
-                <strong className="text-[15px] text-white block">Drive revenue growth</strong>
-                <p className="text-[13px] text-slate-300">Surface revenue leaks and conversion opportunities through AI-driven analysis.</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-gradient-to-r from-amber-50 to-orange-50/50 border border-amber-200 p-5 sm:p-6 rounded-2xl text-amber-950 text-[14.5px] shadow-sm relative overflow-hidden">
-            <strong>The Tension Underneath All Three:</strong> How do you make genuinely complex, multi-source data feel simple enough for a non-technical marketing director, without dumbing it down for the RevOps lead who needs the underlying detail? That tension is the design challenge this case study works through.
-          </div>
-        </div>
-
-        {/* Slide Image 1 */}
-        <div 
-          onClick={() => onZoomImage && onZoomImage('/assets/revlitix_slides/1.jpg', 'Fig 1.1 — Revlitix Overview & Executive Dashboard')}
-          className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white my-6 ring-4 ring-slate-50/50 image-card-hover cursor-pointer group relative"
-        >
-          <div className="relative overflow-hidden">
-            <img src="/assets/revlitix_slides/1.jpg" alt="Revlitix Slide 1" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
-            <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-all duration-200 flex items-center justify-center pointer-events-none">
-              <span className="opacity-0 group-hover:opacity-100 bg-slate-900/90 text-white font-mono text-[11px] font-bold px-3 py-1.5 rounded-full shadow-lg transition-all duration-200 flex items-center gap-1.5 translate-y-2 group-hover:translate-y-0">
-                <span className="text-[13px]">🔍</span> Click to inspect high-res
-              </span>
-            </div>
-          </div>
-          <div className="p-3.5 bg-slate-50 border-t border-slate-200 text-center font-mono text-[12px] text-slate-600 font-bold flex items-center justify-between caption-shimmer transition-all duration-300">
-            <span>Fig 1.1 — Revlitix Overview & Executive Dashboard</span>
-            <span className="text-[10px] text-[#4F46E5] font-mono font-bold opacity-80 group-hover:opacity-100">FULLSCREEN ⤢</span>
-          </div>
-        </div>
       </motion.section>
 
       <div className="section-divider my-4"><span className="divider-dot" /></div>
 
-      {/* SECTION 02: THE PROBLEM */}
+      {/* SECTION 2: THE PROBLEM */}
       <motion.section 
         id="sec-problem" 
-        className="space-y-8 scroll-mt-24"
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
+        className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-8 font-dm"
       >
-        <div className="flex items-center gap-2.5">
-          <span className="w-2.5 h-2.5 rounded-full bg-rose-500 shadow-[0_0_8px_rgba(244,63,94,0.4)]" />
-          <span className="text-[11px] font-mono font-extrabold tracking-widest uppercase px-4 py-1.5 rounded-full bg-rose-50 text-rose-600 border border-rose-200/80 shadow-sm">
-            02 // THE PROBLEM
-          </span>
+        <div className="flex items-center gap-2">
+          <span className="text-[11px] font-mono text-[#007AFF] uppercase tracking-widest">02 // THE PROBLEM</span>
         </div>
-        <h2 className="text-[30px] sm:text-[38px] font-extrabold tracking-[-0.02em] text-slate-950 leading-[1.15]">Grounded in the People Living with It</h2>
+        <h2 className="text-[30px] sm:text-[38px] font-normal text-slate-950 tracking-tight leading-tight font-fragment">
+          Grounded in the People Living with It
+        </h2>
 
-        <p className="text-[16px] text-slate-700 leading-[1.75]">
+        <p className="text-[15.5px] sm:text-[16px] text-slate-600 leading-relaxed font-normal font-dm">
           I started by talking to six sales and marketing leaders across customer accounts, through structured interviews and standing feedback channels. Their language did more to align the team on urgency than any ticket count could:
         </p>
 
@@ -678,10 +735,10 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
               "Our tech stack felt like a maze with no exit. Visibility was a myth."
             </p>
             <div className="mt-4 pt-3 border-t border-slate-100 flex items-center gap-2.5">
-              <div className="w-7 h-7 rounded-full bg-rose-100 text-rose-700 flex items-center justify-center font-bold text-[11px]">AR</div>
+              <span className="w-7 h-7 rounded-full bg-slate-900 text-white text-[10px] font-mono font-bold flex items-center justify-center">R1</span>
               <div>
-                <strong className="text-[12.5px] font-bold text-slate-900 block leading-none">Arpit R.</strong>
-                <span className="text-[10px] text-slate-500 font-mono">Head of Marketing Operations</span>
+                <strong className="text-[12px] text-slate-900 block font-bold">RevOps Lead</strong>
+                <span className="text-[10px] text-slate-500 block">Mid-Market B2B SaaS</span>
               </div>
             </div>
           </div>
@@ -689,13 +746,13 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
           <div className="p-5 rounded-2xl bg-white/90 backdrop-blur-sm border border-slate-200/80 shadow-xs relative overflow-hidden flex flex-col justify-between hover:-translate-y-1 hover:shadow-md transition-all duration-300">
             <span className="text-[48px] text-rose-300/40 absolute top-2 right-3 select-none leading-none">“</span>
             <p className="text-[14px] italic text-slate-800 relative z-10 leading-relaxed">
-              "I ask for an analysis, and it comes to me two weeks later in four different Excel sheets. I just ignore it."
+              "Every Monday started with three tabs open, manually pasting numbers into a spreadsheet to answer one question."
             </p>
             <div className="mt-4 pt-3 border-t border-slate-100 flex items-center gap-2.5">
-              <div className="w-7 h-7 rounded-full bg-rose-100 text-rose-700 flex items-center justify-center font-bold text-[11px]">JC</div>
+              <span className="w-7 h-7 rounded-full bg-slate-900 text-white text-[10px] font-mono font-bold flex items-center justify-center">R2</span>
               <div>
-                <strong className="text-[12.5px] font-bold text-slate-900 block leading-none">Jeremy Collins</strong>
-                <span className="text-[10px] text-slate-500 font-mono">Chief Marketing Officer</span>
+                <strong className="text-[12px] text-slate-900 block font-bold">VP Marketing</strong>
+                <span className="text-[10px] text-slate-500 block">Growth-Stage Account</span>
               </div>
             </div>
           </div>
@@ -703,13 +760,13 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
           <div className="p-5 rounded-2xl bg-white/90 backdrop-blur-sm border border-slate-200/80 shadow-xs relative overflow-hidden flex flex-col justify-between hover:-translate-y-1 hover:shadow-md transition-all duration-300">
             <span className="text-[48px] text-rose-300/40 absolute top-2 right-3 select-none leading-none">“</span>
             <p className="text-[14px] italic text-slate-800 relative z-10 leading-relaxed">
-              "We spend at least 10–15 hours a week just firefighting."
+              "We had an AI feature, but nobody clicked it because it lived off in its own tab. It felt like homework."
             </p>
             <div className="mt-4 pt-3 border-t border-slate-100 flex items-center gap-2.5">
-              <div className="w-7 h-7 rounded-full bg-rose-100 text-rose-700 flex items-center justify-center font-bold text-[11px]">JG</div>
+              <span className="w-7 h-7 rounded-full bg-slate-900 text-white text-[10px] font-mono font-bold flex items-center justify-center">R3</span>
               <div>
-                <strong className="text-[12.5px] font-bold text-slate-900 block leading-none">Joe Glenn</strong>
-                <span className="text-[10px] text-slate-500 font-mono">Director of RevOps</span>
+                <strong className="text-[12px] text-slate-900 block font-bold">Marketing Analyst</strong>
+                <span className="text-[10px] text-slate-500 block">Enterprise Account</span>
               </div>
             </div>
           </div>
@@ -750,75 +807,75 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
           </div>
         </div>
 
-        <div className="space-y-4 text-slate-700">
-          <h3 className="text-[18px] font-bold text-slate-900">Restated at Product Scale</h3>
-          <p>
+        <div className="space-y-4 text-slate-600 font-dm">
+          <h3 className="text-[18px] font-normal text-slate-950 font-fragment">Restated at Product Scale</h3>
+          <p className="text-[15.5px] leading-relaxed">
             Eighteen months in, the product had grown into four separate modules — Pipeline, Spend, Cohorts, and AI Insights — each shipped independently, each solving its own problem well in isolation but not together. Answering a question like <em>"why did pipeline dip in APAC this quarter?"</em> meant opening three modules, holding the numbers in your head, and doing the math yourself. The AI Insights tab, meant to be the product's core differentiator, sat isolated behind its own navigation item and was rarely opened.
           </p>
 
-          <h3 className="text-[18px] font-bold text-slate-900 pt-2">Quantifying the Baseline Before Proposing Solutions</h3>
+          <h3 className="text-[18px] font-normal text-slate-950 font-fragment pt-2">Quantifying the Baseline Before Proposing Solutions</h3>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <div className="p-5 rounded-xl bg-gradient-to-br from-slate-50 to-rose-50/30 border border-slate-200/80 space-y-1.5 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
-              <span className="text-[11px] font-mono text-slate-500 uppercase font-bold block">AI INSIGHTS CTR</span>
-              <strong className="text-[22px] font-black text-rose-600 block">&lt; 5%</strong>
+            <div className="p-5 rounded-2xl bg-blue-50/60 border border-blue-100 space-y-1.5">
+              <span className="text-[10.5px] font-mono text-slate-500 uppercase font-normal block">AI INSIGHTS CTR</span>
+              <strong className="text-[26px] font-normal text-[#007AFF] block font-fragment">&lt; 5%</strong>
               <span className="text-[12px] text-slate-500 block">of weekly active sessions</span>
             </div>
-            <div className="p-5 rounded-xl bg-gradient-to-br from-slate-50 to-rose-50/30 border border-slate-200/80 space-y-1.5 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
-              <span className="text-[11px] font-mono text-slate-500 uppercase font-bold block">CLICKS TO ANSWER</span>
-              <strong className="text-[22px] font-black text-rose-600 block">5–6 Clicks</strong>
+            <div className="p-5 rounded-2xl bg-blue-50/60 border border-blue-100 space-y-1.5">
+              <span className="text-[10.5px] font-mono text-slate-500 uppercase font-normal block">CLICKS TO ANSWER</span>
+              <strong className="text-[26px] font-normal text-[#007AFF] block font-fragment">5–6 Clicks</strong>
               <span className="text-[12px] text-slate-500 block">for cross-module answers</span>
             </div>
-            <div className="p-5 rounded-xl bg-gradient-to-br from-slate-50 to-rose-50/30 border border-slate-200/80 space-y-1.5 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
-              <span className="text-[11px] font-mono text-slate-500 uppercase font-bold block">NAVIGATION TICKETS</span>
-              <strong className="text-[22px] font-black text-rose-600 block font-mono">Trending Up</strong>
+            <div className="p-5 rounded-2xl bg-blue-50/60 border border-blue-100 space-y-1.5">
+              <span className="text-[10.5px] font-mono text-slate-500 uppercase font-normal block">NAVIGATION TICKETS</span>
+              <strong className="text-[26px] font-normal text-[#007AFF] block font-fragment">Trending Up</strong>
               <span className="text-[12px] text-slate-500 block">over 2 consecutive quarters</span>
             </div>
           </div>
-          <p className="text-[13.5px] italic text-slate-500">
+          <p className="text-[13.5px] italic text-slate-400 font-dm">
             These numbers became the scorecard I'd be held accountable to later.
           </p>
         </div>
 
-        {/* Slide Image 2 */}
+        {/* Slide Image 02 */}
         <div 
-          onClick={() => onZoomImage && onZoomImage('/assets/revlitix_slides/2.jpg', 'Fig 2.1 — Baseline Friction & Fragmented User Journey')}
-          className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white my-6 ring-4 ring-slate-50/50 image-card-hover cursor-pointer group relative"
+          onClick={() => onZoomImage && onZoomImage('/assets/revlitix_slides/2.jpg', 'Fig 2.1 — Baseline Friction & Fragmented User Journey Map')}
+          className="max-w-4xl mx-auto w-full cs-figure-frame bg-white my-6 cursor-pointer group relative"
         >
-          <div className="relative overflow-hidden">
-            <img src="/assets/revlitix_slides/2.jpg" alt="Revlitix Slide 2" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
-            <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-all duration-200 flex items-center justify-center pointer-events-none">
-              <span className="opacity-0 group-hover:opacity-100 bg-slate-900/90 text-white font-mono text-[11px] font-bold px-3 py-1.5 rounded-full shadow-lg transition-all duration-200 flex items-center gap-1.5 translate-y-2 group-hover:translate-y-0">
-                <span className="text-[13px]">🔍</span> Click to inspect high-res
-              </span>
+          <img 
+            src="/assets/revlitix_slides/2.jpg" 
+            alt="Fig 2.1 — Baseline Friction & Fragmented User Journey Map" 
+            className="w-full h-auto object-contain block group-hover:scale-[1.012] transition-transform duration-300" 
+          />
+          <div className="px-5 py-3.5 bg-slate-50/90 backdrop-blur-md border-t border-slate-200/80 flex items-center justify-between text-[12.5px] font-mono text-slate-700">
+            <div className="flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#007AFF] shadow-[0_0_6px_rgba(0,122,255,0.4)]" />
+              <span className="font-bold text-slate-900">Fig 2.1</span>
+              <span className="text-slate-300">•</span>
+              <span className="font-medium text-slate-700">Baseline Friction & Fragmented User Journey Map</span>
             </div>
-          </div>
-          <div className="p-3.5 bg-slate-50 border-t border-slate-200 text-center font-mono text-[12px] text-slate-600 font-bold flex items-center justify-between caption-shimmer transition-all duration-300">
-            <span>Fig 2.1 — Baseline Friction & Fragmented User Journey</span>
-            <span className="text-[10px] text-[#4F46E5] font-mono font-bold opacity-80 group-hover:opacity-100">FULLSCREEN ⤢</span>
+            <span className="text-[11px] font-bold text-[#007AFF] group-hover:translate-x-0.5 transition-transform duration-200">INSPECT HIGH-RES ⤢</span>
           </div>
         </div>
       </motion.section>
 
       <div className="section-divider my-4"><span className="divider-dot" /></div>
 
-      {/* SECTION 03: SUCCESS METRICS */}
+      {/* SECTION 3: SUCCESS METRICS */}
       <motion.section 
         id="sec-metrics" 
-        className="space-y-8 scroll-mt-24"
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
+        className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-8 font-dm"
       >
-        <div className="flex items-center gap-2.5">
-          <span className="w-2.5 h-2.5 rounded-full bg-[#4F46E5] shadow-[0_0_8px_rgba(79,70,229,0.4)]" />
-          <span className="text-[11px] font-mono font-extrabold tracking-widest uppercase px-4 py-1.5 rounded-full bg-indigo-50 text-[#4F46E5] border border-indigo-200/80 shadow-sm">
-            03 // SUCCESS METRICS
-          </span>
+        <div className="flex items-center gap-2">
+          <span className="text-[11px] font-mono text-[#007AFF] uppercase tracking-widest">03 // SUCCESS METRICS</span>
         </div>
-        <h2 className="text-[30px] sm:text-[38px] font-extrabold tracking-[-0.02em] text-slate-950 leading-[1.15]">Defining What "Solved" Looks Like</h2>
+        <h2 className="text-[30px] sm:text-[38px] font-normal text-slate-950 tracking-tight leading-tight font-fragment">
+          Defining What "Solved" Looks Like
+        </h2>
 
-        <p className="text-[16px] text-slate-700 leading-[1.75]">
+        <p className="text-[15.5px] sm:text-[16px] text-slate-600 leading-relaxed font-normal font-dm">
           Before sketching a screen, I worked with the PM and data team to define what "solved" would look like — and just as important, what we'd explicitly <em>not</em> optimize for.
         </p>
 
@@ -836,11 +893,15 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
             <span className="text-[18px]">⭐</span>
             <strong className="text-[12px] font-mono text-indigo-300 font-bold uppercase tracking-widest">North Star Metric</strong>
           </div>
-          <h3 className="text-[28px] sm:text-[32px] font-extrabold tracking-tight relative z-10">Time-to-Insight</h3>
-          <p className="text-[14.5px] text-slate-300 leading-relaxed">
-            The time from opening the product to reaching a decision-ready answer. Baseline required 5–6 clicks and manual cross-referencing; the target was a single consolidated view reachable in 2 steps.
+          <p className="text-[20px] font-display font-semibold text-[#EEF2FF] leading-snug relative z-10">
+            Reduce average time-to-first-actionable-insight from <span className="text-rose-300 underline underline-offset-4 decoration-rose-400/50">14 minutes</span> to under <span className="text-emerald-300 underline underline-offset-4 decoration-emerald-400/50">3 minutes</span> per session.
+          </p>
+          <p className="text-[13.5px] text-slate-300 relative z-10 leading-relaxed max-w-2xl">
+            (Measured as log-in timestamp to first export, alert trigger, or cross-filter action)
           </p>
         </div>
+
+
 
         {/* Supporting Metrics Table */}
         <div className="bg-white rounded-2xl border border-slate-200/80 overflow-hidden shadow-xs space-y-3">
@@ -886,44 +947,44 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
           <strong>Explicit Deprioritization Guardrail:</strong> I deliberately did not set a metric for "time spent in product" — the goal was faster answers, not more engagement, and I flagged this in the project brief so the roadmap wouldn't drift toward stickiness metrics that contradicted the actual user need.
         </div>
 
-        {/* Slide Image 3 */}
+        {/* Slide Image 03 */}
         <div 
           onClick={() => onZoomImage && onZoomImage('/assets/revlitix_slides/3.jpg', 'Fig 3.1 — Time-to-Insight & Success Metrics Scorecard')}
-          className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white my-6 ring-4 ring-slate-50/50 image-card-hover cursor-pointer group relative"
+          className="max-w-4xl mx-auto w-full cs-figure-frame bg-white my-6 cursor-pointer group relative"
         >
-          <div className="relative overflow-hidden">
-            <img src="/assets/revlitix_slides/3.jpg" alt="Revlitix Slide 3" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
-            <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-all duration-200 flex items-center justify-center pointer-events-none">
-              <span className="opacity-0 group-hover:opacity-100 bg-slate-900/90 text-white font-mono text-[11px] font-bold px-3 py-1.5 rounded-full shadow-lg transition-all duration-200 flex items-center gap-1.5 translate-y-2 group-hover:translate-y-0">
-                <span className="text-[13px]">🔍</span> Click to inspect high-res
-              </span>
+          <img 
+            src="/assets/revlitix_slides/3.jpg" 
+            alt="Fig 3.1 — Time-to-Insight & Success Metrics Scorecard" 
+            className="w-full h-auto object-contain block group-hover:scale-[1.012] transition-transform duration-300" 
+          />
+          <div className="px-5 py-3.5 bg-slate-50/90 backdrop-blur-md border-t border-slate-200/80 flex items-center justify-between text-[12.5px] font-mono text-slate-700">
+            <div className="flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#007AFF] shadow-[0_0_6px_rgba(0,122,255,0.4)]" />
+              <span className="font-bold text-slate-900">Fig 3.1</span>
+              <span className="text-slate-300">•</span>
+              <span className="font-medium text-slate-700">Time-to-Insight & Success Metrics Scorecard</span>
             </div>
-          </div>
-          <div className="p-3.5 bg-slate-50 border-t border-slate-200 text-center font-mono text-[12px] text-slate-600 font-bold flex items-center justify-between caption-shimmer transition-all duration-300">
-            <span>Fig 3.1 — Time-to-Insight & Success Metrics Scorecard</span>
-            <span className="text-[10px] text-[#4F46E5] font-mono font-bold opacity-80 group-hover:opacity-100">FULLSCREEN ⤢</span>
+            <span className="text-[11px] font-bold text-[#007AFF] group-hover:translate-x-0.5 transition-transform duration-200">INSPECT HIGH-RES ⤢</span>
           </div>
         </div>
       </motion.section>
 
       <div className="section-divider my-4"><span className="divider-dot" /></div>
 
-      {/* SECTION 04: RESEARCH */}
+      {/* SECTION 4: RESEARCH */}
       <motion.section 
         id="sec-research" 
-        className="space-y-8 scroll-mt-24"
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
+        className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-8 font-dm"
       >
-        <div className="flex items-center gap-2.5">
-          <span className="w-2.5 h-2.5 rounded-full bg-cyan-500 shadow-[0_0_8px_rgba(6,182,212,0.4)]" />
-          <span className="text-[11px] font-mono font-extrabold tracking-widest uppercase px-4 py-1.5 rounded-full bg-cyan-50 text-cyan-700 border border-cyan-200/80 shadow-sm">
-            04 // RESEARCH
-          </span>
+        <div className="flex items-center gap-2">
+          <span className="text-[11px] font-mono text-[#007AFF] uppercase tracking-widest">04 // RESEARCH</span>
         </div>
-        <h2 className="text-[30px] sm:text-[38px] font-extrabold tracking-[-0.02em] text-slate-950 leading-[1.15]">Contextual Inquiry & Root-Cause Audits</h2>
+        <h2 className="text-[30px] sm:text-[38px] font-normal text-slate-950 tracking-tight leading-tight font-fragment">
+          Contextual Inquiry & Root-Cause Audits
+        </h2>
 
         <div className="space-y-4 text-slate-700">
           <p>
@@ -945,44 +1006,44 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
           </p>
         </div>
 
-        {/* Slide Image 4 */}
+        {/* Slide Image 04 */}
         <div 
           onClick={() => onZoomImage && onZoomImage('/assets/revlitix_slides/4.jpg', 'Fig 4.1 — Contextual Inquiry & Funnel Analysis Findings')}
-          className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white my-6 ring-4 ring-slate-50/50 image-card-hover cursor-pointer group relative"
+          className="max-w-4xl mx-auto w-full cs-figure-frame bg-white my-6 cursor-pointer group relative"
         >
-          <div className="relative overflow-hidden">
-            <img src="/assets/revlitix_slides/4.jpg" alt="Revlitix Slide 4" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
-            <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-all duration-200 flex items-center justify-center pointer-events-none">
-              <span className="opacity-0 group-hover:opacity-100 bg-slate-900/90 text-white font-mono text-[11px] font-bold px-3 py-1.5 rounded-full shadow-lg transition-all duration-200 flex items-center gap-1.5 translate-y-2 group-hover:translate-y-0">
-                <span className="text-[13px]">🔍</span> Click to inspect high-res
-              </span>
+          <img 
+            src="/assets/revlitix_slides/4.jpg" 
+            alt="Fig 4.1 — Contextual Inquiry & Funnel Analysis Findings" 
+            className="w-full h-auto object-contain block group-hover:scale-[1.012] transition-transform duration-300" 
+          />
+          <div className="px-5 py-3.5 bg-slate-50/90 backdrop-blur-md border-t border-slate-200/80 flex items-center justify-between text-[12.5px] font-mono text-slate-700">
+            <div className="flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#007AFF] shadow-[0_0_6px_rgba(0,122,255,0.4)]" />
+              <span className="font-bold text-slate-900">Fig 4.1</span>
+              <span className="text-slate-300">•</span>
+              <span className="font-medium text-slate-700">Contextual Inquiry & Funnel Analysis Findings</span>
             </div>
-          </div>
-          <div className="p-3.5 bg-slate-50 border-t border-slate-200 text-center font-mono text-[12px] text-slate-600 font-bold flex items-center justify-between caption-shimmer transition-all duration-300">
-            <span>Fig 4.1 — Contextual Inquiry & Funnel Analysis Findings</span>
-            <span className="text-[10px] text-[#4F46E5] font-mono font-bold opacity-80 group-hover:opacity-100">FULLSCREEN ⤢</span>
+            <span className="text-[11px] font-bold text-[#007AFF] group-hover:translate-x-0.5 transition-transform duration-200">INSPECT HIGH-RES ⤢</span>
           </div>
         </div>
       </motion.section>
 
       <div className="section-divider my-4"><span className="divider-dot" /></div>
 
-      {/* SECTION 05: INSIGHTS */}
+      {/* SECTION 5: INSIGHTS */}
       <motion.section 
         id="sec-insights" 
-        className="space-y-8 scroll-mt-24"
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
+        className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-8 font-dm"
       >
-        <div className="flex items-center gap-2.5">
-          <span className="w-2.5 h-2.5 rounded-full bg-violet-500 shadow-[0_0_8px_rgba(139,92,246,0.4)]" />
-          <span className="text-[11px] font-mono font-extrabold tracking-widest uppercase px-4 py-1.5 rounded-full bg-violet-50 text-violet-700 border border-violet-200/80 shadow-sm">
-            05 // INSIGHTS
-          </span>
+        <div className="flex items-center gap-2">
+          <span className="text-[11px] font-mono text-[#007AFF] uppercase tracking-widest">05 // INSIGHTS</span>
         </div>
-        <h2 className="text-[30px] sm:text-[38px] font-extrabold tracking-[-0.02em] text-slate-950 leading-[1.15]">Three Strategic Shift Principles</h2>
+        <h2 className="text-[30px] sm:text-[38px] font-normal text-slate-950 tracking-tight leading-tight font-fragment">
+          Three Strategic Shift Principles
+        </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="p-6 rounded-2xl bg-white border border-slate-200/80 shadow-xs space-y-3">
@@ -1010,44 +1071,44 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
           </div>
         </div>
 
-        {/* Slide Image 5 */}
+        {/* Slide Image 05 */}
         <div 
           onClick={() => onZoomImage && onZoomImage('/assets/revlitix_slides/5.jpg', 'Fig 5.1 — Core Strategic Insight Principles')}
-          className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white my-6 ring-4 ring-slate-50/50 image-card-hover cursor-pointer group relative"
+          className="max-w-4xl mx-auto w-full cs-figure-frame bg-white my-6 cursor-pointer group relative"
         >
-          <div className="relative overflow-hidden">
-            <img src="/assets/revlitix_slides/5.jpg" alt="Revlitix Slide 5" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
-            <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-all duration-200 flex items-center justify-center pointer-events-none">
-              <span className="opacity-0 group-hover:opacity-100 bg-slate-900/90 text-white font-mono text-[11px] font-bold px-3 py-1.5 rounded-full shadow-lg transition-all duration-200 flex items-center gap-1.5 translate-y-2 group-hover:translate-y-0">
-                <span className="text-[13px]">🔍</span> Click to inspect high-res
-              </span>
+          <img 
+            src="/assets/revlitix_slides/5.jpg" 
+            alt="Fig 5.1 — Core Strategic Insight Principles" 
+            className="w-full h-auto object-contain block group-hover:scale-[1.012] transition-transform duration-300" 
+          />
+          <div className="px-5 py-3.5 bg-slate-50/90 backdrop-blur-md border-t border-slate-200/80 flex items-center justify-between text-[12.5px] font-mono text-slate-700">
+            <div className="flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#007AFF] shadow-[0_0_6px_rgba(0,122,255,0.4)]" />
+              <span className="font-bold text-slate-900">Fig 5.1</span>
+              <span className="text-slate-300">•</span>
+              <span className="font-medium text-slate-700">Core Strategic Insight Principles</span>
             </div>
-          </div>
-          <div className="p-3.5 bg-slate-50 border-t border-slate-200 text-center font-mono text-[12px] text-slate-600 font-bold flex items-center justify-between caption-shimmer transition-all duration-300">
-            <span>Fig 5.1 — Core Strategic Insight Principles</span>
-            <span className="text-[10px] text-[#4F46E5] font-mono font-bold opacity-80 group-hover:opacity-100">FULLSCREEN ⤢</span>
+            <span className="text-[11px] font-bold text-[#007AFF] group-hover:translate-x-0.5 transition-transform duration-200">INSPECT HIGH-RES ⤢</span>
           </div>
         </div>
       </motion.section>
 
       <div className="section-divider my-4"><span className="divider-dot" /></div>
 
-      {/* SECTION 06: PRIORITIZATION */}
+      {/* SECTION 6: PRIORITIZATION */}
       <motion.section 
         id="sec-prioritization" 
-        className="space-y-8 scroll-mt-24"
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
+        className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-8 font-dm"
       >
-        <div className="flex items-center gap-2.5">
-          <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.4)]" />
-          <span className="text-[11px] font-mono font-extrabold tracking-widest uppercase px-4 py-1.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200/80 shadow-sm">
-            06 // PRIORITIZATION
-          </span>
+        <div className="flex items-center gap-2">
+          <span className="text-[11px] font-mono text-[#007AFF] uppercase tracking-widest">06 // PRIORITIZATION</span>
         </div>
-        <h2 className="text-[30px] sm:text-[38px] font-extrabold tracking-[-0.02em] text-slate-950 leading-[1.15]">Impact vs. Feasibility Framework</h2>
+        <h2 className="text-[30px] sm:text-[38px] font-normal text-slate-950 tracking-tight leading-tight font-fragment">
+          Impact vs. Feasibility Framework
+        </h2>
 
         <p className="text-[16px] text-slate-700 leading-[1.75]">
           From the insights, the team generated a dozen "How Might We" directions. I ran a structured impact-vs-feasibility exercise with engineering leads present, so feasibility scores reflected actual technical cost, not designer guesswork.
@@ -1086,44 +1147,44 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
           <strong>Deprioritized, and Why:</strong> A fully customizable dashboard builder (contradicted the Section 4 finding), and a natural-language query bar (validated as a phase-2 investment once the consolidated view had a baseline to build on).
         </div>
 
-        {/* Slide Image 6 */}
+        {/* Slide Image 06 */}
         <div 
           onClick={() => onZoomImage && onZoomImage('/assets/revlitix_slides/6.jpg', 'Fig 6.1 — Impact vs. Feasibility Trade-Off Matrix')}
-          className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white my-6 ring-4 ring-slate-50/50 image-card-hover cursor-pointer group relative"
+          className="max-w-4xl mx-auto w-full cs-figure-frame bg-white my-6 cursor-pointer group relative"
         >
-          <div className="relative overflow-hidden">
-            <img src="/assets/revlitix_slides/6.jpg" alt="Revlitix Slide 6" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
-            <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-all duration-200 flex items-center justify-center pointer-events-none">
-              <span className="opacity-0 group-hover:opacity-100 bg-slate-900/90 text-white font-mono text-[11px] font-bold px-3 py-1.5 rounded-full shadow-lg transition-all duration-200 flex items-center gap-1.5 translate-y-2 group-hover:translate-y-0">
-                <span className="text-[13px]">🔍</span> Click to inspect high-res
-              </span>
+          <img 
+            src="/assets/revlitix_slides/6.jpg" 
+            alt="Fig 6.1 — Impact vs. Feasibility Trade-Off Matrix" 
+            className="w-full h-auto object-contain block group-hover:scale-[1.012] transition-transform duration-300" 
+          />
+          <div className="px-5 py-3.5 bg-slate-50/90 backdrop-blur-md border-t border-slate-200/80 flex items-center justify-between text-[12.5px] font-mono text-slate-700">
+            <div className="flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#007AFF] shadow-[0_0_6px_rgba(0,122,255,0.4)]" />
+              <span className="font-bold text-slate-900">Fig 6.1</span>
+              <span className="text-slate-300">•</span>
+              <span className="font-medium text-slate-700">Impact vs. Feasibility Trade-Off Matrix</span>
             </div>
-          </div>
-          <div className="p-3.5 bg-slate-50 border-t border-slate-200 text-center font-mono text-[12px] text-slate-600 font-bold flex items-center justify-between caption-shimmer transition-all duration-300">
-            <span>Fig 6.1 — Impact vs. Feasibility Trade-Off Matrix</span>
-            <span className="text-[10px] text-[#4F46E5] font-mono font-bold opacity-80 group-hover:opacity-100">FULLSCREEN ⤢</span>
+            <span className="text-[11px] font-bold text-[#007AFF] group-hover:translate-x-0.5 transition-transform duration-200">INSPECT HIGH-RES ⤢</span>
           </div>
         </div>
       </motion.section>
 
       <div className="section-divider my-4"><span className="divider-dot" /></div>
 
-      {/* SECTION 07: DESIGN PRINCIPLES */}
+      {/* SECTION 7: DESIGN PRINCIPLES */}
       <motion.section 
         id="sec-principles" 
-        className="space-y-8 scroll-mt-24"
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
+        className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-8 font-dm"
       >
-        <div className="flex items-center gap-2.5">
-          <span className="w-2.5 h-2.5 rounded-full bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.4)]" />
-          <span className="text-[11px] font-mono font-extrabold tracking-widest uppercase px-4 py-1.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200/80 shadow-sm">
-            07 // DESIGN PRINCIPLES
-          </span>
+        <div className="flex items-center gap-2">
+          <span className="text-[11px] font-mono text-[#007AFF] uppercase tracking-widest">07 // DESIGN PRINCIPLES</span>
         </div>
-        <h2 className="text-[30px] sm:text-[38px] font-extrabold tracking-[-0.02em] text-slate-950 leading-[1.15]">Review Criteria for Design Critiques</h2>
+        <h2 className="text-[30px] sm:text-[38px] font-normal text-slate-950 tracking-tight leading-tight font-fragment">
+          Review Criteria for Design Critiques
+        </h2>
 
         <p className="text-[16px] text-slate-700 leading-[1.75]">
           Four principles, socialized with engineering and PM, used as the actual review criteria in design critique:
@@ -1163,44 +1224,44 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
           </div>
         </div>
 
-        {/* Slide Image 7 */}
+        {/* Slide Image 07 */}
         <div 
           onClick={() => onZoomImage && onZoomImage('/assets/revlitix_slides/7.jpg', 'Fig 7.1 — Design Review Criteria & System Rules')}
-          className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white my-6 ring-4 ring-slate-50/50 image-card-hover cursor-pointer group relative"
+          className="max-w-4xl mx-auto w-full cs-figure-frame bg-white my-6 cursor-pointer group relative"
         >
-          <div className="relative overflow-hidden">
-            <img src="/assets/revlitix_slides/7.jpg" alt="Revlitix Slide 7" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
-            <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-all duration-200 flex items-center justify-center pointer-events-none">
-              <span className="opacity-0 group-hover:opacity-100 bg-slate-900/90 text-white font-mono text-[11px] font-bold px-3 py-1.5 rounded-full shadow-lg transition-all duration-200 flex items-center gap-1.5 translate-y-2 group-hover:translate-y-0">
-                <span className="text-[13px]">🔍</span> Click to inspect high-res
-              </span>
+          <img 
+            src="/assets/revlitix_slides/7.jpg" 
+            alt="Fig 7.1 — Design Review Criteria & System Rules" 
+            className="w-full h-auto object-contain block group-hover:scale-[1.012] transition-transform duration-300" 
+          />
+          <div className="px-5 py-3.5 bg-slate-50/90 backdrop-blur-md border-t border-slate-200/80 flex items-center justify-between text-[12.5px] font-mono text-slate-700">
+            <div className="flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#007AFF] shadow-[0_0_6px_rgba(0,122,255,0.4)]" />
+              <span className="font-bold text-slate-900">Fig 7.1</span>
+              <span className="text-slate-300">•</span>
+              <span className="font-medium text-slate-700">Design Review Criteria & System Rules</span>
             </div>
-          </div>
-          <div className="p-3.5 bg-slate-50 border-t border-slate-200 text-center font-mono text-[12px] text-slate-600 font-bold flex items-center justify-between caption-shimmer transition-all duration-300">
-            <span>Fig 7.1 — Design Review Criteria & System Rules</span>
-            <span className="text-[10px] text-[#4F46E5] font-mono font-bold opacity-80 group-hover:opacity-100">FULLSCREEN ⤢</span>
+            <span className="text-[11px] font-bold text-[#007AFF] group-hover:translate-x-0.5 transition-transform duration-200">INSPECT HIGH-RES ⤢</span>
           </div>
         </div>
       </motion.section>
 
       <div className="section-divider my-4"><span className="divider-dot" /></div>
 
-      {/* SECTION 08: FLATTENED FLOW & IA */}
+      {/* SECTION 8: FLATTENED FLOW & IA */}
       <motion.section 
         id="sec-ia" 
-        className="space-y-8 scroll-mt-24"
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
+        className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-8 font-dm"
       >
-        <div className="flex items-center gap-2.5">
-          <span className="w-2.5 h-2.5 rounded-full bg-slate-600 shadow-[0_0_8px_rgba(71,85,105,0.4)]" />
-          <span className="text-[11px] font-mono font-extrabold tracking-widest uppercase px-4 py-1.5 rounded-full bg-slate-100 text-slate-800 border border-slate-300/80 shadow-sm">
-            08 // FLATTENED FLOW & IA
-          </span>
+        <div className="flex items-center gap-2">
+          <span className="text-[11px] font-mono text-[#007AFF] uppercase tracking-widest">08 // FLATTENED FLOW & IA</span>
         </div>
-        <h2 className="text-[30px] sm:text-[38px] font-extrabold tracking-[-0.02em] text-slate-950 leading-[1.15]">From Fragmented IA to a 2-Step Flow</h2>
+        <h2 className="text-[30px] sm:text-[38px] font-normal text-slate-950 tracking-tight leading-tight font-fragment">
+          From Fragmented IA to a 2-Step Flow
+        </h2>
 
         <div className="space-y-4 text-slate-700">
           <p>
@@ -1219,44 +1280,44 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
           </p>
         </div>
 
-        {/* Slide Image 8 */}
+        {/* Slide Image 08 */}
         <div 
           onClick={() => onZoomImage && onZoomImage('/assets/revlitix_slides/8.jpg', 'Fig 8.1 — Information Architecture & Layout Exploration')}
-          className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white my-6 ring-4 ring-slate-50/50 image-card-hover cursor-pointer group relative"
+          className="max-w-4xl mx-auto w-full cs-figure-frame bg-white my-6 cursor-pointer group relative"
         >
-          <div className="relative overflow-hidden">
-            <img src="/assets/revlitix_slides/8.jpg" alt="Revlitix Slide 8" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
-            <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-all duration-200 flex items-center justify-center pointer-events-none">
-              <span className="opacity-0 group-hover:opacity-100 bg-slate-900/90 text-white font-mono text-[11px] font-bold px-3 py-1.5 rounded-full shadow-lg transition-all duration-200 flex items-center gap-1.5 translate-y-2 group-hover:translate-y-0">
-                <span className="text-[13px]">🔍</span> Click to inspect high-res
-              </span>
+          <img 
+            src="/assets/revlitix_slides/8.jpg" 
+            alt="Fig 8.1 — Information Architecture & Layout Exploration" 
+            className="w-full h-auto object-contain block group-hover:scale-[1.012] transition-transform duration-300" 
+          />
+          <div className="px-5 py-3.5 bg-slate-50/90 backdrop-blur-md border-t border-slate-200/80 flex items-center justify-between text-[12.5px] font-mono text-slate-700">
+            <div className="flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#007AFF] shadow-[0_0_6px_rgba(0,122,255,0.4)]" />
+              <span className="font-bold text-slate-900">Fig 8.1</span>
+              <span className="text-slate-300">•</span>
+              <span className="font-medium text-slate-700">Information Architecture & Layout Exploration</span>
             </div>
-          </div>
-          <div className="p-3.5 bg-slate-50 border-t border-slate-200 text-center font-mono text-[12px] text-slate-600 font-bold flex items-center justify-between caption-shimmer transition-all duration-300">
-            <span>Fig 8.1 — Information Architecture & Layout Exploration</span>
-            <span className="text-[10px] text-[#4F46E5] font-mono font-bold opacity-80 group-hover:opacity-100">FULLSCREEN ⤢</span>
+            <span className="text-[11px] font-bold text-[#007AFF] group-hover:translate-x-0.5 transition-transform duration-200">INSPECT HIGH-RES ⤢</span>
           </div>
         </div>
       </motion.section>
 
       <div className="section-divider my-4"><span className="divider-dot" /></div>
 
-      {/* SECTION 09: HIGH-FIDELITY DESIGN */}
+      {/* SECTION 9: HIGH-FIDELITY DESIGN */}
       <motion.section 
         id="sec-hifi" 
-        className="space-y-8 scroll-mt-24"
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
+        className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-8 font-dm"
       >
-        <div className="flex items-center gap-2.5">
-          <span className="w-2.5 h-2.5 rounded-full bg-purple-500 shadow-[0_0_8px_rgba(168,85,247,0.4)]" />
-          <span className="text-[11px] font-mono font-extrabold tracking-widest uppercase px-4 py-1.5 rounded-full bg-purple-50 text-purple-700 border border-purple-200/80 shadow-sm">
-            09 // HIGH-FIDELITY DESIGN
-          </span>
+        <div className="flex items-center gap-2">
+          <span className="text-[11px] font-mono text-[#007AFF] uppercase tracking-widest">09 // HIGH-FIDELITY DESIGN</span>
         </div>
-        <h2 className="text-[30px] sm:text-[38px] font-extrabold tracking-[-0.02em] text-slate-950 leading-[1.15]">Core Interface Screens & System Primitives</h2>
+        <h2 className="text-[30px] sm:text-[38px] font-normal text-slate-950 tracking-tight leading-tight font-fragment">
+          Core Interface Screens & System Primitives
+        </h2>
 
         <div className="space-y-6">
           <div className="p-6 rounded-2xl bg-white border border-slate-200/80 shadow-xs space-y-2">
@@ -1281,22 +1342,24 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
           </div>
         </div>
 
-        {/* Slide Image 9 */}
+        {/* Slide Image 09 */}
         <div 
           onClick={() => onZoomImage && onZoomImage('/assets/revlitix_slides/9.jpg', 'Fig 9.1 — High-Fidelity Decision Home & Consolidated Views')}
-          className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white my-6 ring-4 ring-slate-50/50 image-card-hover cursor-pointer group relative"
+          className="max-w-4xl mx-auto w-full cs-figure-frame bg-white my-6 cursor-pointer group relative"
         >
-          <div className="relative overflow-hidden">
-            <img src="/assets/revlitix_slides/9.jpg" alt="Revlitix Slide 9" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
-            <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-all duration-200 flex items-center justify-center pointer-events-none">
-              <span className="opacity-0 group-hover:opacity-100 bg-slate-900/90 text-white font-mono text-[11px] font-bold px-3 py-1.5 rounded-full shadow-lg transition-all duration-200 flex items-center gap-1.5 translate-y-2 group-hover:translate-y-0">
-                <span className="text-[13px]">🔍</span> Click to inspect high-res
-              </span>
+          <img 
+            src="/assets/revlitix_slides/9.jpg" 
+            alt="Fig 9.1 — High-Fidelity Decision Home & Consolidated Views" 
+            className="w-full h-auto object-contain block group-hover:scale-[1.012] transition-transform duration-300" 
+          />
+          <div className="px-5 py-3.5 bg-slate-50/90 backdrop-blur-md border-t border-slate-200/80 flex items-center justify-between text-[12.5px] font-mono text-slate-700">
+            <div className="flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#007AFF] shadow-[0_0_6px_rgba(0,122,255,0.4)]" />
+              <span className="font-bold text-slate-900">Fig 9.1</span>
+              <span className="text-slate-300">•</span>
+              <span className="font-medium text-slate-700">High-Fidelity Decision Home & Consolidated Views</span>
             </div>
-          </div>
-          <div className="p-3.5 bg-slate-50 border-t border-slate-200 text-center font-mono text-[12px] text-slate-600 font-bold flex items-center justify-between caption-shimmer transition-all duration-300">
-            <span>Fig 9.1 — High-Fidelity Decision Home & Consolidated Views</span>
-            <span className="text-[10px] text-[#4F46E5] font-mono font-bold opacity-80 group-hover:opacity-100">FULLSCREEN ⤢</span>
+            <span className="text-[11px] font-bold text-[#007AFF] group-hover:translate-x-0.5 transition-transform duration-200">INSPECT HIGH-RES ⤢</span>
           </div>
         </div>
       </motion.section>
@@ -1306,19 +1369,17 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
       {/* SECTION 10: POLISH & ACCESSIBILITY */}
       <motion.section 
         id="sec-polish" 
-        className="space-y-8 scroll-mt-24"
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
+        className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-8 font-dm"
       >
-        <div className="flex items-center gap-2.5">
-          <span className="w-2.5 h-2.5 rounded-full bg-teal-500 shadow-[0_0_8px_rgba(20,184,166,0.4)]" />
-          <span className="text-[11px] font-mono font-extrabold tracking-widest uppercase px-4 py-1.5 rounded-full bg-teal-50 text-teal-700 border border-teal-200/80 shadow-sm">
-            10 // POLISH & ACCESSIBILITY
-          </span>
+        <div className="flex items-center gap-2">
+          <span className="text-[11px] font-mono text-[#007AFF] uppercase tracking-widest">10 // POLISH & ACCESSIBILITY</span>
         </div>
-        <h2 className="text-[30px] sm:text-[38px] font-extrabold tracking-[-0.02em] text-slate-950 leading-[1.15]">Edge Cases, Focus States & WCAG Compliance</h2>
+        <h2 className="text-[30px] sm:text-[38px] font-normal text-slate-950 tracking-tight leading-tight font-fragment">
+          Edge Cases, Focus States & WCAG Compliance
+        </h2>
 
         <div className="space-y-4 text-slate-700">
           <p>
@@ -1337,19 +1398,21 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
         {/* Slide Image 10 */}
         <div 
           onClick={() => onZoomImage && onZoomImage('/assets/revlitix_slides/10.jpg', 'Fig 10.1 — Micro-Interactions, Edge States & WCAG AA Audit')}
-          className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white my-6 ring-4 ring-slate-50/50 image-card-hover cursor-pointer group relative"
+          className="max-w-4xl mx-auto w-full cs-figure-frame bg-white my-6 cursor-pointer group relative"
         >
-          <div className="relative overflow-hidden">
-            <img src="/assets/revlitix_slides/10.jpg" alt="Revlitix Slide 10" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
-            <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-all duration-200 flex items-center justify-center pointer-events-none">
-              <span className="opacity-0 group-hover:opacity-100 bg-slate-900/90 text-white font-mono text-[11px] font-bold px-3 py-1.5 rounded-full shadow-lg transition-all duration-200 flex items-center gap-1.5 translate-y-2 group-hover:translate-y-0">
-                <span className="text-[13px]">🔍</span> Click to inspect high-res
-              </span>
+          <img 
+            src="/assets/revlitix_slides/10.jpg" 
+            alt="Fig 10.1 — Micro-Interactions, Edge States & WCAG AA Audit" 
+            className="w-full h-auto object-contain block group-hover:scale-[1.012] transition-transform duration-300" 
+          />
+          <div className="px-5 py-3.5 bg-slate-50/90 backdrop-blur-md border-t border-slate-200/80 flex items-center justify-between text-[12.5px] font-mono text-slate-700">
+            <div className="flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#007AFF] shadow-[0_0_6px_rgba(0,122,255,0.4)]" />
+              <span className="font-bold text-slate-900">Fig 10.1</span>
+              <span className="text-slate-300">•</span>
+              <span className="font-medium text-slate-700">Micro-Interactions, Edge States & WCAG AA Audit</span>
             </div>
-          </div>
-          <div className="p-3.5 bg-slate-50 border-t border-slate-200 text-center font-mono text-[12px] text-slate-600 font-bold flex items-center justify-between caption-shimmer transition-all duration-300">
-            <span>Fig 10.1 — Micro-Interactions, Edge States & WCAG AA Audit</span>
-            <span className="text-[10px] text-[#4F46E5] font-mono font-bold opacity-80 group-hover:opacity-100">FULLSCREEN ⤢</span>
+            <span className="text-[11px] font-bold text-[#007AFF] group-hover:translate-x-0.5 transition-transform duration-200">INSPECT HIGH-RES ⤢</span>
           </div>
         </div>
       </motion.section>
@@ -1359,19 +1422,17 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
       {/* SECTION 11: ITERATION & BUSINESS IMPACT */}
       <motion.section 
         id="sec-impact" 
-        className="space-y-8 scroll-mt-24"
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
+        className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-8 font-dm"
       >
-        <div className="flex items-center gap-2.5">
-          <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.4)]" />
-          <span className="text-[11px] font-mono font-extrabold tracking-widest uppercase px-4 py-1.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200/80 shadow-sm">
-            11 // ITERATION & BUSINESS IMPACT
-          </span>
+        <div className="flex items-center gap-2">
+          <span className="text-[11px] font-mono text-[#007AFF] uppercase tracking-widest">11 // ITERATION & BUSINESS IMPACT</span>
         </div>
-        <h2 className="text-[30px] sm:text-[38px] font-extrabold tracking-[-0.02em] text-slate-950 leading-[1.15]">Collaboration, Pivots & Proven Results</h2>
+        <h2 className="text-[30px] sm:text-[38px] font-normal text-slate-950 tracking-tight leading-tight font-fragment">
+          Collaboration, Pivots & Proven Results
+        </h2>
 
         <div className="space-y-4 text-slate-700">
           <p>
@@ -1435,19 +1496,21 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
         {/* Slide Image 11 */}
         <div 
           onClick={() => onZoomImage && onZoomImage('/assets/revlitix_slides/11.jpg', 'Fig 11.1 — Usability Pivots & Quantified Business Impact Scorecard')}
-          className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white my-6 ring-4 ring-slate-50/50 image-card-hover cursor-pointer group relative"
+          className="max-w-4xl mx-auto w-full cs-figure-frame bg-white my-6 cursor-pointer group relative"
         >
-          <div className="relative overflow-hidden">
-            <img src="/assets/revlitix_slides/11.jpg" alt="Revlitix Slide 11" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
-            <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-all duration-200 flex items-center justify-center pointer-events-none">
-              <span className="opacity-0 group-hover:opacity-100 bg-slate-900/90 text-white font-mono text-[11px] font-bold px-3 py-1.5 rounded-full shadow-lg transition-all duration-200 flex items-center gap-1.5 translate-y-2 group-hover:translate-y-0">
-                <span className="text-[13px]">🔍</span> Click to inspect high-res
-              </span>
+          <img 
+            src="/assets/revlitix_slides/11.jpg" 
+            alt="Fig 11.1 — Usability Pivots & Quantified Business Impact Scorecard" 
+            className="w-full h-auto object-contain block group-hover:scale-[1.012] transition-transform duration-300" 
+          />
+          <div className="px-5 py-3.5 bg-slate-50/90 backdrop-blur-md border-t border-slate-200/80 flex items-center justify-between text-[12.5px] font-mono text-slate-700">
+            <div className="flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#007AFF] shadow-[0_0_6px_rgba(0,122,255,0.4)]" />
+              <span className="font-bold text-slate-900">Fig 11.1</span>
+              <span className="text-slate-300">•</span>
+              <span className="font-medium text-slate-700">Usability Pivots & Quantified Business Impact Scorecard</span>
             </div>
-          </div>
-          <div className="p-3.5 bg-slate-50 border-t border-slate-200 text-center font-mono text-[12px] text-slate-600 font-bold flex items-center justify-between caption-shimmer transition-all duration-300">
-            <span>Fig 11.1 — Usability Pivots & Quantified Business Impact Scorecard</span>
-            <span className="text-[10px] text-[#4F46E5] font-mono font-bold opacity-80 group-hover:opacity-100">FULLSCREEN ⤢</span>
+            <span className="text-[11px] font-bold text-[#007AFF] group-hover:translate-x-0.5 transition-transform duration-200">INSPECT HIGH-RES ⤢</span>
           </div>
         </div>
       </motion.section>
@@ -1457,19 +1520,17 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
       {/* SECTION 12: RETROSPECTIVE & TAKEAWAY */}
       <motion.section 
         id="sec-lessons" 
-        className="space-y-8 scroll-mt-24"
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
+        className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-8 font-dm"
       >
-        <div className="flex items-center gap-2.5">
-          <span className="w-2.5 h-2.5 rounded-full bg-white shadow-[0_0_8px_rgba(255,255,255,0.6)]" />
-          <span className="text-[11px] font-mono font-extrabold tracking-widest uppercase px-4 py-1.5 rounded-full bg-slate-900 text-white shadow-sm border border-slate-700">
-            12 // RETROSPECTIVE
-          </span>
+        <div className="flex items-center gap-2">
+          <span className="text-[11px] font-mono text-[#007AFF] uppercase tracking-widest">12 // RETROSPECTIVE</span>
         </div>
-        <h2 className="text-[30px] sm:text-[38px] font-extrabold tracking-[-0.02em] text-slate-950 leading-[1.15]">What I'd Do Differently & Key Takeaway</h2>
+        <h2 className="text-[30px] sm:text-[38px] font-normal text-slate-950 tracking-tight leading-tight font-fragment">
+          What I'd Do Differently & Key Takeaway
+        </h2>
 
         <div className="space-y-4 text-slate-700">
           <p>
@@ -1485,20 +1546,799 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
         {/* Slide Image 12 */}
         <div 
           onClick={() => onZoomImage && onZoomImage('/assets/revlitix_slides/12.jpg', 'Fig 12.1 — Key Retrospective Takeaways & Interview Summary')}
-          className="rounded-[24px] overflow-hidden border border-slate-200/80 shadow-lg bg-white my-6 ring-4 ring-slate-50/50 image-card-hover cursor-pointer group relative"
+          className="max-w-4xl mx-auto w-full cs-figure-frame bg-white my-6 cursor-pointer group relative"
         >
-          <div className="relative overflow-hidden">
-            <img src="/assets/revlitix_slides/12.jpg" alt="Revlitix Slide 12" className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300" />
-            <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-all duration-200 flex items-center justify-center pointer-events-none">
-              <span className="opacity-0 group-hover:opacity-100 bg-slate-900/90 text-white font-mono text-[11px] font-bold px-3 py-1.5 rounded-full shadow-lg transition-all duration-200 flex items-center gap-1.5 translate-y-2 group-hover:translate-y-0">
-                <span className="text-[13px]">🔍</span> Click to inspect high-res
-              </span>
+          <img 
+            src="/assets/revlitix_slides/12.jpg" 
+            alt="Fig 12.1 — Key Retrospective Takeaways & Interview Summary" 
+            className="w-full h-auto object-contain block group-hover:scale-[1.012] transition-transform duration-300" 
+          />
+          <div className="px-5 py-3.5 bg-slate-50/90 backdrop-blur-md border-t border-slate-200/80 flex items-center justify-between text-[12.5px] font-mono text-slate-700">
+            <div className="flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#007AFF] shadow-[0_0_6px_rgba(0,122,255,0.4)]" />
+              <span className="font-bold text-slate-900">Fig 12.1</span>
+              <span className="text-slate-300">•</span>
+              <span className="font-medium text-slate-700">Key Retrospective Takeaways & Interview Summary</span>
+            </div>
+            <span className="text-[11px] font-bold text-[#007AFF] group-hover:translate-x-0.5 transition-transform duration-200">INSPECT HIGH-RES ⤢</span>
+          </div>
+        </div>
+      </motion.section>
+
+    </div>
+  );
+};
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   REVLITIX SONIC — COMPLETE 12-SECTION CASE STUDY COMPONENT
+   ═══════════════════════════════════════════════════════════════════════════════ */
+const SonicCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZoomImage }) => {
+  return (
+    <div className="space-y-16">
+
+      {/* SECTION 1: HERO */}
+      <motion.section 
+        id="sec-overview"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-10 relative overflow-hidden group hover:shadow-lg transition-all duration-300 font-dm"
+      >
+        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-5">
+          <span className="text-[11px] font-mono font-normal tracking-widest uppercase px-4 py-1.5 rounded-full bg-[#007AFF]/10 text-[#007AFF] border border-[#007AFF]/20">
+            {selectedProject.category}
+          </span>
+          <div className="flex items-center gap-2.5">
+            <span className="w-2.5 h-2.5 rounded-full animate-pulse bg-emerald-500" />
+            <span className="text-[12px] font-mono font-normal text-slate-700">{selectedProject.status} · {selectedProject.latency}</span>
+          </div>
+        </div>
+
+        <div className="space-y-4">
+          <h1 className="text-[40px] sm:text-[60px] font-normal tracking-[-0.04em] leading-[1.05] text-slate-950 font-fragment">
+            {selectedProject.title}
+          </h1>
+          <p className="text-[20px] sm:text-[24px] font-normal text-[#007AFF] leading-snug font-fragment">
+            {selectedProject.subtitle}
+          </p>
+          <p className="text-[16px] text-slate-600 leading-relaxed font-normal max-w-4xl font-dm">
+            {selectedProject.desc}
+          </p>
+        </div>
+
+        {/* 4-Column Metadata Grid */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 p-5 rounded-2xl bg-slate-50 border border-slate-200/60 text-[13px] font-dm">
+          <div>
+            <span className="block text-[10px] font-mono uppercase text-slate-400 font-normal">Role</span>
+            <span className="font-normal text-slate-900">{selectedProject.role}</span>
+          </div>
+          <div>
+            <span className="block text-[10px] font-mono uppercase text-slate-400 font-normal">Team</span>
+            <span className="font-normal text-slate-900">{selectedProject.team}</span>
+          </div>
+          <div>
+            <span className="block text-[10px] font-mono uppercase text-slate-400 font-normal">Duration</span>
+            <span className="font-normal text-slate-900">{selectedProject.duration}</span>
+          </div>
+          <div>
+            <span className="block text-[10px] font-mono uppercase text-slate-400 font-normal">Platform</span>
+            <span className="font-normal text-slate-900">{selectedProject.platforms}</span>
+          </div>
+        </div>
+
+        {/* Video Player Container — Section 01 Main Video Showcase */}
+        <div className="relative rounded-2xl overflow-hidden border border-slate-200/90 shadow-apple-lg bg-slate-950 transition-all duration-350 hover:shadow-blue-500/10 my-4">
+          <CaseStudyVideoPlayer 
+            videoUrl="/assets/Sonic.mp4" 
+            poster="/assets/sonic_listing_thumbnail.jpg"
+            title="REVLITIX SONIC — Conversational AI Layer Overview" 
+            subtitle="Ask a question. Confirm what it means. Trust the answer." 
+          />
+        </div>
+
+        {/* Hero Interactive Preview Mockup (MacBook style with confirmation step) */}
+        <div className="cs-figure-frame rounded-2xl overflow-hidden border border-slate-200/90 bg-slate-950 p-6 sm:p-8 space-y-6 text-white relative font-dm">
+          <div className="flex items-center justify-between border-b border-white/10 pb-4">
+            <div className="flex items-center gap-2">
+              <span className="w-3 h-3 rounded-full bg-red-500/80" />
+              <span className="w-3 h-3 rounded-full bg-yellow-500/80" />
+              <span className="w-3 h-3 rounded-full bg-green-500/80" />
+              <span className="text-[12px] font-mono text-slate-400 ml-2">Sonic Conversational Layer — Live Query Execution</span>
+            </div>
+            <div className="flex items-center gap-2 bg-white/10 px-3 py-1 rounded-full text-[11px] font-mono text-slate-300">
+              <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
+              Region: APAC (Filter Carried)
             </div>
           </div>
-          <div className="p-3.5 bg-slate-50 border-t border-slate-200 text-center font-mono text-[12px] text-slate-600 font-bold flex items-center justify-between caption-shimmer transition-all duration-300">
-            <span>Fig 12.1 — Key Retrospective Takeaways & Interview Summary</span>
-            <span className="text-[10px] text-[#4F46E5] font-mono font-bold opacity-80 group-hover:opacity-100">FULLSCREEN ⤢</span>
+
+          <div className="space-y-4">
+            {/* Input message bubble */}
+            <div className="flex justify-end">
+              <div className="bg-[#007AFF] text-white px-5 py-3 rounded-2xl text-[14.5px] max-w-md font-normal shadow-sm">
+                Show me lead sources by campaign this quarter
+              </div>
+            </div>
+
+            {/* Confirmation step card */}
+            <div className="bg-white/10 backdrop-blur-xl border border-white/20 p-5 rounded-2xl space-y-3 max-w-xl text-left">
+              <div className="flex items-center justify-between text-[11px] font-mono text-blue-300">
+                <span>CONFIRMATION CHECKPOINT</span>
+                <span className="cursor-pointer hover:underline text-white/80">Edit Query ✎</span>
+              </div>
+              <p className="text-[14px] text-slate-100 font-normal">
+                Showing lead sources, grouped by campaign for <span className="text-blue-300 font-normal">Q3 2026</span> with global filter <span className="text-emerald-400 font-normal">Region: APAC</span>.
+              </p>
+              <div className="flex items-center gap-3 pt-1">
+                <button className="bg-[#007AFF] text-white text-[12px] px-4 py-1.5 rounded-lg font-normal hover:bg-[#0066CC] transition-colors">
+                  Looks right →
+                </button>
+                <span className="text-[11px] text-slate-400 font-mono">Verifying interpretation before rendering data</span>
+              </div>
+            </div>
           </div>
+        </div>
+
+        {/* Key Metrics Table */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="p-6 rounded-2xl bg-blue-50/60 border border-blue-100 flex items-center justify-between">
+            <div>
+              <span className="text-[28px] sm:text-[36px] font-normal text-[#007AFF] block font-fragment">~2× faster</span>
+              <span className="text-[12px] font-mono text-slate-600 uppercase tracking-wider">Faster Access to Decision-Ready Answer</span>
+            </div>
+            <span className="text-[11px] text-slate-400 font-mono">vs. filter navigation</span>
+          </div>
+          <div className="p-6 rounded-2xl bg-emerald-50/60 border border-emerald-100 flex items-center justify-between">
+            <div>
+              <span className="text-[28px] sm:text-[36px] font-normal text-emerald-600 block font-fragment">Under 5% → ~20%</span>
+              <span className="text-[12px] font-mono text-slate-600 uppercase tracking-wider">Weekly AI Feature Engagement</span>
+            </div>
+            <span className="text-[11px] text-slate-400 font-mono">Real adoption</span>
+          </div>
+        </div>
+
+
+      </motion.section>
+
+      {/* SECTION 2: EXECUTIVE SUMMARY & CONTEXT */}
+      <motion.section 
+        id="sec-problem"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-8 font-dm"
+      >
+        <div className="flex items-center gap-2">
+          <span className="text-[11px] font-mono text-[#007AFF] uppercase tracking-widest">02 // EXECUTIVE SUMMARY & CONTEXT</span>
+        </div>
+        
+        <div className="bg-gradient-to-r from-blue-50/80 via-indigo-50/40 to-white p-6 sm:p-8 rounded-2xl border border-blue-200/70 text-[17px] leading-relaxed text-slate-900 font-normal italic font-fragment">
+          "{selectedProject.pullQuote}"
+        </div>
+
+        <div className="space-y-4 text-[15.5px] text-slate-600 leading-relaxed font-normal font-dm">
+          <p>
+            Revlitix unifies GTM data from 50+ tools into one platform. As the dataset and the number of ways to slice it grew, adding more filters and tabs stopped scaling — getting a specific answer meant navigating dropdowns, applying filters, and knowing which of roughly 40 metrics to select.
+          </p>
+          <p>
+            Natural-language input could remove that friction, but early prototypes surfaced a new problem: users didn't trust an AI-generated answer they couldn't verify. A CMO asking "which lead sources are underperforming" needed to know Sonic hadn't silently misread "underperforming" as "declining" instead of "below quota."
+          </p>
+          <p>
+            We designed Sonic around three decisions: a <strong className="font-normal text-slate-950">chat-first information architecture</strong>, a <strong className="font-normal text-slate-950">confirm-before-commit pattern</strong>, and <strong className="font-normal text-slate-950">global filter consistency</strong>. Together, these meaningfully cut the number of steps to an answer and drove real adoption of the AI feature.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-slate-100">
+          <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/60">
+            <span className="text-[24px] font-normal text-slate-950 block font-fragment">↓ ~25–30%</span>
+            <span className="text-[11px] font-mono text-slate-500 uppercase tracking-wider">Navigation-Related Support Tickets</span>
+          </div>
+          <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/60">
+            <span className="text-[24px] font-normal text-slate-950 block font-fragment">~2.9 → ~3.8 / 5</span>
+            <span className="text-[11px] font-mono text-slate-500 uppercase tracking-wider">User Confidence Rating Lift</span>
+          </div>
+        </div>
+
+        {/* Slide Figure 2 */}
+        <div 
+          onClick={() => onZoomImage && onZoomImage('/assets/sonic_slides/2.jpg', 'Fig 2.1 — Executive Summary & Query Confirmation Architecture')}
+          className="max-w-4xl mx-auto w-full cs-figure-frame bg-white my-6 cursor-pointer group relative"
+        >
+          <img 
+            src="/assets/sonic_slides/2.jpg" 
+            alt="Fig 2.1 — Sonic Executive Summary" 
+            className="w-full h-auto object-contain group-hover:scale-[1.012] transition-transform duration-300" 
+          />
+          <div className="px-5 py-3.5 bg-slate-50/90 backdrop-blur-md border-t border-slate-200/80 flex items-center justify-between text-[12.5px] font-mono text-slate-700">
+            <div className="flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#007AFF] shadow-[0_0_6px_rgba(0,122,255,0.4)]" />
+              <span className="font-bold text-slate-900">Fig 2.1</span>
+              <span className="text-slate-300">•</span>
+              <span className="font-medium text-slate-700">Executive Summary & Query Confirmation Architecture</span>
+            </div>
+            <span className="text-[11px] font-bold text-[#007AFF] group-hover:translate-x-0.5 transition-transform duration-200">INSPECT HIGH-RES ⤢</span>
+          </div>
+        </div>
+      </motion.section>
+
+      {/* SECTION 3: THE CHALLENGE (The "Before" State) */}
+      <motion.section 
+        id="sec-research"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="bg-slate-950 text-white border border-slate-800 rounded-3xl p-8 sm:p-12 shadow-xl space-y-8 font-dm relative overflow-hidden"
+      >
+        <div className="flex items-center gap-2">
+          <span className="text-[11px] font-mono text-blue-400 uppercase tracking-widest">03 // THE CHALLENGE (THE "BEFORE" STATE)</span>
+        </div>
+        <h2 className="text-[30px] sm:text-[38px] font-normal text-white tracking-tight leading-tight font-fragment">
+          The filter bar was a bottleneck — and skipping it created a new one.
+        </h2>
+        <p className="text-[15.5px] text-slate-300 leading-relaxed max-w-4xl font-normal font-dm">
+          To answer "which campaigns drove pipeline last month," users needed schema knowledge — where the data lived, which of ~40 metrics applied, which date-range control to use. Early attempts to bypass this with a plain chat box created a worse problem: users had no way to tell whether the AI read "last month" as calendar month vs trailing 30 days, or whether it quietly ignored active filters.
+        </p>
+
+        {/* Annotations Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
+          <div className="p-5 rounded-2xl bg-white/5 border border-white/10 space-y-2">
+            <span className="text-[11px] font-mono text-red-400 block font-normal">ANNOTATION 01</span>
+            <h4 className="text-[16px] font-normal text-white font-fragment">30-Option Dropdowns</h4>
+            <p className="text-[13px] text-slate-400 font-dm">Required deep schema knowledge to locate the correct target tables.</p>
+          </div>
+          <div className="p-5 rounded-2xl bg-white/5 border border-white/10 space-y-2">
+            <span className="text-[11px] font-mono text-amber-400 block font-normal">ANNOTATION 02</span>
+            <h4 className="text-[16px] font-normal text-white font-fragment">"Apply" Render Delays</h4>
+            <p className="text-[13px] text-slate-400 font-dm">High friction and long wait times for rendering every minor filter change.</p>
+          </div>
+          <div className="p-5 rounded-2xl bg-white/5 border border-white/10 space-y-2">
+            <span className="text-[11px] font-mono text-[#007AFF] block font-normal">ANNOTATION 03</span>
+            <h4 className="text-[16px] font-normal text-white font-fragment">Context Reset</h4>
+            <p className="text-[13px] text-slate-400 font-dm">Previously set region filters greyed out and lost between screens.</p>
+          </div>
+        </div>
+
+        {/* Slide Figure 3 */}
+        <div 
+          onClick={() => onZoomImage && onZoomImage('/assets/sonic_slides/3.jpg', 'Fig 3.1 — Schema Bottlenecks & Filter Bar Friction')}
+          className="max-w-4xl mx-auto w-full cs-figure-frame bg-slate-900 my-6 cursor-pointer group relative border border-white/10"
+        >
+          <img 
+            src="/assets/sonic_slides/3.jpg" 
+            alt="Fig 3.1 — Sonic Filter Bar Challenge" 
+            className="w-full h-auto object-contain group-hover:scale-[1.012] transition-transform duration-300" 
+          />
+          <div className="px-5 py-3.5 bg-slate-950/90 backdrop-blur-md border-t border-white/10 flex items-center justify-between text-[12.5px] font-mono text-slate-300">
+            <div className="flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-blue-400 shadow-[0_0_6px_rgba(96,165,250,0.4)]" />
+              <span className="font-bold text-white">Fig 3.1</span>
+              <span className="text-slate-600">•</span>
+              <span className="font-medium text-slate-300">Schema Bottlenecks & Filter Bar Friction</span>
+            </div>
+            <span className="text-[11px] font-bold text-blue-400 group-hover:translate-x-0.5 transition-transform duration-200">INSPECT HIGH-RES ⤢</span>
+          </div>
+        </div>
+      </motion.section>
+
+      {/* SECTION 4: RESEARCH (The Evidence Wall) */}
+      <motion.section 
+        id="sec-insights"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-8 font-dm"
+      >
+        <div className="flex items-center gap-2">
+          <span className="text-[11px] font-mono text-[#007AFF] uppercase tracking-widest">04 // RESEARCH (THE EVIDENCE WALL)</span>
+        </div>
+        <h2 className="text-[30px] sm:text-[38px] font-normal text-slate-950 tracking-tight leading-tight font-fragment">
+          What we heard during contextual inquiry
+        </h2>
+        
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <div className="lg:col-span-5 space-y-4">
+            <div className="bg-amber-50 border border-amber-200/80 p-6 rounded-2xl text-amber-950 font-normal italic font-fragment">
+              "I don't know if that's actually what I asked for."
+            </div>
+            <p className="text-[14.5px] text-slate-600 leading-relaxed font-normal font-dm">
+              Structured contextual inquiry across ~8 sessions with existing customers, paired with usability testing on early chat prototypes, revealed users typed questions but refused to act on unverified AI answers.
+            </p>
+          </div>
+
+          <div className="lg:col-span-7 bg-slate-50 border border-slate-200/60 p-6 rounded-2xl space-y-4">
+            <span className="text-[11px] font-mono uppercase text-slate-400 block font-normal">// EVIDENCE OBSERVATIONS</span>
+            <div className="space-y-3">
+              <div className="bg-white p-4 rounded-xl border border-slate-200/70 text-[13.5px] text-slate-700">
+                <strong className="text-slate-950 font-normal">Pattern 1:</strong> Users got an AI chart but immediately manually re-checked raw database tables to verify if "underperforming" matched company quota metrics.
+              </div>
+              <div className="bg-white p-4 rounded-xl border border-slate-200/70 text-[13.5px] text-slate-700">
+                <strong className="text-slate-950 font-normal">Pattern 2:</strong> Users who set a regional filter on the main dashboard assumed Sonic carried that filter forward, causing silent misread errors when context reset.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Slide Figure 4 */}
+        <div 
+          onClick={() => onZoomImage && onZoomImage('/assets/sonic_slides/4.jpg', 'Fig 4.1 — Contextual Inquiry Observations & Trust Deficit Findings')}
+          className="max-w-4xl mx-auto w-full cs-figure-frame bg-white my-6 cursor-pointer group relative"
+        >
+          <img 
+            src="/assets/sonic_slides/4.jpg" 
+            alt="Fig 4.1 — Sonic Research Evidence" 
+            className="w-full h-auto object-contain group-hover:scale-[1.012] transition-transform duration-300" 
+          />
+          <div className="px-5 py-3.5 bg-slate-50/90 backdrop-blur-md border-t border-slate-200/80 flex items-center justify-between text-[12.5px] font-mono text-slate-700">
+            <div className="flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#007AFF] shadow-[0_0_6px_rgba(0,122,255,0.4)]" />
+              <span className="font-bold text-slate-900">Fig 4.1</span>
+              <span className="text-slate-300">•</span>
+              <span className="font-medium text-slate-700">Contextual Inquiry Observations & Trust Deficit Findings</span>
+            </div>
+            <span className="text-[11px] font-bold text-[#007AFF] group-hover:translate-x-0.5 transition-transform duration-200">INSPECT HIGH-RES ⤢</span>
+          </div>
+        </div>
+      </motion.section>
+
+      {/* SECTION 5: INSIGHTS (The Reframes) */}
+      <motion.section 
+        id="sec-hmw"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-8 font-dm"
+      >
+        <div className="flex items-center gap-2">
+          <span className="text-[11px] font-mono text-[#007AFF] uppercase tracking-widest">05 // INSIGHTS (THE REFRAMES)</span>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200/70 space-y-3">
+            <span className="text-[12px] font-mono text-[#007AFF] block font-normal">INSIGHT 01</span>
+            <h4 className="text-[17px] font-normal text-slate-950 font-fragment">Natural language solves typing, not understanding.</h4>
+            <p className="text-[13.5px] text-slate-600 leading-relaxed font-dm">Speech input simplifies entry, but comprehension requires an explicit verification step before execution.</p>
+          </div>
+          <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200/70 space-y-3">
+            <span className="text-[12px] font-mono text-[#007AFF] block font-normal">INSIGHT 02</span>
+            <h4 className="text-[17px] font-normal text-slate-950 font-fragment">Unseen interpretation is a black box.</h4>
+            <p className="text-[13.5px] text-slate-600 leading-relaxed font-dm">Sealed answers create user anxiety. A plain-language editable restatement opens the box for user trust.</p>
+          </div>
+          <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200/70 space-y-3">
+            <span className="text-[12px] font-mono text-[#007AFF] block font-normal">INSIGHT 03</span>
+            <h4 className="text-[17px] font-normal text-slate-950 font-fragment">Filter state is part of the question.</h4>
+            <p className="text-[13.5px] text-slate-600 leading-relaxed font-dm">Filters set elsewhere on the dashboard must travel attached to the conversation rather than resetting.</p>
+          </div>
+        </div>
+
+        {/* Slide Figure 5 */}
+        <div 
+          onClick={() => onZoomImage && onZoomImage('/assets/sonic_slides/5.jpg', 'Fig 5.1 — Core Strategic Reframes & Filter State Persistence')}
+          className="max-w-4xl mx-auto w-full cs-figure-frame bg-white my-6 cursor-pointer group relative"
+        >
+          <img 
+            src="/assets/sonic_slides/5.jpg" 
+            alt="Fig 5.1 — Sonic Insights Reframe" 
+            className="w-full h-auto object-contain group-hover:scale-[1.012] transition-transform duration-300" 
+          />
+          <div className="px-5 py-3.5 bg-slate-50/90 backdrop-blur-md border-t border-slate-200/80 flex items-center justify-between text-[12.5px] font-mono text-slate-700">
+            <div className="flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#007AFF] shadow-[0_0_6px_rgba(0,122,255,0.4)]" />
+              <span className="font-bold text-slate-900">Fig 5.1</span>
+              <span className="text-slate-300">•</span>
+              <span className="font-medium text-slate-700">Core Strategic Reframes & Filter State Persistence</span>
+            </div>
+            <span className="text-[11px] font-bold text-[#007AFF] group-hover:translate-x-0.5 transition-transform duration-200">INSPECT HIGH-RES ⤢</span>
+          </div>
+        </div>
+      </motion.section>
+
+      {/* SECTION 6: PRIORITIZATION (How Might We) */}
+      <motion.section 
+        id="sec-principles"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-8 font-dm"
+      >
+        <div className="flex items-center gap-2">
+          <span className="text-[11px] font-mono text-[#007AFF] uppercase tracking-widest">06 // PRIORITIZATION (HOW MIGHT WE)</span>
+        </div>
+        
+        {/* 2D Scatter Matrix */}
+        <div className="bg-slate-50 border border-slate-200/80 p-6 sm:p-8 rounded-2xl space-y-6">
+          <div className="flex items-center justify-between border-b border-slate-200/60 pb-4">
+            <span className="text-[13px] font-mono text-slate-700 font-normal">2D Scatter Matrix: Feasibility vs. Impact on Trust & Adoption</span>
+            <span className="text-[11px] font-mono text-slate-400">3 Committed HMWs</span>
+          </div>
+
+          <div className="space-y-4 font-dm">
+            <div className="p-4 rounded-xl bg-emerald-50/70 border border-emerald-200 text-[14px] text-emerald-950">
+              <strong className="font-normal text-emerald-800">Committed 1:</strong> How might we let users see and correct the AI's interpretation before it runs? → Confirm-before-commit pattern.
+            </div>
+            <div className="p-4 rounded-xl bg-blue-50/70 border border-blue-200 text-[14px] text-blue-950">
+              <strong className="font-normal text-blue-800">Committed 2:</strong> How might we carry a user's existing filter context into the conversation automatically? → Global filter consistency.
+            </div>
+            <div className="p-4 rounded-xl bg-indigo-50/70 border border-indigo-200 text-[14px] text-indigo-950">
+              <strong className="font-normal text-indigo-800">Committed 3:</strong> How might we make the conversation itself the primary surface, not a widget? → Chat-first IA.
+            </div>
+            <div className="p-4 rounded-xl bg-slate-100 border border-slate-200 text-[13.5px] text-slate-500 line-through">
+              Deprioritized: Fully autonomous "just trust the AI" mode with no confirmation step — rejected directly by research.
+            </div>
+          </div>
+        </div>
+
+        {/* Slide Figure 6 */}
+        <div 
+          onClick={() => onZoomImage && onZoomImage('/assets/sonic_slides/6.jpg', 'Fig 6.1 — 2D Feasibility vs. Impact Prioritization Matrix')}
+          className="max-w-4xl mx-auto w-full cs-figure-frame bg-white my-6 cursor-pointer group relative"
+        >
+          <img 
+            src="/assets/sonic_slides/6.jpg" 
+            alt="Fig 6.1 — Sonic Prioritization Matrix" 
+            className="w-full h-auto object-contain group-hover:scale-[1.012] transition-transform duration-300" 
+          />
+          <div className="px-5 py-3.5 bg-slate-50/90 backdrop-blur-md border-t border-slate-200/80 flex items-center justify-between text-[12.5px] font-mono text-slate-700">
+            <div className="flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#007AFF] shadow-[0_0_6px_rgba(0,122,255,0.4)]" />
+              <span className="font-bold text-slate-900">Fig 6.1</span>
+              <span className="text-slate-300">•</span>
+              <span className="font-medium text-slate-700">2D Feasibility vs. Impact Prioritization Matrix</span>
+            </div>
+            <span className="text-[11px] font-bold text-[#007AFF] group-hover:translate-x-0.5 transition-transform duration-200">INSPECT HIGH-RES ⤢</span>
+          </div>
+        </div>
+      </motion.section>
+
+      {/* SECTION 7: DESIGN PRINCIPLES (The Guardrails) */}
+      <motion.section 
+        id="sec-architecture"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-8 font-dm"
+      >
+        <div className="flex items-center gap-2">
+          <span className="text-[11px] font-mono text-[#007AFF] uppercase tracking-widest">07 // DESIGN PRINCIPLES (THE GUARDRAILS)</span>
+        </div>
+        
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 font-dm">
+          <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200/70 space-y-2">
+            <h4 className="text-[16px] font-normal text-slate-950 font-fragment">1. Confirm, then commit.</h4>
+            <p className="text-[13.5px] text-slate-600 leading-relaxed font-dm">No query executes against real data until the user has seen — and can edit — the system's plain-language interpretation.</p>
+          </div>
+          <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200/70 space-y-2">
+            <h4 className="text-[16px] font-normal text-slate-950 font-fragment">2. Context travels with the user.</h4>
+            <p className="text-[13.5px] text-slate-600 leading-relaxed font-dm">Any filter already active elsewhere in the product is visibly present and applied inside the conversation.</p>
+          </div>
+          <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200/70 space-y-2">
+            <h4 className="text-[16px] font-normal text-slate-950 font-fragment">3. Chat is the surface, not a feature.</h4>
+            <p className="text-[13.5px] text-slate-600 leading-relaxed font-dm">The conversation carries the same weight as the dashboard, not a secondary panel bolted onto it.</p>
+          </div>
+          <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200/70 space-y-2">
+            <h4 className="text-[16px] font-normal text-slate-950 font-fragment">4. Show your filters, not just your answer.</h4>
+            <p className="text-[13.5px] text-slate-600 leading-relaxed font-dm">Every rendered result displays which filters and date range it actually used, so trust doesn't depend on memory.</p>
+          </div>
+        </div>
+
+        {/* Slide Figure 7 */}
+        <div 
+          onClick={() => onZoomImage && onZoomImage('/assets/sonic_slides/7.jpg', 'Fig 7.1 — Sonic Design Principles & Confirmation System Rules')}
+          className="max-w-4xl mx-auto w-full cs-figure-frame bg-white my-6 cursor-pointer group relative"
+        >
+          <img 
+            src="/assets/sonic_slides/7.jpg" 
+            alt="Fig 7.1 — Sonic Design Principles" 
+            className="w-full h-auto object-contain group-hover:scale-[1.012] transition-transform duration-300" 
+          />
+          <div className="px-5 py-3.5 bg-slate-50/90 backdrop-blur-md border-t border-slate-200/80 flex items-center justify-between text-[12.5px] font-mono text-slate-700">
+            <div className="flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#007AFF] shadow-[0_0_6px_rgba(0,122,255,0.4)]" />
+              <span className="font-bold text-slate-900">Fig 7.1</span>
+              <span className="text-slate-300">•</span>
+              <span className="font-medium text-slate-700">Sonic Design Principles & Confirmation System Rules</span>
+            </div>
+            <span className="text-[11px] font-bold text-[#007AFF] group-hover:translate-x-0.5 transition-transform duration-200">INSPECT HIGH-RES ⤢</span>
+          </div>
+        </div>
+      </motion.section>
+
+      {/* SECTION 8: PROCESS (IA, Flows, Wireframes) */}
+      <motion.section 
+        id="sec-wireframes"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-8 font-dm"
+      >
+        <div className="flex items-center gap-2">
+          <span className="text-[11px] font-mono text-[#007AFF] uppercase tracking-widest">08 // PROCESS (IA, FLOWS, WIREFRAMES)</span>
+        </div>
+        
+        <div className="space-y-4 text-[15px] text-slate-600 leading-relaxed font-dm">
+          <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/70 space-y-1">
+            <span className="text-[11px] font-mono text-red-500 uppercase font-normal">Iteration 01 — Direct Answer (No Confirmation)</span>
+            <p className="text-slate-800">AI answered immediately. Testing showed users lacked trust and refused to act on unverified results.</p>
+          </div>
+          <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/70 space-y-1">
+            <span className="text-[11px] font-mono text-amber-500 uppercase font-normal">Iteration 02 — Confirmation Modal Popup</span>
+            <p className="text-slate-800">Pop-up confirmation broke conversational flow and added a click users resented.</p>
+          </div>
+          <div className="p-5 rounded-2xl bg-blue-50/70 border border-blue-200 space-y-1">
+            <span className="text-[11px] font-mono text-[#007AFF] uppercase font-normal">Final Iteration — Inline Editable Restatement (Approved)</span>
+            <p className="text-slate-950 font-normal">Inline card restates the query in plain language with independently editable clauses before chart execution.</p>
+          </div>
+        </div>
+
+        {/* Slide Figure 8 */}
+        <div 
+          onClick={() => onZoomImage && onZoomImage('/assets/sonic_slides/8.jpg', 'Fig 8.1 — Information Architecture & Inline Restatement Iterations')}
+          className="max-w-4xl mx-auto w-full cs-figure-frame bg-white my-6 cursor-pointer group relative"
+        >
+          <img 
+            src="/assets/sonic_slides/8.jpg" 
+            alt="Fig 8.1 — Sonic Process & Flows" 
+            className="w-full h-auto object-contain group-hover:scale-[1.012] transition-transform duration-300" 
+          />
+          <div className="px-5 py-3.5 bg-slate-50/90 backdrop-blur-md border-t border-slate-200/80 flex items-center justify-between text-[12.5px] font-mono text-slate-700">
+            <div className="flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#007AFF] shadow-[0_0_6px_rgba(0,122,255,0.4)]" />
+              <span className="font-bold text-slate-900">Fig 8.1</span>
+              <span className="text-slate-300">•</span>
+              <span className="font-medium text-slate-700">Information Architecture & Inline Restatement Iterations</span>
+            </div>
+            <span className="text-[11px] font-bold text-[#007AFF] group-hover:translate-x-0.5 transition-transform duration-200">INSPECT HIGH-RES ⤢</span>
+          </div>
+        </div>
+      </motion.section>
+
+      {/* SECTION 9: HIGH-FIDELITY DESIGN (4 Views) */}
+      <motion.section 
+        id="sec-design-system"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-10 font-dm"
+      >
+        <div className="flex items-center gap-2">
+          <span className="text-[11px] font-mono text-[#007AFF] uppercase tracking-widest">09 // HIGH-FIDELITY DESIGN (4 VIEWS)</span>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 font-dm">
+          <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200/70 space-y-3 cursor-pointer group" onClick={() => onZoomImage && onZoomImage('/assets/sonic_slides/1.jpg', 'Fig 1.1 — Sonic Conversational Input & Persistent Filter Context')}>
+            <div className="cs-figure-frame mb-3 overflow-hidden rounded-xl border border-slate-200">
+              <img src="/assets/sonic_slides/1.jpg" alt="Sonic Input View" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500" />
+            </div>
+            <span className="text-[11px] font-mono text-[#007AFF] uppercase">VIEW 1 — CONVERSATIONAL INPUT</span>
+            <h4 className="text-[18px] font-normal text-slate-950 font-fragment">Pill Input & Persistent Context</h4>
+            <p className="text-[13.5px] text-slate-600 leading-relaxed font-dm">Carrying active region filters into the input bar eliminated "is this filtered right?" confusion.</p>
+          </div>
+
+          <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200/70 space-y-3 cursor-pointer group" onClick={() => onZoomImage && onZoomImage('/assets/sonic_slides/2.jpg', 'Fig 2.1 — Inline Plain-Language Confirmation Checkpoint')}>
+            <div className="cs-figure-frame mb-3 overflow-hidden rounded-xl border border-slate-200">
+              <img src="/assets/sonic_slides/2.jpg" alt="Sonic Confirmation View" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500" />
+            </div>
+            <span className="text-[11px] font-mono text-[#007AFF] uppercase">VIEW 2 — CONFIRMATION STEP</span>
+            <h4 className="text-[18px] font-normal text-slate-950 font-fragment">Inline Plain-Language Checkpoint</h4>
+            <p className="text-[13.5px] text-slate-600 leading-relaxed font-dm">Each clause is independently editable with a single "Looks right" action before running.</p>
+          </div>
+
+          <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200/70 space-y-3 cursor-pointer group" onClick={() => onZoomImage && onZoomImage('/assets/sonic_slides/3.jpg', 'Fig 3.1 — Full Viewport Visualization & Chart Engine')}>
+            <div className="cs-figure-frame mb-3 overflow-hidden rounded-xl border border-slate-200">
+              <img src="/assets/sonic_slides/3.jpg" alt="Sonic Inline Visualization" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500" />
+            </div>
+            <span className="text-[11px] font-mono text-[#007AFF] uppercase">VIEW 3 — INLINE VISUALIZATION</span>
+            <h4 className="text-[18px] font-normal text-slate-950 font-fragment">Full Viewport Chat Bubble</h4>
+            <p className="text-[13.5px] text-slate-600 leading-relaxed font-dm">Chat bubble expands to full viewport width containing styled interactive tables and charts.</p>
+          </div>
+
+          <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200/70 space-y-3 cursor-pointer group" onClick={() => onZoomImage && onZoomImage('/assets/sonic_slides/4.jpg', 'Fig 4.1 — Sonic Atomic Component Design Tokens')}>
+            <div className="cs-figure-frame mb-3 overflow-hidden rounded-xl border border-slate-200">
+              <img src="/assets/sonic_slides/4.jpg" alt="Sonic Component System" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500" />
+            </div>
+            <span className="text-[11px] font-mono text-[#007AFF] uppercase">VIEW 4 — COMPONENT SYSTEM</span>
+            <h4 className="text-[18px] font-normal text-slate-950 font-fragment">70–75% Component Reuse</h4>
+            <p className="text-[13.5px] text-slate-600 leading-relaxed font-dm">Atomic tokens (ChatBubble, ConfirmationCard, FilterPill, InlineChart, SuggestionChip).</p>
+          </div>
+        </div>
+
+        {/* Slide Figure 9 */}
+        <div 
+          onClick={() => onZoomImage && onZoomImage('/assets/sonic_slides/9.jpg', 'Fig 9.1 — High-Fidelity Conversational Surface & Component System')}
+          className="max-w-4xl mx-auto w-full cs-figure-frame bg-white my-6 cursor-pointer group relative"
+        >
+          <img 
+            src="/assets/sonic_slides/9.jpg" 
+            alt="Fig 9.1 — Sonic High-Fidelity Design" 
+            className="w-full h-auto object-contain group-hover:scale-[1.012] transition-transform duration-300" 
+          />
+          <div className="px-5 py-3.5 bg-slate-50/90 backdrop-blur-md border-t border-slate-200/80 flex items-center justify-between text-[12.5px] font-mono text-slate-700">
+            <div className="flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#007AFF] shadow-[0_0_6px_rgba(0,122,255,0.4)]" />
+              <span className="font-bold text-slate-900">Fig 9.1</span>
+              <span className="text-slate-300">•</span>
+              <span className="font-medium text-slate-700">High-Fidelity Conversational Surface & Component System</span>
+            </div>
+            <span className="text-[11px] font-bold text-[#007AFF] group-hover:translate-x-0.5 transition-transform duration-200">INSPECT HIGH-RES ⤢</span>
+          </div>
+        </div>
+      </motion.section>
+
+      {/* SECTION 10: POLISH, EDGE CASES & ACCESSIBILITY */}
+      <motion.section 
+        id="sec-edge-cases"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-8 font-dm"
+      >
+        <div className="flex items-center gap-2">
+          <span className="text-[11px] font-mono text-[#007AFF] uppercase tracking-widest">10 // POLISH, EDGE CASES & ACCESSIBILITY</span>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 font-dm">
+          <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/70 space-y-2">
+            <h4 className="text-[15px] font-normal text-slate-950 font-fragment">Micro-Interactions</h4>
+            <p className="text-[13px] text-slate-600 font-dm">Confirmation card resolves into charts with real-time preview updates when clauses are edited.</p>
+          </div>
+          <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/70 space-y-2">
+            <h4 className="text-[15px] font-normal text-slate-950 font-fragment">Edge Case Conflicts</h4>
+            <p className="text-[13px] text-slate-600 font-dm">Ambiguous queries prompt clarifying questions; EMEA vs APAC filter conflicts surface directly.</p>
+          </div>
+          <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/70 space-y-2">
+            <h4 className="text-[15px] font-normal text-slate-950 font-fragment">WCAG AA Accessibility</h4>
+            <p className="text-[13px] text-slate-600 font-dm">Full keyboard navigation (Tab/Enter/Arrow keys) with visible focus rings meeting WCAG AA contrast.</p>
+          </div>
+        </div>
+
+        {/* Slide Figure 10 */}
+        <div 
+          onClick={() => onZoomImage && onZoomImage('/assets/sonic_slides/10.jpg', 'Fig 10.1 — Micro-Interactions, Edge Case Conflict Handling & WCAG AA Audit')}
+          className="max-w-4xl mx-auto w-full cs-figure-frame bg-white my-6 cursor-pointer group relative"
+        >
+          <img 
+            src="/assets/sonic_slides/10.jpg" 
+            alt="Fig 10.1 — Sonic Edge Cases & Accessibility" 
+            className="w-full h-auto object-contain group-hover:scale-[1.012] transition-transform duration-300" 
+          />
+          <div className="px-5 py-3.5 bg-slate-50/90 backdrop-blur-md border-t border-slate-200/80 flex items-center justify-between text-[12.5px] font-mono text-slate-700">
+            <div className="flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#007AFF] shadow-[0_0_6px_rgba(0,122,255,0.4)]" />
+              <span className="font-bold text-slate-900">Fig 10.1</span>
+              <span className="text-slate-300">•</span>
+              <span className="font-medium text-slate-700">Micro-Interactions, Edge Case Conflict Handling & WCAG AA Audit</span>
+            </div>
+            <span className="text-[11px] font-bold text-[#007AFF] group-hover:translate-x-0.5 transition-transform duration-200">INSPECT HIGH-RES ⤢</span>
+          </div>
+        </div>
+      </motion.section>
+
+      {/* SECTION 11: COLLABORATION & ITERATION */}
+      <motion.section 
+        id="sec-collaboration"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-8 font-dm"
+      >
+        <div className="flex items-center gap-2">
+          <span className="text-[11px] font-mono text-[#007AFF] uppercase tracking-widest">11 // COLLABORATION & ITERATION</span>
+        </div>
+        
+        <div className="space-y-4 text-[15px] text-slate-600 leading-relaxed font-normal font-dm">
+          <p>
+            <strong className="text-slate-950 font-normal">The Month 3 Pivot:</strong> Launched V1 without filter persistence, assuming explicit entry was safer. Testing showed restating regions was tedious. We rebuilt the input layer to persist filter state by default, paired with the confirmation step as a safeguard.
+          </p>
+          <p>
+            <strong className="text-slate-950 font-normal">Cross-Functional ML Rhythm:</strong> Copy went through four rounds with ML engineers to ensure plain-language restatements matched underlying query execution logic exactly.
+          </p>
+        </div>
+
+        {/* Slide Figure 11 */}
+        <div 
+          onClick={() => onZoomImage && onZoomImage('/assets/sonic_slides/11.jpg', 'Fig 11.1 — Month 3 Pivot & Cross-Functional Engineering Rhythm')}
+          className="max-w-4xl mx-auto w-full cs-figure-frame bg-white my-6 cursor-pointer group relative"
+        >
+          <img 
+            src="/assets/sonic_slides/11.jpg" 
+            alt="Fig 11.1 — Sonic Collaboration & Pivot" 
+            className="w-full h-auto object-contain group-hover:scale-[1.012] transition-transform duration-300" 
+          />
+          <div className="px-5 py-3.5 bg-slate-50/90 backdrop-blur-md border-t border-slate-200/80 flex items-center justify-between text-[12.5px] font-mono text-slate-700">
+            <div className="flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#007AFF] shadow-[0_0_6px_rgba(0,122,255,0.4)]" />
+              <span className="font-bold text-slate-900">Fig 11.1</span>
+              <span className="text-slate-300">•</span>
+              <span className="font-medium text-slate-700">Month 3 Pivot & Cross-Functional Engineering Rhythm</span>
+            </div>
+            <span className="text-[11px] font-bold text-[#007AFF] group-hover:translate-x-0.5 transition-transform duration-200">INSPECT HIGH-RES ⤢</span>
+          </div>
+        </div>
+      </motion.section>
+
+      {/* SECTION 12: BUSINESS IMPACT, LESSONS & WHAT'S NEXT */}
+      <motion.section 
+        id="sec-impact"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-10 font-dm"
+      >
+        <div className="flex items-center gap-2">
+          <span className="text-[11px] font-mono text-[#007AFF] uppercase tracking-widest">12 // BUSINESS IMPACT, LESSONS & WHAT'S NEXT</span>
+        </div>
+
+        {/* Business Impact Grid */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="p-5 rounded-2xl bg-blue-50/70 border border-blue-100">
+            <span className="text-[26px] font-normal text-[#007AFF] block font-fragment">~2× faster</span>
+            <span className="text-[10.5px] font-mono text-slate-600 uppercase">Steps to Decision Answer</span>
+          </div>
+          <div className="p-5 rounded-2xl bg-emerald-50/70 border border-emerald-100">
+            <span className="text-[26px] font-normal text-emerald-600 block font-fragment">Under 5% → ~20%</span>
+            <span className="text-[10.5px] font-mono text-slate-600 uppercase">AI Weekly Engagement</span>
+          </div>
+          <div className="p-5 rounded-2xl bg-purple-50/70 border border-purple-100">
+            <span className="text-[26px] font-normal text-purple-600 block font-fragment">↓ ~25–30%</span>
+            <span className="text-[10.5px] font-mono text-slate-600 uppercase">Support Tickets</span>
+          </div>
+          <div className="p-5 rounded-2xl bg-amber-50/70 border border-amber-100">
+            <span className="text-[26px] font-normal text-amber-600 block font-fragment">~2.9 → ~3.8</span>
+            <span className="text-[10.5px] font-mono text-slate-600 uppercase">User Confidence (1-5)</span>
+          </div>
+        </div>
+
+        {/* Lessons Learned */}
+        <div className="space-y-4">
+          <h4 className="text-[18px] font-normal text-slate-950 font-fragment">Lessons Learned:</h4>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 font-dm">
+            <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/70 space-y-2">
+              <span className="text-[11px] font-mono text-[#007AFF]">LESSON 01</span>
+              <p className="text-[13.5px] text-slate-700 font-dm">A confirmable interpretation beats a confident-sounding answer.</p>
+            </div>
+            <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/70 space-y-2">
+              <span className="text-[11px] font-mono text-[#007AFF]">LESSON 02</span>
+              <p className="text-[13.5px] text-slate-700 font-dm">Implicit context needs an explicit safeguard, not a ban.</p>
+            </div>
+            <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/70 space-y-2">
+              <span className="text-[11px] font-mono text-[#007AFF]">LESSON 03</span>
+              <p className="text-[13.5px] text-slate-700 font-dm">Chat-first doesn't mean text-only; full-fidelity inline results matter.</p>
+            </div>
+          </div>
+        </div>
+
+        {/* What's Next */}
+        <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-3 font-dm">
+          <h4 className="text-[16px] font-normal text-slate-950 font-fragment">What's Next:</h4>
+          <ul className="space-y-2 text-[14px] text-slate-600 list-disc list-inside">
+            <li>Proactively flagging when a previously confirmed query's underlying data has shifted materially.</li>
+            <li>Extending confirm-before-commit to write actions (e.g., updating a forecast), not just read queries.</li>
+            <li>Letting a confirmation card itself become a saved, reusable query template.</li>
+          </ul>
+        </div>
+
+        {/* Slide Figure 12 */}
+        <div 
+          onClick={() => onZoomImage && onZoomImage('/assets/sonic_slides/12.jpg', 'Fig 12.1 — Quantified Business Impact, Retrospective Lessons & Roadmap')}
+          className="max-w-4xl mx-auto w-full cs-figure-frame bg-white my-6 cursor-pointer group relative"
+        >
+          <img 
+            src="/assets/sonic_slides/12.jpg" 
+            alt="Fig 12.1 — Sonic Business Impact & Lessons" 
+            className="w-full h-auto object-contain group-hover:scale-[1.012] transition-transform duration-300" 
+          />
+          <div className="px-5 py-3.5 bg-slate-50/90 backdrop-blur-md border-t border-slate-200/80 flex items-center justify-between text-[12.5px] font-mono text-slate-700">
+            <div className="flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#007AFF] shadow-[0_0_6px_rgba(0,122,255,0.4)]" />
+              <span className="font-bold text-slate-900">Fig 12.1</span>
+              <span className="text-slate-300">•</span>
+              <span className="font-medium text-slate-700">Quantified Business Impact, Retrospective Lessons & Roadmap</span>
+            </div>
+            <span className="text-[11px] font-bold text-[#007AFF] group-hover:translate-x-0.5 transition-transform duration-200">INSPECT HIGH-RES ⤢</span>
+          </div>
+        </div>
+
+        {/* Final Closing Line Banner */}
+        <div className="p-8 rounded-2xl bg-slate-950 text-white text-[18px] sm:text-[22px] font-normal text-center leading-relaxed font-fragment border border-slate-800">
+          "Reduced cognitive load by replacing query builders with a conversation — and made that conversation trustworthy enough to act on."
         </div>
       </motion.section>
 
@@ -1508,7 +2348,7 @@ const RevlitixCaseStudy = ({ selectedProject, handleCopyToken, copiedToken, onZo
 
 const MissionControlApp = ({ initialMission = null, onClose = null }) => {
   const [activeMission, setActiveMission] = useState(initialMission || null);
-  const [activeSection, setActiveSection] = useState('sec-hero');
+  const [activeSection, setActiveSection] = useState('sec-overview');
   const [categoryFilter, setCategoryFilter] = useState('all');
   const [copiedToken, setCopiedToken] = useState(null);
   const [zoomImage, setZoomImage] = useState(null);
@@ -1595,141 +2435,187 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
     return m.tagCategory === categoryFilter;
   });
 
-  // Landing page: show all case studies with category filters and featured lead card
+  // Landing page: Apple Light Mode with Glassmorphism Showcase
   if (!activeMission) {
     return (
-      <div className="h-full bg-[#F5F5F7] text-[#1D1D1F] select-text flex flex-col overflow-y-auto" style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", sans-serif' }}>
-        {/* Header Section */}
-        <div className="px-6 sm:px-10 lg:px-16 pt-10 pb-4 max-w-7xl w-full text-left">
-          <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }} className="text-left">
-            <div className="flex items-center justify-start flex-wrap gap-3 mb-2">
-              <span className="text-[11px] font-mono font-extrabold text-[#007AFF] uppercase tracking-[0.18em] bg-[#007AFF]/10 px-3.5 py-1 rounded-full border border-[#007AFF]/20">
-                PROVEN UX CASE STUDIES
+      <div className="h-full bg-[#F5F5F7] text-[#1D1D1F] select-text flex flex-col overflow-y-auto relative" style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", sans-serif' }}>
+        
+        <div className="absolute top-0 left-1/4 w-[650px] h-[450px] bg-[#007AFF]/8 rounded-full blur-[150px] pointer-events-none" />
+        <div className="px-6 sm:px-12 lg:px-16 xl:px-20 pt-12 pb-6 w-full text-left relative z-10">
+          <motion.div 
+            initial={{ opacity: 0 }} 
+            animate={{ opacity: 1 }} 
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }} 
+            className="text-left"
+          >
+            {/* Eyebrow Pill */}
+            <motion.div 
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="flex items-center gap-3 mb-5"
+            >
+              <span className="text-[11px] font-mono font-normal text-[#007AFF] uppercase tracking-[0.2em] bg-[#007AFF]/10 px-4 py-1.5 rounded-full border border-[#007AFF]/20 backdrop-blur-md flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-[#007AFF] animate-pulse" />
+                SHIPPED UX CASE STUDIES
               </span>
-              <span className="text-[11px] font-mono text-[#86868B]">
-                3 Shipped Systems · 100% Production Apps
+              <span className="text-[11.5px] font-mono text-[#86868B] font-normal hidden sm:inline">
+                {filteredMissions.length} Production Systems · 2022–2025
               </span>
-            </div>
+            </motion.div>
 
-            <h1 className="text-[32px] sm:text-[44px] font-bold tracking-tight text-[#1D1D1F] leading-tight text-left">
-              Case Studies
-            </h1>
-            <p className="text-[15px] text-[#86868B] mt-1.5 max-w-2xl leading-relaxed text-left">
-              End-to-end product design work across B2B SaaS, Commercial Banking Fintech, and Conversational AI — grounded in qualitative user research and business impact.
-            </p>
+            {/* Title */}
+            <div className="overflow-hidden">
+              <motion.h1 
+                initial={{ y: 80, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
+                className="text-[42px] sm:text-[62px] lg:text-[76px] font-normal tracking-[-0.04em] text-[#0F172A] leading-[1.04] font-fragment"
+              >
+                Case Studies
+              </motion.h1>
+            </div>
+            <div className="overflow-hidden mt-3">
+              <motion.p
+                initial={{ y: 40, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
+                className="text-[17px] sm:text-[20px] text-slate-600 max-w-4xl leading-[1.65] font-normal font-dm"
+              >
+                End-to-end product design across <span className="text-[#007AFF] font-normal">B2B SaaS</span>, <span className="text-[#007AFF] font-normal">Commercial Banking</span>,{' '}
+                <span className="text-[#007AFF] font-normal">Conversational AI</span>, and <span className="text-[#007AFF] font-normal">AI Banking</span> — grounded in qualitative user research and business impact.
+              </motion.p>
+            </div>
           </motion.div>
 
-          {/* Category Filter Pills */}
+          {/* Light Glass Segmented Control Pills */}
           <motion.div 
-            initial={{ opacity: 0, y: 12 }} 
+            initial={{ opacity: 0, y: 16 }} 
             animate={{ opacity: 1, y: 0 }} 
-            transition={{ duration: 0.4, delay: 0.1 }}
-            className="flex items-center justify-start gap-2 mt-6 overflow-x-auto pb-1"
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="flex items-center gap-2.5 mt-8 overflow-x-auto pb-2"
           >
             {[
-              { id: 'all', label: 'All Projects', count: 3 },
+              { id: 'all', label: 'All Projects', count: 4 },
               { id: 'saas', label: 'B2B SaaS', count: 1 },
-              { id: 'fintech', label: 'Fintech Payments', count: 1 },
-              { id: 'ai', label: 'AI Conversational UX', count: 1 },
+              { id: 'fintech', label: 'Fintech', count: 1 },
+              { id: 'ai', label: 'AI/ML', count: 1 },
+              { id: 'ai-banking', label: 'AI × Banking', count: 1 },
             ].map((cat) => (
               <button
                 key={cat.id}
                 onClick={() => setCategoryFilter(cat.id)}
-                className={`px-4 py-2 rounded-full text-[12.5px] font-mono font-bold transition-all cursor-pointer whitespace-nowrap border ${
+                className={`px-5 py-2.5 rounded-full text-[13px] font-mono font-normal transition-all cursor-pointer whitespace-nowrap backdrop-blur-md border ${
                   categoryFilter === cat.id
-                    ? 'bg-[#1D1D1F] text-white border-[#1D1D1F] shadow-sm'
-                    : 'bg-white text-[#6E6E73] hover:text-[#1D1D1F] border-black/[0.06] hover:bg-[#E8E8ED]/60'
+                    ? 'bg-[#0F172A] text-white border-[#0F172A] shadow-md'
+                    : 'bg-white/80 text-[#64748B] hover:text-[#0F172A] border-black/[0.06] hover:bg-white'
                 }`}
               >
-                {cat.label} <span className="opacity-60 ml-1 text-[11px]">({cat.count})</span>
+                {cat.label}
               </button>
             ))}
           </motion.div>
         </div>
 
-        {/* Case Study Cards Container — 3-Card Apple Keynote Showcase Grid */}
-        <div className="px-6 sm:px-10 lg:px-16 pb-16 flex-1 max-w-7xl mx-auto w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {filteredMissions.map((m, idx) => (
-              <motion.div
-                key={m.id}
-                initial={{ opacity: 0, y: 24 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                whileHover={{ y: -6 }}
-                onClick={() => {
-                  setActiveMission(m.id);
-                  setActiveSection('sec-hero');
-                }}
-                className="text-left bg-white rounded-3xl border border-black/[0.06] shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:shadow-[0_16px_48px_rgba(0,122,255,0.14)] transition-all duration-300 overflow-hidden cursor-pointer group flex flex-col justify-between"
-              >
-                {/* Widescreen Media Showcase */}
-                <div className="relative w-full aspect-[16/10] overflow-hidden bg-slate-950">
-                  <img
-                    src={m.heroImage}
-                    alt={m.title}
-                    className="w-full h-full object-cover object-top group-hover:scale-[1.04] transition-transform duration-700 block"
-                    onError={(e) => {
-                      if (m.mockups && m.mockups[0]) e.target.src = m.mockups[0];
+        {/* ═══════════════════ APPLE BENTO GRID SHOWCASE ═══════════════════ */}
+        <div className="px-6 sm:px-12 lg:px-16 xl:px-20 pb-20 flex-1 w-full relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+            {filteredMissions.map((m, idx) => {
+              const isFullWidth = idx === 0 || idx === 3;
+
+              return (
+                <motion.div
+                  key={m.id}
+                  initial={{ opacity: 0, y: 32, scale: 0.98 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  transition={{ duration: 0.6, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                  className={`cs-card-3d ${isFullWidth ? 'col-span-1 md:col-span-2' : 'col-span-1'}`}
+                >
+                  <div
+                    onClick={() => {
+                      setActiveMission(m.id);
+                      setActiveSection('sec-overview');
                     }}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 pointer-events-none" />
+                    className={`cs-card-3d-inner bg-white/90 backdrop-blur-2xl border border-white/90 rounded-[32px] overflow-hidden cursor-pointer group flex ${
+                      isFullWidth ? 'flex-col lg:flex-row' : 'flex-col'
+                    } h-full shadow-[0_8px_30px_rgba(0,0,0,0.05)] hover:shadow-[0_24px_60px_rgba(0,122,255,0.15)] hover:border-[#007AFF]/35 transition-all duration-500 relative`}
+                  >
+                    {/* Media Container */}
+                    <div className={`relative overflow-hidden bg-slate-950 cs-parallax-img ${
+                      isFullWidth ? 'w-full lg:w-3/5 aspect-[16/10]' : 'w-full aspect-[16/10]'
+                    }`}>
+                      <img
+                        src={m.heroImage}
+                        alt={m.title}
+                        className="w-full h-full object-cover object-top block group-hover:scale-[1.04] transition-transform duration-700"
+                        onError={(e) => {
+                          if (m.mockups && m.mockups[0]) e.target.src = m.mockups[0];
+                        }}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent pointer-events-none" />
 
-                  {/* Project Number */}
-                  <div className="absolute top-4 left-4 w-9 h-9 rounded-2xl flex items-center justify-center text-[13px] font-mono font-black text-white shadow-md z-10" style={{ background: m.accentColor }}>
-                    {m.num}
-                  </div>
+                      {/* Apple Blue Number Badge */}
+                      <div className="absolute top-5 left-5 w-10 h-10 rounded-2xl flex items-center justify-center text-[14px] font-mono font-normal text-white shadow-xl z-10 backdrop-blur-md bg-[#007AFF]">
+                        {m.num}
+                      </div>
 
-                  {/* Status Badge */}
-                  <div className="absolute top-4 right-4 flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 z-10">
-                    <span className="w-2 h-2 rounded-full animate-pulse" style={{ background: m.statusColor }} />
-                    <span className="text-[10.5px] font-mono font-bold text-white uppercase tracking-wider">{m.status}</span>
-                  </div>
-                </div>
+                      {/* Status Pill */}
+                      <div className="absolute top-5 right-5 flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-black/60 backdrop-blur-xl border border-white/20 z-10">
+                        <span className="w-2 h-2 rounded-full animate-pulse bg-emerald-500" />
+                        <span className="text-[10.5px] font-mono font-normal text-white uppercase tracking-wider">{m.status}</span>
+                      </div>
 
-                {/* Card Content Body */}
-                <div className="p-6 flex flex-col flex-1 justify-between space-y-5">
-                  <div className="space-y-3">
-                    <div className="flex items-center justify-between">
-                      <span className="text-[11px] font-mono font-extrabold uppercase tracking-[0.14em]" style={{ color: m.accentColor }}>
-                        {m.category.split(' · ')[0]}
-                      </span>
-                      <span className="text-[11px] font-mono text-[#86868B] bg-[#F5F5F7] px-2.5 py-0.5 rounded-full font-medium">
+                      {/* Read Time Pill */}
+                      <div className="absolute bottom-5 left-5 px-3.5 py-1.5 rounded-full bg-black/50 backdrop-blur-md border border-white/15 text-[11px] font-mono font-normal text-white z-10">
                         {m.readTime}
-                      </span>
+                      </div>
                     </div>
 
-                    <h2 className="text-2xl font-bold text-[#1D1D1F] tracking-tight group-hover:text-[#007AFF] transition-colors leading-snug">
-                      {m.title}
-                    </h2>
-
-                    <p className="text-[13.5px] text-[#6E6E73] leading-relaxed">
-                      {m.desc}
-                    </p>
-                  </div>
-
-                  {/* 2 Key Metric Boxes */}
-                  {m.heroMetrics && (
-                    <div className="grid grid-cols-2 gap-3 pt-1">
-                      {m.heroMetrics.slice(0, 2).map((metric, i) => (
-                        <div key={i} className="bg-[#F5F5F7] p-3 rounded-2xl border border-black/[0.02]">
-                          <span className="text-[18px] font-bold block leading-tight" style={{ color: m.accentColor }}>{metric.val}</span>
-                          <span className="text-[10.5px] text-[#86868B] font-mono truncate block mt-0.5">{metric.lbl}</span>
+                    {/* Bento Content Body */}
+                    <div className={`p-8 sm:p-9 flex flex-col justify-between space-y-6 ${
+                      isFullWidth ? 'w-full lg:w-2/5' : 'w-full flex-1'
+                    }`}>
+                      <div className="space-y-4">
+                        <div className="flex items-center justify-between">
+                          <span className="text-[11px] font-mono font-normal uppercase tracking-[0.2em] text-[#007AFF] bg-[#007AFF]/10 px-3.5 py-1 rounded-full border border-[#007AFF]/20">
+                            {m.category.split(' · ')[0]}
+                          </span>
+                          <span className="text-[11.5px] font-mono font-normal text-[#86868B]">{m.year}</span>
                         </div>
-                      ))}
-                    </div>
-                  )}
 
-                  {/* Action CTA Button */}
-                  <div className="pt-2">
-                    <div className="w-full py-3 rounded-xl bg-[#F5F5F7] group-hover:bg-[#007AFF] text-[#1D1D1F] group-hover:text-white text-xs font-mono font-bold uppercase flex items-center justify-center gap-2 transition-colors duration-200 shadow-xs">
-                      <span>Explore Case Study</span>
-                      <span className="text-sm font-normal group-hover:translate-x-1 transition-transform">→</span>
+                        <h2 className="text-[28px] sm:text-[34px] font-normal text-slate-950 tracking-[-0.035em] leading-[1.08] group-hover:text-[#007AFF] transition-colors duration-300 font-fragment">
+                          {m.title}
+                        </h2>
+
+                        <p className="text-[15px] sm:text-[15.5px] text-slate-600 leading-[1.65] line-clamp-3 font-normal font-dm">
+                          {m.subtitle || m.desc}
+                        </p>
+                      </div>
+
+                      {/* Specs / Hero Metrics Grid */}
+                      {m.heroMetrics && (
+                        <div className="grid grid-cols-2 gap-3 pt-2">
+                          {m.heroMetrics.slice(0, 2).map((metric, i) => (
+                            <div key={i} className="bg-[#F8FAFC] backdrop-blur-sm p-4 rounded-2xl border border-black/[0.04] group-hover:bg-white group-hover:shadow-apple-sm transition-all duration-300">
+                              <span className="text-[24px] sm:text-[28px] font-normal block leading-none tracking-tight text-[#007AFF]">{metric.val}</span>
+                              <span className="text-[10px] text-slate-400 font-mono font-normal truncate block mt-2 uppercase tracking-[0.1em]">{metric.lbl}</span>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+
+                      {/* Magnetic CTA */}
+                      <div className="pt-2">
+                        <div className="cs-magnetic-cta w-full py-3.5 rounded-xl text-[12px] font-mono font-normal uppercase flex items-center justify-center gap-2.5 transition-all duration-300 bg-[#007AFF]/10 text-[#007AFF] hover:bg-[#007AFF] hover:text-white border border-[#007AFF]/25 shadow-2xs">
+                          <span>Explore Case Study</span>
+                          <span className="text-[14px] group-hover:translate-x-1.5 transition-transform duration-300">→</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </div>
@@ -1739,24 +2625,24 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
   return (
     <div className="h-full bg-[#F8FAFC] text-[#0F172A] select-text flex flex-col relative text-[16px] leading-[1.8] overflow-hidden" style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "SF Pro", "Helvetica Neue", Helvetica, Arial, sans-serif' }}>
       
-      {/* APPLE/STRIPE STYLE STICKY TOP COMMAND BAR */}
-      <header className="h-16 px-4 sm:px-8 bg-white/80 backdrop-blur-xl border-b border-slate-200/80 flex items-center justify-between z-50 flex-shrink-0 shadow-xs">
+      {/* ═══ MINIMAL MAGAZINE-STYLE COMMAND BAR ═══ */}
+      <header className="h-14 px-4 sm:px-8 bg-white/90 backdrop-blur-2xl border-b border-black/[0.04] flex items-center justify-between z-50 flex-shrink-0">
         <div className="flex items-center gap-3 sm:gap-4">
           <button
             onClick={() => {
               setActiveMission(null);
               setScrollProgress(0);
             }}
-            className="flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full bg-slate-100 hover:bg-slate-200 text-[12.5px] font-mono font-bold text-slate-800 hover:text-slate-900 transition-all cursor-pointer border border-slate-200/60"
+            className="flex items-center gap-2 px-3.5 py-1.5 rounded-full hover:bg-slate-100 text-[12px] font-mono font-bold text-slate-500 hover:text-slate-900 transition-all cursor-pointer"
           >
-            <ArrowLeft className="w-4 h-4" />
-            <span>All Studies</span>
+            <ArrowLeft className="w-3.5 h-3.5" />
+            <span>Back</span>
           </button>
 
-          <div className="h-5 w-px bg-slate-200 hidden sm:block" />
+          <div className="h-4 w-px bg-slate-200/60 hidden sm:block" />
 
-          {/* Project Switcher Pills */}
-          <div className="flex items-center gap-1 bg-slate-100/90 p-1 rounded-full border border-slate-200/60">
+          {/* Minimal Project Switcher */}
+          <div className="hidden sm:flex items-center gap-0.5 p-0.5 rounded-full bg-slate-100/80">
             {MISSIONS.map(m => (
               <button
                 key={m.id}
@@ -1767,37 +2653,49 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
                     scrollContainerRef.current.scrollTop = 0;
                   }
                 }}
-                className={`px-3 py-1 sm:px-4 sm:py-1.5 rounded-full text-[12px] sm:text-[13px] font-mono font-bold transition-all cursor-pointer ${
+                className={`px-3.5 py-1 rounded-full text-[11.5px] font-mono font-bold transition-all cursor-pointer ${
                   activeMission === m.id
-                    ? 'bg-white text-slate-950 shadow-sm font-extrabold border border-slate-200/40'
-                    : 'text-slate-600 hover:text-slate-900'
+                    ? 'bg-white text-slate-950 shadow-sm'
+                    : 'text-slate-500 hover:text-slate-800'
                 }`}
               >
-                {m.num} {m.title.split(' ')[0]}
+                {m.title.split(' ')[0]}
               </button>
             ))}
           </div>
         </div>
 
-        {/* Dynamic Header Controls & Breadcrumb */}
-        <div className="hidden lg:flex items-center gap-3">
-          <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200/60 text-[11.5px] font-mono font-bold text-slate-600">
-            <span className="w-2 h-2 rounded-full bg-[#4F46E5] animate-pulse" />
-            <span>{NAV_CHIPS.find(n => n.id === activeSection)?.label || '01 / Overview'}</span>
+        {/* Right Controls */}
+        <div className="flex items-center gap-2.5">
+          {/* Section Indicator */}
+          <div className="hidden lg:flex items-center gap-2 text-[11px] font-mono font-bold text-slate-400">
+            <span className="text-[#4F46E5]">{NAV_CHIPS.find(n => n.id === activeSection)?.label.split(' / ')[0] || '01'}</span>
+            <span>/</span>
+            <span className="text-slate-600">{NAV_CHIPS.find(n => n.id === activeSection)?.label.split(' / ')[1] || 'Overview'}</span>
           </div>
 
           <button
-            onClick={() => handleCopyToken('Revlitix Case Study — Praveen Kumar')}
-            className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-50 hover:bg-indigo-100 text-[#4F46E5] border border-indigo-200/60 text-[11.5px] font-mono font-bold transition-all cursor-pointer"
+            onClick={() => handleCopyToken(`${selectedProject?.title} Case Study — Praveen Kumar`)}
+            className="flex items-center gap-1.5 px-3 py-1 rounded-full hover:bg-slate-100 text-slate-500 hover:text-slate-800 text-[11px] font-mono font-bold transition-all cursor-pointer"
           >
-            <span>{copiedToken ? '✓ Copied!' : '🔗 Share'}</span>
+            <span>{copiedToken ? '✓ Copied' : 'Share'}</span>
           </button>
+
+          {onClose && (
+            <button
+              onClick={onClose}
+              className="flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-slate-900 text-white hover:bg-red-600 text-[11px] font-mono font-bold transition-all cursor-pointer shadow-sm"
+            >
+              <span>✕ Close</span>
+            </button>
+          )}
         </div>
       </header>
-      {/* TOP READING PROGRESS INDICATOR BAR */}
-      <div className="h-1 bg-slate-100 w-full relative overflow-hidden z-50">
+
+      {/* Slim Reading Progress */}
+      <div className="h-[2px] bg-slate-100/50 w-full relative overflow-hidden z-50">
         <div 
-          className="h-full bg-gradient-to-r from-[#4F46E5] via-[#6366F1] to-[#7C3AED] transition-all duration-150 ease-out rounded-r-full shadow-[0_0_8px_rgba(79,70,229,0.5)]"
+          className="h-full bg-gradient-to-r from-[#4F46E5] to-[#7C3AED] transition-all duration-200 ease-out"
           style={{ width: `${scrollProgress}%` }}
         />
       </div>
@@ -1805,43 +2703,65 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
       {/* CORE WORKSPACE SLIT-VIEW CONTAINER */}
       <div className="flex-grow flex h-[calc(100%-4rem)] overflow-hidden">
         
-        {/* LEFT SIDEBAR: STICKY TABLE OF CONTENTS */}
-        <aside className="hidden lg:flex w-72 border-r border-slate-200/80 bg-white flex-col h-full flex-shrink-0">
-          <div className="p-4 border-b border-slate-100 bg-slate-50/50 flex items-center justify-between">
-            <span className="text-[11px] font-mono font-extrabold uppercase tracking-wider text-slate-500">Case Study Index</span>
-            <span className="text-[10px] font-mono text-slate-400 font-bold">12 SECTIONS</span>
+        {/* LEFT SIDEBAR WITH PROGRESS RAIL */}
+        <aside className="hidden lg:flex w-72 border-r border-black/[0.04] bg-white/95 flex-col h-full flex-shrink-0">
+          {/* Sidebar Header */}
+          <div className="px-5 py-4 flex items-center justify-between">
+            <span className="text-[10px] font-mono font-extrabold uppercase tracking-[0.16em] text-slate-400">Contents</span>
+            <span className="text-[10px] font-mono text-slate-300 font-bold">{Math.round(scrollProgress)}%</span>
           </div>
-          <div className="flex-1 overflow-y-auto p-3 space-y-1.5" style={{ scrollbarWidth: 'thin' }}>
-            {NAV_CHIPS.map((chip) => {
-              const isActive = activeSection === chip.id;
-              return (
-                <button
-                  key={chip.id}
-                  onClick={() => scrollToSection(chip.id)}
-                  className={`w-full text-left p-2.5 rounded-xl transition-all duration-200 flex items-center justify-between cursor-pointer border ${
-                    isActive
-                      ? 'bg-[#EEF2FF] border-[#4F46E5]/40 shadow-xs text-[#4F46E5]'
-                      : 'bg-white border-transparent hover:bg-slate-50 text-slate-600'
-                  }`}
-                >
-                  <div className="flex items-center gap-2.5 truncate">
-                    <span className={`text-[10px] font-mono font-extrabold w-5 h-5 rounded-md flex items-center justify-center flex-shrink-0 transition-colors ${
-                      isActive ? 'bg-[#4F46E5] text-white' : 'bg-slate-100 text-slate-400'
-                    }`}>
-                      {chip.label.split(' / ')[0]}
-                    </span>
-                    <span className={`text-[12.5px] font-bold truncate ${isActive ? 'text-[#4F46E5]' : 'text-slate-700'}`}>
-                      {chip.label.split(' / ')[1]}
-                    </span>
-                  </div>
-                  {isActive && (
-                    <div className="flex items-center gap-1.5 flex-shrink-0">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#4F46E5] shadow-[0_0_6px_rgba(79,70,229,0.8)]" />
+
+          {/* Progress Rail Navigation */}
+          <div className="flex-1 overflow-y-auto px-4 pb-4 cs-progress-rail relative" style={{ scrollbarWidth: 'none' }}>
+            {/* Animated Progress Fill */}
+            <div 
+              className="cs-progress-rail-fill" 
+              style={{ height: `${scrollProgress}%` }}
+            />
+
+            <div className="space-y-0.5 relative z-10">
+              {NAV_CHIPS.map((chip, chipIdx) => {
+                const isActive = activeSection === chip.id;
+                const currentIdx = NAV_CHIPS.findIndex(c => c.id === activeSection);
+                const isPast = chipIdx < currentIdx;
+                return (
+                  <button
+                    key={chip.id}
+                    onClick={() => scrollToSection(chip.id)}
+                    className={`w-full text-left pl-8 pr-3 py-2.5 rounded-xl transition-all duration-300 flex items-center gap-3 cursor-pointer relative ${
+                      isActive
+                        ? 'text-[#4F46E5]'
+                        : isPast
+                          ? 'text-slate-400'
+                          : 'text-slate-500 hover:text-slate-800'
+                    }`}
+                  >
+                    {/* Rail Dot */}
+                    <div className={`absolute left-[14px] w-[10px] h-[10px] rounded-full border-2 transition-all duration-300 ${
+                      isActive 
+                        ? 'bg-[#4F46E5] border-[#4F46E5] shadow-[0_0_10px_rgba(79,70,229,0.5)] scale-110' 
+                        : isPast 
+                          ? 'bg-[#4F46E5]/30 border-[#4F46E5]/40' 
+                          : 'bg-white border-slate-200'
+                    }`} />
+
+                    {/* Label */}
+                    <div className="flex items-center gap-2 truncate">
+                      <span className={`text-[10px] font-mono font-extrabold transition-colors ${
+                        isActive ? 'text-[#4F46E5]' : isPast ? 'text-slate-300' : 'text-slate-300'
+                      }`}>
+                        {chip.label.split(' / ')[0]}
+                      </span>
+                      <span className={`text-[12px] font-semibold truncate transition-colors ${
+                        isActive ? 'text-[#4F46E5] font-bold' : isPast ? 'text-slate-400' : 'text-slate-600'
+                      }`}>
+                        {chip.label.split(' / ')[1]}
+                      </span>
                     </div>
-                  )}
-                </button>
-              );
-            })}
+                  </button>
+                );
+              })}
+            </div>
           </div>
         </aside>
 
@@ -1851,9 +2771,11 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
           ref={scrollContainerRef}
           style={{ scrollbarWidth: 'thin' }}
         >
-          <div className="max-w-4xl mx-auto w-full space-y-16 pb-32">
+          <div className="max-w-6xl mx-auto w-full space-y-16 pb-32">
             {selectedProject.id === 'revlitix-saas' ? (
               <RevlitixCaseStudy selectedProject={selectedProject} handleCopyToken={handleCopyToken} copiedToken={copiedToken} onZoomImage={(src, caption) => setZoomImage({ src, caption })} />
+            ) : selectedProject.id === 'sonic' ? (
+              <SonicCaseStudy selectedProject={selectedProject} handleCopyToken={handleCopyToken} copiedToken={copiedToken} onZoomImage={(src, caption) => setZoomImage({ src, caption })} />
             ) : (
               <>
                 {/* SECTION 1: OVERVIEW */}
@@ -1888,14 +2810,25 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
                 </p>
               </div>
 
-              <div className="relative rounded-2xl overflow-hidden border border-slate-200/80 shadow-2xl bg-slate-900">
+              {/* SINGLE HERO IMAGE DISPLAY */}
+              <div className="relative rounded-[26px] overflow-hidden border border-slate-200/90 shadow-xl bg-slate-950 cursor-pointer group image-card-hover" onClick={() => !selectedProject.videoUrl && setZoomImage({ src: selectedProject.heroImage, caption: `${selectedProject.title} — Primary Interface Showcase` })}>
                 {selectedProject.videoUrl ? (
                   <CaseStudyVideoPlayer 
                     videoUrl={selectedProject.videoUrl} 
-                    poster={selectedProject.heroImage} 
+                    poster={selectedProject.videoPoster || selectedProject.heroImage} 
                   />
                 ) : (
-                  <img src={selectedProject.heroImage} alt={selectedProject.title} className="w-full h-auto max-h-[420px] object-cover object-top" />
+                  <div className="relative overflow-hidden w-full max-h-[460px]">
+                    <img src={selectedProject.heroImage} alt={selectedProject.title} className="w-full h-auto max-h-[460px] object-cover object-top group-hover:scale-[1.03] transition-transform duration-500" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-5 pointer-events-none">
+                      <span className="self-end px-3.5 py-1 rounded-full bg-black/70 backdrop-blur-md text-white font-mono text-[10.5px] font-bold border border-white/20">
+                        HERO INTERFACE
+                      </span>
+                      <span className="self-center bg-white text-slate-950 font-mono text-[11.5px] font-bold px-4 py-2 rounded-full shadow-2xl flex items-center gap-2 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                        <span>🔍</span> Inspect High-Res Interface
+                      </span>
+                    </div>
+                  </div>
                 )}
                 {(selectedProject.floatingCards || []).map((fc, i) => (
                   <motion.div
@@ -2766,20 +3699,37 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
                 <span className="w-8 h-[3px] bg-current opacity-30 block rounded-full"></span>SECTION 24: FINAL VISUAL SHOWCASE GALLERY
               </h2>
               {(selectedProject.mockups || []).length > 0 && (
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                   {(selectedProject.mockups || []).map((imgSrc, idx) => (
                     <div 
                       key={idx} 
                       onClick={() => setZoomImage({ src: imgSrc, caption: `${selectedProject.title} — UI Screenshot ${idx + 1}` })}
-                      className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-white image-card-hover cursor-pointer group relative"
+                      className="rounded-2xl overflow-hidden border border-slate-200/90 shadow-md bg-slate-950 flex flex-col image-card-hover cursor-pointer group relative min-h-[220px] max-h-[260px]"
                     >
-                      <div className="relative overflow-hidden">
-                        <img src={imgSrc} alt={`UI Screenshot ${idx + 1}`} className="w-full h-[260px] object-cover object-top group-hover:scale-[1.02] transition-transform duration-300" />
-                        <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-all duration-200 flex items-center justify-center pointer-events-none">
-                          <span className="opacity-0 group-hover:opacity-100 bg-slate-900/90 text-white font-mono text-[11px] font-bold px-3 py-1.5 rounded-full shadow-lg transition-all duration-200 flex items-center gap-1.5 translate-y-2 group-hover:translate-y-0">
-                            <span className="text-[13px]">🔍</span> Inspect
-                          </span>
+                      <div className="h-7 px-3 bg-slate-900 border-b border-slate-800 flex items-center justify-between select-none shrink-0">
+                        <div className="flex items-center gap-1.5">
+                          <span className="w-2.5 h-2.5 rounded-full bg-[#FF5F56]" />
+                          <span className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]" />
+                          <span className="w-2.5 h-2.5 rounded-full bg-[#27C93F]" />
                         </div>
+                        <div className="px-2.5 py-0.5 rounded-md bg-slate-800/80 text-slate-300 font-mono text-[9px] border border-slate-700/60 flex items-center gap-1">
+                          <span className="text-[8px] opacity-40">🔒</span>
+                          <span className="truncate max-w-[130px]">{selectedProject.company.toLowerCase().replace(/\s+/g, '')}.app/view</span>
+                        </div>
+                        <span className="px-2 py-0.5 rounded bg-[#007AFF] text-white font-mono text-[8.5px] font-bold">
+                          {idx === 0 ? 'PRIMARY VIEW' : `FIG ${idx + 1}`}
+                        </span>
+                      </div>
+                      <div className="relative w-full flex-1 overflow-hidden bg-slate-950 flex items-center justify-center p-1">
+                        <img 
+                          src={imgSrc} 
+                          alt={`UI Screenshot ${idx + 1}`} 
+                          className="w-full h-full object-contain object-top group-hover:scale-[1.02] transition-transform duration-500 rounded-lg" 
+                        />
+                      </div>
+                      <div className="px-3.5 py-2 bg-slate-900/90 border-t border-slate-800 text-[11px] font-mono text-slate-300 font-bold flex items-center justify-between shrink-0">
+                        <span className="truncate">{selectedProject.title} — Fig {idx + 1}</span>
+                        <span className="text-[9.5px] text-[#007AFF] font-bold">INSPECT ⤢</span>
                       </div>
                     </div>
                   ))}
@@ -2793,21 +3743,31 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
         </main>
       </div>
 
-      {/* FLOATING STEP & SLIDE NAVIGATION BAR */}
-      <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[100] hidden sm:flex items-center gap-3 bg-slate-900/95 text-white backdrop-blur-xl border border-white/15 px-5 py-3 rounded-2xl shadow-2xl animate-slide-up">
+      {/* ═══ GLASSMORPHISM FLOATING NAV ═══ */}
+      <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[100] hidden sm:flex items-center gap-2 cs-glass-nav text-white px-4 py-2.5 rounded-2xl animate-slide-up">
         <button
           onClick={() => {
             const idx = NAV_CHIPS.findIndex(c => c.id === activeSection);
             if (idx > 0) scrollToSection(NAV_CHIPS[idx - 1].id);
           }}
           disabled={NAV_CHIPS.findIndex(c => c.id === activeSection) === 0}
-          className="px-3 py-1.5 rounded-xl text-[12px] font-mono font-bold bg-white/10 hover:bg-white/20 disabled:opacity-30 disabled:pointer-events-none transition-all cursor-pointer flex items-center gap-1.5"
+          className="w-8 h-8 rounded-xl text-[14px] font-bold bg-white/10 hover:bg-white/20 disabled:opacity-20 disabled:pointer-events-none transition-all cursor-pointer flex items-center justify-center"
         >
-          <span className="text-[10px] opacity-60">←</span> Prev
+          ←
         </button>
         
-        {/* Progress Dots */}
-        <div className="flex items-center gap-1.5 px-2">
+        {/* Section Label */}
+        <div className="flex items-center gap-2 px-3 min-w-[160px] justify-center">
+          <span className="text-[10px] font-mono font-bold text-white/40">
+            {NAV_CHIPS.find(c => c.id === activeSection)?.label.split(' / ')[0] || '01'}
+          </span>
+          <span className="text-[11px] font-mono font-bold text-white/90 truncate">
+            {NAV_CHIPS.find(c => c.id === activeSection)?.label.split(' / ')[1] || 'Overview'}
+          </span>
+        </div>
+
+        {/* Compact Progress Dots */}
+        <div className="flex items-center gap-1 px-1">
           {NAV_CHIPS.map((chip, i) => {
             const currentIdx = NAV_CHIPS.findIndex(c => c.id === activeSection);
             const isActive = i === currentIdx;
@@ -2818,10 +3778,10 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
                 onClick={() => scrollToSection(chip.id)}
                 className={`rounded-full transition-all duration-300 cursor-pointer ${
                   isActive 
-                    ? 'w-6 h-2 bg-indigo-400 shadow-[0_0_8px_rgba(129,140,248,0.6)]' 
+                    ? 'w-5 h-1.5 bg-white shadow-[0_0_8px_rgba(255,255,255,0.4)]' 
                     : isPast 
-                      ? 'w-2 h-2 bg-white/40 hover:bg-white/60' 
-                      : 'w-2 h-2 bg-white/15 hover:bg-white/30'
+                      ? 'w-1.5 h-1.5 bg-white/35' 
+                      : 'w-1.5 h-1.5 bg-white/12 hover:bg-white/25'
                 }`}
                 title={chip.label}
               />
@@ -2835,53 +3795,79 @@ const MissionControlApp = ({ initialMission = null, onClose = null }) => {
             if (idx < NAV_CHIPS.length - 1) scrollToSection(NAV_CHIPS[idx + 1].id);
           }}
           disabled={NAV_CHIPS.findIndex(c => c.id === activeSection) === NAV_CHIPS.length - 1}
-          className="px-3 py-1.5 rounded-xl text-[12px] font-mono font-bold bg-white/10 hover:bg-white/20 disabled:opacity-30 disabled:pointer-events-none transition-all cursor-pointer flex items-center gap-1.5"
+          className="w-8 h-8 rounded-xl text-[14px] font-bold bg-white/10 hover:bg-white/20 disabled:opacity-20 disabled:pointer-events-none transition-all cursor-pointer flex items-center justify-center"
         >
-          Next <span className="text-[10px] opacity-60">→</span>
+          →
         </button>
       </div>
 
-      {/* FULL-SCREEN IMAGE INSPECTOR LIGHTBOX MODAL */}
+      {/* ═══ CINEMATIC LIGHTBOX ZOOM INSPECTION STUDIO ═══ */}
       <AnimatePresence>
         {zoomImage && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
             onClick={() => setZoomImage(null)}
-            className="fixed inset-0 z-[9999] bg-slate-950/90 backdrop-blur-md flex flex-col items-center justify-center p-4 sm:p-8 cursor-zoom-out select-none"
+            className="fixed inset-0 z-[9999] bg-black/92 backdrop-blur-2xl flex flex-col items-center justify-between p-4 sm:p-6 select-none"
           >
+            {/* Top Toolbar */}
             <div 
-              className="relative max-w-6xl w-full max-h-[88vh] flex flex-col items-center justify-center overflow-hidden rounded-2xl border border-white/15 bg-slate-900/90 shadow-2xl p-2"
+              className="w-full max-w-6xl flex items-center justify-between z-50 bg-slate-900/90 border border-white/10 p-3 rounded-2xl backdrop-blur-xl shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Close Button */}
-              <button
-                onClick={() => setZoomImage(null)}
-                className="absolute top-4 right-4 z-50 w-8 h-8 rounded-full bg-black/60 hover:bg-black/90 text-white font-bold text-[16px] flex items-center justify-center border border-white/20 transition-all cursor-pointer shadow-lg"
-              >
-                ×
-              </button>
-
-              {/* Keyboard hint */}
-              <div className="absolute top-4 left-4 z-50 flex items-center gap-2">
-                <span className="px-2 py-0.5 rounded bg-white/10 text-white/60 font-mono text-[10px] font-bold border border-white/10">ESC</span>
-                <span className="text-white/40 font-mono text-[10px]">to close</span>
-              </div>
-
-              <div className="w-full overflow-auto max-h-[80vh] flex items-center justify-center p-2">
-                <img 
-                  src={zoomImage.src} 
-                  alt="High-Res Zoom View" 
-                  className="max-w-full h-auto object-contain rounded-lg shadow-2xl"
-                />
-              </div>
-
-              {zoomImage.caption && (
-                <div className="w-full p-3 bg-slate-950/80 border-t border-white/10 text-center font-mono text-[12.5px] text-slate-300 font-bold">
-                  <span>{zoomImage.caption}</span>
+              <div className="flex items-center gap-3">
+                <span className="w-3 h-3 rounded-full bg-emerald-500 animate-pulse" />
+                <div>
+                  <strong className="text-[13px] text-white font-mono font-bold block leading-none">{zoomImage.caption || 'Interface Showcase'}</strong>
+                  <span className="text-[10px] text-slate-400 font-mono">HIGH-RESOLUTION INTERACTIVE INSPECTOR</span>
                 </div>
-              )}
+              </div>
+
+              {/* Controls */}
+              <div className="flex items-center gap-2">
+                <span className="px-2.5 py-1 rounded-lg bg-white/10 text-white font-mono text-[11px] font-bold border border-white/10 hidden sm:inline-block">
+                  ESC to close
+                </span>
+                <button
+                  onClick={() => setZoomImage(null)}
+                  className="w-9 h-9 rounded-xl bg-white/15 hover:bg-white/25 text-white font-bold text-[18px] flex items-center justify-center border border-white/20 transition-all cursor-pointer"
+                  title="Close Inspector"
+                >
+                  ✕
+                </button>
+              </div>
+            </div>
+
+            {/* Main Inspection View Container */}
+            <div 
+              className="cs-lightbox-enter relative max-w-6xl w-full flex-1 my-3 flex items-center justify-center overflow-auto rounded-3xl bg-slate-950/90 border border-white/10 shadow-2xl p-4"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <motion.img 
+                src={zoomImage.src} 
+                alt="High-Res Inspection View" 
+                className="max-w-full max-h-[75vh] object-contain rounded-xl shadow-2xl transition-transform duration-300 cursor-grab active:cursor-grabbing"
+              />
+            </div>
+
+            {/* Bottom Spec Footer */}
+            <div 
+              className="w-full max-w-6xl bg-slate-900/90 border border-white/10 px-5 py-3 rounded-2xl backdrop-blur-xl flex items-center justify-between text-white/70 font-mono text-[11px] z-50"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex items-center gap-4">
+                <span className="text-emerald-400 font-bold">● RETINA CANVAS</span>
+                <span className="hidden sm:inline text-slate-400">|</span>
+                <span className="hidden sm:inline">FORMAT: VECTOR RENDER</span>
+              </div>
+              <button 
+                onClick={() => window.open(zoomImage.src, '_blank')}
+                className="px-3 py-1 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-[10.5px] transition-all flex items-center gap-1.5 cursor-pointer"
+              >
+                <span>Open Raw Master</span> ↗
+              </button>
             </div>
           </motion.div>
         )}

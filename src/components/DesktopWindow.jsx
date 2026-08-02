@@ -54,23 +54,16 @@ const DesktopWindow = ({
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Stagger content reveal after window opens
+  // Content reveal on window mount
   useEffect(() => {
-    if (isOpen) {
-      const timer = setTimeout(() => setShowContent(true), 120);
-      return () => clearTimeout(timer);
-    } else {
-      setShowContent(false);
-    }
-  }, [isOpen]);
+    setShowContent(true);
+  }, []);
 
   const handlePointerDown = (e) => {
     if (isMaximized || isMobile) return;
     dragControls.start(e);
     onFocus(id);
   };
-
-  if (!isOpen) return null;
 
   const isActive = activeWindow === id;
 
@@ -90,8 +83,13 @@ const DesktopWindow = ({
         position: 'absolute',
       };
 
-  // macOS 26 spring configuration — tuned for premium feel
-  const windowSpring = { type: "spring", stiffness: 340, damping: 28, mass: 0.8 };
+  // macOS Sequoia spring physics — fluid, responsive, zero-lag opening & closing
+  const windowSpring = { 
+    type: "spring", 
+    stiffness: 380, 
+    damping: 26, 
+    mass: 0.7 
+  };
 
   return (
     <motion.div
@@ -103,10 +101,10 @@ const DesktopWindow = ({
       dragMomentum={false}
       dragElastic={0.1}
       initial={isMobile
-        ? { opacity: 0, y: "100%", scale: 1, filter: 'blur(4px)' }
+        ? { opacity: 0, y: "100%", filter: 'blur(8px)' }
         : (isMaximized 
-            ? { opacity: 0, x: 0, y: 0, scale: 0.92, filter: 'blur(8px)' } 
-            : { opacity: 0, scale: 0.65, y: 40, filter: 'blur(12px)', ...defaultPosition }
+            ? { opacity: 0, scale: 0.92, filter: 'blur(12px)' } 
+            : { opacity: 0, scale: 0.65, y: 35, filter: 'blur(16px)', ...defaultPosition }
           )
       }
       animate={{ 
@@ -118,14 +116,17 @@ const DesktopWindow = ({
         zIndex: (isMaximized || isMobile) ? 1000 : (isActive ? 500 : 200),
       }}
       exit={isMobile
-        ? { opacity: 0, y: "100%", filter: 'blur(4px)', transition: { duration: 0.25, ease: "easeOut" } }
-        : { 
-            opacity: 0, 
-            scale: 0.75, 
-            y: 60, 
-            filter: 'blur(8px)',
-            transition: { duration: 0.3, ease: [0.32, 0, 0.67, 0] }
-          }
+        ? { opacity: 0, y: "100%", filter: 'blur(8px)', transition: { duration: 0.22, ease: "easeOut" } }
+        : (isMaximized
+            ? { opacity: 0, scale: 0.94, filter: 'blur(12px)', transition: { duration: 0.22, ease: [0.32, 0, 0.67, 0] } }
+            : { 
+                opacity: 0, 
+                scale: 0.7, 
+                y: 40, 
+                filter: 'blur(14px)',
+                transition: { duration: 0.24, ease: [0.32, 0, 0.67, 0] }
+              }
+          )
       }
       transition={windowSpring}
       style={windowStyle}
@@ -185,6 +186,16 @@ const DesktopWindow = ({
         <span className="absolute inset-0 flex items-center justify-center text-[13px] font-body font-medium text-[#3d3d3d]/80 pointer-events-none select-none">
           {title}
         </span>
+
+        {/* Right side Close button when maximized */}
+        {isMaximized && !isMobile && (
+          <button
+            onClick={(e) => { e.stopPropagation(); onClose(); }}
+            className="absolute right-4 top-1/2 -translate-y-1/2 z-20 px-3 py-1 rounded-full bg-slate-900/10 hover:bg-red-600 hover:text-white text-slate-700 text-[11px] font-mono font-bold transition-all cursor-pointer flex items-center gap-1 border border-black/5"
+          >
+            <span>✕ Close</span>
+          </button>
+        )}
       </div>
 
       {/* WINDOW BODY — Premium gradient + noise */}
@@ -193,7 +204,13 @@ const DesktopWindow = ({
         data-lenis-prevent="true"
         style={{ opacity: showContent ? 1 : 0, transition: 'opacity 0.15s ease' }}
       >
-        {children}
+        <React.Suspense fallback={
+          <div className="w-full h-full min-h-[300px] flex items-center justify-center bg-slate-50/50">
+            <div className="w-7 h-7 rounded-full border-2 border-indigo-600 border-t-transparent animate-spin" />
+          </div>
+        }>
+          {children}
+        </React.Suspense>
       </div>
     </motion.div>
   );
